@@ -1,21 +1,12 @@
-package blueduck.outerend.biome;
+package blueduck.outerend.biomes;
 
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
-import net.minecraft.world.gen.surfacebuilders.DefaultSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.common.world.MobSpawnInfoBuilder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import static net.minecraft.world.gen.feature.Features.*;
 
 public class BiomeWrapper {
 	public int grassColor = 0;
@@ -60,12 +51,19 @@ public class BiomeWrapper {
 		name = registryName.getPath();
 	}
 	
-	public void withGenerationSettings(BiomeGenerationSettingsBuilder builder) {
+	public BiomeWrapper withGenerationSettings(BiomeGenerationSettingsBuilder builder) {
 		this.generationSettings = builder.build();
+		return this;
 	}
 	
-	public void addSpawn(EntityClassification classification, MobSpawnInfo.Spawners spawners) {
+	public BiomeWrapper withCategory(Biome.Category category) {
+		this.category = category;
+		return this;
+	}
+	
+	public BiomeWrapper addSpawn(EntityClassification classification, MobSpawnInfo.Spawners spawners) {
 		this.spawners.put(spawners,classification);
+		return this;
 	}
 	
 	private MobSpawnInfo generateMobSpawnList() {
@@ -76,8 +74,8 @@ public class BiomeWrapper {
 		return builder[0].copy();
 	}
 	
-	public void build() {
-		new Biome.Builder()
+	public Biome build() {
+		return new Biome.Builder()
 				.scale(scale)
 				.temperature(temperature)
 				.category(category)
@@ -98,6 +96,6 @@ public class BiomeWrapper {
 				.withGenerationSettings(generationSettings)
 				.build()
 				.setRegistryName(new ResourceLocation(modid, name)
-				);
+		);
 	}
 }
