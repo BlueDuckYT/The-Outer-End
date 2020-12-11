@@ -1,5 +1,6 @@
 package com.example.examplemod;
 
+import blueduck.outerend.registry.BiomeRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,7 +35,8 @@ public class OuterEndMod
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
+    
+        FMLJavaModLoadingContext.get().getModEventBus().register(BiomeRegistry.class);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
