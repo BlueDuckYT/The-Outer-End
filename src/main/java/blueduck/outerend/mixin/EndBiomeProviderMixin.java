@@ -20,8 +20,6 @@ public abstract class EndBiomeProviderMixin {
 	@Shadow @Final private Biome smallEndIslandsBiome;
 	@Shadow @Final private Biome endBarrensBiome;
 	
-	
-	
 	/**
 	 * @author OutEnd Team
 	 */

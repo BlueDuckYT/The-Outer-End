@@ -1,4 +1,4 @@
-package net.minecraft.world.biome.provider;
+package blueduck.outerend.biomes;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
@@ -9,6 +9,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.SimplexNoiseGenerator;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
