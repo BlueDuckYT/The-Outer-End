@@ -2,6 +2,7 @@ package blueduck.outerend.mixin;
 
 import blueduck.outerend.mixin_code.MixinHelpers;
 import blueduck.outerend.registry.BiomeRegistry;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.gen.SimplexNoiseGenerator;
@@ -19,6 +20,8 @@ public abstract class EndBiomeProviderMixin {
 	@Shadow @Final private Biome endMidlandsBiome;
 	@Shadow @Final private Biome smallEndIslandsBiome;
 	@Shadow @Final private Biome endBarrensBiome;
+	
+	@Shadow @Final private Registry<Biome> lookupRegistry;
 	
 	/**
 	 * @author OutEnd Team
@@ -38,11 +41,10 @@ public abstract class EndBiomeProviderMixin {
 			for (Biome b : biomes) {
 				if (
 						MixinHelpers.get(x,z) <= BiomeRegistry.getWeightForBiome(b) + 5 &&
-						MixinHelpers.get(x,z) >= BiomeRegistry.getWeightForBiome(b) - 5
+								MixinHelpers.get(x,z) >= BiomeRegistry.getWeightForBiome(b) - 5
 				) {
+					return lookupRegistry.getOrDefault(b.getRegistryName());
 				}
-//				System.out.println(b);
-				return b;
 			}
 			if (f > 40.0F) {
 				return this.endHighlandsBiome;
