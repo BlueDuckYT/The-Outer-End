@@ -1,34 +1,53 @@
 package blueduck.outerend.registry;
 
+import blueduck.outerend.OuterEndMod;
+import blueduck.outerend.biomes.AzureForest;
 import blueduck.outerend.biomes.BiomeWrapper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 
 public class BiomeRegistry {
-	private static final HashMap<ResourceLocation, Biome> outer_end_biomes = new HashMap<>();
-	private static final HashMap<Biome, Float> outer_end_biomes_weights = new HashMap<>();
-	
-	@SubscribeEvent
-	public static void registerEvent(RegistryEvent.Register<Biome> event) {
-		register(new BiomeWrapper(new ResourceLocation("outer_ends:test_biome")).withCategory(Biome.Category.THEEND).build(),new ResourceLocation("outer_ends:test_biome"),10f,event);
+	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, OuterEndMod.MODID);
+
+	public static final RegistryObject<Biome> AZURE_FOREST = BIOMES.register("azure_forest", () -> new AzureForest().getBiome());
+
+
+	private static final HashMap<ResourceLocation, Biome> OUTER_END_BIOMES = new HashMap<>();
+	private static final HashMap<Biome, Float> OUTER_END_BIOME_WEIGHTS = new HashMap<>();
+
+	public static void init() {
+		BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
-	
+
+	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD, modid = "outer_end")
+	public static class RegistryEvents {
+		@SubscribeEvent
+		public static void registerEvent(RegistryEvent.Register<Biome> event) {
+			register(AZURE_FOREST.get(), AZURE_FOREST.getId(), 10f, event);
+		}
+	}
+
+
 	public static Biome[] getBiomes() {
-		return outer_end_biomes.values().toArray(new Biome[0]);
+		return OUTER_END_BIOMES.values().toArray(new Biome[0]);
 	}
 	
 	public static float getWeightForBiome(Biome biome) {
-		return outer_end_biomes_weights.get(biome);
+		return OUTER_END_BIOME_WEIGHTS.get(biome);
 	}
 	
 	private static void register(Biome biome, ResourceLocation registryName, float weight, RegistryEvent.Register<Biome> event) {
 		event.getRegistry().register(biome);
-		outer_end_biomes.put(registryName, ForgeRegistries.BIOMES.getValue(registryName));
-		outer_end_biomes_weights.put(getBiomes()[outer_end_biomes_weights.size()],weight);
+		OUTER_END_BIOMES.put(registryName, ForgeRegistries.BIOMES.getValue(registryName));
+		OUTER_END_BIOME_WEIGHTS.put(getBiomes()[OUTER_END_BIOME_WEIGHTS.size()],weight);
 	}
 }
