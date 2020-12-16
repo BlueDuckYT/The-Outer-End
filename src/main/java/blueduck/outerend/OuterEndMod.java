@@ -1,6 +1,7 @@
 package blueduck.outerend;
 
 import blueduck.outerend.registry.BiomeRegistry;
+import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +22,7 @@ public class OuterEndMod
         //FMLJavaModLoadingContext.get().getModEventBus().addListener(ServerStartup::onServerStarting);
 
         BiomeRegistry.init();
+        BlockRegistry.init();
 
         MinecraftForge.EVENT_BUS.register(this);
 
