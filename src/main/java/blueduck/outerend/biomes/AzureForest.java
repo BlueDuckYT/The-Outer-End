@@ -4,7 +4,6 @@ import blueduck.outerend.features.FeatureRegistry;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 
 public class AzureForest extends OuterEndBiome {
@@ -20,8 +19,6 @@ public class AzureForest extends OuterEndBiome {
         super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(BackgroundMusicTracks.END_MUSIC).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.VILLAGE_DESERT);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_OCEAN);
 //        GENERATION_SETTINGS.withSurfaceBuilder()
     
         DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);

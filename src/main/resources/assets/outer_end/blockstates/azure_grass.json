@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "outer_end:block/blue_grass" },
+            { "model": "outer_end:block/blue_grass", "y": 90 },
+            { "model": "outer_end:block/blue_grass", "y": 180 },
+            { "model": "outer_end:block/blue_grass", "y": 270 }
+        ]
+    }
+}
