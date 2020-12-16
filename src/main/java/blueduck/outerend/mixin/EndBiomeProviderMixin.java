@@ -29,27 +29,16 @@ public abstract class EndBiomeProviderMixin {
 	@Overwrite
 	//TODO
 	public Biome getNoiseBiome(int x, int y, int z) {
-		Biome[] biomes = BiomeRegistry.getBiomes();
-		
 		int i = x >> 2;
 		int j = z >> 2;
 		if ((long) i * (long) i + (long) j * (long) j <= 4096L) {
 			return this.theEndBiome;
 		} else {
 			float f = EndBiomeProvider.getRandomNoise(this.generator, i * 2 + 1, j * 2 + 1);
-//			System.out.println("hi");
-			for (Biome b : biomes) {
-				if (
-						MixinHelpers.get(x,z) <= BiomeRegistry.getWeightForBiome(b) + 5 &&
-								MixinHelpers.get(x,z) >= BiomeRegistry.getWeightForBiome(b) - 5
-				) {
-					return lookupRegistry.getOrDefault(b.getRegistryName());
-				}
-			}
 			if (f > 40.0F) {
-				return this.endHighlandsBiome;
+				return MixinHelpers.getBiome(i,j,this.endHighlandsBiome,lookupRegistry);
 			} else if (f >= 0.0F) {
-				return this.endMidlandsBiome;
+				return MixinHelpers.getBiome(i,j,this.endMidlandsBiome,lookupRegistry);
 			} else {
 				return f < -20.0F ? this.smallEndIslandsBiome : this.endBarrensBiome;
 			}
