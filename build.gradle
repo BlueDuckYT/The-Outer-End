@@ -171,9 +171,9 @@ mixin {
     add sourceSets.main, "outer_end.refmap.json"
 }
 
-//minecraft {
-//    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-//}
+minecraft {
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+}
 
 jar {
     manifest {

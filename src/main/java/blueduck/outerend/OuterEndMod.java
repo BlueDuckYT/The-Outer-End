@@ -13,13 +13,18 @@ import org.apache.logging.log4j.Logger;
 public class OuterEndMod
 {
     private static final Logger LOGGER = LogManager.getLogger();
-
+    public static String MODID = "outer_end";
     public OuterEndMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
     
         FMLJavaModLoadingContext.get().getModEventBus().register(BiomeRegistry.class);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ServerStartup::onServerStarting);
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(ServerStartup::onServerStarting);
+
+        BiomeRegistry.init();
+
         MinecraftForge.EVENT_BUS.register(this);
+
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
