@@ -32,7 +32,7 @@ public class BiomeRegistry {
 	public static class RegistryEvents {
 		@SubscribeEvent
 		public static void registerEvent(RegistryEvent.Register<Biome> event) {
-			register(AZURE_FOREST.get(), AZURE_FOREST.getId(), 10f, 10f, event);
+			register(AZURE_FOREST.get(), AZURE_FOREST.getId(), 10f, 20f, event);
 		}
 	}
 	

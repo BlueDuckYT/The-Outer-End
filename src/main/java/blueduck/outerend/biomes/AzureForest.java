@@ -1,16 +1,11 @@
 package blueduck.outerend.biomes;
 
-import net.minecraft.client.audio.BackgroundMusicSelector;
+import blueduck.outerend.features.FeatureRegistry;
 import net.minecraft.client.audio.BackgroundMusicTracks;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class AzureForest extends OuterEndBiome {
 
@@ -27,8 +22,10 @@ public class AzureForest extends OuterEndBiome {
     static {
         GENERATION_SETTINGS.withStructure(StructureFeatures.VILLAGE_DESERT);
         GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_OCEAN);
-
+//        GENERATION_SETTINGS.withSurfaceBuilder()
+    
         DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,FeatureRegistry.AZURE_TREE);
 
 
 
