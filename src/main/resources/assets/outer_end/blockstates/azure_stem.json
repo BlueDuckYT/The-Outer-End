@@ -1,7 +1,16 @@
 {
   "variants": {
-    "axis=y":  { "model": "outer_end:block/azure_log" },
-    "axis=z":   { "model": "outer_end:block/azure_log", "x": 90 },
-    "axis=x":   { "model": "outer_end:block/azure_log", "x": 90, "y": 90 }
+    "axis=x": {
+      "model": "outer_end:block/azure_stem_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "outer_end:block/azure_stem"
+    },
+    "axis=z": {
+      "model": "outer_end:block/azure_stem_horizontal",
+      "x": 90
+    }
   }
 }
