@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "outer_end:block/azure_flower"
-    }
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "outer_end:block/azure_bud"
+  }
 }
