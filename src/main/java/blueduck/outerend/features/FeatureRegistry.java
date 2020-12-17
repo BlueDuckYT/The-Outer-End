@@ -18,7 +18,7 @@ public class FeatureRegistry {
 							new AzureTreeFeature(NoFeatureConfig.field_236558_a_)
 					).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
 							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(4, 1, 4)))
+							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 2)))
 			);
 	
 	private static <FC extends IFeatureConfig, F extends Feature<FC>> ConfiguredFeature<FC, F> newConfiguredFeature(String registryName, ConfiguredFeature<FC, F> configuredFeature) {
