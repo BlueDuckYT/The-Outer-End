@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "outer_end:block/azure_slab"
+    },
+    "type=double": {
+      "model": "outer_end:block/azure_planks"
+    },
+    "type=top": {
+      "model": "outer_end:block/azure_slab_top"
+    }
+  }
+}

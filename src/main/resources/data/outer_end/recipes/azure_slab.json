@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:azure_planks"
+    }
+  },
+  "result": {
+    "item": "outer_end:azure_slab",
+    "count": 6
+  }
+}

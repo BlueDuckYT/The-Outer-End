@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "outer_end:himmel_block"
+      },
+      {
+        "item": "outer_end:himmel_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "outer_end:himmel_slab",
+    "count": 6
+  }
+}

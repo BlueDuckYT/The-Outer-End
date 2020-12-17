@@ -1,0 +1,12 @@
+{
+  "music.general": {
+    "category": "record",
+    "subtitle": "",
+    "sounds": [
+      {
+        "name":  "outer_end:music/dysonsphere",
+        "stream": true
+      }
+    ]
+  }
+  }

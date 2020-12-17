@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "outer_end:block/azure_planks",
+    "top": "outer_end:block/azure_planks",
+    "side": "outer_end:block/azure_planks"
+  }
+}
