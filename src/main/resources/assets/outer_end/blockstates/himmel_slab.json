@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "outer_end:block/himmel_slab"
+    },
+    "type=double": {
+      "model": "outer_end:block/himmel_block"
+    },
+    "type=top": {
+      "model": "outer_end:block/himmel_slab_top"
+    }
+  }
+}
