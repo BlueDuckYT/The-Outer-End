@@ -39,6 +39,10 @@ public class AzureTreeFeature extends Feature<NoFeatureConfig> {
 		BlockPos pos = context.pos;
 		Random rand = context.rand;
 		int yPos;
+		
+		//Removes the sapling
+		setBlock(world,pos,BlockRegistry.AZURE_STEM.get().getDefaultState());
+		
 		//Gen center logs
 		for (yPos=0;yPos<rand.nextInt(2)+4;yPos++)
 			setLog(world, pos.add(0,yPos,0), BlockRegistry.AZURE_STEM.get().getDefaultState());

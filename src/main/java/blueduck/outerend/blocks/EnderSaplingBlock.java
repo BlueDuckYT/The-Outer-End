@@ -35,12 +35,12 @@ public class EnderSaplingBlock extends BushBlock implements IGrowable {
 	
 	@Override
 	public PlantType getPlantType(IBlockReader world, BlockPos pos) {
-		return PlantType.get("END");
+		return null;
 	}
 	
 	@Override
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return worldIn.getBlockState(pos.down()).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on")));
+		return worldIn.getBlockState(pos).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on")));
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public class EnderSaplingBlock extends BushBlock implements IGrowable {
 	
 	@Override
 	public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-		return false;
+		return true;
 	}
 	
 	@Override
