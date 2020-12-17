@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "cross": "outer_end:block/azure_bud"
+    "layer0": "outer_end:block/azure_bud"
   }
 }

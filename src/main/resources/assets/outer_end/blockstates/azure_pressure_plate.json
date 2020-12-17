@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "outer_end:block/azure_pressure_plate"
+    },
+    "powered=true": {
+      "model": "outer_end:block/azure_pressure_plate_down"
+    }
+  }
+}
