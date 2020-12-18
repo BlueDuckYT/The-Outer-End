@@ -64,7 +64,7 @@ public class EnderGrassBlock extends Block implements IGrowable {
 		for (int i = 0; i < 4; ++i) {
 			BlockPos blockpos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
 			if (worldIn.getBlockState(blockpos).isIn(Blocks.END_STONE)) {
-				if (!worldIn.getBlockState(blockpos.up()).causesSuffocation(worldIn, blockpos.up())) {
+				if (!worldIn.getBlockState(blockpos.up()).isSolid()) {
 					ResourceLocation biome = worldIn.getBiome(blockpos).getRegistryName();
 					if (biome != null && biome.toString().equals("outer_end:azure_forest") || worldIn.getLight(pos.up()) >= 10) {
 						worldIn.setBlockState(blockpos, state);
