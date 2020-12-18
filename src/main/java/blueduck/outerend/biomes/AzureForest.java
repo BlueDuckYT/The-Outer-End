@@ -2,7 +2,9 @@ package blueduck.outerend.biomes;
 
 import blueduck.outerend.features.FeatureRegistry;
 import blueduck.outerend.registry.BlockRegistry;
+import blueduck.outerend.registry.SoundRegistry;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.audio.BackgroundMusicSelector;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -23,7 +25,7 @@ public class AzureForest extends OuterEndBiome {
     
     //3448555
     public AzureForest() {
-        super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(BackgroundMusicTracks.END_MUSIC).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(new BackgroundMusicSelector(SoundRegistry.AZURE_MUSIC.get(), 200, 2000, false)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
     
     static {

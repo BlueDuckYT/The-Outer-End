@@ -3,11 +3,7 @@ package blueduck.outerend;
 import blueduck.outerend.client.ClientSetup;
 import blueduck.outerend.common.CommonSetup;
 import blueduck.outerend.features.ConfiguredStructureFeatures;
-import blueduck.outerend.registry.BiomeRegistry;
-import blueduck.outerend.registry.BlockRegistry;
-import blueduck.outerend.registry.EntityRegistry;
-import blueduck.outerend.registry.ItemRegistry;
-import blueduck.outerend.registry.StructureRegistry;
+import blueduck.outerend.registry.*;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -53,6 +49,7 @@ public class OuterEndMod
         EntityRegistry.init();
         ItemRegistry.init();
         StructureRegistry.init();
+        SoundRegistry.init();
 
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
