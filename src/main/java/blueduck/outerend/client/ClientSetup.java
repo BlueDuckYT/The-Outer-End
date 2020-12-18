@@ -21,6 +21,7 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SAPLING.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_DOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_TRAPDOOR.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_TALL_GRASS.get(), RenderType.getCutout());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.DRAGONFLY.get(), DragonflyEntityRenderer::new);
 	}

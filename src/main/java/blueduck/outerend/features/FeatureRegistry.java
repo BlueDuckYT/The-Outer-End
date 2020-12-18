@@ -20,6 +20,16 @@ public class FeatureRegistry {
 							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
 							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 2)))
 			);
+	public static final ConfiguredFeature<NoFeatureConfig,AzureTreeFeature> AZURE_GRASS_DECORATOR =
+			(ConfiguredFeature<NoFeatureConfig, AzureTreeFeature>) newConfiguredFeature(
+					"azure_grass_decorator",
+					newFeature(
+							"azure_grass_decorator",
+							new AzureGrassDecorator(NoFeatureConfig.field_236558_a_)
+					).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
+							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
+			);
 	
 	private static <FC extends IFeatureConfig, F extends Feature<FC>> ConfiguredFeature<FC, F> newConfiguredFeature(String registryName, ConfiguredFeature<FC, F> configuredFeature) {
 		Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(OuterEndMod.MODID, registryName), configuredFeature);

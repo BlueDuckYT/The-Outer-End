@@ -2,14 +2,17 @@ package blueduck.outerend.biomes;
 
 import blueduck.outerend.features.FeatureRegistry;
 import blueduck.outerend.registry.BlockRegistry;
+import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.SoundRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.audio.BackgroundMusicSelector;
-import net.minecraft.client.audio.BackgroundMusicTracks;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -33,5 +36,10 @@ public class AzureForest extends OuterEndBiome {
         
         DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.AZURE_TREE);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.AZURE_GRASS_DECORATOR);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
+        
+        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE,new MobSpawnInfo.Spawners(EntityRegistry.DRAGONFLY.get(),1,1,3));
+        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE,new MobSpawnInfo.Spawners(EntityType.ENDERMAN,1,1,3));
     }
 }
