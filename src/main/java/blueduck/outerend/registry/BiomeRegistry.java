@@ -45,7 +45,7 @@ public class BiomeRegistry {
 	}
 	
 	private static void register(Biome biome, ResourceLocation registryName, float weight, float weightRange, RegistryEvent.Register<Biome> event) {
-		event.getRegistry().register(biome);
+//		event.getRegistry().register(biome);
 		OUTER_END_BIOMES.put(registryName, ForgeRegistries.BIOMES.getValue(registryName));
 		OUTER_END_BIOME_WEIGHTS.put(getBiomes()[OUTER_END_BIOME_WEIGHTS.size()],weight);
 		OUTER_END_BIOMES_WEIGHT_RANGES.put(getBiomes()[OUTER_END_BIOMES_WEIGHT_RANGES.size()],weightRange);
