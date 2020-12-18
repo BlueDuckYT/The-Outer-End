@@ -5,6 +5,7 @@ import blueduck.outerend.common.CommonSetup;
 import blueduck.outerend.registry.BiomeRegistry;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
+import blueduck.outerend.registry.ItemRegistry;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +30,7 @@ public class OuterEndMod
         BiomeRegistry.init();
         BlockRegistry.init();
         EntityRegistry.init();
+        ItemRegistry.init();
 
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);

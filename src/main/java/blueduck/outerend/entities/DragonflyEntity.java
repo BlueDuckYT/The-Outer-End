@@ -42,6 +42,17 @@ public class DragonflyEntity extends MobEntity {
 			int z = (int) this.getPosZ()+rand.nextInt(64)-32;
 			int y = world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z);
 			boolean shouldFind = rand.nextBoolean();
+			if (y == 0) continue;
+			if (pos != null) {
+				shouldFind = shouldFind &&
+						(world.getBiome(new BlockPos(x,y,z)).getRegistryName().toString().equals("outer_end:azure_forest") ||
+						!world.getBiome(pos).getRegistryName().toString().equals("outer_end:azure_forest"))
+				;
+				shouldFind = shouldFind || (
+						world.getBiome(new BlockPos(x,y,z)).getRegistryName().toString().equals("outer_end:azure_forest") &&
+								!world.getBiome(pos).getRegistryName().toString().equals("outer_end:azure_forest")
+						);
+			}
 			if (shouldFind && pos == null)
 				pos = new BlockPos(x, y, z);
 			else if (world.getBlockState(new BlockPos(x, y, z).add(0, -1, 0)).getBlock().equals(BlockRegistry.AZURE_STAMEN.get()))
@@ -103,9 +114,10 @@ public class DragonflyEntity extends MobEntity {
 		if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
 			if (this.navigator.getPath() != null) {
 				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(),navigator.getPath(), 16);
-//				System.out.println(navigator.getPath().getTarget());
 			}
 		}
+		if (this.getPosY() <= 3)
+			this.setMotion(this.getMotion().x,this.getMotion().y+0.1f,this.getMotion().z);
 		super.tick();
 	}
 	
