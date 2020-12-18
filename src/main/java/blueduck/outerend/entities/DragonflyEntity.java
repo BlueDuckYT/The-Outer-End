@@ -113,7 +113,7 @@ public class DragonflyEntity extends MobEntity {
 		}
 		if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
 			if (this.navigator.getPath() != null) {
-				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(),navigator.getPath(), 16);
+				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(),navigator.getPath(), 0.5f);
 			}
 		}
 		if (this.getPosY() <= 3)
