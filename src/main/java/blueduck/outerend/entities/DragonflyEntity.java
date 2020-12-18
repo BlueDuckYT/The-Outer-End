@@ -60,9 +60,9 @@ public class DragonflyEntity extends MobEntity {
 				int x = x1 + xOff;
 				for (int zOff = -searchDist; zOff <= searchDist; zOff++) {
 					int z = z1 + zOff;
-					int y1 = world.getHeight(Heightmap.Type.WORLD_SURFACE, x1, z1);
+					int y1 = world.getHeight(Heightmap.Type.MOTION_BLOCKING, x1, z1)+1;
 					if (world.getBlockState(new BlockPos(x, y1, z).down()).getBlock().equals(BlockRegistry.AZURE_STAMEN.get()))
-						if (pos == null || y > pos.getY()) pos = new BlockPos(x, y1, z);
+						if (pos == null || y1 > pos.getY()) pos = new BlockPos(x, y1, z);
 				}
 			}
 		}

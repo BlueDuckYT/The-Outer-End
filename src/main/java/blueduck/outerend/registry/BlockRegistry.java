@@ -10,6 +10,7 @@ import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -32,10 +33,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> AZURE_STAIRS = BLOCKS.register("azure_stairs", () -> new StairsBlock(AZURE_PLANKS.get().getDefaultState(), Block.Properties.from(Blocks.OAK_PLANKS)));
     public static final RegistryObject<Item> AZURE_STAIRS_ITEM = ITEMS.register("azure_stairs", () -> new BlockItem(AZURE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> AZURE_DOOR = BLOCKS.register("azure_door", () -> new DoorBlock(Block.Properties.from(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<Block> AZURE_DOOR = BLOCKS.register("azure_door", () -> new DoorBlock(Block.Properties.from(Blocks.OAK_DOOR).setOpaque((a,b,c)->a.get(DoorBlock.HALF).equals(DoubleBlockHalf.LOWER))));
     public static final RegistryObject<Item> AZURE_DOOR_ITEM = ITEMS.register("azure_door", () -> new BlockItem(AZURE_DOOR.get(), new Item.Properties().group(ItemGroup.REDSTONE)));
 
-    public static final RegistryObject<Block> AZURE_TRAPDOOR = BLOCKS.register("azure_trapdoor", () -> new TrapDoorBlock(Block.Properties.from(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<Block> AZURE_TRAPDOOR = BLOCKS.register("azure_trapdoor", () -> new TrapDoorBlock(Block.Properties.from(Blocks.OAK_TRAPDOOR).setOpaque((a,b,c)->false)));
     public static final RegistryObject<Item> AZURE_TRAPDOOR_ITEM = ITEMS.register("azure_trapdoor", () -> new BlockItem(AZURE_TRAPDOOR.get(), new Item.Properties().group(ItemGroup.REDSTONE)));
 
     public static final RegistryObject<Block> AZURE_FENCE = BLOCKS.register("azure_fence", () -> new FenceBlock(Block.Properties.from(Blocks.OAK_PLANKS)));

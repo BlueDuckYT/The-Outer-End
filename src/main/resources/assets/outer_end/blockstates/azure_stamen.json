@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "outer_end:block/azure_stamen"
+      "model": "outer_end:block/azure/stamen"
     }
   }
 }

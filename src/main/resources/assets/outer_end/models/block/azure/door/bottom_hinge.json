@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom_rh",
+    "textures": {
+        "bottom": "outer_end:block/azure_door_bottom",
+        "top": "outer_end:block/azure_door_top"
+    }
+}
