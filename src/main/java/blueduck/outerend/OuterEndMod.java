@@ -6,6 +6,7 @@ import blueduck.outerend.features.ConfiguredStructureFeatures;
 import blueduck.outerend.registry.BiomeRegistry;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
+import blueduck.outerend.registry.ItemRegistry;
 import blueduck.outerend.registry.StructureRegistry;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraft.world.World;
@@ -45,14 +46,18 @@ public class OuterEndMod
 
         MinecraftForge.EVENT_BUS.addListener(this::setup);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::biomeModification);
-    
+
         BiomeRegistry.init();
         BlockRegistry.init();
         EntityRegistry.init();
+        ItemRegistry.init();
         StructureRegistry.init();
 
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
+            if (!FMLEnvironment.production) {
+                MinecraftForge.EVENT_BUS.addListener(ClientSetup::renderDebugEntityPathfinding);
+            }
         }
         
         MinecraftForge.EVENT_BUS.register(this);

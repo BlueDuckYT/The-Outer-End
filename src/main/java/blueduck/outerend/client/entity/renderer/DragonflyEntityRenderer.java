@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class DragonflyEntityRenderer extends MobRenderer<DragonflyEntity, DragonflyEntityModel> {
 	public DragonflyEntityRenderer(EntityRendererManager renderManager) {
-		super(renderManager, new DragonflyEntityModel(), 1);
+		super(renderManager, new DragonflyEntityModel(), 0.5f);
 		addLayer(new DragonflyRenderLayer(this));
 	}
 	
