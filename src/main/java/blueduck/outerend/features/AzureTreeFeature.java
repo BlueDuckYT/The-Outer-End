@@ -55,7 +55,7 @@ public class AzureTreeFeature extends Feature<NoFeatureConfig> {
 	}
 	
 	public static <world extends IWorldReader & IWorldWriter> void generateTree(TreeGenerationContext context) {
-		if (context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean()) generateTreeLarge(context);
+		if (context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean() || true) generateTreeLarge(context);
 		else generateTreeSmall(context);
 	}
 	
@@ -93,6 +93,7 @@ public class AzureTreeFeature extends Feature<NoFeatureConfig> {
 		petalFoldPart.generate(Direction.WEST, pos.add(1,yPos,0),(posPlace)->setLeaves(world,posPlace,leavesState));
 		
 		//Generate stamen
+		setLeaves(world,pos.add(0,yPos,0),BlockRegistry.AZURE_STAMEN.get().getDefaultState());
 		for (int stamenPosY = 0; stamenPosY < rand.nextInt(3)+3; stamenPosY++) {
 			setLeaves(world,pos.add(0,yPos+stamenPosY+1,0),BlockRegistry.AZURE_STAMEN.get().getDefaultState());
 		}
