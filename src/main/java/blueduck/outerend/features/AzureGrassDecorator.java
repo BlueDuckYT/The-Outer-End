@@ -17,7 +17,7 @@ public class AzureGrassDecorator extends Feature<NoFeatureConfig> {
 	
 	@Override
 	public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-		reader.setBlockState(pos, BlockRegistry.AZURE_TALL_GRASS.get().getDefaultState(),4);
+		reader.setBlockState(pos, BlockRegistry.ENDER_ROOTS.get().getDefaultState(),4);
 		return true;
 	}
 }

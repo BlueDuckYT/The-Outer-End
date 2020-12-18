@@ -62,10 +62,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> AZURE_SAPLING = BLOCKS.register("azure_bud", () -> new EnderSaplingBlock(Block.Properties.from(Blocks.OAK_SAPLING), AzureTreeFeature::generateTree));
     public static final RegistryObject<Item> AZURE_SAPLING_ITEM = ITEMS.register("azure_bud", () -> new BlockItem(AZURE_SAPLING.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
     
-    public static final RegistryObject<Block> AZURE_TALL_GRASS = BLOCKS.register("azure_tall_grass", () -> new EnderTallGrass(Block.Properties.from(Blocks.GRASS)));
-    public static final RegistryObject<Item> AZURE_TALL_GRASS_ITEM = ITEMS.register("azure_tall_grass", () -> new BlockItem(AZURE_TALL_GRASS.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+    public static final RegistryObject<Block> ENDER_ROOTS = BLOCKS.register("ender_roots", () -> new EnderTallGrass(Block.Properties.from(Blocks.GRASS)));
+    public static final RegistryObject<Item> ENDER_ROOTS_ITEM = ITEMS.register("ender_roots", () -> new BlockItem(ENDER_ROOTS.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
 
-    public static final RegistryObject<Block> AZURE_GRASS = BLOCKS.register("azure_grass", () -> new EnderGrassBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE).setRequiresTool().hardnessAndResistance(3.0F, 9.0F), Blocks.END_STONE::getDefaultState, (rand)->AZURE_TALL_GRASS.get().getDefaultState()));
+    public static final RegistryObject<Block> AZURE_GRASS = BLOCKS.register("azure_grass", () -> new EnderGrassBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE).setRequiresTool().hardnessAndResistance(3.0F, 9.0F), Blocks.END_STONE::getDefaultState, (rand)-> ENDER_ROOTS.get().getDefaultState()));
     public static final RegistryObject<Item> AZURE_GRASS_ITEM = ITEMS.register("azure_grass", () -> new BlockItem(AZURE_GRASS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
     
     public static final RegistryObject<Block> HIMMEL_BLOCK = BLOCKS.register("himmel_block", () -> new Block(Block.Properties.from(Blocks.PURPUR_BLOCK)));
