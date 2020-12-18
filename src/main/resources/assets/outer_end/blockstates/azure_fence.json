@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "outer_end:block/azure_fence_post"
+        "model": "outer_end:block/azure/fence/post"
       }
     },
     {
@@ -10,7 +10,7 @@
         "north": "true"
       },
       "apply": {
-        "model": "outer_end:block/azure_fence_side",
+        "model": "outer_end:block/azure/fence/side",
         "uvlock": true
       }
     },
@@ -19,7 +19,7 @@
         "east": "true"
       },
       "apply": {
-        "model": "outer_end:block/azure_fence_side",
+        "model": "outer_end:block/azure/fence/side",
         "y": 90,
         "uvlock": true
       }
@@ -29,7 +29,7 @@
         "south": "true"
       },
       "apply": {
-        "model": "outer_end:block/azure_fence_side",
+        "model": "outer_end:block/azure/fence/side",
         "y": 180,
         "uvlock": true
       }
@@ -39,7 +39,7 @@
         "west": "true"
       },
       "apply": {
-        "model": "outer_end:block/azure_fence_side",
+        "model": "outer_end:block/azure/fence/side",
         "y": 270,
         "uvlock": true
       }

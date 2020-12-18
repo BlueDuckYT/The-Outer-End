@@ -1,206 +1,206 @@
 {
   "variants": {
     "facing=east,half=bottom,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "y": 270,
       "uvlock": true
     },
     "facing=east,half=bottom,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner"
+      "model": "outer_end:block/azure/stairs/inner"
     },
     "facing=east,half=bottom,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "y": 270,
       "uvlock": true
     },
     "facing=east,half=bottom,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer"
+      "model": "outer_end:block/azure/stairs/outer"
     },
     "facing=east,half=bottom,shape=straight": {
-      "model": "outer_end:block/azure_stairs"
+      "model": "outer_end:block/azure/stairs/default"
     },
     "facing=east,half=top,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "uvlock": true
     },
     "facing=east,half=top,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "y": 90,
       "uvlock": true
     },
     "facing=east,half=top,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "uvlock": true
     },
     "facing=east,half=top,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "y": 90,
       "uvlock": true
     },
     "facing=east,half=top,shape=straight": {
-      "model": "outer_end:block/azure_stairs",
+      "model": "outer_end:block/azure/stairs/default",
       "x": 180,
       "uvlock": true
     },
     "facing=north,half=bottom,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "y": 180,
       "uvlock": true
     },
     "facing=north,half=bottom,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "y": 270,
       "uvlock": true
     },
     "facing=north,half=bottom,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "y": 180,
       "uvlock": true
     },
     "facing=north,half=bottom,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "y": 270,
       "uvlock": true
     },
     "facing=north,half=bottom,shape=straight": {
-      "model": "outer_end:block/azure_stairs",
+      "model": "outer_end:block/azure/stairs/default",
       "y": 270,
       "uvlock": true
     },
     "facing=north,half=top,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "y": 270,
       "uvlock": true
     },
     "facing=north,half=top,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "uvlock": true
     },
     "facing=north,half=top,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "y": 270,
       "uvlock": true
     },
     "facing=north,half=top,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "uvlock": true
     },
     "facing=north,half=top,shape=straight": {
-      "model": "outer_end:block/azure_stairs",
+      "model": "outer_end:block/azure/stairs/default",
       "x": 180,
       "y": 270,
       "uvlock": true
     },
     "facing=south,half=bottom,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner"
+      "model": "outer_end:block/azure/stairs/inner"
     },
     "facing=south,half=bottom,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "y": 90,
       "uvlock": true
     },
     "facing=south,half=bottom,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer"
+      "model": "outer_end:block/azure/stairs/outer"
     },
     "facing=south,half=bottom,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "y": 90,
       "uvlock": true
     },
     "facing=south,half=bottom,shape=straight": {
-      "model": "outer_end:block/azure_stairs",
+      "model": "outer_end:block/azure/stairs/default",
       "y": 90,
       "uvlock": true
     },
     "facing=south,half=top,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "y": 90,
       "uvlock": true
     },
     "facing=south,half=top,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "y": 180,
       "uvlock": true
     },
     "facing=south,half=top,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "y": 90,
       "uvlock": true
     },
     "facing=south,half=top,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "y": 180,
       "uvlock": true
     },
     "facing=south,half=top,shape=straight": {
-      "model": "outer_end:block/azure_stairs",
+      "model": "outer_end:block/azure/stairs/default",
       "x": 180,
       "y": 90,
       "uvlock": true
     },
     "facing=west,half=bottom,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "y": 90,
       "uvlock": true
     },
     "facing=west,half=bottom,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "y": 180,
       "uvlock": true
     },
     "facing=west,half=bottom,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "y": 90,
       "uvlock": true
     },
     "facing=west,half=bottom,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "y": 180,
       "uvlock": true
     },
     "facing=west,half=bottom,shape=straight": {
-      "model": "outer_end:block/azure_stairs",
+      "model": "outer_end:block/azure/stairs/default",
       "y": 180,
       "uvlock": true
     },
     "facing=west,half=top,shape=inner_left": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "y": 180,
       "uvlock": true
     },
     "facing=west,half=top,shape=inner_right": {
-      "model": "outer_end:block/azure_stairs_inner",
+      "model": "outer_end:block/azure/stairs/inner",
       "x": 180,
       "y": 270,
       "uvlock": true
     },
     "facing=west,half=top,shape=outer_left": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "y": 180,
       "uvlock": true
     },
     "facing=west,half=top,shape=outer_right": {
-      "model": "outer_end:block/azure_stairs_outer",
+      "model": "outer_end:block/azure/stairs/outer",
       "x": 180,
       "y": 270,
       "uvlock": true
     },
     "facing=west,half=top,shape=straight": {
-      "model": "outer_end:block/azure_stairs",
+      "model": "outer_end:block/azure/stairs/default",
       "x": 180,
       "y": 180,
       "uvlock": true

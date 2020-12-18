@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "outer_end:block/azure_slab"
+      "model": "outer_end:block/azure/slab/bottom"
     },
     "type=double": {
-      "model": "outer_end:block/azure_planks"
+      "model": "outer_end:block/azure/planks"
     },
     "type=top": {
-      "model": "outer_end:block/azure_slab_top"
+      "model": "outer_end:block/azure/slab/top"
     }
   }
 }

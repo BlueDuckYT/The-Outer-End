@@ -1,115 +1,115 @@
 {
   "variants": {
     "face=ceiling,facing=east,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 270,
       "x": 180
     },
     "face=ceiling,facing=east,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 270,
       "x": 180
     },
     "face=ceiling,facing=north,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 180,
       "x": 180
     },
     "face=ceiling,facing=north,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 180,
       "x": 180
     },
     "face=ceiling,facing=south,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "x": 180
     },
     "face=ceiling,facing=south,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "x": 180
     },
     "face=ceiling,facing=west,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 90,
       "x": 180
     },
     "face=ceiling,facing=west,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 90,
       "x": 180
     },
     "face=floor,facing=east,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 90
     },
     "face=floor,facing=east,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 90
     },
     "face=floor,facing=north,powered=false": {
-      "model": "outer_end:block/azure_button"
+      "model": "outer_end:block/azure/button/button"
     },
     "face=floor,facing=north,powered=true": {
-      "model": "outer_end:block/azure_button_pressed"
+      "model": "outer_end:block/azure/button/pressed"
     },
     "face=floor,facing=south,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 180
     },
     "face=floor,facing=south,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 180
     },
     "face=floor,facing=west,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 270
     },
     "face=floor,facing=west,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 270
     },
     "face=wall,facing=east,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 90,
       "x": 90,
       "uvlock": true
     },
     "face=wall,facing=east,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 90,
       "x": 90,
       "uvlock": true
     },
     "face=wall,facing=north,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "x": 90,
       "uvlock": true
     },
     "face=wall,facing=north,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "x": 90,
       "uvlock": true
     },
     "face=wall,facing=south,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 180,
       "x": 90,
       "uvlock": true
     },
     "face=wall,facing=south,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 180,
       "x": 90,
       "uvlock": true
     },
     "face=wall,facing=west,powered=false": {
-      "model": "outer_end:block/azure_button",
+      "model": "outer_end:block/azure/button/button",
       "y": 270,
       "x": 90,
       "uvlock": true
     },
     "face=wall,facing=west,powered=true": {
-      "model": "outer_end:block/azure_button_pressed",
+      "model": "outer_end:block/azure/button/pressed",
       "y": 270,
       "x": 90,
       "uvlock": true

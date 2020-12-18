@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "outer_end:block/azure_stem_horizontal",
+      "model": "outer_end:block/azure/stem/horizontal",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "outer_end:block/azure_stem"
+      "model": "outer_end:block/azure/stem/stem"
     },
     "axis=z": {
-      "model": "outer_end:block/azure_stem_horizontal",
+      "model": "outer_end:block/azure/stem/horizontal",
       "x": 90
     }
   }

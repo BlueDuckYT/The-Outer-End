@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "outer_end:block/azure_planks"
+      "model": "outer_end:block/azure/planks"
     }
   }
 }

@@ -1,3 +1,3 @@
 {
-  "parent": "outer_end:block/azure_fence_inventory"
+  "parent": "outer_end:block/azure/fence/inventory"
 }
