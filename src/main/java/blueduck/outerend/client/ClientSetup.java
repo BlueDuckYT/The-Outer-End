@@ -29,13 +29,16 @@ public class ClientSetup {
 				RenderSystem.pushMatrix();
 				RenderSystem.rotatef(Minecraft.getInstance().getRenderManager().info.getPitch(), 1, 0, 0);
 				RenderSystem.rotatef(Minecraft.getInstance().getRenderManager().info.getYaw() + 180, 0, 1, 0);
-				Minecraft.getInstance().debugRenderer.pathfinding.render(
-						new MatrixStack(),
-						Minecraft.getInstance().getRenderTypeBuffers().getBufferSource(),
-						Minecraft.getInstance().getRenderManager().info.getProjectedView().x,
-						Minecraft.getInstance().getRenderManager().info.getProjectedView().y,
-						Minecraft.getInstance().getRenderManager().info.getProjectedView().z
-				);
+				try {
+					Minecraft.getInstance().debugRenderer.pathfinding.render(
+							new MatrixStack(),
+							Minecraft.getInstance().getRenderTypeBuffers().getBufferSource(),
+							Minecraft.getInstance().getRenderManager().info.getProjectedView().x,
+							Minecraft.getInstance().getRenderManager().info.getProjectedView().y,
+							Minecraft.getInstance().getRenderManager().info.getProjectedView().z
+					);
+				} catch (Throwable ignored) {
+				}
 				RenderSystem.popMatrix();
 			}
 		}

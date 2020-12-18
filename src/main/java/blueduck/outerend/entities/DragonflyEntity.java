@@ -38,31 +38,39 @@ public class DragonflyEntity extends MobEntity {
 	public Path getPath() {
 		BlockPos pos = null;
 		for (int i = 0; i <= 32; i++) {
-			int x = (int) this.getPosX()+rand.nextInt(64)-32;
-			int z = (int) this.getPosZ()+rand.nextInt(64)-32;
-			int y = world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z);
+			int x1 = (int) this.getPosX() + rand.nextInt(64) - 32;
+			int z1 = (int) this.getPosZ() + rand.nextInt(64) - 32;
+			int y = world.getHeight(Heightmap.Type.WORLD_SURFACE, x1, z1);
 			boolean shouldFind = rand.nextBoolean();
 			if (y == 0) continue;
 			if (pos != null) {
 				shouldFind = shouldFind &&
-						(world.getBiome(new BlockPos(x,y,z)).getRegistryName().toString().equals("outer_end:azure_forest") ||
-						!world.getBiome(pos).getRegistryName().toString().equals("outer_end:azure_forest"))
+						(world.getBiome(new BlockPos(x1, y, z1)).getRegistryName().toString().equals("outer_end:azure_forest") ||
+								!world.getBiome(pos).getRegistryName().toString().equals("outer_end:azure_forest"))
 				;
 				shouldFind = shouldFind || (
-						world.getBiome(new BlockPos(x,y,z)).getRegistryName().toString().equals("outer_end:azure_forest") &&
+						world.getBiome(new BlockPos(x1, y, z1)).getRegistryName().toString().equals("outer_end:azure_forest") &&
 								!world.getBiome(pos).getRegistryName().toString().equals("outer_end:azure_forest")
-						);
+				);
 			}
 			if (shouldFind && pos == null)
-				pos = new BlockPos(x, y, z);
-			else if (world.getBlockState(new BlockPos(x, y, z).add(0, -1, 0)).getBlock().equals(BlockRegistry.AZURE_STAMEN.get()))
-				if (pos == null || y > pos.getY()) pos = new BlockPos(x, y, z);
+				pos = new BlockPos(x1, y, z1);
+			int searchDist = 8;
+			for (int xOff = -searchDist; xOff <= searchDist; xOff++) {
+				int x = x1 + xOff;
+				for (int zOff = -searchDist; zOff <= searchDist; zOff++) {
+					int z = z1 + zOff;
+					int y1 = world.getHeight(Heightmap.Type.WORLD_SURFACE, x1, z1);
+					if (world.getBlockState(new BlockPos(x, y1, z).down()).getBlock().equals(BlockRegistry.AZURE_STAMEN.get()))
+						if (pos == null || y > pos.getY()) pos = new BlockPos(x, y1, z);
+				}
+			}
 		}
 		if (pos == null) {
 			int x = (int) this.getPosX()+rand.nextInt(64)-32;
 			int z = (int) this.getPosZ()+rand.nextInt(64)-32;
 			int y = world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z);
-			pos = new BlockPos(x, y, z);
+			pos = new BlockPos(x, Math.max(8,y), z);
 		}
 		return navigator.getPathToPos(pos, 128);
 	}
@@ -74,8 +82,9 @@ public class DragonflyEntity extends MobEntity {
 			return;
 		}
 		this.fallDistance = 0;
+		boolean isAboveBlock = world.getHeight(Heightmap.Type.MOTION_BLOCKING,this.getPosition()).getY() >= 4;
 		if (
-				(navigator.getPath()==null || navigator.getPath().isFinished()) && (((shouldRepathfind() && this.onGround)||(this.getLastDamageSource()!=null&&this.getLastDamageSource().getTrueSource()!=null)))
+				(navigator.getPath()==null || navigator.getPath().isFinished()) && ((((shouldRepathfind() && this.onGround)||(this.getLastDamageSource()!=null&&this.getLastDamageSource().getTrueSource()!=null))) || !isAboveBlock)
 		) {
 			navigator.clearPath();
 			navigator.resetRangeMultiplier();
@@ -113,11 +122,15 @@ public class DragonflyEntity extends MobEntity {
 		}
 		if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
 			if (this.navigator.getPath() != null) {
-				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(),navigator.getPath(), 16);
+				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(),navigator.getPath(), 0.5f);
 			}
 		}
 		if (this.getPosY() <= 3)
-			this.setMotion(this.getMotion().x,this.getMotion().y+0.1f,this.getMotion().z);
+			this.setMotion(this.getMotion().x,MathHelper.lerp(0.1f,this.getMotion().y,-0.05f),this.getMotion().z);
+		if (this.getPosY() <= 2.9)
+			this.setMotion(this.getMotion().x,MathHelper.lerp(0.1f,this.getMotion().y,-0.01),this.getMotion().z);
+		if (this.getPosY() <= 2.8)
+			this.setMotion(this.getMotion().x,(this.getMotion().y+0.5f),this.getMotion().z);
 		super.tick();
 	}
 	

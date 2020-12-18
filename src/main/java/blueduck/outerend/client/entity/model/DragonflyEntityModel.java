@@ -38,10 +38,10 @@ public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 		translucent = new ModelRenderer(this);
 		translucent.setRotationPoint(0.0F, 0.0F, 0.0F);
 		body.addChild(translucent);
-		translucent.setTextureOffset(0, 0).addBox(-5.0F, -10.0F, -8.0F, 10.0F, 10.0F, 16.0F, 0.0F, false);
+		translucent.setTextureOffset(0, 0).addBox(-4.5F, -10.5F, -8.0F, 9.0F, 9.0F, 16.0F, 0.0F, false);
 		
 		tail = new ModelRenderer(this);
-		tail.setRotationPoint(0.0F, -7.0F, 8.0F);
+		tail.setRotationPoint(0.0F, -8.0F, 8.0F);
 		translucent.addChild(tail);
 		tail.setTextureOffset(26, 34).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 4.0F, 10.0F, 0.0F, false);
 		
@@ -78,7 +78,7 @@ public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 		body.rotateAngleY = 0;
 		body.rotateAngleZ = 0;
 		
-		if (!entity.isOnGround()) body.rotateAngleX = (float)(entity.getMotion().y)*-2;
+		if (!entity.isOnGround()) body.rotateAngleX = (float)(entity.getMotion().y)*-0.75f;
 		
 		tail.setRotationPoint(0.0F, -7.0F, 8.0F);
 		if (entity.isOnGround()) {
