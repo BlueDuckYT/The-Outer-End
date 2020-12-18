@@ -27,7 +27,7 @@ public class DragonflyRenderLayer extends LayerRenderer<DragonflyEntity, Dragonf
 		
 		ivertexbuilder = bufferIn.getBuffer(RenderType.getEntityTranslucentCull(new ResourceLocation("outer_end:textures/entity/glowdragonglow.png")));
 		this.getEntityModel().setupForGlow();
-		this.getEntityModel().render(matrixStackIn, ivertexbuilder, LightTexture.packLight(15,15),
+		this.getEntityModel().render(matrixStackIn, ivertexbuilder, packedLightIn,
 				OverlayTexture.getPackedUV(0, OverlayTexture.getV(entitylivingbaseIn.hurtTime > 0 || entitylivingbaseIn.deathTime > 0)), 1.0F, 1.0F, 1.0F, 1.0F);
 		this.getEntityModel().render(matrixStackIn, ivertexbuilder, LightTexture.packLight(15,15),
 				OverlayTexture.getPackedUV(3, OverlayTexture.getV(entitylivingbaseIn.hurtTime > 0 || entitylivingbaseIn.deathTime > 0)), 1.0F, 1.0F, 1.0F, MathHelper.clamp((float)Math.abs(Math.cos(entitylivingbaseIn.ticksExisted/120F))*3f,0,1));
