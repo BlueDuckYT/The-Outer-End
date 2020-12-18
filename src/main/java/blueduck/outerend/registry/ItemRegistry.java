@@ -2,6 +2,7 @@ package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.items.DebugToolItem;
+import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
@@ -16,7 +17,9 @@ public class ItemRegistry {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, OuterEndMod.MODID);
 	
 	public static final RegistryObject<Item> DEBUG_TOOL = conditionallyRegister("dev/debug_tool_ai",new DebugToolItem(new Item.Properties().group(ItemGroup.MISC)),()-> !FMLEnvironment.production);
-	
+
+	public static final RegistryObject<Item> AZURE_BERRIES = ITEMS.register("azure_berries", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(3).saturation(0.3f).build())));
+
 	public static RegistryObject<Item> conditionallyRegister(String registryName, Item item, Supplier<Boolean> condition) {
 		if (condition.get())
 			return ITEMS.register(registryName, () -> item);

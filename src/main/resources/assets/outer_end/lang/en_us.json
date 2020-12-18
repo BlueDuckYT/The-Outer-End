@@ -5,10 +5,24 @@
   "block.outer_end.azure_stamen": "Azure Stamen",
   "block.outer_end.azure_bud": "Azure Bud",
   "block.outer_end.azure_grass": "Azure Grass",
+  "block.outer_end.azure_fence": "Azure Fence",
+  "block.outer_end.azure_fence_gate": "Azure Fence Gate",
+  "block.outer_end.azure_door": "Azure Door",
+  "block.outer_end.azure_trapdoor": "Azure Trapdoor",
+  "block.outer_end.azure_pressure_plate": "Azure Pressure Plate",
+  "block.outer_end.azure_button": "Azure Button",
+  "block.outer_end.azure_slab": "Azure Slab",
+  "block.outer_end.azure_stairs": "Azure Stairs",
 
   "block.outer_end.himmel_block": "Himmel Block",
   "block.outer_end.himmel_pillar": "Himmel Pillar",
   "block.outer_end.himmel_stairs": "Himmel Stairs",
-  "block.outer_end.himmel_slab": "Himmel Slab"
+  "block.outer_end.himmel_slab": "Himmel Slab",
+
+
+  "item.outer_end.azure_berries": "Azure Berries",
+
+
+  "biome.outer_end.azure_forest": "Azure Forest"
 
 }
