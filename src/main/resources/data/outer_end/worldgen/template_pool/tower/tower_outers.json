@@ -1,0 +1,16 @@
+{
+  "name": "outer_end:tower/tower_outers",
+
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "outer_end:tower/outers/outer_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
