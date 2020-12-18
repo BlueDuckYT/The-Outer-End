@@ -60,10 +60,8 @@ public class OuterEndMod
 
     public void setup(final FMLCommonSetupEvent event)
     {
-        event.enqueueWork(() -> {
-            StructureRegistry.setupStructures();
-            ConfiguredStructureFeatures.registerConfiguredStructures();
-        });
+        StructureRegistry.setupStructures();
+        ConfiguredStructureFeatures.registerConfiguredStructures();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

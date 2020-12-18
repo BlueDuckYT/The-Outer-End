@@ -112,7 +112,7 @@ public class EndTowerStructure extends Structure<NoFeatureConfig> {
     @Override
     protected boolean func_230363_a_(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
         int landHeight = chunkGenerator.getNoiseHeight(chunkX << 4, chunkZ << 4, Heightmap.Type.WORLD_SURFACE_WG);
-        return landHeight > 100;
+        return landHeight > 40;
     }
 
 
@@ -145,13 +145,6 @@ public class EndTowerStructure extends Structure<NoFeatureConfig> {
             JigsawManager.func_242837_a(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.getRegistry(Registry.JIGSAW_POOL_KEY)
-                            // The path to the starting Template Pool JSON file to read.
-                            //
-                            // Note, this is "structure_tutorial:run_down_house/start_pool" which means
-                            // the game will automatically look into the following path for the template pool:
-                            // "resources/data/structure_tutorial/worldgen/template_pool/run_down_house/start_pool.json"
-                            // This is why your pool files must be in "data/<modid>/worldgen/template_pool/<the path to the pool here>"
-                            // because the game automatically will check in worldgen/template_pool for the pools.
                             .getOrDefault(new ResourceLocation(OuterEndMod.MODID, "tower/tower_bases")),
 
                             // How many pieces outward from center can a recursive jigsaw structure spawn.
