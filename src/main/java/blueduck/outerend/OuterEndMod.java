@@ -32,6 +32,9 @@ public class OuterEndMod
 
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
+            if (!FMLEnvironment.production) {
+                MinecraftForge.EVENT_BUS.addListener(ClientSetup::renderDebugEntityPathfinding);
+            }
         }
         
         MinecraftForge.EVENT_BUS.register(this);

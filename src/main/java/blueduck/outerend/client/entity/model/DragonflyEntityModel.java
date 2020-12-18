@@ -8,11 +8,13 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.math.vector.Quaternion;
 
 public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 	private final ModelRenderer body;
 	private final ModelRenderer translucent;
 	private final ModelRenderer emissive;
+	private final ModelRenderer tail;
 	private final ModelRenderer solid;
 	private final ModelRenderer wing1;
 	private final ModelRenderer wing3;
@@ -37,7 +39,11 @@ public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 		translucent.setRotationPoint(0.0F, 0.0F, 0.0F);
 		body.addChild(translucent);
 		translucent.setTextureOffset(0, 0).addBox(-5.0F, -10.0F, -8.0F, 10.0F, 10.0F, 16.0F, 0.0F, false);
-		translucent.setTextureOffset(26, 34).addBox(-2.0F, -7.0F, 8.0F, 4.0F, 4.0F, 10.0F, 0.0F, false);
+		
+		tail = new ModelRenderer(this);
+		tail.setRotationPoint(0.0F, -7.0F, 8.0F);
+		translucent.addChild(tail);
+		tail.setTextureOffset(26, 34).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 4.0F, 10.0F, 0.0F, false);
 		
 		emissive = new ModelRenderer(this);
 		emissive.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -71,17 +77,42 @@ public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 		body.rotateAngleX = 0;
 		body.rotateAngleY = 0;
 		body.rotateAngleZ = 0;
-		if (entity.isAirBorne) body.rotateAngleX = (float)(entity.getMotion().y)*-2;
 		
-		if (Math.abs(entity.getMotion().y) <= 0.05f) {
+		if (!entity.isOnGround()) body.rotateAngleX = (float)(entity.getMotion().y)*-2;
+		
+		tail.setRotationPoint(0.0F, -7.0F, 8.0F);
+		if (entity.isOnGround()) {
 			body.rotateAngleX = 0;
-			wing1.rotateAngleY = 0;
+			if (entity.world.getBlockState(entity.getPosition().add(0,-1,0)).isAir()) {
+				wing1.rotateAngleZ = (float)(Math.cos((ageInTicks*0.5f)*0.5f));
+				wing2.rotateAngleZ = (float)(Math.cos(0.2+(ageInTicks*0.5f)*0.5f));
+				wing3.rotateAngleZ = (float)(-Math.cos((ageInTicks*0.5f)*0.5f));
+				wing4.rotateAngleZ = (float)(-Math.cos(0.2+(ageInTicks*0.5f)*0.5f));
+				tail.rotateAngleX = (float)(Math.cos((ageInTicks)*0.05f)*0.1f)-(float)Math.toRadians(15);
+			} else {
+				wing1.rotateAngleZ = (float)Math.toRadians(15);
+				wing2.rotateAngleZ = (float)Math.toRadians(15);
+				wing3.rotateAngleZ = (float)Math.toRadians(-15);
+				wing4.rotateAngleZ = (float)Math.toRadians(-15);
+				tail.rotateAngleX = (float)Math.toRadians(-15);
+			}
+		} else {
+			wing1.rotateAngleZ = (float)(Math.cos((ageInTicks)*1f));
+			wing2.rotateAngleZ = (float)(Math.cos(0.2+(ageInTicks)*1f));
+			wing3.rotateAngleZ = (float)(-Math.cos((ageInTicks)*1f));
+			wing4.rotateAngleZ = (float)(-Math.cos(0.2+(ageInTicks)*1f));
+			tail.rotateAngleX = (float)(Math.cos((ageInTicks)*0.1f)*0.1f)-(float)Math.toRadians(15);
 		}
 	}
 
 	@Override
-	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		body.render(matrixStack, buffer, packedLight, packedOverlay);
+	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		matrixStack.push();
+		matrixStack.rotate(new Quaternion(
+				0,180,0,true
+		));
+		body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+		matrixStack.pop();
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
