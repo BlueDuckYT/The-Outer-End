@@ -9,6 +9,8 @@
   "block.outer_end.himmel_block": "Himmel Block",
   "block.outer_end.himmel_pillar": "Himmel Pillar",
   "block.outer_end.himmel_stairs": "Himmel Stairs",
-  "block.outer_end.himmel_slab": "Himmel Slab"
+  "block.outer_end.himmel_slab": "Himmel Slab",
+
+  "biome.outer_end.azure_forest": "Azure Forest"
 
 }
