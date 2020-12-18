@@ -15,8 +15,8 @@ public class EntityRegistry {
 	public static final RegistryObject<EntityType<DragonflyEntity>> DRAGONFLY = ENTITIES.register("dragonfly", () -> EntityType.Builder
 			.create(DragonflyEntity::new, EntityClassification.CREATURE)
 			.setTrackingRange(64).setUpdateInterval(2).size(1, 0.625f)
-			.build(OuterEndMod.MODID + ":dragonfly"));
-//			.build(OuterEndMod.MODID + ":spectraflies"));
+//			.build(OuterEndMod.MODID + ":dragonfly"));
+			.build(OuterEndMod.MODID + ":spectrafly"));
 	
 	public static void init() {
 		ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
