@@ -14,7 +14,7 @@ public class EntityRegistry {
 	
 	public static final RegistryObject<EntityType<DragonflyEntity>> DRAGONFLY = ENTITIES.register("spectrafly", () -> EntityType.Builder
 			.create(DragonflyEntity::new, EntityClassification.CREATURE)
-			.setTrackingRange(64).setUpdateInterval(2).size(1, 0.625f)
+			.setTrackingRange(64).setUpdateInterval(2).size(12f/16, 10f/16)
 //			.build(OuterEndMod.MODID + ":dragonfly"));
 			.build(OuterEndMod.MODID + ":spectrafly"));
 	

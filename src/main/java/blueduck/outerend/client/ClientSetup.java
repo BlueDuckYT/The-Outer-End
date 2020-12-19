@@ -9,11 +9,18 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.debug.DebugRenderer;
+import net.minecraft.pathfinding.Path;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+
+import java.lang.reflect.Field;
+import java.util.Map;
 
 public class ClientSetup {
 	public static void onSetup(FMLClientSetupEvent event) {
@@ -40,11 +47,36 @@ public class ClientSetup {
 							Minecraft.getInstance().getRenderManager().info.getProjectedView().y,
 							Minecraft.getInstance().getRenderManager().info.getProjectedView().z
 					);
+					Field map = Minecraft.getInstance().debugRenderer.pathfinding.getClass().getDeclaredField("pathMap");
+					map.setAccessible(true);
+					Map<Integer, Path> pathMap = (Map<Integer, Path>) map.get(Minecraft.getInstance().debugRenderer.pathfinding);
+					RenderSystem.pushMatrix();
+					RenderSystem.enableBlend();
+					RenderSystem.defaultBlendFunc();
+					RenderSystem.color4f(0.0F, 1.0F, 0.0F, 0.75F);
+					RenderSystem.disableTexture();
+					RenderSystem.translated(
+							-Minecraft.getInstance().getRenderManager().info.getProjectedView().x,
+							-Minecraft.getInstance().getRenderManager().info.getProjectedView().y,
+							-Minecraft.getInstance().getRenderManager().info.getProjectedView().z
+					);
+					pathMap.forEach((id,path)->{
+						for (int i=0;i<path.getCurrentPathLength();i++) {
+							Vector3d pos = path.getVectorFromIndex(Minecraft.getInstance().world.getEntityByID(id),i);
+							AxisAlignedBB boundingBox = new AxisAlignedBB(pos.x-0.1,pos.y-0.1,pos.z-0.1,pos.x+0.1,pos.y+0.1,pos.z+0.1);
+							Color c = new Color(0,0,0);
+							DebugRenderer.renderBox(boundingBox, c.getRed()/255f, c.getGreen()/255f, c.getBlue()/255f, 1f);
+						}
+					});
+					RenderSystem.enableTexture();
+					RenderSystem.disableBlend();
+					RenderSystem.popMatrix();
 				} catch (Throwable ignored) {
+					ignored.printStackTrace();
 				}
 				RenderSystem.popMatrix();
 			}
-			
+
 //			RenderSystem.pushMatrix();
 //			RenderSystem.enableBlend();
 //			RenderSystem.defaultBlendFunc();
