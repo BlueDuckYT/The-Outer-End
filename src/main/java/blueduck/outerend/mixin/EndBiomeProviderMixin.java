@@ -1,7 +1,6 @@
 package blueduck.outerend.mixin;
 
 import blueduck.outerend.mixin_code.MixinHelpers;
-import blueduck.outerend.registry.BiomeRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
@@ -29,16 +28,19 @@ public abstract class EndBiomeProviderMixin {
 	@Overwrite
 	//TODO
 	public Biome getNoiseBiome(int x, int y, int z) {
+		MixinHelpers.generator1 = this.generator;
 		int i = x >> 2;
+		float i1 = (MixinHelpers.floatBitShift(x,2));
 		int j = z >> 2;
+		float j1 = (MixinHelpers.floatBitShift(z,2));
 		if ((long) i * (long) i + (long) j * (long) j <= 4096L) {
 			return this.theEndBiome;
 		} else {
 			float f = EndBiomeProvider.getRandomNoise(this.generator, i * 2 + 1, j * 2 + 1);
 			if (f > 40.0F) {
-				return MixinHelpers.getBiome(i,j,this.endHighlandsBiome,lookupRegistry);
+				return MixinHelpers.getBiome(i1,j1,this.endHighlandsBiome,lookupRegistry);
 			} else if (f >= 0.0F) {
-				return MixinHelpers.getBiome(i,j,this.endMidlandsBiome,lookupRegistry);
+				return MixinHelpers.getBiome(i1,j1,this.endMidlandsBiome,lookupRegistry);
 			} else {
 				return f < -20.0F ? this.smallEndIslandsBiome : this.endBarrensBiome;
 			}
