@@ -34,7 +34,7 @@ public class StructureRegistry {
     public static void setupStructures() {
         setupStructure(
                 END_TOWER.get(), /* The instance of the structure */
-                new StructureSeparationSettings(100 /* maximum distance apart in chunks between spawn attempts */,
+                new StructureSeparationSettings(75 /* maximum distance apart in chunks between spawn attempts */,
                         20 /* minimum distance apart in chunks between spawn attempts */,
                         1234567990 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
                 true);

@@ -5,7 +5,7 @@
   "elements": [
     {
 
-      "weight": 2,
+      "weight": 3,
       "element": {
 
 
@@ -35,11 +35,26 @@
     },
     {
 
-      "weight": 1,
+      "weight": 2,
       "element": {
 
 
         "location": "outer_end:tower/basement/hallways/hallway_1",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 1,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/hallways/hallway_10",
 
         "processors": "minecraft:empty",
 
