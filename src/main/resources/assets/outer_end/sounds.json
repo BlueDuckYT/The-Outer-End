@@ -8,5 +8,15 @@
         "stream": true
       }
     ]
+  },
+  "music.galactic_wave": {
+    "category": "record",
+    "subtitle": "music.outer_end.galactic_wave",
+    "sounds": [
+      {
+        "name":  "outer_end:music/galactic_wave",
+        "stream": true
+      }
+    ]
   }
   }

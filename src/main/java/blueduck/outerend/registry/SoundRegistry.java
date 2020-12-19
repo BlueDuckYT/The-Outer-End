@@ -14,6 +14,9 @@ public class SoundRegistry {
 
     public static final RegistryObject<SoundEvent> AZURE_MUSIC = SOUNDS.register("azure_music", () -> new SoundEvent(new ResourceLocation("outer_end", "music.azure")));
 
+    public static final RegistryObject<SoundEvent> GALACTIC_WAVE = SOUNDS.register("galactic_wave", () -> new SoundEvent(new ResourceLocation("outer_end", "music.galactic_wave")));
+
+
     public static void init() {
         SOUNDS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }

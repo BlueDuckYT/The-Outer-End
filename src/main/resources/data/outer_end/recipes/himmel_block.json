@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:floral_paste"
+    }
+  },
+  "result": {
+    "item": "outer_end:himmel_block",
+    "count": 4
+  }
+}

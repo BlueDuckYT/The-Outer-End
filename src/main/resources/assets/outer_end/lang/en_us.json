@@ -23,8 +23,13 @@
   "item.outer_end.azure_berries": "Azure Berries",
   "item.outer_end.floral_paste": "Floral Paste",
 
+  "item.outer_end.music_disc_galactic_wave": "Music Disc",
+  "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",
+
   "entity.outer_end.spectrafly": "Spectrafly",
 
+
+  "music.outer_end.galactic_wave": "Galactic Wave",
 
 
 
