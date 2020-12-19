@@ -28,7 +28,7 @@ public class AzureForest extends OuterEndBiome {
     
     //3448555
     public AzureForest() {
-        super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(new BackgroundMusicSelector(SoundRegistry.AZURE_MUSIC.get(), 200, 2000, false)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).withGrassColor(2634073).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(new BackgroundMusicSelector(SoundRegistry.AZURE_MUSIC.get(), 200, 2000, false)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
     
     static {
@@ -39,7 +39,7 @@ public class AzureForest extends OuterEndBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.AZURE_GRASS_DECORATOR);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
         
-        SPAWN_SETTINGS.withCreatureSpawnProbability(2);
+        SPAWN_SETTINGS.withCreatureSpawnProbability(5);
         SPAWN_SETTINGS.withSpawnCost(EntityType.ENDERMAN,1,40);
         SPAWN_SETTINGS.withSpawnCost(EntityRegistry.DRAGONFLY.get(),1,30);
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE,new MobSpawnInfo.Spawners(EntityRegistry.DRAGONFLY.get(),1,1,3));

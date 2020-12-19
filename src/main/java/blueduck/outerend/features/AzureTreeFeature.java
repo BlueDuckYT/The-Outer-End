@@ -55,7 +55,7 @@ public class AzureTreeFeature extends Feature<NoFeatureConfig> {
 	}
 	
 	public static <world extends IWorldReader & IWorldWriter> void generateTree(TreeGenerationContext context) {
-		if (context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean() || true) generateTreeLarge(context);
+		if (context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean() && context.rand.nextBoolean()) generateTreeLarge(context);
 		else generateTreeSmall(context);
 	}
 	
