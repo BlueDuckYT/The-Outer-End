@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class EntityRegistry {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, OuterEndMod.MODID);
 	
-	public static final RegistryObject<EntityType<DragonflyEntity>> DRAGONFLY = ENTITIES.register("dragonfly", () -> EntityType.Builder
+	public static final RegistryObject<EntityType<DragonflyEntity>> DRAGONFLY = ENTITIES.register("spectrafly", () -> EntityType.Builder
 			.create(DragonflyEntity::new, EntityClassification.CREATURE)
 			.setTrackingRange(64).setUpdateInterval(2).size(1, 0.625f)
 //			.build(OuterEndMod.MODID + ":dragonfly"));
