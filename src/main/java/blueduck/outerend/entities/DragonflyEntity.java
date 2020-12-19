@@ -72,6 +72,8 @@ public class DragonflyEntity extends MobEntity {
 			int y = world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z);
 			pos = new BlockPos(x, Math.max(8,y), z);
 		}
+		while (!world.getBlockState(pos).isAir())
+			pos = pos.up();
 		return navigator.getPathToPos(pos, 128);
 	}
 	
