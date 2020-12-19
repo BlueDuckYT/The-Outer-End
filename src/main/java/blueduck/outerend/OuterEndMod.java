@@ -4,6 +4,7 @@ import blueduck.outerend.client.ClientSetup;
 import blueduck.outerend.common.CommonSetup;
 import blueduck.outerend.features.ConfiguredStructureFeatures;
 import blueduck.outerend.registry.*;
+import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -34,14 +35,15 @@ public class OuterEndMod
     public static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "outer_end";
     public OuterEndMod() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-    
-        //FMLJavaModLoadingContext.get().getModEventBus().register(BiomeRegistry.class);
-        MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(CommonSetup::onCommonSetup);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
-
+    
+        MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
+        MinecraftForge.EVENT_BUS.addListener(EntityEventListener::onBonemeal);
+    
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::biomeModification);
 
         BiomeRegistry.init();
