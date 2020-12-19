@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "outer_end:azure_berries"
+  },
+  "result": "outer_end:floral_paste",
+  "experience": 0.35,
+  "cookingtime": 200
+}

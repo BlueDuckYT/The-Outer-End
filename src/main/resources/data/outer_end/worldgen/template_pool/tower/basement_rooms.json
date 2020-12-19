@@ -1,32 +1,65 @@
 {
-  "name": "outer_end:tower/tower_outers",
+  "name": "outer_end:tower/basement_rooms",
 
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 90,
+
+      "weight": 5,
       "element": {
-        "location": "outer_end:tower/outers/outer_1",
+
+
+        "location": "outer_end:tower/basement/rooms/room_1",
+
         "processors": "minecraft:empty",
+
         "projection": "rigid",
+
         "element_type": "minecraft:single_pool_element"
       }
     },
     {
-      "weight": 10,
+
+      "weight": 2,
       "element": {
-        "location": "outer_end:tower/outers/outer_2",
+
+
+        "location": "outer_end:tower/basement/rooms/room_2",
+
         "processors": "minecraft:empty",
+
         "projection": "rigid",
+
         "element_type": "minecraft:single_pool_element"
       }
     },
     {
-      "weight": 100,
+
+      "weight": 3,
       "element": {
-        "location": "outer_end:tower/outers/outer_3",
+
+
+        "location": "outer_end:tower/basement/rooms/room_3",
+
         "processors": "minecraft:empty",
+
         "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 2,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/rooms/room_4",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
         "element_type": "minecraft:single_pool_element"
       }
     }

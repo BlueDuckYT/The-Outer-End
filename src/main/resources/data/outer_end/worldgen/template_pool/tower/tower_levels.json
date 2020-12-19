@@ -13,7 +13,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 100,
       "element": {
         "location": "outer_end:tower/levels/level_1",
         "processors": "minecraft:empty",
@@ -22,7 +22,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 60,
       "element": {
         "location": "outer_end:tower/levels/level_2",
         "processors": "minecraft:empty",
@@ -31,7 +31,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 100,
       "element": {
         "location": "outer_end:tower/levels/level_3",
         "processors": "minecraft:empty",
@@ -40,7 +40,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 100,
       "element": {
         "location": "outer_end:tower/levels/level_4",
         "processors": "minecraft:empty",
@@ -49,7 +49,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 100,
       "element": {
         "location": "outer_end:tower/levels/level_5",
         "processors": "minecraft:empty",
@@ -58,7 +58,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 100,
       "element": {
         "location": "outer_end:tower/levels/top_level",
         "processors": "minecraft:empty",

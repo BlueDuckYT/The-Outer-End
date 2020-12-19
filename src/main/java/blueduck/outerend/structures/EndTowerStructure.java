@@ -150,7 +150,7 @@ public class EndTowerStructure extends Structure<NoFeatureConfig> {
                             // How many pieces outward from center can a recursive jigsaw structure spawn.
                             // Our structure is only 1 block out and isn't recursive so any value of 1 or more doesn't change anything.
                             // However, I recommend you keep this a high value so people can use datapacks to add additional pieces to your structure easily.
-                            50),
+                            60),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     templateManagerIn,
