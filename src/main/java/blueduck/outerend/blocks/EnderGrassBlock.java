@@ -58,7 +58,7 @@ public class EnderGrassBlock extends Block implements IGrowable {
 		super.randomTick(state, worldIn, pos, random);
 		//TODO: get this forge patch code working (helps prevent lag from excess chunk loading)
 //		if (!worldIn.isAreaLoaded(pos, 3)) return;
-		if (worldIn.getBlockState(pos.up()).causesSuffocation(worldIn, pos.up()))
+		if (worldIn.getBlockState(pos.up()).isSolid())
 			worldIn.setBlockState(pos, diesTo.get());
 		
 		for (int i = 0; i < 4; ++i) {

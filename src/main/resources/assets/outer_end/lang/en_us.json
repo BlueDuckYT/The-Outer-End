@@ -20,11 +20,12 @@
   "block.outer_end.himmel_stairs": "Himmel Stairs",
   "block.outer_end.himmel_slab": "Himmel Slab",
 
+  "item.outer_end.azure_berries": "Azure Berries",
+  "item.outer_end.floral_paste": "Floral Paste",
 
   "entity.outer_end.spectrafly": "Spectrafly",
 
 
-  "item.outer_end.azure_berries": "Azure Berries",
 
 
   "biome.outer_end.azure_forest": "Azure Forest"
