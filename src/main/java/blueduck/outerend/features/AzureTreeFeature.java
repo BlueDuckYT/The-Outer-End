@@ -48,7 +48,7 @@ public class AzureTreeFeature extends Feature<NoFeatureConfig> {
 	
 	@Override
 	public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-		if (reader.getBlockState(pos.add(0,-1,0)).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on"))))
+		if (reader.getBlockState(pos.down()).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on"))))
 			generateTree(new TreeGenerationContext<>(reader,pos,rand));
 		else return false;
 		return true;

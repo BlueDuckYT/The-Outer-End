@@ -1,5 +1,6 @@
 package blueduck.outerend.client.entity.renderer.overlay;
 
+import blueduck.outerend.client.Color;
 import blueduck.outerend.client.entity.model.DragonflyEntityModel;
 import blueduck.outerend.entities.DragonflyEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -14,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 
 public class DragonflyRenderLayer extends LayerRenderer<DragonflyEntity, DragonflyEntityModel> {
-	private static final RenderType renderType = RenderType.getEntitySolid(new ResourceLocation("outer_end:textures/entity/glowdragonglow.png"));
+	private static final RenderType renderType = RenderType.getEntityTranslucentCull(new ResourceLocation("outer_end:textures/entity/glowdragonglow.png"));
 	private static final RenderType renderType1 = RenderType.getEntityTranslucent(new ResourceLocation("outer_end:textures/entity/glowdragon.png"));
 
 	public DragonflyRenderLayer(IEntityRenderer<DragonflyEntity, DragonflyEntityModel> entityRendererIn) {
@@ -25,7 +26,7 @@ public class DragonflyRenderLayer extends LayerRenderer<DragonflyEntity, Dragonf
 	public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, DragonflyEntity entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 		IVertexBuilder ivertexbuilder;
 		
-		ivertexbuilder = bufferIn.getBuffer(RenderType.getEntityTranslucentCull(new ResourceLocation("outer_end:textures/entity/glowdragonglow.png")));
+		ivertexbuilder = bufferIn.getBuffer(renderType);
 		this.getEntityModel().setupForGlow();
 		this.getEntityModel().render(matrixStackIn, ivertexbuilder, packedLightIn,
 				OverlayTexture.getPackedUV(0, OverlayTexture.getV(entitylivingbaseIn.hurtTime > 0 || entitylivingbaseIn.deathTime > 0)), 1.0F, 1.0F, 1.0F, 1.0F);
@@ -34,8 +35,11 @@ public class DragonflyRenderLayer extends LayerRenderer<DragonflyEntity, Dragonf
 		
 		ivertexbuilder = bufferIn.getBuffer(renderType1);
 		this.getEntityModel().setupForGel();
+		Color color = new Color(entitylivingbaseIn.getEntityWorld().getBiome(entitylivingbaseIn.getPosition()).getGrassColor(entitylivingbaseIn.getPosX(),entitylivingbaseIn.getPosZ()));
 		this.getEntityModel().render(matrixStackIn, ivertexbuilder, packedLightIn,
-				OverlayTexture.getPackedUV(OverlayTexture.getU(0), OverlayTexture.getV(entitylivingbaseIn.hurtTime > 0 || entitylivingbaseIn.deathTime > 0)), 1.0F, 1.0F, 1.0F, 1.0F);
+				OverlayTexture.getPackedUV(OverlayTexture.getU(0), OverlayTexture.getV(entitylivingbaseIn.hurtTime > 0 || entitylivingbaseIn.deathTime > 0)),
+				color.getRed()/255f, color.getGreen()/255f, color.getBlue()/255f,
+				1.0F);
 		
 		this.getEntityModel().setupForSolid();
 	}

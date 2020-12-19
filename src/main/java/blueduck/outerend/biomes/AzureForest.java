@@ -1,8 +1,8 @@
 package blueduck.outerend.biomes;
 
-import blueduck.outerend.features.FeatureRegistry;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
+import blueduck.outerend.registry.FeatureRegistry;
 import blueduck.outerend.registry.SoundRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.audio.BackgroundMusicSelector;
@@ -17,6 +17,8 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
+import java.awt.*;
+
 public class AzureForest extends OuterEndBiome {
     
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = Registry.register(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER, "outer_end:azure_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BlockRegistry.AZURE_GRASS.get().getDefaultState(), Blocks.END_STONE.getDefaultState(), BlockRegistry.AZURE_GRASS.get().getDefaultState())));
@@ -28,7 +30,7 @@ public class AzureForest extends OuterEndBiome {
     
     //3448555
     public AzureForest() {
-        super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).withGrassColor(2634073).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(new BackgroundMusicSelector(SoundRegistry.AZURE_MUSIC.get(), 200, 2000, false)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).withGrassColor(new Color(81,91,135).getRGB()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(new BackgroundMusicSelector(SoundRegistry.AZURE_MUSIC.get(), 200, 2000, false)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
     
     static {
@@ -36,7 +38,7 @@ public class AzureForest extends OuterEndBiome {
         
         DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.AZURE_TREE);
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.AZURE_GRASS_DECORATOR);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.END_GRASS_DECORATOR);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
         
         SPAWN_SETTINGS.withCreatureSpawnProbability(5);

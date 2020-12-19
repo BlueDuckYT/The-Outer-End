@@ -133,10 +133,10 @@ public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 	}
 	
 	public void setupForGel() {
-		this.wing1.showModel = true;
-		this.wing2.showModel = true;
-		this.wing3.showModel = true;
-		this.wing4.showModel = true;
+		this.wing1.showModel = false;
+		this.wing2.showModel = false;
+		this.wing3.showModel = false;
+		this.wing4.showModel = false;
 		this.solid.showModel = false;
 		this.translucent.showModel = true;
 		this.emissive.showModel = false;
@@ -144,10 +144,10 @@ public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 	}
 	
 	public void setupForSolid() {
-		this.wing1.showModel = false;
-		this.wing2.showModel = false;
-		this.wing3.showModel = false;
-		this.wing4.showModel = false;
+		this.wing1.showModel = true;
+		this.wing2.showModel = true;
+		this.wing3.showModel = true;
+		this.wing4.showModel = true;
 		this.solid.showModel = true;
 		this.translucent.showModel = false;
 		this.emissive.showModel = false;

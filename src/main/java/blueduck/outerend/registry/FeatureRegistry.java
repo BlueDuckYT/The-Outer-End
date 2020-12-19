@@ -1,6 +1,8 @@
-package blueduck.outerend.features;
+package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
+import blueduck.outerend.features.AzureTreeFeature;
+import blueduck.outerend.features.EndGrassDecorator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -10,7 +12,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class FeatureRegistry {
-	public static final ConfiguredFeature<NoFeatureConfig,AzureTreeFeature> AZURE_TREE =
+	public static final ConfiguredFeature<NoFeatureConfig, AzureTreeFeature> AZURE_TREE =
 			(ConfiguredFeature<NoFeatureConfig, AzureTreeFeature>) newConfiguredFeature(
 					"azure_tree",
 					newFeature(
@@ -20,12 +22,12 @@ public class FeatureRegistry {
 							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
 							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 2)))
 			);
-	public static final ConfiguredFeature<NoFeatureConfig,AzureTreeFeature> AZURE_GRASS_DECORATOR =
+	public static final ConfiguredFeature<NoFeatureConfig,AzureTreeFeature> END_GRASS_DECORATOR =
 			(ConfiguredFeature<NoFeatureConfig, AzureTreeFeature>) newConfiguredFeature(
-					"azure_grass_decorator",
+					"end_grass_decorator",
 					newFeature(
-							"azure_grass_decorator",
-							new AzureGrassDecorator(NoFeatureConfig.field_236558_a_)
+							"end_grass_decorator",
+							new EndGrassDecorator(NoFeatureConfig.field_236558_a_)
 					).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
 							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
 							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
