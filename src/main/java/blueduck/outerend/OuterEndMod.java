@@ -1,6 +1,7 @@
 package blueduck.outerend;
 
 import blueduck.outerend.client.ClientSetup;
+import blueduck.outerend.client.DebugRenderer;
 import blueduck.outerend.common.CommonSetup;
 import blueduck.outerend.features.ConfiguredStructureFeatures;
 import blueduck.outerend.registry.*;
@@ -56,7 +57,7 @@ public class OuterEndMod
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
             if (!FMLEnvironment.production) {
-                MinecraftForge.EVENT_BUS.addListener(ClientSetup::renderDebugEntityPathfinding);
+                MinecraftForge.EVENT_BUS.addListener(DebugRenderer::renderDebugEntityPathfinding);
             }
         }
         
