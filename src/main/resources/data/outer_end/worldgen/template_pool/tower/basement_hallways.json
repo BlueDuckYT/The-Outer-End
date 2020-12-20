@@ -182,6 +182,21 @@
 
         "element_type": "minecraft:single_pool_element"
       }
+    },
+    {
+
+      "weight": 125,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/hallways/hallway_11",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
     }
   ]
 }
