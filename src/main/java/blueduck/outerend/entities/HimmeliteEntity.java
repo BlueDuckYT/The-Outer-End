@@ -1,5 +1,8 @@
 package blueduck.outerend.entities;
 
+import blueduck.outerend.items.OuterEndSpawnEgg;
+import blueduck.outerend.registry.EntityRegistry;
+import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -11,12 +14,15 @@ import net.minecraft.entity.monster.ZombifiedPiglinEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.world.World;
 
 public class HimmeliteEntity extends MonsterEntity {
 
     public HimmeliteEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
         super(type, worldIn);
+        ItemRegistry.ITEMS.register("himmelite_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), () -> EntityRegistry.HIMMELITE.get(), 1994982, 5413563));
     }
 
     public void registerGoals() {

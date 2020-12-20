@@ -4,9 +4,12 @@ import blueduck.outerend.client.ClientSetup;
 import blueduck.outerend.client.DebugRenderer;
 import blueduck.outerend.common.CommonSetup;
 import blueduck.outerend.features.ConfiguredStructureFeatures;
+import blueduck.outerend.items.OuterEndSpawnEgg;
 import blueduck.outerend.registry.*;
 import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -15,7 +18,11 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -37,15 +44,20 @@ public class OuterEndMod
     public static String MODID = "outer_end";
     public OuterEndMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(CommonSetup::onCommonSetup);
-    
+
         MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
         MinecraftForge.EVENT_BUS.addListener(EntityEventListener::onBonemeal);
-    
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        
+
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::biomeModification);
+
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onPostRegisterEntities);
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onItemColorEvent);
+        }
 
         BiomeRegistry.init();
         BlockRegistry.init();
@@ -116,6 +128,16 @@ public class OuterEndMod
                 tempMap.put(StructureRegistry.END_TOWER.get(), DimensionStructuresSettings.field_236191_b_.get(StructureRegistry.END_TOWER.get()));
                 serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
             }
+        }
+    }
+
+    public void onPostRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
+        OuterEndSpawnEgg.doDispenserSetup();
+    }
+
+    public void onItemColorEvent(ColorHandlerEvent.Item event) {
+        for (final SpawnEggItem egg : OuterEndSpawnEgg.OUTER_END_SPAWN_EGGS) {
+            event.getItemColors().register((stack, i) -> egg.getColor(i), egg);
         }
     }
 }

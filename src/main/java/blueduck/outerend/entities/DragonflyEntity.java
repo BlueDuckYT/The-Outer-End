@@ -1,12 +1,17 @@
 package blueduck.outerend.entities;
 
+import blueduck.outerend.items.OuterEndSpawnEgg;
 import blueduck.outerend.registry.BlockRegistry;
+import blueduck.outerend.registry.EntityRegistry;
+import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.pathfinding.Path;
 import net.minecraft.util.Direction;
@@ -21,6 +26,7 @@ public class DragonflyEntity extends MobEntity {
 	public DragonflyEntity(EntityType<? extends MobEntity> type, World worldIn) {
 		super(type, worldIn);
 		navigator = new FlyingPathNavigator(this, this.world);
+		ItemRegistry.ITEMS.register("spectrafly_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), () -> EntityRegistry.DRAGONFLY.get(), 3093129, 11056703));
 	}
 	
 	public static AttributeModifierMap createModifiers() {
