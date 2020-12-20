@@ -26,7 +26,7 @@ public class Color {
 		return (getRGB() >> 8) & 0xFF;
 	}
 	
-	private int getRGB() {
+	public int getRGB() {
 		return value;
 	}
 	

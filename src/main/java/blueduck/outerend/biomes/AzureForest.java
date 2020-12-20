@@ -1,5 +1,6 @@
 package blueduck.outerend.biomes;
 
+import blueduck.outerend.client.Color;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.FeatureRegistry;
@@ -16,8 +17,6 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-
-import java.awt.*;
 
 public class AzureForest extends OuterEndBiome {
     

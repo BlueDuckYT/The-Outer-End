@@ -135,6 +135,58 @@ public class DebugRenderer {
 				RenderSystem.popMatrix();
 			}
 		}
+		
+//		{
+//			RenderSystem.pushMatrix();
+//			RenderSystem.enableBlend();
+//			RenderSystem.defaultBlendFunc();
+//			RenderSystem.color4f(0.0F, 1.0F, 0.0F, 0.75F);
+//			RenderSystem.disableTexture();
+//			RenderSystem.lineWidth(6.0F);
+//			{
+//				RenderSystem.pushMatrix();
+//				RenderSystem.rotatef(Minecraft.getInstance().getRenderManager().info.getPitch(), 1, 0, 0);
+//				RenderSystem.rotatef(Minecraft.getInstance().getRenderManager().info.getYaw() + 180, 0, 1, 0);
+//
+////				ServerWorld world = Minecraft.getInstance().getIntegratedServer().getWorld(Minecraft.getInstance().player.world.getDimensionKey());
+//				BlockPos pos = new BlockPos(Minecraft.getInstance().player.getPosition());
+////				long seed = world.getSeed();
+////				MixinHelpers.resetGenerator(seed);
+////				MixinHelpers.generator = new SimplexNoiseGenerator(new Random(world.getSeed()));
+//
+//				int size = 8;
+//				for (int xOff = -size; xOff<=size;xOff++) {
+//					for (int zOff = -size; zOff <= size; zOff++) {
+//						RenderSystem.pushMatrix();
+//						float x = pos.getX()+(xOff);
+//						x = (MixinHelpers.floatBitShift((int)x,2));
+//						float z = pos.getZ()+(zOff);
+//						z = (MixinHelpers.floatBitShift((int)z,2));
+//						double y = MixinHelpers.get(x,z);
+//						AxisAlignedBB boundingBox = new AxisAlignedBB(pos.getX() + xOff, 128, pos.getZ() +zOff, pos.getX() + 1 + xOff, 128 + 1f / 16, pos.getZ() + 1 + zOff);
+//						RenderSystem.translated(
+//								-Minecraft.getInstance().getRenderManager().info.getProjectedView().x,
+//								-Minecraft.getInstance().getRenderManager().info.getProjectedView().y,
+//								-Minecraft.getInstance().getRenderManager().info.getProjectedView().z
+//						);
+//						Biome b = MixinHelpers.getBiome(x,z,null, null);
+//						if (b != null) {
+//							Color c = new Color(b.getGrassColor(x,z));
+//							net.minecraft.client.renderer.debug.DebugRenderer.renderBox(boundingBox, c.getRed()/255f, c.getGreen()/255f, c.getBlue()/255f, 1f);
+//						} else {
+//							float f = (float) (Math.max(0,(y+100))/180f);
+//							net.minecraft.client.renderer.debug.DebugRenderer.renderBox(boundingBox, f, f, f, 1f);
+//						}
+//						RenderSystem.popMatrix();
+//					}
+//				}
+//
+//				RenderSystem.popMatrix();
+//			}
+//			RenderSystem.enableTexture();
+//			RenderSystem.disableBlend();
+//			RenderSystem.popMatrix();
+//		}
 	}
 	
 	public static void drawLine(Path path, int camX, int camY, int camZ) {
@@ -185,53 +237,4 @@ public class DebugRenderer {
 		
 		tessellator.draw();
 	}
-	
-//			RenderSystem.pushMatrix();
-//			RenderSystem.enableBlend();
-//			RenderSystem.defaultBlendFunc();
-//			RenderSystem.color4f(0.0F, 1.0F, 0.0F, 0.75F);
-//			RenderSystem.disableTexture();
-//			RenderSystem.lineWidth(6.0F);
-//			{
-//				RenderSystem.pushMatrix();
-//				RenderSystem.rotatef(Minecraft.getInstance().getRenderManager().info.getPitch(), 1, 0, 0);
-//				RenderSystem.rotatef(Minecraft.getInstance().getRenderManager().info.getYaw() + 180, 0, 1, 0);
-//
-////				ServerWorld world = Minecraft.getInstance().getIntegratedServer().getWorld(Minecraft.getInstance().player.world.getDimensionKey());
-//				BlockPos pos = new ChunkPos(Minecraft.getInstance().player.getPosition()).asBlockPos();
-////				long seed = world.getSeed();
-////				MixinHelpers.generator = new SimplexNoiseGenerator(new Random(world.getSeed()));
-//
-//				int size = 16;
-//				for (int xOff = -size; xOff<=size;xOff++) {
-//					for (int zOff = -size; zOff <= size; zOff++) {
-//						RenderSystem.pushMatrix();
-//						int x = pos.getX()+(xOff);
-//						x = x >> 2;
-//						int z = pos.getZ()+(zOff);
-//						z = z >> 2;
-//						double y = MixinHelpers.get(x,z);
-//						AxisAlignedBB boundingBox = new AxisAlignedBB(pos.getX() + xOff, 128, pos.getZ() +zOff, pos.getX() + 1 + xOff, 128 + 1f / 16, pos.getZ() + 1 + zOff);
-//						RenderSystem.translated(
-//								-Minecraft.getInstance().getRenderManager().info.getProjectedView().x,
-//								-Minecraft.getInstance().getRenderManager().info.getProjectedView().y,
-//								-Minecraft.getInstance().getRenderManager().info.getProjectedView().z
-//						);
-//						Biome b = MixinHelpers.getBiome(x,z,null, null);
-//						if (b != null) {
-//							Color c = new Color(b.getGrassColor(x,z));
-//							DebugRenderer.renderBox(boundingBox, c.getRed()/255f, c.getGreen()/255f, c.getBlue()/255f, 1f);
-//						} else {
-//							float f = (float) (Math.max(0,(y+100))/180f);
-//							DebugRenderer.renderBox(boundingBox, f, f, f, 1f);
-//						}
-//						RenderSystem.popMatrix();
-//					}
-//				}
-//
-//				RenderSystem.popMatrix();
-//			}
-//			RenderSystem.enableTexture();
-//			RenderSystem.disableBlend();
-//			RenderSystem.popMatrix();
 }
