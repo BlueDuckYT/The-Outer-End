@@ -23,8 +23,8 @@ public class MixinHelpers {
 	
 	public static double get(float x, float z) {
 		return
-				((MixinHelpers.getRandomNoise(MixinHelpers.generator1, x, z) / 2f)) +
-						(MixinHelpers.getRandomNoise(null, x, z));
+				((MixinHelpers.getRandomNoise(MixinHelpers.generator1, x, z)/2f)) +
+						(MixinHelpers.getRandomNoise(null, x, z)/2f);
 	}
 	
 	public static void resetGenerator(long seed) {
@@ -40,7 +40,7 @@ public class MixinHelpers {
 	
 	public static Biome getBiome(float x, float z, Biome defaultBiome, Registry<Biome> lookupRegistry) {
 		for (Biome b : BiomeRegistry.getBiomes()) {
-			double noise = get(x,z);
+			double noise = get(x + BiomeRegistry.getWeightRangeForBiome(b),z + BiomeRegistry.getWeightForBiome(b));
 			if (
 					noise <= BiomeRegistry.getWeightForBiome(b) + BiomeRegistry.getWeightRangeForBiome(b) &&
 							noise >= BiomeRegistry.getWeightForBiome(b) - BiomeRegistry.getWeightRangeForBiome(b)
@@ -64,10 +64,10 @@ public class MixinHelpers {
 	
 	public static float getRandomNoise(SimplexNoiseGenerator noiseGenerator, float x, float z) {
 		if (noiseGenerator == null) {
-			return (((float) generatorPerlin.noiseAt(
+			return (((float) generator.func_227464_a_(
 					x/100f,z/100f,
-					generator.getValue(x,z),
-					generator2.getValue(x,z)
+					generator2.getValue(x/100f,z/100f)/1/*,
+					generator2.getValue(x,z)*/
 			))*200f);
 		} else {
 			float i = x / 2;
@@ -81,7 +81,6 @@ public class MixinHelpers {
 				for(int j1 = -12; j1 <= 12; ++j1) {
 					long k1 = (long)(i + i1);
 					long l1 = (long)(j + j1);
-	//					if (k1 * k1 + l1 * l1 > 4096L && generator2.getValue(noiseGenerator.getValue((double)k1, (double)l1),generator2.getValue((double)k1, (double)l1)) < (double)-0.9F) {
 					if (k1 * k1 + l1 * l1 > 4096L && noiseGenerator.getValue((double)k1, (double)l1) < (double)-0.9F) {
 						float f1 = (MathHelper.abs((float)k1) * 3439.0F + MathHelper.abs((float)l1) * 147.0F) % 13.0F + 9.0F;
 						float f2 = (float)(k - i1 * 2);
