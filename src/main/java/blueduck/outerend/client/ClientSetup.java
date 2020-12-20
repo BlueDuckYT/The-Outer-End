@@ -1,6 +1,7 @@
 package blueduck.outerend.client;
 
 import blueduck.outerend.client.entity.renderer.DragonflyEntityRenderer;
+import blueduck.outerend.client.entity.renderer.HimmeliteRenderer;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.client.renderer.RenderType;
@@ -17,5 +18,6 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ENDER_ROOTS.get(), RenderType.getCutout());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.DRAGONFLY.get(), DragonflyEntityRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.HIMMELITE.get(), HimmeliteRenderer::new);
 	}
 }

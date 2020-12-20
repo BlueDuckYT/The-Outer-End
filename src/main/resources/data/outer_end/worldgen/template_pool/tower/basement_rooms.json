@@ -5,7 +5,7 @@
   "elements": [
     {
 
-      "weight": 5,
+      "weight": 50,
       "element": {
 
 
@@ -20,7 +20,7 @@
     },
     {
 
-      "weight": 2,
+      "weight": 50,
       "element": {
 
 
@@ -35,7 +35,7 @@
     },
     {
 
-      "weight": 3,
+      "weight": 80,
       "element": {
 
 
@@ -50,11 +50,56 @@
     },
     {
 
-      "weight": 2,
+      "weight": 40,
       "element": {
 
 
         "location": "outer_end:tower/basement/rooms/room_4",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 10,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/rooms/portal_room",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 10,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/rooms/treasure_room",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 10,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/rooms/wither_room",
 
         "processors": "minecraft:empty",
 
