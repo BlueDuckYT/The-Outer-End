@@ -26,8 +26,7 @@ public class DragonflyEntity extends MobEntity {
 	public DragonflyEntity(EntityType<? extends MobEntity> type, World worldIn) {
 		super(type, worldIn);
 		navigator = new FlyingPathNavigator(this, this.world);
-		ItemRegistry.ITEMS.register("spectrafly_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), () -> EntityRegistry.DRAGONFLY.get(), 3093129, 11056703));
-	}
+		}
 	
 	public static AttributeModifierMap createModifiers() {
 		return MonsterEntity.func_234295_eP_()
@@ -202,4 +201,7 @@ public class DragonflyEntity extends MobEntity {
 		
 		return f1;
 	}
+
+
+
 }

@@ -2,6 +2,7 @@ package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.items.DebugToolItem;
+import blueduck.outerend.items.OuterEndSpawnEgg;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -24,6 +25,12 @@ public class ItemRegistry {
 
 	public static final RegistryObject<Item> MUSIC_DISC_GALACTIC_WAVE = ITEMS.register("music_disc_galactic_wave", () -> new MusicDiscItem(15, () -> SoundRegistry.GALACTIC_WAVE.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
 
+	public static final DeferredRegister<Item> SPAWN_EGGS = DeferredRegister.create(ForgeRegistries.ITEMS, OuterEndMod.MODID);
+
+
+	public static final RegistryObject<Item> SPECTRAFLY_SPAWN_EGG = SPAWN_EGGS.register("spectrafly_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), () -> EntityRegistry.DRAGONFLY.get(), 3093129, 11056703));
+	public static final RegistryObject<Item> HIMMELITE_SPAWN_EGG = SPAWN_EGGS.register("himmelite_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), () -> EntityRegistry.HIMMELITE.get(), 1994982, 5413563));
+
 
 
 	public static RegistryObject<Item> conditionallyRegister(String registryName, Item item, Supplier<Boolean> condition) {
@@ -34,5 +41,6 @@ public class ItemRegistry {
 	
 	public static void init() {
 		ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		SPAWN_EGGS.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
 }

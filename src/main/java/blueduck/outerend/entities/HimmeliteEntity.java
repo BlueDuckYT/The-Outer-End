@@ -22,8 +22,7 @@ public class HimmeliteEntity extends MonsterEntity {
 
     public HimmeliteEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
         super(type, worldIn);
-        ItemRegistry.ITEMS.register("himmelite_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), () -> EntityRegistry.HIMMELITE.get(), 1994982, 5413563));
-    }
+        }
 
     public void registerGoals() {
         this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));

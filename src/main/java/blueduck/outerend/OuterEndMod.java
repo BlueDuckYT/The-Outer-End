@@ -9,6 +9,7 @@ import blueduck.outerend.registry.*;
 import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -26,6 +27,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -54,10 +57,7 @@ public class OuterEndMod
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::biomeModification);
 
-        if (FMLEnvironment.dist == Dist.CLIENT) {
-            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onPostRegisterEntities);
-            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onItemColorEvent);
-        }
+
 
         BiomeRegistry.init();
         BlockRegistry.init();
@@ -82,6 +82,11 @@ public class OuterEndMod
             StructureRegistry.setupStructures();
             ConfiguredStructureFeatures.registerConfiguredStructures();
         });
+
+        if (FMLEnvironment.dist.isClient()) {
+            for (RegistryObject<Item> egg : ItemRegistry.SPAWN_EGGS.getEntries())
+            OuterEndSpawnEgg.OUTER_END_SPAWN_EGGS.add((OuterEndSpawnEgg) egg.get());
+        }
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -131,13 +136,17 @@ public class OuterEndMod
         }
     }
 
-    public void onPostRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
-        OuterEndSpawnEgg.doDispenserSetup();
-    }
-
-    public void onItemColorEvent(ColorHandlerEvent.Item event) {
-        for (final SpawnEggItem egg : OuterEndSpawnEgg.OUTER_END_SPAWN_EGGS) {
-            event.getItemColors().register((stack, i) -> egg.getColor(i), egg);
+    @Mod.EventBusSubscriber(modid = "outer_end", bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientEventBusSubscriber {
+        @SubscribeEvent
+        public void onPostRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
+            OuterEndSpawnEgg.doDispenserSetup();
+        }
+        @SubscribeEvent
+        public void onItemColorEvent(ColorHandlerEvent.Item event) {
+            for (final SpawnEggItem egg : OuterEndSpawnEgg.OUTER_END_SPAWN_EGGS) {
+                event.getItemColors().register((stack, i) -> egg.getColor(i), egg);
+            }
         }
     }
 }

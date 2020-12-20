@@ -31,7 +31,7 @@ public class OuterEndSpawnEgg extends SpawnEggItem {
         type = typeIn;
         primColor = primaryColorIn;
         secColor = secondaryColorIn;
-        OUTER_END_SPAWN_EGGS.add(this);
+        //OUTER_END_SPAWN_EGGS.add(this);
     }
 
     @Override
