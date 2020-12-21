@@ -11,7 +11,6 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
@@ -60,6 +59,7 @@ public class PurpurGolemEntity extends MonsterEntity {
                 .createMutableAttribute(Attributes.ARMOR, 5)
                 .createMutableAttribute(Attributes.ATTACK_KNOCKBACK, 8)
                 .createMutableAttribute(Attributes.FOLLOW_RANGE, 12)
+                .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 10000000)
                 .createMutableAttribute(Attributes.MAX_HEALTH, 60).create();
     }
     

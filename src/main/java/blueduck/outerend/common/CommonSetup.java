@@ -13,7 +13,6 @@ public class CommonSetup {
 	}
 	
 	public static void afterCommonSetup() {
-//		if (!GlobalEntityTypeAttributes.doesEntityHaveAttributes(EntityRegistry.DRAGONFLY.get()))
 		GlobalEntityTypeAttributes.put(EntityRegistry.DRAGONFLY.get(), DragonflyEntity.createModifiers());
 		GlobalEntityTypeAttributes.put(EntityRegistry.PURPUR_GOLEM.get(), PurpurGolemEntity.createModifiers());
 		GlobalEntityTypeAttributes.put(EntityRegistry.HIMMELITE.get(), HimmeliteEntity.createModifiers());
