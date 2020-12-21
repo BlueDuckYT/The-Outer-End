@@ -21,6 +21,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
@@ -33,7 +34,7 @@ public class DragonflyEntity extends MobEntity {
 	public DragonflyEntity(EntityType<? extends MobEntity> type, World worldIn) {
 		super(type, worldIn);
 		pathNavigator = new FlyingPathNavigator(this, this.world);
-		setColor(worldIn.getBiome(this.getPosition()).getGrassColor(this.getPosX(),this.getPosZ()));
+		setColor(getColor(world.getBiome(this.getPosition())));
 	}
 	
 	public void setColor(int amt) {
@@ -223,7 +224,7 @@ public class DragonflyEntity extends MobEntity {
 		super.tick();
 		
 		Color thisColor = new Color(this.getColor());
-		Color biomeColor = new Color(this.getEntityWorld().getBiome(this.getPosition()).getGrassColor(this.getPosX(),this.getPosZ()));
+		Color biomeColor = new Color(getColor(world.getBiome(this.getPosition())));
 		
 		this.setColor(
 				new Color(
@@ -232,6 +233,10 @@ public class DragonflyEntity extends MobEntity {
 						(int)MathHelper.lerp(0.001f,thisColor.getBlue(),biomeColor.getBlue())
 				).getRGB()
 		);
+	}
+	
+	public static int getColor(Biome biome) {
+		return biome.getAmbience().getGrassColor().orElse(0);
 	}
 	
 	@Override
