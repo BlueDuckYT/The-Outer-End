@@ -40,13 +40,13 @@ public class DragonflyEntity extends MobEntity {
 		this.dataManager.set(COLOR, amt);
 	}
 	
+	public int getColor() {
+		return this.dataManager.get(COLOR);
+	}
+	
 	protected void registerData() {
 		super.registerData();
 		this.dataManager.register(COLOR, 1);
-	}
-	
-	public int getColor() {
-		return this.dataManager.get(COLOR);
 	}
 	
 	public static AttributeModifierMap createModifiers() {
