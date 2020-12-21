@@ -3,6 +3,7 @@ package blueduck.outerend.registry;
 import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.entities.DragonflyEntity;
 import blueduck.outerend.entities.HimmeliteEntity;
+import blueduck.outerend.entities.PurpurGolemEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,11 +20,19 @@ public class EntityRegistry {
 //			.build(OuterEndMod.MODID + ":dragonfly"));
 			.build(OuterEndMod.MODID + ":spectrafly"));
 
+	public static final RegistryObject<EntityType<PurpurGolemEntity>> PURPUR_GOLEM = ENTITIES.register("purpur_golem", () -> EntityType.Builder
+			.create(PurpurGolemEntity::new, EntityClassification.MONSTER)
+			.setTrackingRange(32).setUpdateInterval(2).size(1.6f, 3f)
+//			.build(OuterEndMod.MODID + ":dragonfly"));
+			.build(OuterEndMod.MODID + ":himmelite"));
+
 	public static final RegistryObject<EntityType<HimmeliteEntity>> HIMMELITE = ENTITIES.register("himmelite", () -> EntityType.Builder
 			.create(HimmeliteEntity::new, EntityClassification.MONSTER)
 			.setTrackingRange(64).setUpdateInterval(2).size(14f/16, 14f/16)
 //			.build(OuterEndMod.MODID + ":dragonfly"));
 			.build(OuterEndMod.MODID + ":himmelite"));
+
+
 
 
 	public static void init() {
