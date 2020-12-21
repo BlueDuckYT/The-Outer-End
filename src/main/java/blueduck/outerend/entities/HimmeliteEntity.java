@@ -13,6 +13,7 @@ import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -94,7 +95,7 @@ public class HimmeliteEntity extends MonsterEntity {
     
     public Path getPath() {
         if (!isRetreating) {
-            target = getNearest(PlayerEntity.class, IronGolemEntity.class);
+            target = getNearest(PlayerEntity.class, GolemEntity.class);
             if (target == null) {
                 if (this.ticksExisted % 300 == 1) {
                     Vector3d look = this.getLookVec();
