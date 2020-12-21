@@ -1,9 +1,12 @@
 package blueduck.outerend.client;
 
+import blueduck.outerend.client.colors.items.SpawnEggColors;
 import blueduck.outerend.client.entity.renderer.DragonflyEntityRenderer;
 import blueduck.outerend.client.entity.renderer.HimmeliteRenderer;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
+import blueduck.outerend.registry.ItemRegistry;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -19,5 +22,8 @@ public class ClientSetup {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.DRAGONFLY.get(), DragonflyEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.HIMMELITE.get(), HimmeliteRenderer::new);
+		
+		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.SPECTRAFLY_SPAWN_EGG::get);
+		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.HIMMELITE_SPAWN_EGG::get);
 	}
 }
