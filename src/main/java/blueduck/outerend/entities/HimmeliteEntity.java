@@ -59,7 +59,7 @@ public class HimmeliteEntity extends MonsterEntity {
     
     protected void registerData() {
         super.registerData();
-        this.dataManager.register(BITE_FACTOR, 1);
+        this.dataManager.register(BITE_FACTOR, 0);
     }
     
     public void applyEntityAI() {
@@ -96,13 +96,47 @@ public class HimmeliteEntity extends MonsterEntity {
     public Path getPath() {
         if (!isRetreating) {
             target = getNearest(PlayerEntity.class, GolemEntity.class);
-            if (target == null)
+            if (target == null) {
+                if (this.ticksExisted % 300 == 1) {
+                    Vector3d look = this.getLookVec();
+                    if (rand.nextBoolean() || rand.nextBoolean() || rand.nextBoolean()) {
+                        look = Vector3d.fromPitchYaw(
+                                0,
+                        this.rand.nextInt(360)
+                        );
+                    }
+                    look = look.mul(1, 0, 1);
+                    Vector3d targ = this.getPositionVec();
+                    for (int i = 0; i <= 16; i++) {
+                        targ = targ.add(look);
+                        if (!this.getEntityWorld().getBlockState(new BlockPos(targ.getX(), targ.getY(), targ.getZ())).isAir()) {
+                            if (!this.getEntityWorld().getBlockState(new BlockPos(targ.getX(), targ.getY() + 1, targ.getZ())).isAir()) {
+                                targ = targ.add(look.scale(-1));
+                                break;
+                            } else {
+                                targ = targ.add(0, 1, 0);
+                            }
+                        } else if (this.getEntityWorld().getBlockState(new BlockPos(targ.getX(), targ.getY() - 1, targ.getZ())).isAir()) {
+                            targ = targ.add(0, -1, 0);
+                            if (this.getEntityWorld().getBlockState(new BlockPos(targ.getX(), targ.getY() - 1, targ.getZ())).isAir()) {
+                                targ = targ.add(0, -1, 0);
+                                if (this.getEntityWorld().getBlockState(new BlockPos(targ.getX(), targ.getY() - 1, targ.getZ())).isAir()) {
+                                    targ = targ.add(0,2,0);
+                                    targ = targ.add(look.scale(-1));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    return navigator.getPathToPos(new BlockPos(targ.getX(), targ.getY(), targ.getZ()),1);
+                }
                 return null;
+            }
             if (this.navigator.getPath() == null)
-                return navigator.getPathToEntity(target,1);
+                return navigator.getPathToEntity(target, 1);
             BlockPos targetPos = this.getNavigator().getPath().getTarget();
-            if (target.getDistanceSq(targetPos.getX(),targetPos.getY(),targetPos.getZ()) > 1 && this.getDistance(target) >= 1) {
-                return navigator.getPathToEntity(target,1);
+            if (target.getDistanceSq(targetPos.getX(), targetPos.getY(), targetPos.getZ()) > 1 && this.getDistance(target) >= 1) {
+                return navigator.getPathToEntity(target, 1);
             } else {
                 return null;
             }
@@ -112,7 +146,7 @@ public class HimmeliteEntity extends MonsterEntity {
                 Path path = this.navigator.getPathToPos(new BlockPos(targ.x,targ.y,targ.z),1);
                 return path;
             }
-            if (this.getPosition().distanceSq(this.navigator.getTargetPos()) <= 5)
+            if (this.getPosition().distanceSq(this.navigator.getTargetPos()) <= 5 || this.getDistance(target) >= 10)
                 this.isRetreating = false;
             return null;
         }
@@ -167,8 +201,10 @@ public class HimmeliteEntity extends MonsterEntity {
         Path path = getPath();
         if (path != null) {
             navigator.setPath(path,1);
+            this.setMotion(this.getMotion().getX()+0.01f,this.getMotion().getY(),this.getMotion().getZ());
         }
-        
+    
+    
         if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
             if (this.navigator.getPath() != null) {
                 Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), navigator.getPath(), 0.5f);

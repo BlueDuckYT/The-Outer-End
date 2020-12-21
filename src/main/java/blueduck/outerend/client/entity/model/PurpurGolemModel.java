@@ -6,8 +6,10 @@ package blueduck.outerend.client.entity.model;// Made with Blockbench 3.7.4
 import blueduck.outerend.entities.PurpurGolemEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.math.MathHelper;
 
 public class PurpurGolemModel extends EntityModel<PurpurGolemEntity> {
 	private final ModelRenderer hips;
@@ -85,6 +87,23 @@ public class PurpurGolemModel extends EntityModel<PurpurGolemEntity> {
 	@Override
 	public void setRotationAngles(PurpurGolemEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		//previously the render function, render code was moved to a method below
+		rightleg.rotateAngleX = MathHelper.sin(limbSwing/2) * limbSwingAmount;
+		leftleg.rotateAngleX = -rightleg.rotateAngleX;
+		if (entity.getSwingProgress() != 0) {
+			if (entity.getSwingProgress() <= 1) {
+				float amt = entity.getSwingProgress() + (Minecraft.getInstance().getRenderPartialTicks()*0.15f);
+				rightarm.rotateAngleX = (float)Math.toRadians(-(amt*180));
+			} else {
+				float amt = -(entity.getSwingProgress() + (Minecraft.getInstance().getRenderPartialTicks()*0.15f) - 0.15f);
+				rightarm.rotateAngleX = (float)Math.toRadians(-(amt*180));
+			}
+			rightarm.rotateAngleX += Math.toRadians(0.1f*180);
+			leftarm.rotateAngleX = rightarm.rotateAngleX;
+		} else {
+			leftarm.rotateAngleX = rightleg.rotateAngleX;
+			rightarm.rotateAngleX = -leftarm.rotateAngleX;
+		}
+		this.head.rotateAngleZ = (float) Math.toRadians(netHeadYaw);
 	}
 
 	@Override

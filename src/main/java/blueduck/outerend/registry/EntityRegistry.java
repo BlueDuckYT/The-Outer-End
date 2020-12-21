@@ -17,19 +17,17 @@ public class EntityRegistry {
 	public static final RegistryObject<EntityType<DragonflyEntity>> DRAGONFLY = ENTITIES.register("spectrafly", () -> EntityType.Builder
 			.create(DragonflyEntity::new, EntityClassification.CREATURE)
 			.setTrackingRange(64).setUpdateInterval(2).size(12f/16, 10f/16)
-//			.build(OuterEndMod.MODID + ":dragonfly"));
 			.build(OuterEndMod.MODID + ":spectrafly"));
 
 	public static final RegistryObject<EntityType<PurpurGolemEntity>> PURPUR_GOLEM = ENTITIES.register("purpur_golem", () -> EntityType.Builder
 			.create(PurpurGolemEntity::new, EntityClassification.MONSTER)
 			.setTrackingRange(32).setUpdateInterval(2).size(1.6f, 3f)
-//			.build(OuterEndMod.MODID + ":dragonfly"));
+			.immuneToFire()
 			.build(OuterEndMod.MODID + ":himmelite"));
 
 	public static final RegistryObject<EntityType<HimmeliteEntity>> HIMMELITE = ENTITIES.register("himmelite", () -> EntityType.Builder
 			.create(HimmeliteEntity::new, EntityClassification.MONSTER)
 			.setTrackingRange(64).setUpdateInterval(2).size(14f/16, 14f/16)
-//			.build(OuterEndMod.MODID + ":dragonfly"));
 			.build(OuterEndMod.MODID + ":himmelite"));
 
 
