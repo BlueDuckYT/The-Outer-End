@@ -6,6 +6,7 @@ package blueduck.outerend.client.entity.model;// Made with Blockbench 3.7.4
 import blueduck.outerend.entities.HimmeliteEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
@@ -94,9 +95,31 @@ public class HimmeliteModel extends EntityModel<HimmeliteEntity> {
 		frontrightleg.rotateAngleX = MathHelper.sin(-limbSwing/2) * limbSwingAmount;
 		backleftleg.rotateAngleX = MathHelper.sin(-limbSwing/2) * limbSwingAmount;
 		backrightleg.rotateAngleX = MathHelper.sin(limbSwing/2) * limbSwingAmount;
-
-		upjaw.rotateAngleX = -Math.abs(MathHelper.sin(limbSwing / 3)) * limbSwingAmount / 2;
-		downjaw.rotateAngleX = Math.abs(MathHelper.sin(limbSwing / 3)) * limbSwingAmount / 2;
+		
+		if (entity.getBiteFactor() >= 1) {
+			int start = entity.getLastBiteFactor();
+			int end = entity.getBiteFactor();
+			if (end == entity.getLastBiteFactor()) {
+				if (entity.getBiteFactor() <= 15) {
+					end+=1;
+				}
+				if (end > 17) {
+					start = 0;
+					end = 0;
+				}
+				if (end == 17)
+					end = 0;
+			}
+			
+			upjaw.rotateAngleX = (float)-Math.toRadians(MathHelper.lerp(Minecraft.getInstance().getRenderPartialTicks(),start,end)*2);
+			downjaw.rotateAngleX = (float)Math.toRadians(MathHelper.lerp(Minecraft.getInstance().getRenderPartialTicks(),start,end)*2);
+			entity.markForRefresh();
+		} else {
+//			upjaw.rotateAngleX = 0;
+//			downjaw.rotateAngleX = 0;
+			upjaw.rotateAngleX = -Math.abs(MathHelper.sin(limbSwing / 3)) * limbSwingAmount / 8f;
+			downjaw.rotateAngleX = Math.abs(MathHelper.sin(limbSwing / 3)) * limbSwingAmount / 8f;
+		}
 	}
 
 	@Override

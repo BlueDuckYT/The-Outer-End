@@ -1,17 +1,20 @@
 package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.BlockRegistry;
+import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.pathfinding.Path;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.Heightmap;
@@ -101,7 +104,7 @@ public class DragonflyEntity extends MobEntity {
 	
 	@Override
 	public void tick() {
-		if (this.getEntityWorld().isRemote) {
+		if (this.getEntityWorld().isRemote || this.isAIDisabled()) {
 			super.tick();
 			return;
 		}
@@ -164,11 +167,11 @@ public class DragonflyEntity extends MobEntity {
 								) &&
 								0 >= (vector3d2.getY()+1)
 						);
-				System.out.println(vector3d2.getY()+10);
-				System.out.println(isAbove);
-				System.out.println(
-						!isAbove?Math.max(-0.1,this.getMotion().y+0.1f):1
-				);
+//				System.out.println(vector3d2.getY()+10);
+//				System.out.println(isAbove);
+//				System.out.println(
+//						!isAbove?Math.max(-0.1,this.getMotion().y+0.1f):1
+//				);
 				this.setMotion(
 						MathHelper.lerp(0.1f, this.getMotion().x, vector3d2.normalize().x * 1.1f),
 						!isAbove ?
@@ -190,29 +193,18 @@ public class DragonflyEntity extends MobEntity {
 			this.setMotion(this.getMotion().x,MathHelper.lerp(0.1f,this.getMotion().y,-0.01),this.getMotion().z);
 		if (this.getPosY() <= 2.8)
 			this.setMotion(this.getMotion().x,(this.getMotion().y+0.5f),this.getMotion().z);
+		
+		if (this.getLeashed()) {
+			Vector3d pos = this.getLeashPosition(0);
+			if (this.getDistanceSq(pos) >= 16)
+			this.setMotion(pos.subtract(this.getPositionVec()).normalize().scale(2).add(this.getMotion()));
+		}
+		
 		super.tick();
 	}
 	
-	protected float limitAngle(float sourceAngle, float targetAngle, float maximumChange) {
-		float f = MathHelper.wrapDegrees(targetAngle - sourceAngle);
-		if (f > maximumChange) {
-			f = maximumChange;
-		}
-		
-		if (f < -maximumChange) {
-			f = -maximumChange;
-		}
-		
-		float f1 = sourceAngle + f;
-		if (f1 < 0.0F) {
-			f1 += 360.0F;
-		} else if (f1 > 360.0F) {
-			f1 -= 360.0F;
-		}
-		
-		return f1;
+	@Override
+	public ItemStack getPickedResult(RayTraceResult target) {
+		return new ItemStack(ItemRegistry.SPECTRAFLY_SPAWN_EGG.get());
 	}
-
-
-
 }
