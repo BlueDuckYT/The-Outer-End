@@ -103,7 +103,7 @@ public class PurpurGolemModel extends EntityModel<PurpurGolemEntity> {
 			leftarm.rotateAngleX = rightleg.rotateAngleX;
 			rightarm.rotateAngleX = -leftarm.rotateAngleX;
 		}
-		this.head.rotateAngleZ = (float) Math.toRadians(netHeadYaw);
+		this.head.rotateAngleY = (float) Math.toRadians(netHeadYaw);
 	}
 
 	@Override
