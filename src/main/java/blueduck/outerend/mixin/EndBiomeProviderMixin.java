@@ -26,7 +26,7 @@ public abstract class EndBiomeProviderMixin {
 	 * @author OutEnd Team
 	 */
 	@Overwrite
-	//TODO
+	//TODO: switch to inject instead of overwrite
 	public Biome getNoiseBiome(int x, int y, int z) {
 		MixinHelpers.generator1 = this.generator;
 		int i = x >> 2;
