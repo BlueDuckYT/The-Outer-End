@@ -35,7 +35,7 @@ public class DragonflyRenderLayer extends LayerRenderer<DragonflyEntity, Dragonf
 		
 		ivertexbuilder = bufferIn.getBuffer(renderType1);
 		this.getEntityModel().setupForGel();
-		Color color = new Color(entitylivingbaseIn.getEntityWorld().getBiome(entitylivingbaseIn.getPosition()).getGrassColor(entitylivingbaseIn.getPosX(),entitylivingbaseIn.getPosZ()));
+		Color color = new Color(entitylivingbaseIn.getColor());
 		this.getEntityModel().render(matrixStackIn, ivertexbuilder, packedLightIn,
 				OverlayTexture.getPackedUV(OverlayTexture.getU(0), OverlayTexture.getV(entitylivingbaseIn.hurtTime > 0 || entitylivingbaseIn.deathTime > 0)),
 				color.getRed()/255f, color.getGreen()/255f, color.getBlue()/255f,

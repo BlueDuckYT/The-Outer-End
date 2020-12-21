@@ -1,5 +1,6 @@
 package blueduck.outerend.entities;
 
+import blueduck.outerend.client.Color;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.client.Minecraft;
@@ -9,6 +10,9 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.pathfinding.Path;
 import net.minecraft.util.Direction;
@@ -24,9 +28,25 @@ public class DragonflyEntity extends MobEntity {
 	//using a separate navigator field then I should be using as I don't want this getting ticked by vanilla
 	private final FlyingPathNavigator pathNavigator;
 	
+	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(HimmeliteEntity.class, DataSerializers.VARINT);
+	
 	public DragonflyEntity(EntityType<? extends MobEntity> type, World worldIn) {
 		super(type, worldIn);
 		pathNavigator = new FlyingPathNavigator(this, this.world);
+		setColor(worldIn.getBiome(this.getPosition()).getGrassColor(this.getPosX(),this.getPosZ()));
+	}
+	
+	public void setColor(int amt) {
+		this.dataManager.set(COLOR, amt);
+	}
+	
+	protected void registerData() {
+		super.registerData();
+		this.dataManager.register(COLOR, 1);
+	}
+	
+	public int getColor() {
+		return this.dataManager.get(COLOR);
 	}
 	
 	public static AttributeModifierMap createModifiers() {
@@ -201,6 +221,17 @@ public class DragonflyEntity extends MobEntity {
 		}
 		
 		super.tick();
+		
+		Color thisColor = new Color(this.getColor());
+		Color biomeColor = new Color(this.getEntityWorld().getBiome(this.getPosition()).getGrassColor(this.getPosX(),this.getPosZ()));
+		
+		this.setColor(
+				new Color(
+						(int)MathHelper.lerp(0.001f,thisColor.getRed(),biomeColor.getRed()),
+						(int)MathHelper.lerp(0.001f,thisColor.getGreen(),biomeColor.getGreen()),
+						(int)MathHelper.lerp(0.001f,thisColor.getBlue(),biomeColor.getBlue())
+				).getRGB()
+		);
 	}
 	
 	@Override
