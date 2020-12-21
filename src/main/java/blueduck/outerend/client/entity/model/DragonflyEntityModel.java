@@ -8,7 +8,6 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.vector.Quaternion;
 
 public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 	private final ModelRenderer body;
@@ -108,9 +107,9 @@ public class DragonflyEntityModel extends EntityModel<DragonflyEntity> {
 	@Override
 	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		matrixStack.push();
-		matrixStack.rotate(new Quaternion(
-				0,180,0,true
-		));
+//		matrixStack.rotate(new Quaternion(
+//				0,180,0,true
+//		));
 		body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 		matrixStack.pop();
 	}
