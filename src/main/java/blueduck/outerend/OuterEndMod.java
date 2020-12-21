@@ -9,7 +9,6 @@ import blueduck.outerend.registry.*;
 import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -28,7 +27,6 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -82,11 +80,6 @@ public class OuterEndMod
             StructureRegistry.setupStructures();
             ConfiguredStructureFeatures.registerConfiguredStructures();
         });
-
-        if (FMLEnvironment.dist.isClient()) {
-            for (RegistryObject<Item> egg : ItemRegistry.SPAWN_EGGS.getEntries())
-            OuterEndSpawnEgg.OUTER_END_SPAWN_EGGS.add((OuterEndSpawnEgg) egg.get());
-        }
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
