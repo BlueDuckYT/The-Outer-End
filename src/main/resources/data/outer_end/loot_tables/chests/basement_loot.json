@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 2,
+          "quality": 0,
+          "name": "minecraft:chests/end_city_treasure"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 2,
+          "quality": 0,
+          "name": "minecraft:chests/stronghold_library"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 4,
+          "quality": 0,
+          "name": "minecraft:chests/stronghold_corridor"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 2,
+          "quality": 0,
+          "name": "minecraft:chests/jungle_temple"
+        }
+      ]
+    }
+  ]
+}

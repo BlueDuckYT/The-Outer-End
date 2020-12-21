@@ -10,6 +10,10 @@ import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.loot.LootEntry;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTables;
+import net.minecraft.loot.TableLootEntry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -22,12 +26,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -35,7 +41,9 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Mod("outer_end")
@@ -141,5 +149,37 @@ public class OuterEndMod
                 event.getItemColors().register((stack, i) -> egg.getColor(i), egg);
             }
         }
+    }
+    @Mod.EventBusSubscriber(modid = "outer_end")
+    public static class LootEvents {
+
+        @SubscribeEvent
+        public static void onLootLoad(LootTableLoadEvent event) throws IllegalAccessException {
+
+            ResourceLocation name = event.getName();
+
+            if (name.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
+                LootPool pool = event.getTable().getPool("main");
+                if (pool != null) {
+                    addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 3, 0));
+                }
+            }
+
+
+        }
+    }
+
+    private static LootEntry getInjectEntry(ResourceLocation location, int weight, int quality) {
+        return TableLootEntry.builder(location).weight(weight).quality(quality).build();
+    }
+
+
+
+    private static void addEntry(LootPool pool, LootEntry entry) throws IllegalAccessException {
+        List<LootEntry> lootEntries = (List<LootEntry>) ObfuscationReflectionHelper.findField(LootPool.class, "field_186453_a").get(pool);
+        if (lootEntries.stream().anyMatch(e -> e == entry)) {
+            throw new RuntimeException("Attempted to add a duplicate entry to pool: " + entry);
+        }
+        lootEntries.add(entry);
     }
 }
