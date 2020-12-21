@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "outer_end:azure_button"
+          "name": "outer_end:azure_trapdoor"
         }
       ],
       "conditions": [

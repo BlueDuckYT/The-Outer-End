@@ -26,6 +26,10 @@
   "item.outer_end.music_disc_galactic_wave": "Music Disc",
   "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",
 
+
+  "item.outer_end.spectrafly_spawn_egg": "Spectrafly Spawn Egg",
+  "item.outer_end.himmelite_spawn_egg": "Himmelite Spawn Egg",
+
   "entity.outer_end.spectrafly": "Spectrafly",
   "entity.outer_end.himmelite": "Himmelite",
 
