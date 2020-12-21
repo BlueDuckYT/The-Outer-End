@@ -6,7 +6,8 @@
   "client": [
   ],
   "mixins": [
-    "EndBiomeProviderMixin"
+    "EndBiomeProviderMixin",
+    "EndCityStartMixin"
   ],
   "injectors": {
     "defaultRequire": 1
