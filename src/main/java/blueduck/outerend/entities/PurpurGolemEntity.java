@@ -132,4 +132,9 @@ public class PurpurGolemEntity extends MonsterEntity {
         return new ItemStack(ItemRegistry.PURPUR_GOLEM_SPAWN_EGG.get());
     }
 
+
+    public int getExperiencePoints(PlayerEntity player) {
+        return player.getEntityWorld().getRandom().nextInt(50);
+    }
+
 }

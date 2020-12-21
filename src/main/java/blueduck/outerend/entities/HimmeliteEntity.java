@@ -73,7 +73,7 @@ public class HimmeliteEntity extends MonsterEntity {
     public static AttributeModifierMap createModifiers() {
         return MonsterEntity.func_234295_eP_()
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.35)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 6)
+                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 4)
                 .createMutableAttribute(Attributes.ARMOR, 0)
                 .createMutableAttribute(Attributes.MAX_HEALTH, 20).create();
     }
@@ -91,6 +91,11 @@ public class HimmeliteEntity extends MonsterEntity {
             }
         }
         return null;
+    }
+
+
+    public int getExperiencePoints(PlayerEntity player) {
+        return player.getEntityWorld().getRandom().nextInt(12);
     }
     
     public Path getPath() {
