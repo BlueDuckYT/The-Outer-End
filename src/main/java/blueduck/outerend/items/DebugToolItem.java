@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class DebugToolItem extends Item {
 	public DebugToolItem(Properties properties) {
-		super(properties);
+		super(properties.maxStackSize(1));
 	}
 	
 	@Override
