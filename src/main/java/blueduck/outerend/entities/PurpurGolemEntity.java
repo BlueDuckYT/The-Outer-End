@@ -64,11 +64,11 @@ public class PurpurGolemEntity extends MonsterEntity {
         return MonsterEntity.func_234295_eP_()
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 16)
-                .createMutableAttribute(Attributes.ARMOR, 5)
+                .createMutableAttribute(Attributes.ARMOR, 0)
                 .createMutableAttribute(Attributes.ATTACK_KNOCKBACK, 8)
                 .createMutableAttribute(Attributes.FOLLOW_RANGE, 12)
-                .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 10000000)
-                .createMutableAttribute(Attributes.MAX_HEALTH, 60).create();
+                .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 100000000)
+                .createMutableAttribute(Attributes.MAX_HEALTH, 80).create();
     }
     
     public Entity getNearest(Class<? extends LivingEntity>... classes) {
@@ -89,8 +89,9 @@ public class PurpurGolemEntity extends MonsterEntity {
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
         this.setSwingProgress(0.1f);
+        boolean flag = super.attackEntityAsMob(entityIn);
         entityIn.setMotion(entityIn.getMotion().add(0.0D, (double)0.4F, 0.0D));
-        return super.attackEntityAsMob(entityIn);
+        return flag;
     }
     
     public void setSwingProgress(float amt) {
