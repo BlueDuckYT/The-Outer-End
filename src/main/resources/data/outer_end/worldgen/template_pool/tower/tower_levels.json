@@ -58,7 +58,7 @@
       }
     },
     {
-      "weight": 60,
+      "weight": 80,
       "element": {
         "location": "outer_end:tower/levels/top_level",
         "processors": "minecraft:empty",
