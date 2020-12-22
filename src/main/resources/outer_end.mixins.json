@@ -7,7 +7,7 @@
   ],
   "mixins": [
     "EndBiomeProviderMixin",
-    "EndCityStartMixin"
+    "DragonAttributesMixin"
   ],
   "injectors": {
     "defaultRequire": 1
