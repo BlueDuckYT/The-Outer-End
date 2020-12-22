@@ -29,9 +29,11 @@
 
   "item.outer_end.spectrafly_spawn_egg": "Spectrafly Spawn Egg",
   "item.outer_end.himmelite_spawn_egg": "Himmelite Spawn Egg",
+  "item.outer_end.purpur_golem_spawn_egg": "Purpur Golem Spawn Egg",
 
   "entity.outer_end.spectrafly": "Spectrafly",
   "entity.outer_end.himmelite": "Himmelite",
+  "entity.outer_end.purpur_golem": "Purpur Golem",
 
 
   "music.outer_end.galactic_wave": "Galactic Wave",

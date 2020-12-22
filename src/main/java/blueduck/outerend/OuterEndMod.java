@@ -107,7 +107,7 @@ public class OuterEndMod
         if (event.getCategory().equals(Biome.Category.THEEND)) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_END_TOWER);
 
-            event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 10, 1, 1));
+            event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 5, 1, 1));
 
         }
     }

@@ -18,6 +18,8 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -47,7 +49,6 @@ public class PurpurGolemEntity extends MonsterEntity {
         super.registerData();
         this.dataManager.register(ARM_SWING, 0f);
     }
-    
 
     
     public void applyEntityAI() {
@@ -88,6 +89,7 @@ public class PurpurGolemEntity extends MonsterEntity {
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
         this.setSwingProgress(0.1f);
+        entityIn.setMotion(entityIn.getMotion().add(0.0D, (double)0.4F, 0.0D));
         return super.attackEntityAsMob(entityIn);
     }
     
