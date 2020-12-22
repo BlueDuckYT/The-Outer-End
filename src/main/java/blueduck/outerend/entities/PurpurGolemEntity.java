@@ -2,10 +2,7 @@ package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityPredicate;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -20,9 +17,15 @@ import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+
+import java.util.Random;
 
 public class PurpurGolemEntity extends MonsterEntity {
     private static final DataParameter<Float> ARM_SWING = EntityDataManager.createKey(HimmeliteEntity.class, DataSerializers.FLOAT);
@@ -132,6 +135,25 @@ public class PurpurGolemEntity extends MonsterEntity {
         return new ItemStack(ItemRegistry.PURPUR_GOLEM_SPAWN_EGG.get());
     }
 
+    public static boolean canSpawn(EntityType<PurpurGolemEntity> type, IWorld world, SpawnReason spawnReason, BlockPos pos,
+                                   Random random) {
+
+        if (world instanceof ServerWorld && ((ServerWorld) world).func_241112_a_().getStructureStart(pos, true, Structure.END_CITY).isValid())
+            return true;
+
+        int radius = 15;
+        final BlockPos min = pos.add(-radius, -radius, -radius);
+        final BlockPos max = pos.add(radius, radius, radius);
+
+        for (BlockPos posAround : BlockPos.Mutable.getAllInBoxMutable(min, max))
+        {
+            if (world instanceof ServerWorld && ((ServerWorld) world).func_241112_a_().getStructureStart(posAround, true, Structure.OCEAN_RUIN).isValid())
+                return true;
+        }
+
+        return false;
+
+    }
 
     public int getExperiencePoints(PlayerEntity player) {
         return player.getEntityWorld().getRandom().nextInt(50);

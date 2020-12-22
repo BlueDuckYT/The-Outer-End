@@ -8,6 +8,7 @@ import blueduck.outerend.items.OuterEndSpawnEgg;
 import blueduck.outerend.registry.*;
 import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.loot.LootEntry;
@@ -17,6 +18,7 @@ import net.minecraft.loot.TableLootEntry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
@@ -104,6 +106,9 @@ public class OuterEndMod
         // registrykey. Then that can be fed into the dictionary to get the biome's types.
         if (event.getCategory().equals(Biome.Category.THEEND)) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_END_TOWER);
+
+            event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 2, 1, 1));
+
         }
     }
 

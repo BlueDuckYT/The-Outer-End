@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -27,6 +28,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
+import java.util.Random;
 
 public class EndTowerStructure extends Structure<NoFeatureConfig> {
     public EndTowerStructure(Codec<NoFeatureConfig> codec) {
@@ -115,7 +117,28 @@ public class EndTowerStructure extends Structure<NoFeatureConfig> {
         return landHeight > 40;
     }
 
+    public static int getYPosForStructure(int chunkX, int chunkY, ChunkGenerator generatorIn) {
+        Random random = new Random((long)(chunkX + chunkY * 10387313));
+        Rotation rotation = Rotation.randomRotation(random);
+        int i = 5;
+        int j = 5;
+        if (rotation == Rotation.CLOCKWISE_90) {
+            i = -5;
+        } else if (rotation == Rotation.CLOCKWISE_180) {
+            i = -5;
+            j = -5;
+        } else if (rotation == Rotation.COUNTERCLOCKWISE_90) {
+            j = -5;
+        }
 
+        int k = (chunkX << 4) + 7;
+        int l = (chunkY << 4) + 7;
+        int i1 = generatorIn.getNoiseHeightMinusOne(k, l, Heightmap.Type.WORLD_SURFACE_WG);
+        int j1 = generatorIn.getNoiseHeightMinusOne(k, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+        int k1 = generatorIn.getNoiseHeightMinusOne(k + i, l, Heightmap.Type.WORLD_SURFACE_WG);
+        int l1 = generatorIn.getNoiseHeightMinusOne(k + i, l + j, Heightmap.Type.WORLD_SURFACE_WG);
+        return Math.min(Math.min(i1, j1), Math.min(k1, l1));
+    }
     /**
      * Handles calling up the structure's pieces class and height that structure will spawn at.
      */

@@ -21,7 +21,7 @@ public class EntityRegistry {
 
 	public static final RegistryObject<EntityType<PurpurGolemEntity>> PURPUR_GOLEM = ENTITIES.register("purpur_golem", () -> EntityType.Builder
 			.create(PurpurGolemEntity::new, EntityClassification.MONSTER)
-			.setTrackingRange(32).setUpdateInterval(2).size(1.6f, 3f)
+			.setTrackingRange(32).setUpdateInterval(2).size(1.6f, 2.9f)
 			.immuneToFire()
 			.build(OuterEndMod.MODID + ":himmelite"));
 
