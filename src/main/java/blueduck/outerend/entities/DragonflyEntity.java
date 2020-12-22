@@ -10,9 +10,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.pathfinding.Path;
 import net.minecraft.util.Direction;
@@ -21,32 +18,40 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class DragonflyEntity extends MobEntity {
 	//using a separate navigator field then I should be using as I don't want this getting ticked by vanilla
 	private final FlyingPathNavigator pathNavigator;
 	
-	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(HimmeliteEntity.class, DataSerializers.VARINT);
+//	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(HimmeliteEntity.class, DataSerializers.VARINT);
+	
+	public Color color = new Color(0,0,0);
+	
 	
 	public DragonflyEntity(EntityType<? extends MobEntity> type, World worldIn) {
 		super(type, worldIn);
 		pathNavigator = new FlyingPathNavigator(this, this.world);
-		setColor(worldIn.getBiome(this.getPosition()).getGrassColor(this.getPosX(),this.getPosZ()));
+//		if (FMLEnvironment.dist.isClient()) {
+//			setColor(getColor(world.getBiome(this.getPosition())));
+//		}
 	}
 	
 	public void setColor(int amt) {
-		this.dataManager.set(COLOR, amt);
+		this.color = new Color(amt);
+//		this.dataManager.register(COLOR, 1);
 	}
 	
 	public int getColor() {
-		return this.dataManager.get(COLOR);
+		return color.getRGB();
 	}
 	
 	protected void registerData() {
 		super.registerData();
-		this.dataManager.register(COLOR, 1);
 	}
 	
 	public static AttributeModifierMap createModifiers() {
@@ -126,6 +131,24 @@ public class DragonflyEntity extends MobEntity {
 	public void tick() {
 		if (this.getEntityWorld().isRemote || this.isAIDisabled()) {
 			super.tick();
+			if (FMLEnvironment.dist.isClient()) {
+				Color thisColor = new Color(this.getColor());
+				try {
+					Color biomeColor = new Color(getColor(
+							ForgeRegistries.BIOMES.getValue(
+									world.func_242406_i(this.getPosition()).orElse(Biomes.PLAINS).getLocation()
+							)
+					));
+						this.setColor(
+							new Color(
+									(int)MathHelper.lerp(0.1f,thisColor.getRed(),biomeColor.getRed()),
+									(int)MathHelper.lerp(0.1f,thisColor.getGreen(),biomeColor.getGreen()),
+									(int)MathHelper.lerp(0.1f,thisColor.getBlue(),biomeColor.getBlue())
+							).getRGB()
+					);
+				} catch (Throwable ignored) {
+				}
+			}
 			return;
 		}
 		this.fallDistance = 0;
@@ -221,17 +244,52 @@ public class DragonflyEntity extends MobEntity {
 		}
 		
 		super.tick();
-		
-		Color thisColor = new Color(this.getColor());
-		Color biomeColor = new Color(this.getEntityWorld().getBiome(this.getPosition()).getGrassColor(this.getPosX(),this.getPosZ()));
-		
-		this.setColor(
-				new Color(
-						(int)MathHelper.lerp(0.001f,thisColor.getRed(),biomeColor.getRed()),
-						(int)MathHelper.lerp(0.001f,thisColor.getGreen(),biomeColor.getGreen()),
-						(int)MathHelper.lerp(0.001f,thisColor.getBlue(),biomeColor.getBlue())
-				).getRGB()
-		);
+	}
+	
+	public static int getColor(Biome biome) {
+		if (biome == null || biome.getRegistryName() == null) {
+			return 0;
+		}
+		if (
+				biome.getRegistryName().toString().equals("minecraft:crimson_forest")
+		) {
+			return new Color(255,15,15).getRGB();
+		} else if (
+				biome.getRegistryName().toString().equals("minecraft:warped_forest")
+		) {
+			return new Color(19,112,118).getRGB();
+		} else if (
+				biome.getRegistryName().toString().equals("minecraft:nether_wastes")
+		) {
+			return new Color(100,16,16).getRGB();
+		} else if (
+				biome.getRegistryName().toString().equals("minecraft:soul_sand_valley")
+		) {
+			return new Color(41,35,34).getRGB();
+		} else if (
+				biome.getRegistryName().toString().equals("minecraft:flower_forest")
+		) {
+			return new Color(252,233,78).getRGB();
+		} else if (
+				biome.getRegistryName().toString().startsWith("minecraft:desert")
+		) {
+			return new Color(244,216,120).getRGB();
+		} else if (
+				biome.getCategory().equals(Biome.Category.THEEND) &&
+						biome.getRegistryName().getNamespace().equals("minecraft")
+		) {
+			return new Color(255,255,255).getRGB();
+		} else if (
+				biome.getCategory().equals(Biome.Category.OCEAN) &&
+						biome.getRegistryName().getNamespace().equals("minecraft")
+		) {
+			return new Color(89,115,165).getRGB();
+		} else if (
+				biome.getRegistryName().toString().equals("minecraft:basalt_deltas")
+		) {
+			return new Color(115,120,128).getRGB();
+		}
+		return biome.getGrassColor(0,0);
 	}
 	
 	@Override

@@ -4,10 +4,12 @@ buildscript {
         jcenter()
         mavenCentral()
         maven { url 'https://dist.creeper.host/Sponge/maven' }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath "com.wynprice.cursemaven:CurseMaven:2.1.4"
     }
 }
 
@@ -101,6 +103,7 @@ repositories{
     maven {url='https://dist.creeper.host/Sponge/maven'}
     jcenter()
     mavenCentral()
+    maven {url "https://www.cursemaven.com"}
 }
 
 dependencies {
@@ -110,6 +113,8 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.16.4-35.1.12'
 
     compile 'org.spongepowered:mixin:0.8'
+
+    compile fg.deobf("curse.maven:ReAuth-237701:3105779")
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"

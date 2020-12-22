@@ -33,6 +33,7 @@ public class DragonflyRenderLayer extends LayerRenderer<DragonflyEntity, Dragonf
 		this.getEntityModel().render(matrixStackIn, ivertexbuilder, LightTexture.packLight(15,15),
 				OverlayTexture.getPackedUV(3, OverlayTexture.getV(entitylivingbaseIn.hurtTime > 0 || entitylivingbaseIn.deathTime > 0)), 1.0F, 1.0F, 1.0F, MathHelper.clamp((float)Math.abs(Math.cos(entitylivingbaseIn.ticksExisted/120F))*3f,0,1));
 		
+//		ivertexbuilder = bufferIn.getBuffer(RenderType.getEntitySolid(new ResourceLocation("outer_end:textures/entity/glowdragon.png")));
 		ivertexbuilder = bufferIn.getBuffer(renderType1);
 		this.getEntityModel().setupForGel();
 		Color color = new Color(entitylivingbaseIn.getColor());
