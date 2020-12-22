@@ -6,6 +6,8 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,7 +30,7 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import java.util.Random;
 
 public class PurpurGolemEntity extends MonsterEntity {
-    private static final DataParameter<Float> ARM_SWING = EntityDataManager.createKey(HimmeliteEntity.class, DataSerializers.FLOAT);
+    private static final DataParameter<Float> ARM_SWING = EntityDataManager.createKey(PurpurGolemEntity.class, DataSerializers.FLOAT);
     
     public PurpurGolemEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
         super(type, worldIn);
@@ -52,7 +54,9 @@ public class PurpurGolemEntity extends MonsterEntity {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1D, false));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(PurpurGolemEntity.class));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, GolemEntity.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, GolemEntity.class, 5, false, false, (p_234199_0_) -> {
+            return !(p_234199_0_ instanceof IMob);
+        }));
     }
     
     public static AttributeModifierMap createModifiers() {
@@ -147,7 +151,7 @@ public class PurpurGolemEntity extends MonsterEntity {
 
         for (BlockPos posAround : BlockPos.Mutable.getAllInBoxMutable(min, max))
         {
-            if (world instanceof ServerWorld && ((ServerWorld) world).func_241112_a_().getStructureStart(posAround, true, Structure.OCEAN_RUIN).isValid())
+            if (world instanceof ServerWorld && ((ServerWorld) world).func_241112_a_().getStructureStart(posAround, true, Structure.END_CITY).isValid())
                 return true;
         }
 
