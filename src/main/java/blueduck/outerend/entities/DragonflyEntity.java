@@ -19,29 +19,31 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class DragonflyEntity extends MobEntity {
 	//using a separate navigator field then I should be using as I don't want this getting ticked by vanilla
 	private final FlyingPathNavigator pathNavigator;
 	
-	@OnlyIn(Dist.CLIENT)
-	public Color color;
+//	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(HimmeliteEntity.class, DataSerializers.VARINT);
+	
+	public Color color = new Color(0,0,0);
 	
 	
 	public DragonflyEntity(EntityType<? extends MobEntity> type, World worldIn) {
 		super(type, worldIn);
 		pathNavigator = new FlyingPathNavigator(this, this.world);
-		if (FMLEnvironment.dist.isClient()) {
-			setColor(getColor(world.getBiome(this.getPosition())));
-		}
+//		if (FMLEnvironment.dist.isClient()) {
+//			setColor(getColor(world.getBiome(this.getPosition())));
+//		}
 	}
 	
 	public void setColor(int amt) {
 		this.color = new Color(amt);
+//		this.dataManager.register(COLOR, 1);
 	}
 	
 	public int getColor() {
@@ -131,15 +133,21 @@ public class DragonflyEntity extends MobEntity {
 			super.tick();
 			if (FMLEnvironment.dist.isClient()) {
 				Color thisColor = new Color(this.getColor());
-				Color biomeColor = new Color(getColor(world.getBiome(this.getPosition())));
-				
-				this.setColor(
-						new Color(
-								(int)MathHelper.lerp(0.1f,thisColor.getRed(),biomeColor.getRed()),
-								(int)MathHelper.lerp(0.1f,thisColor.getGreen(),biomeColor.getGreen()),
-								(int)MathHelper.lerp(0.1f,thisColor.getBlue(),biomeColor.getBlue())
-						).getRGB()
-				);
+				try {
+					Color biomeColor = new Color(getColor(
+							ForgeRegistries.BIOMES.getValue(
+									world.func_242406_i(this.getPosition()).orElse(Biomes.PLAINS).getLocation()
+							)
+					));
+						this.setColor(
+							new Color(
+									(int)MathHelper.lerp(0.1f,thisColor.getRed(),biomeColor.getRed()),
+									(int)MathHelper.lerp(0.1f,thisColor.getGreen(),biomeColor.getGreen()),
+									(int)MathHelper.lerp(0.1f,thisColor.getBlue(),biomeColor.getBlue())
+							).getRGB()
+					);
+				} catch (Throwable ignored) {
+				}
 			}
 			return;
 		}
@@ -239,6 +247,9 @@ public class DragonflyEntity extends MobEntity {
 	}
 	
 	public static int getColor(Biome biome) {
+		if (biome == null || biome.getRegistryName() == null) {
+			return 0;
+		}
 		if (
 				biome.getRegistryName().toString().equals("minecraft:crimson_forest")
 		) {
@@ -278,7 +289,7 @@ public class DragonflyEntity extends MobEntity {
 		) {
 			return new Color(115,120,128).getRGB();
 		}
-		return biome.getAmbience().getGrassColor().orElse(0);
+		return biome.getGrassColor(0,0);
 	}
 	
 	@Override
