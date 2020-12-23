@@ -1,5 +1,6 @@
 package blueduck.outerend.mixin;
 
+import blueduck.outerend.OuterEndMod;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -23,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class DragonAttributesMixin {
 	@Overwrite
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 500.0D);
+		return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, OuterEndMod.CONFIG.ENDER_DRAGON_HEALTH.get());
 	}
 
 }

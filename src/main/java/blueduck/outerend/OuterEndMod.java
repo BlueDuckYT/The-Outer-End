@@ -3,6 +3,8 @@ package blueduck.outerend;
 import blueduck.outerend.client.ClientSetup;
 import blueduck.outerend.client.DebugRenderer;
 import blueduck.outerend.common.CommonSetup;
+import blueduck.outerend.config.ConfigHelper;
+import blueduck.outerend.config.OuterEndConfig;
 import blueduck.outerend.features.ConfiguredStructureFeatures;
 import blueduck.outerend.items.OuterEndSpawnEgg;
 import blueduck.outerend.registry.*;
@@ -36,6 +38,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -53,7 +56,12 @@ public class OuterEndMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "outer_end";
+
+    public static OuterEndConfig CONFIG;
+
     public OuterEndMod() {
+
+        CONFIG = ConfigHelper.register(ModConfig.Type.COMMON, OuterEndConfig::new);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(CommonSetup::onCommonSetup);
 
         MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
