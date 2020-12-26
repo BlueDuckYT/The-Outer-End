@@ -10,6 +10,8 @@ import blueduck.outerend.items.OuterEndSpawnEgg;
 import blueduck.outerend.registry.*;
 import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
+import com.minecraftabnormals.abnormals_core.core.registry.BoatRegistry;
+import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.SpawnEggItem;
@@ -43,6 +45,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -58,6 +61,7 @@ public class OuterEndMod
     public static String MODID = "outer_end";
 
     public static OuterEndConfig CONFIG;
+
 
     public OuterEndMod() {
 
@@ -98,6 +102,8 @@ public class OuterEndMod
             StructureRegistry.setupStructures();
             ConfiguredStructureFeatures.registerConfiguredStructures();
         });
+
+        BoatRegistry.registerBoat("outer_end:azure", ItemRegistry.AZURE_BOAT, BlockRegistry.AZURE_PLANKS);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
