@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "outer_end:azure_planks"
+    "outer_end:azure_planks",
+    {
+      "id": "outer_end:azure_planks",
+      "required": "false"
+    }
   ]
 }

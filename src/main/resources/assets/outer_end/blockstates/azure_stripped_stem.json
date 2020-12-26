@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "outer_end:block/azure/stripped_stem/horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "outer_end:block/azure/stripped_stem/stem"
+    },
+    "axis=z": {
+      "model": "outer_end:block/azure/stripped_stem/horizontal",
+      "x": 90
+    }
+  }
+}

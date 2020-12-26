@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:azure_stripped_stem"
+    }
+  },
+  "result": {
+    "item": "outer_end:azure_stripped_pith",
+    "count": 3
+  }
+}

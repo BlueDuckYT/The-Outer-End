@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "outer_end:azure_stem"
+    "outer_end:azure_stem",
+    "outer_end:azure_stripped_stem",
+    "outer_end:azure_pith",
+    "outer_end:azure_stripped_pith"
   ]
 }

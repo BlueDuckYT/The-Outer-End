@@ -9,6 +9,10 @@ import com.minecraftabnormals.abnormals_core.common.blocks.BookshelfBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.sign.AbnormalsStandingSignBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.sign.AbnormalsWallSignBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.AbnormalsLogBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.StrippedLogBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.StrippedWoodBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.WoodBlock;
 import com.minecraftabnormals.abnormals_core.common.items.AbnormalsSignItem;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -30,11 +34,24 @@ public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OuterEndMod.MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, OuterEndMod.MODID);
 
-    public static final RegistryObject<Block> AZURE_STEM = BLOCKS.register("azure_stem", () -> new RotatedPillarBlock(Block.Properties.from(Blocks.OAK_LOG)));
+    public static final RegistryObject<Block> AZURE_STRIPPED_STEM = BLOCKS.register("azure_stripped_stem", () -> new StrippedLogBlock(Block.Properties.from(Blocks.OAK_LOG)));
+
+    public static final RegistryObject<Block> AZURE_STEM = BLOCKS.register("azure_stem", () -> new AbnormalsLogBlock(() -> AZURE_STRIPPED_STEM.get(), Block.Properties.from(Blocks.OAK_LOG)));
     public static final RegistryObject<Item> AZURE_STEM_ITEM = ITEMS.register("azure_stem", () -> new BlockItem(AZURE_STEM.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> AZURE_STRIPPED_STEM_ITEM = ITEMS.register("azure_stripped_stem", () -> new BlockItem(AZURE_STRIPPED_STEM.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> AZURE_STRIPPED_PITH = BLOCKS.register("azure_stripped_pith", () -> new StrippedWoodBlock(Block.Properties.from(Blocks.OAK_LOG)));
+
+    public static final RegistryObject<Block> AZURE_PITH = BLOCKS.register("azure_pith", () -> new WoodBlock(() -> AZURE_STRIPPED_PITH.get(), Block.Properties.from(Blocks.OAK_LOG)));
+    public static final RegistryObject<Item> AZURE_PITH_ITEM = ITEMS.register("azure_pith", () -> new BlockItem(AZURE_PITH.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> AZURE_STRIPPED_PITH_ITEM = ITEMS.register("azure_stripped_pith", () -> new BlockItem(AZURE_STRIPPED_PITH.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
 
     public static final RegistryObject<Block> AZURE_PLANKS = BLOCKS.register("azure_planks", () -> new Block(Block.Properties.from(Blocks.OAK_PLANKS)));
     public static final RegistryObject<Item> AZURE_PLANKS_ITEM = ITEMS.register("azure_planks", () -> new BlockItem(AZURE_PLANKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> AZURE_VERTICAL_PLANKS = conditionallyRegisterBlock("azure_vertical_planks", () -> new Block(Block.Properties.from(Blocks.OAK_PLANKS)), () -> true);
+    public static final RegistryObject<Item> AZURE_VERTICAL_PLANKS_ITEM = conditionallyRegisterItem("azure_vertical_planks", () -> new BlockItem(AZURE_VERTICAL_PLANKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> true);
 
     public static final RegistryObject<Block> AZURE_SLAB = BLOCKS.register("azure_slab", () -> new SlabBlock(Block.Properties.from(Blocks.OAK_PLANKS)));
     public static final RegistryObject<Item> AZURE_SLAB_ITEM = ITEMS.register("azure_slab", () -> new BlockItem(AZURE_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
@@ -66,6 +83,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> AZURE_SIGN = BLOCKS.register("azure_sign", () -> new AbnormalsStandingSignBlock(Block.Properties.from(Blocks.OAK_SIGN), new ResourceLocation("outer_end:block/azure/sign")));
     public static final RegistryObject<Block> AZURE_WALL_SIGN = BLOCKS.register("azure_wall_sign", () -> new AbnormalsWallSignBlock(Block.Properties.from(Blocks.OAK_SIGN), new ResourceLocation("outer_end:block/azure/sign")));
     public static final RegistryObject<Item> AZURE_SIGN_ITEM = ITEMS.register("azure_sign", () -> new AbnormalsSignItem(AZURE_SIGN.get(), AZURE_WALL_SIGN.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+
+    public static final RegistryObject<Block> AZURE_LADDER = conditionallyRegisterBlock("azure_ladder", () -> new LadderBlock(Block.Properties.from(Blocks.LADDER)), () -> true);
+    public static final RegistryObject<Item> AZURE_LADDER_ITEM = conditionallyRegisterItem("azure_ladder", () -> new BlockItem(AZURE_LADDER.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> true);
 
     public static final RegistryObject<Block> AZURE_BOOKSHELF = conditionallyRegisterBlock("azure_bookshelf", () -> new BookshelfBlock(Block.Properties.from(Blocks.OAK_PLANKS)), () -> true);
     public static final RegistryObject<Item> AZURE_BOOKSHELF_ITEM = conditionallyRegisterItem("azure_bookshelf", () -> new BlockItem(AZURE_BOOKSHELF.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> true);

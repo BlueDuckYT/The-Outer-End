@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "outer_end:block/azure/ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "outer_end:block/azure/ladder"
+    },
+    "facing=south": {
+      "model": "outer_end:block/azure/ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "outer_end:block/azure/ladder",
+      "y": 270
+    }
+  }
+}

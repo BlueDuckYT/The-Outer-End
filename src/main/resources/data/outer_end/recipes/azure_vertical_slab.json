@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:azure_slab"
+    }
+  },
+  "result": {
+    "item": "outer_end:azure_vertical_slab",
+    "count": 3
+  }
+}
