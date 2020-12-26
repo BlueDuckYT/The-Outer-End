@@ -2,7 +2,10 @@ package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.biomes.AzureForest;
+import com.minecraftabnormals.abnormals_core.core.util.BiomeUtil;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -46,6 +49,7 @@ public class BiomeRegistry {
 	
 	private static void register(Biome biome, ResourceLocation registryName, float weight, float weightRange, RegistryEvent.Register<Biome> event) {
 //		event.getRegistry().register(biome);
+		BiomeUtil.addEndBiome(RegistryKey.getOrCreateKey(Registry.BIOME_KEY,biome.getRegistryName()),(int)weight);
 		OUTER_END_BIOMES.put(registryName, ForgeRegistries.BIOMES.getValue(registryName));
 		OUTER_END_BIOME_WEIGHTS.put(getBiomes()[OUTER_END_BIOME_WEIGHTS.size()],weight);
 		OUTER_END_BIOMES_WEIGHT_RANGES.put(getBiomes()[OUTER_END_BIOMES_WEIGHT_RANGES.size()],weightRange);

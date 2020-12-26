@@ -6,8 +6,8 @@
   "client": [
   ],
   "mixins": [
-    "EndBiomeProviderMixin",
-    "DragonAttributesMixin"
+    "DragonAttributesMixin",
+    "TemplateManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
