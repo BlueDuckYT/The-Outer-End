@@ -12,7 +12,10 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.pathfinding.Path;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -295,5 +298,14 @@ public class DragonflyEntity extends MobEntity {
 	@Override
 	public ItemStack getPickedResult(RayTraceResult target) {
 		return new ItemStack(ItemRegistry.SPECTRAFLY_SPAWN_EGG.get());
+	}
+
+	public SoundEvent getHurtSound(DamageSource damageSourceIn) {
+		return SoundEvents.ENTITY_BEE_HURT;
+	}
+
+
+	public boolean makeFlySound() {
+		return true;
 	}
 }

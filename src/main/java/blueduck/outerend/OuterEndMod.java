@@ -61,6 +61,7 @@ public class OuterEndMod
     public static String MODID = "outer_end";
 
     public static OuterEndConfig CONFIG;
+    public static RegistryHelper HELPER = new RegistryHelper("outer_end");
 
 
     public OuterEndMod() {

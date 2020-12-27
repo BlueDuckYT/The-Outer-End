@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "outer_end:item/azure_boat"
+    "layer0": "outer_end:item/azure_sign"
   }
 }

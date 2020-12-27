@@ -1,5 +1,8 @@
 {
   "block.outer_end.azure_stem": "Azure Stem",
+  "block.outer_end.azure_pith": "Azure Pith",
+  "block.outer_end.azure_stripped_stem": "Stripped Azure Stem",
+  "block.outer_end.azure_stripped_pith": "Stripped Azure Pith",
   "block.outer_end.azure_planks": "Azure Planks",
   "block.outer_end.azure_leaves": "Azure Petals",
   "block.outer_end.azure_stamen": "Azure Stamen",
@@ -14,14 +17,24 @@
   "block.outer_end.azure_button": "Azure Button",
   "block.outer_end.azure_slab": "Azure Slab",
   "block.outer_end.azure_stairs": "Azure Stairs",
+  "block.outer_end.azure_sign": "Azure Sign",
+
+  "block.outer_end.azure_vertical_slab": "Azure Vertical Slab",
+  "block.outer_end.azure_vertical_planks": "Vertical Azure Planks",
+  "block.outer_end.azure_ladder": "Azure Ladder",
+  "block.outer_end.azure_bookshelf": "Azure Bookshelf",
+  "block.outer_end.azure_chest": "Azure Chest",
+  "block.outer_end.azure_trapped_chest": "Azure Trapped Chest",
 
   "block.outer_end.himmel_block": "Himmel Block",
   "block.outer_end.himmel_pillar": "Himmel Pillar",
   "block.outer_end.himmel_stairs": "Himmel Stairs",
   "block.outer_end.himmel_slab": "Himmel Slab",
+  "block.outer_end.himmel_vertical_slab": "Himmel Vertical Slab",
 
   "item.outer_end.azure_berries": "Azure Berries",
   "item.outer_end.floral_paste": "Floral Paste",
+  "item.outer_end.azure_boat": "Azure Boat",
 
   "item.outer_end.music_disc_galactic_wave": "Music Disc",
   "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",

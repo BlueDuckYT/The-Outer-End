@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "quark:block/vertical_planks",
   "textures": {
-    "all": "outer_end:block/azure_vertical_planks"
+    "all": "outer_end:block/azure_planks"
   }
 }
