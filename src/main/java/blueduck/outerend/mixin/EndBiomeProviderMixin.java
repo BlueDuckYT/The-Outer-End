@@ -24,6 +24,7 @@ public abstract class EndBiomeProviderMixin {
 	
 	/**
 	 * @author OutEnd Team
+	 * @reason legacy code. unused now. (keeping it here for a few more versions just in case)
 	 */
 	@Overwrite
 	//TODO: switch to inject instead of overwrite
