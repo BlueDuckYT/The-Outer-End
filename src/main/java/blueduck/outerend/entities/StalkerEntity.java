@@ -6,6 +6,7 @@ import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
@@ -261,6 +262,7 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 						this.setLastFeed(-12000);
 					} else if (this.getLastFeed() >= -11950) {
 						StalkerEntity baby = new StalkerEntity(EntityRegistry.STALKER.get(),this.world);
+						ExperienceOrbEntity xp = new ExperienceOrbEntity(this.world, this.getPosX(),this.getPosY(),this.getPosZ(),2);
 						breedTarg.breedWith = null;
 						this.breedWith = null;
 						breedTarg.setLastFeed(-5000);
@@ -268,6 +270,7 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 						baby.setPosition(this.getPosX(),this.getPosY(),this.getPosZ());
 						baby.setGrowingAge(-24000);
 						this.world.addEntity(baby);
+						this.world.addEntity(xp);
 					}
 				}
 			}
