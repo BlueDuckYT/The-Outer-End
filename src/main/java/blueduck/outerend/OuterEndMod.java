@@ -187,7 +187,7 @@ public class OuterEndMod
             if (name.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
                 LootPool pool = event.getTable().getPool("main");
                 if (pool != null) {
-                    addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 4, 0));
+                    addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 10, 0));
                 }
             }
 
