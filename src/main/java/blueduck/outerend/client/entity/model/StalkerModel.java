@@ -5,12 +5,14 @@ package blueduck.outerend.client.entity.model;
 
 
 import blueduck.outerend.entities.StalkerEntity;
+import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class StalkerModel extends EntityModel<StalkerEntity> {
+public class StalkerModel extends AgeableModel<StalkerEntity> {
 	private final ModelRenderer body;
 	private final ModelRenderer haunchRight;
 	private final ModelRenderer rearFootRight;
@@ -136,10 +138,25 @@ public class StalkerModel extends EntityModel<StalkerEntity> {
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 		tail.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
-	
+
+	@Override
+	public Iterable<ModelRenderer> getHeadParts() {
+		return ImmutableList.of(this.head);
+	}
+
+	@Override
+	public Iterable<ModelRenderer> getBodyParts() {
+		return ImmutableList.of(this.body);
+	}
+
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
+	}
+
+
+	public ModelRenderer getHead() {
+		return this.head;
 	}
 }
