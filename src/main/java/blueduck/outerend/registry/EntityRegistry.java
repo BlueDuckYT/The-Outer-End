@@ -33,7 +33,7 @@ public class EntityRegistry {
 
 	public static final RegistryObject<EntityType<StalkerEntity>> STALKER = ENTITIES.register("stalker", () -> EntityType.Builder
 			.create(StalkerEntity::new, EntityClassification.MONSTER)
-			.setTrackingRange(64).setUpdateInterval(2).size(1.5f, 2.25f)
+			.setTrackingRange(64).setUpdateInterval(2).size(1.3964844f, 2.25f)
 			.build(OuterEndMod.MODID + ":stalker"));
 
 
