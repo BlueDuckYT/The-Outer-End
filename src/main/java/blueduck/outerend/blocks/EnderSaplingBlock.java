@@ -1,10 +1,7 @@
 package blueduck.outerend.blocks;
 
 import blueduck.outerend.features.TreeGenerationContext;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BushBlock;
-import net.minecraft.block.IGrowable;
+import net.minecraft.block.*;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
@@ -67,6 +64,15 @@ public class EnderSaplingBlock extends BushBlock implements IGrowable {
 	
 	@Override
 	public void onPlantGrow(BlockState state, IWorld world, BlockPos pos, BlockPos source) {
+		boolean flag = false;
+		for (int i = 1; i < 6; i++) {
+			if (world.getBlockState(pos.up(i)) != Blocks.AIR.getDefaultState()) {
+				flag = true;
+			}
+		}
+		if (flag) {
+			return;
+		}
 		if (state.get(STAGE) == 0)
 			world.setBlockState(pos,state.with(STAGE,1),4,0);
 		else {

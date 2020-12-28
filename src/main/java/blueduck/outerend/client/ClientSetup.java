@@ -20,6 +20,9 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_DOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_TRAPDOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ENDER_ROOTS.get(), RenderType.getCutout());
+		if (BlockRegistry.isLoaded("quark")) {
+			RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_LADDER.get(), RenderType.getCutout());
+		}
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.DRAGONFLY.get(), DragonflyEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.HIMMELITE.get(), HimmeliteRenderer::new);

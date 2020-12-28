@@ -155,6 +155,36 @@
     },
     {
 
+      "weight": 10,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/rooms/jukebox_room",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 10,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/rooms/grass_room",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
       "weight": 5,
       "element": {
 
