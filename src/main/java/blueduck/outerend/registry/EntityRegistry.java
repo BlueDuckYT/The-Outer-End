@@ -4,6 +4,7 @@ import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.entities.DragonflyEntity;
 import blueduck.outerend.entities.HimmeliteEntity;
 import blueduck.outerend.entities.PurpurGolemEntity;
+import blueduck.outerend.entities.StalkerEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -23,12 +24,17 @@ public class EntityRegistry {
 			.create(PurpurGolemEntity::new, EntityClassification.MONSTER)
 			.setTrackingRange(32).setUpdateInterval(2).size(1.6f, 2.9f)
 			.immuneToFire()
-			.build(OuterEndMod.MODID + ":himmelite"));
+			.build(OuterEndMod.MODID + ":purpur_golem"));
 
 	public static final RegistryObject<EntityType<HimmeliteEntity>> HIMMELITE = ENTITIES.register("himmelite", () -> EntityType.Builder
 			.create(HimmeliteEntity::new, EntityClassification.MONSTER)
 			.setTrackingRange(64).setUpdateInterval(2).size(14f/16, 14f/16)
 			.build(OuterEndMod.MODID + ":himmelite"));
+
+	public static final RegistryObject<EntityType<StalkerEntity>> STALKER = ENTITIES.register("stalker", () -> EntityType.Builder
+			.create(StalkerEntity::new, EntityClassification.MONSTER)
+			.setTrackingRange(64).setUpdateInterval(2).size(1.5f, 2.25f)
+			.build(OuterEndMod.MODID + ":stalker"));
 
 
 

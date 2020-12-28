@@ -3,6 +3,7 @@ package blueduck.outerend.common;
 import blueduck.outerend.entities.DragonflyEntity;
 import blueduck.outerend.entities.HimmeliteEntity;
 import blueduck.outerend.entities.PurpurGolemEntity;
+import blueduck.outerend.entities.StalkerEntity;
 import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -18,6 +19,7 @@ public class CommonSetup {
 		GlobalEntityTypeAttributes.put(EntityRegistry.DRAGONFLY.get(), DragonflyEntity.createModifiers());
 		GlobalEntityTypeAttributes.put(EntityRegistry.PURPUR_GOLEM.get(), PurpurGolemEntity.createModifiers());
 		GlobalEntityTypeAttributes.put(EntityRegistry.HIMMELITE.get(), HimmeliteEntity.createModifiers());
+		GlobalEntityTypeAttributes.put(EntityRegistry.STALKER.get(), StalkerEntity.createModifiers());
 
 		EntitySpawnPlacementRegistry.register(EntityRegistry.PURPUR_GOLEM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, PurpurGolemEntity::canSpawn);
 

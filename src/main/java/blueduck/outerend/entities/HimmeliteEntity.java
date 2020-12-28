@@ -14,7 +14,6 @@ import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
@@ -107,7 +106,7 @@ public class HimmeliteEntity extends MonsterEntity {
                     if (rand.nextBoolean() || rand.nextBoolean() || rand.nextBoolean()) {
                         look = Vector3d.fromPitchYaw(
                                 0,
-                        this.rand.nextInt(360)
+                                this.rand.nextInt(360)
                         );
                     }
                     look = look.mul(1, 0, 1);
@@ -172,7 +171,7 @@ public class HimmeliteEntity extends MonsterEntity {
     @Override
     public void tick() {
         super.tick();
-    
+        
         if (this.isAIDisabled() || this.world.isRemote) {
             if (this.world.isRemote) {
                 if (this.updateLastFactor || getBiteFactor() == 0) {
@@ -208,8 +207,8 @@ public class HimmeliteEntity extends MonsterEntity {
             navigator.setPath(path,1);
             this.setMotion(this.getMotion().getX()+0.01f,this.getMotion().getY(),this.getMotion().getZ());
         }
-    
-    
+        
+        
         if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
             if (this.navigator.getPath() != null) {
                 Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), navigator.getPath(), 0.5f);

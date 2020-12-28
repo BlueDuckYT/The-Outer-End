@@ -124,6 +124,7 @@ dependencies {
 
     compile fg.deobf("curse.maven:ReAuth-237701:3105779")
     compile fg.deobf("curse.maven:Abnormals-382216:3147409")
+//    compile fg.deobf("curse.maven:Assorted_Utils-431410:3149945")
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
