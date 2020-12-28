@@ -13,6 +13,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
@@ -135,6 +136,9 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 		if (this.isAIDisabled() || this.world.isRemote)
 			return;
 		
+		if (world.getDifficulty().equals(Difficulty.PEACEFUL))
+			this.setAngerTarget(null);
+		
 		Path path = getPath();
 		if (path != null) {
 			navigator.setPath(path,1);
@@ -145,12 +149,12 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 		if (this.getAngerTime() <= 0)
 			this.setAngerTarget(null);
 		
-		if (this.angerTarget != null) {
+		if (this.angerTarget != null && !world.getDifficulty().equals(Difficulty.PEACEFUL)) {
 			ArrayList<LivingEntity> entities = new ArrayList<>();
 			entities.add(world.getPlayerByUuid(angerTarget));
 			if (!entities.isEmpty() && entities.get(0) != null && this.getDistance(entities.get(0)) <= 3)
-				entities.get(0).attackEntityFrom(DamageSource.causeMobDamage(this),(float)this.getAttributeValue(Attributes.ATTACK_DAMAGE));
-			if (!entities.isEmpty() && entities.get(0) != null && entities.get(0).isSpectator())
+				entities.get(0).attackEntityFrom(DamageSource.causeMobDamage(this), (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+			if (!entities.isEmpty() && entities.get(0) != null && (entities.get(0).isSpectator() || (entities.get(0) instanceof PlayerEntity && ((PlayerEntity) entities.get(0)).isCreative())))
 				this.setAngerTarget(null);
 		}
 		
