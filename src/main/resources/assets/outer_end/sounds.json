@@ -6,6 +6,10 @@
       {
         "name":  "outer_end:music/dysonsphere",
         "stream": true
+      },
+      {
+        "name":  "outer_end:music/isolation",
+        "stream": true
       }
     ]
   },
@@ -18,5 +22,15 @@
         "stream": true
       }
     ]
+  },
+  "music.unknown_frontier": {
+    "category": "record",
+    "subtitle": "music.outer_end.unknown_frontier",
+    "sounds": [
+      {
+        "name":  "outer_end:music/unknown_frontier",
+        "stream": true
+      }
+    ]
   }
-  }
+}

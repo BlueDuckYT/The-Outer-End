@@ -15,6 +15,11 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 3,
+          "name": "outer_end:music_disc_unknown_frontier"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 5,
           "functions": [
             {

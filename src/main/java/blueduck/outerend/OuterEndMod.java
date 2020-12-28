@@ -22,6 +22,7 @@ import net.minecraft.loot.TableLootEntry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -125,6 +126,11 @@ public class OuterEndMod
             event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 8, 1, 1));
 
         }
+
+        if (event.getName().equals(Biomes.END_HIGHLANDS)) {
+            event.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 80, 2, 5));
+
+        }
     }
 
     /**
@@ -181,7 +187,7 @@ public class OuterEndMod
             if (name.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
                 LootPool pool = event.getTable().getPool("main");
                 if (pool != null) {
-                    addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 4, 0));
+                    addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 10, 0));
                 }
             }
 
