@@ -6,6 +6,10 @@
       {
         "name":  "outer_end:music/dysonsphere",
         "stream": true
+      },
+      {
+        "name":  "outer_end:music/isolation",
+        "stream": true
       }
     ]
   },
