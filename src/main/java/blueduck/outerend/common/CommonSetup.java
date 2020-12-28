@@ -22,6 +22,7 @@ public class CommonSetup {
 		GlobalEntityTypeAttributes.put(EntityRegistry.STALKER.get(), StalkerEntity.createModifiers());
 
 		EntitySpawnPlacementRegistry.register(EntityRegistry.PURPUR_GOLEM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, PurpurGolemEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(EntityRegistry.STALKER.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StalkerEntity::canSpawn);
 
 	}
 }

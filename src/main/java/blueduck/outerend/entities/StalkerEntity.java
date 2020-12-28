@@ -2,6 +2,7 @@ package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.*;
@@ -34,13 +35,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class StalkerEntity extends AnimalEntity implements IAngerable {
@@ -107,6 +111,16 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
 		this.dataManager.register(ANGERED, false);
 		this.dataManager.register(LAST_FEED, 0);
 		this.dataManager.register(AGE, 1);
+	}
+
+	public static boolean canSpawn(EntityType<StalkerEntity> type, IWorld world, SpawnReason spawnReason, BlockPos pos,
+								   Random random) {
+
+		if (world.getBlockState(pos.down()).equals(Blocks.END_STONE.getDefaultState())) {
+			return true;
+		}
+		return false;
+
 	}
 
 //	public Path getPath() {
