@@ -1,15 +1,25 @@
 package blueduck.outerend.entities;
 
+import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.pathfinding.Path;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
@@ -25,21 +35,79 @@ import java.util.UUID;
 public class StalkerEntity extends MonsterEntity implements IAngerable {
 	public int angerTime = 0;
 	public UUID angerTarget = null;
+	public UUID breedWith = null;
+	private static final DataParameter<Boolean> ANGERED = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Integer> LAST_FEED = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> AGE = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.VARINT);
 	
 	public StalkerEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
 		super(type, worldIn);
-		this.navigator = new GroundPathNavigator(this,worldIn);
+		this.navigator = new GroundPathNavigator(this, worldIn);
+		
+		if (this.rand.nextFloat() <= 0.9f) {
+			this.setGrowingAge(-24000);
+		}
+	}
+	
+	public void setGrowingAge(int age) {
+		this.dataManager.set(AGE, age);
+	}
+	
+	public int getAge() {
+		return this.dataManager.get(AGE);
+	}
+	
+	public void setLastFeed(int time) {
+		this.dataManager.set(LAST_FEED, time);
+	}
+	
+	public int getLastFeed() {
+		return this.dataManager.get(LAST_FEED);
+	}
+	
+	@Override
+	public void writeAdditional(CompoundNBT compound) {
+		super.writeAdditional(compound);
+		if (breedWith != null)
+			compound.putUniqueId("love",breedWith);
+		compound.putInt("lastFeed",getLastFeed());
+		compound.putInt("age",getAge());
+	}
+	
+	@Override
+	public void readAdditional(CompoundNBT compound) {
+		super.readAdditional(compound);
+		if (compound.contains("love")) breedWith = compound.getUniqueId("love");
+		setLastFeed(compound.getInt("lastFeed"));
+		setGrowingAge(compound.getInt("age"));
+	}
+	
+	@Override
+	protected void registerData() {
+		super.registerData();
+		this.dataManager.register(ANGERED, false);
+		this.dataManager.register(LAST_FEED, 0);
+		this.dataManager.register(AGE, 1);
 	}
 	
 	public Path getPath() {
 		//cuz game dumb or smth
 		if (navigator == null)
-			navigator = new GroundPathNavigator(this,world);
+			navigator = new GroundPathNavigator(this, world);
 		if (this.angerTarget != null) {
 			ArrayList<LivingEntity> entities = new ArrayList<>();
 			entities.add(world.getPlayerByUuid(angerTarget));
 			if (!entities.isEmpty() && entities.get(0) != null)
-				return navigator.getPathToEntity(entities.get(0),1);
+				return navigator.getPathToEntity(entities.get(0), 1);
+		}
+		if (breedWith != null) {
+			List<StalkerEntity> stalkers = world.getEntitiesWithinAABB(StalkerEntity.class,
+					new AxisAlignedBB(
+							(int)this.getPosX()-16,(int)this.getPosY()-16,(int)this.getPosZ()-16,
+							(int)this.getPosX()+16,(int)this.getPosY()+16,(int)this.getPosZ()+16
+					),null);
+			Entity entity = world.getClosestEntity(stalkers,EntityPredicate.DEFAULT.setCustomPredicate((entity1)->entity1.getUniqueID().equals(breedWith)),this,this.getPosX(),this.getPosY(),this.getPosZ());
+			if (entity != null) return navigator.getPathToEntity(entity,3);
 		}
 		if (this.navigator.noPath()) {
 			if (this.ticksExisted % 120 == 1 && rand.nextBoolean() && rand.nextBoolean()) {
@@ -118,7 +186,7 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (source.getTrueSource() != null) {
 			anger(source.getTrueSource().getUniqueID());
-			List<StalkerEntity> stalkers = world.getEntitiesWithinAABB(StalkerEntity.class,new AxisAlignedBB(this.getPosX()-64,this.getPosY()-64,this.getPosZ()-64,this.getPosX()+64,this.getPosY()+64,this.getPosZ()+64));
+			List<StalkerEntity> stalkers = world.getEntitiesWithinAABB(StalkerEntity.class, new AxisAlignedBB(this.getPosX() - 64, this.getPosY() - 64, this.getPosZ() - 64, this.getPosX() + 64, this.getPosY() + 64, this.getPosZ() + 64));
 			for (StalkerEntity stalkerEntity : stalkers) stalkerEntity.anger(source.getTrueSource().getUniqueID());
 		}
 		return super.attackEntityFrom(source, amount);
@@ -127,6 +195,14 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 	public void anger(UUID uniqueID) {
 		func_230258_H__();
 		this.setAngerTarget(uniqueID);
+	}
+	
+	public void setAngered(boolean val) {
+		this.dataManager.set(ANGERED, val);
+	}
+	
+	public boolean isAngered() {
+		return this.dataManager.get(ANGERED);
 	}
 	
 	@Override
@@ -141,13 +217,19 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 		
 		Path path = getPath();
 		if (path != null) {
-			navigator.setPath(path,1);
-			this.setMotion(this.getMotion().getX()+0.01f,this.getMotion().getY(),this.getMotion().getZ());
+			navigator.setPath(path, 1);
+			this.setMotion(this.getMotion().getX() + 0.01f, this.getMotion().getY(), this.getMotion().getZ());
 		}
 		
-		this.setAngerTime(this.getAngerTime()-1);
+		this.setAngerTime(this.getAngerTime() - 1);
 		if (this.getAngerTime() <= 0)
 			this.setAngerTarget(null);
+		
+		if (this.getLastFeed() != 0) {
+			this.setLastFeed(this.getLastFeed() + 1);
+			if (this.getLastFeed() >= 5001)
+				this.setLastFeed(0);
+		}
 		
 		if (this.angerTarget != null && !world.getDifficulty().equals(Difficulty.PEACEFUL)) {
 			ArrayList<LivingEntity> entities = new ArrayList<>();
@@ -158,16 +240,93 @@ public class StalkerEntity extends MonsterEntity implements IAngerable {
 				this.setAngerTarget(null);
 		}
 		
-		List<LivingEntity> entities = this.world.getEntitiesWithinAABB(LivingEntity.class,new AxisAlignedBB(this.getPosX()-16,this.getPosY()-16,this.getPosZ()-16,this.getPosX()+16,this.getPosY()+16,this.getPosZ()+16));
-		if (entities.contains(this)) entities.remove(this);
-		Entity nearest = this.world.getClosestEntity(entities,EntityPredicate.DEFAULT,this,this.getPosX(),this.getPosY(),this.getPosZ());
+		this.setGrowingAge(this.getAge() + 1);
+		
+		this.setAngered(this.angerTarget != null);
+		
+		List<LivingEntity> entities = this.world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(this.getPosX() - 16, this.getPosY() - 16, this.getPosZ() - 16, this.getPosX() + 16, this.getPosY() + 16, this.getPosZ() + 16));
+		entities.remove(this);
+		Entity nearest = this.world.getClosestEntity(entities, EntityPredicate.DEFAULT, this, this.getPosX(), this.getPosY(), this.getPosZ());
 		if (nearest != null && (this.ticksExisted % 400 >= 200 || (nearest instanceof PlayerEntity)) && !this.getNavigator().hasPath())
-			this.lookAt(EntityAnchorArgument.Type.FEET,nearest.getPositionVec());
+			this.lookAt(EntityAnchorArgument.Type.FEET, nearest.getPositionVec());
+		
+		if (this.breedWith != null) {
+			StalkerEntity breedTarg = (StalkerEntity) this.world.getClosestEntity(entities, EntityPredicate.DEFAULT.setCustomPredicate((entity)-> {
+				if (entity instanceof StalkerEntity && ((StalkerEntity) entity).breedWith != null)
+					return ((StalkerEntity) entity).breedWith.equals(this.getUniqueID());
+				return false;
+			}), this, this.getPosX(), this.getPosY(), this.getPosZ());
+			if (breedTarg != null) {
+				if (this.getDistance(breedTarg) <= 3) {
+					if (this.getLastFeed() >= -5000) {
+						this.setLastFeed(-12000);
+					} else if (this.getLastFeed() >= -11950) {
+						StalkerEntity baby = new StalkerEntity(EntityRegistry.STALKER.get(),this.world);
+						ExperienceOrbEntity xp = new ExperienceOrbEntity(this.world, this.getPosX(),this.getPosY(),this.getPosZ(),2);
+						breedTarg.breedWith = null;
+						this.breedWith = null;
+						breedTarg.setLastFeed(-5000);
+						this.setLastFeed(-5000);
+						baby.setPosition(this.getPosX(),this.getPosY(),this.getPosZ());
+						baby.setGrowingAge(-24000);
+						this.world.addEntity(baby);
+						this.world.addEntity(xp);
+					}
+				}
+			}
+		}
 		
 		if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
 			if (this.navigator.getPath() != null) {
 				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), navigator.getPath(), 0.5f);
 			}
+		}
+	}
+	
+	@Override
+	public ActionResultType applyPlayerInteraction(PlayerEntity player, Vector3d vec, Hand hand) {
+		if (player.getHeldItem(hand).getItem().equals(Items.CHORUS_FRUIT)) {
+			if (this.getAge() <= 0) {
+				if (!player.isCreative()) player.getHeldItem(hand).shrink(1);
+				this.setGrowingAge(this.getAge() + 1000);
+				double d0 = this.rand.nextGaussian() * 0.02D;
+				double d1 = this.rand.nextGaussian() * 0.02D;
+				double d2 = this.rand.nextGaussian() * 0.02D;
+				this.world.addParticle(ParticleTypes.COMPOSTER, this.getPosXRandom(1.0D), this.getPosYRandom() + 0.5D, this.getPosZRandom(1.0D), d0, d1, d2);
+				return ActionResultType.SUCCESS;
+			} else if (Math.abs(this.getLastFeed()) != 0)
+				return super.applyPlayerInteraction(player, vec, hand);
+			else {
+				double d0 = this.rand.nextGaussian() * 0.02D;
+				double d1 = this.rand.nextGaussian() * 0.02D;
+				double d2 = this.rand.nextGaussian() * 0.02D;
+				this.world.addParticle(ParticleTypes.HEART, this.getPosXRandom(1.0D), this.getPosYRandom() + 0.5D, this.getPosZRandom(1.0D), d0, d1, d2);
+				this.world.addParticle(ParticleTypes.HEART, this.getPosXRandom(1.0D), this.getPosYRandom() + 0.5D, this.getPosZRandom(1.0D), d0, d1, d2);
+				this.world.addParticle(ParticleTypes.HEART, this.getPosXRandom(1.0D), this.getPosYRandom() + 0.5D, this.getPosZRandom(1.0D), d0, d1, d2);
+				this.world.addParticle(ParticleTypes.HEART, this.getPosXRandom(1.0D), this.getPosYRandom() + 0.5D, this.getPosZRandom(1.0D), d0, d1, d2);
+				this.world.addParticle(ParticleTypes.HEART, this.getPosXRandom(1.0D), this.getPosYRandom() + 0.5D, this.getPosZRandom(1.0D), d0, d1, d2);
+			}
+			if (!player.world.isRemote) {
+				if (!player.isCreative()) player.getHeldItem(hand).shrink(1);
+				
+				this.setLastFeed(1);
+				List<LivingEntity> entities = this.world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(this.getPosX() - 16, this.getPosY() - 16, this.getPosZ() - 16, this.getPosX() + 16, this.getPosY() + 16, this.getPosZ() + 16));
+				entities.remove(this);
+				StalkerEntity nearest = (StalkerEntity) this.world.getClosestEntity(entities, EntityPredicate.DEFAULT.setCustomPredicate((entity) -> {
+					if (entity instanceof StalkerEntity)
+						return ((StalkerEntity) entity).getLastFeed() >= 1;
+					return false;
+				}), this, this.getPosX(), this.getPosY(), this.getPosZ());
+				if (nearest != null) {
+					nearest.setLastFeed(-5000);
+					setLastFeed(-5000);
+					nearest.breedWith = this.getUniqueID();
+					this.breedWith = nearest.getUniqueID();
+				}
+			}
+			return ActionResultType.SUCCESS;
+		} else {
+			return super.applyPlayerInteraction(player, vec, hand);
 		}
 	}
 }
