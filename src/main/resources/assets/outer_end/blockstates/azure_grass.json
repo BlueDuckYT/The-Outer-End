@@ -1,10 +1,7 @@
 {
     "variants": {
-        "": [
-            { "model": "outer_end:block/azure/grass" },
-            { "model": "outer_end:block/azure/grass", "y": 90 },
-            { "model": "outer_end:block/azure/grass", "y": 180 },
-            { "model": "outer_end:block/azure/grass", "y": 270 }
-        ]
+        "": {
+            "model": "outer_end:block/azure/grass"
+        }
     }
 }

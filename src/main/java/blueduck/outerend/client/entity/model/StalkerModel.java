@@ -13,109 +13,88 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 public class StalkerModel extends AgeableModel<StalkerEntity> {
-	private final ModelRenderer body;
-	private final ModelRenderer haunchRight;
+	private final ModelRenderer rearFootLeft;
 	private final ModelRenderer rearFootRight;
 	private final ModelRenderer haunchLeft;
-	private final ModelRenderer rearFootRight2;
+	private final ModelRenderer haunchRight;
+	private final ModelRenderer body;
+	private final ModelRenderer frontLegLeft;
+	private final ModelRenderer bone4;
 	private final ModelRenderer frontLegRight;
 	private final ModelRenderer bone;
-	private final ModelRenderer frontLegLeft;
-	private final ModelRenderer bone2;
 	private final ModelRenderer head;
-	private final ModelRenderer bone4;
 	private final ModelRenderer tail;
 	private final ModelRenderer bone3;
-	
+
 	public StalkerModel() {
-		textureWidth = 80;
-		textureHeight = 80;
-		
+		textureWidth = 128;
+		textureHeight = 128;
+
+		rearFootLeft = new ModelRenderer(this);
+		rearFootLeft.setRotationPoint(-3.0F, 17.5F, 3.7F);
+
+
+		rearFootRight = new ModelRenderer(this);
+		rearFootRight.setRotationPoint(3.0F, 17.5F, 3.7F);
+
+
+		haunchLeft = new ModelRenderer(this);
+		haunchLeft.setRotationPoint(-5.0F, 17.5F, 3.7F);
+		haunchLeft.setTextureOffset(0, 26).addBox(-2.0F, -23.0F, -5.0F, 3.0F, 12.0F, 7.0F, 0.0F, false);
+		haunchLeft.setTextureOffset(79, 61).addBox(-1.0F, -11.0F, -1.0F, 2.0F, 17.0F, 3.0F, 0.0F, false);
+
+		haunchRight = new ModelRenderer(this);
+		haunchRight.setRotationPoint(3.0F, 17.5F, -1.3F);
+		haunchRight.setTextureOffset(0, 26).addBox(0.0F, -22.9924F, -0.349F, 3.0F, 12.0F, 7.0F, 0.0F, false);
+		haunchRight.setTextureOffset(79, 61).addBox(0.0F, -10.9924F, 3.651F, 2.0F, 17.0F, 3.0F, 0.0F, false);
+
 		body = new ModelRenderer(this);
-		body.setRotationPoint(0.0F, -1.0F, 6.0F);
+		body.setRotationPoint(0.0F, 1.0F, 6.0F);
 		setRotationAngle(body, -0.1745F, 0.0F, 0.0F);
 		body.setTextureOffset(0, 0).addBox(-4.0F, -5.637F, -24.1599F, 7.0F, 6.0F, 20.0F, 0.0F, false);
-		body.setTextureOffset(0, 26).addBox(-1.5F, -6.5762F, -24.8545F, 2.0F, 2.0F, 21.0F, 0.0F, false);
-		
-		haunchRight = new ModelRenderer(this);
-		haunchRight.setRotationPoint(3.0F, -2.5152F, -4.1264F);
-		body.addChild(haunchRight);
-		setRotationAngle(haunchRight, 0.1745F, 0.0F, 0.0F);
-		haunchRight.setTextureOffset(0, 0).addBox(0.0F, -2.9924F, -3.349F, 3.0F, 10.0F, 7.0F, 0.0F, false);
-		haunchRight.setTextureOffset(53, 0).addBox(0.0F, 7.0076F, 0.651F, 2.0F, 11.0F, 3.0F, 0.0F, false);
-		
-		rearFootRight = new ModelRenderer(this);
-		rearFootRight.setRotationPoint(0.0F, 22.0F, 2.0F);
-		haunchRight.addChild(rearFootRight);
-		rearFootRight.setTextureOffset(38, 54).addBox(-1.0F, -4.5F, -0.7F, 2.0F, 11.0F, 3.0F, 0.0F, false);
-		
-		haunchLeft = new ModelRenderer(this);
-		haunchLeft.setRotationPoint(-3.0F, -2.5152F, -4.1264F);
-		body.addChild(haunchLeft);
-		setRotationAngle(haunchLeft, 0.1745F, 0.0F, 0.0F);
-		haunchLeft.setTextureOffset(0, 0).addBox(-3.0F, -2.9924F, -3.349F, 3.0F, 10.0F, 7.0F, 0.0F, true);
-		haunchLeft.setTextureOffset(53, 0).addBox(-2.0F, 7.0076F, 0.651F, 2.0F, 11.0F, 3.0F, 0.0F, true);
-		
-		rearFootRight2 = new ModelRenderer(this);
-		rearFootRight2.setRotationPoint(0.0F, 22.0F, 2.0F);
-		haunchLeft.addChild(rearFootRight2);
-		rearFootRight2.setTextureOffset(38, 54).addBox(-1.0F, -4.5F, -0.7F, 2.0F, 11.0F, 3.0F, 0.0F, true);
-		
-		frontLegRight = new ModelRenderer(this);
-		frontLegRight.setRotationPoint(3.0F, -2.0456F, -18.4791F);
-		body.addChild(frontLegRight);
-		setRotationAngle(frontLegRight, 0.1745F, 0.0F, 0.0F);
-		frontLegRight.setTextureOffset(0, 26).addBox(0.0F, -2.6947F, -1.9933F, 4.0F, 11.0F, 5.0F, 0.0F, false);
-		frontLegRight.setTextureOffset(28, 54).addBox(1.5F, 20.3053F, 2.0067F, 1.0F, 10.0F, 4.0F, 0.0F, false);
-		
-		bone = new ModelRenderer(this);
-		bone.setRotationPoint(-4.0F, 24.0F, 12.0F);
-		frontLegRight.addChild(bone);
-		setRotationAngle(bone, 0.0873F, 0.0F, 0.0F);
-		bone.setTextureOffset(52, 29).addBox(5.0F, -16.7818F, -9.9895F, 2.0F, 13.0F, 3.0F, 0.0F, false);
-		
+		body.setTextureOffset(0, 26).addBox(-0.5F, -6.5762F, -24.8545F, 0.0F, 2.0F, 21.0F, 0.0F, false);
+
 		frontLegLeft = new ModelRenderer(this);
-		frontLegLeft.setRotationPoint(-3.0F, -2.0456F, -18.4791F);
-		body.addChild(frontLegLeft);
-		setRotationAngle(frontLegLeft, 0.1745F, 0.0F, 0.0F);
-		frontLegLeft.setTextureOffset(0, 26).addBox(-4.0F, -2.6947F, -1.9933F, 4.0F, 11.0F, 5.0F, 0.0F, true);
-		frontLegLeft.setTextureOffset(28, 54).addBox(-2.5F, 20.3053F, 2.0067F, 1.0F, 10.0F, 4.0F, 0.0F, true);
-		
-		bone2 = new ModelRenderer(this);
-		bone2.setRotationPoint(4.0F, 24.0F, 12.0F);
-		frontLegLeft.addChild(bone2);
-		setRotationAngle(bone2, 0.0873F, 0.0F, 0.0F);
-		bone2.setTextureOffset(52, 29).addBox(-7.0F, -16.7818F, -9.9895F, 2.0F, 13.0F, 3.0F, 0.0F, true);
-		
-		head = new ModelRenderer(this);
-		head.setRotationPoint(0.0F, -2.8871F, -23.2902F);
-		body.addChild(head);
-		setRotationAngle(head, 0.1745F, 0.0F, 0.0F);
-		head.setTextureOffset(25, 26).addBox(-2.5F, -6.0F, -5.0F, 4.0F, 9.0F, 5.0F, 0.0F, false);
-		head.setTextureOffset(0, 0).addBox(-1.5F, -4.0F, -6.0F, 2.0F, 5.0F, 1.0F, 0.0F, false);
-		
+		frontLegLeft.setRotationPoint(-3.75F, -5.0F, -12.5F);
+		frontLegLeft.setTextureOffset(0, 26).addBox(-3.25F, -2.0F, -2.5F, 3.0F, 14.0F, 5.0F, 0.0F, false);
+
 		bone4 = new ModelRenderer(this);
-		bone4.setRotationPoint(-0.5F, -5.0F, -3.0F);
-		head.addChild(bone4);
-		bone4.setTextureOffset(45, 18).addBox(-1.0F, -2.0F, 0.0F, 2.0F, 2.0F, 9.0F, 0.0F, false);
-		
+		bone4.setRotationPoint(-1.75F, 11.5F, 1.5F);
+		frontLegLeft.addChild(bone4);
+		bone4.setTextureOffset(80, 61).addBox(-1.0F, 0.5F, -2.0F, 2.0F, 17.0F, 4.0F, 0.0F, false);
+
+		frontLegRight = new ModelRenderer(this);
+		frontLegRight.setRotationPoint(2.0F, -5.0F, -12.5F);
+		frontLegRight.setTextureOffset(1, 26).addBox(1.0F, -1.6947F, -2.4933F, 3.0F, 14.0F, 5.0F, 0.0F, false);
+
+		bone = new ModelRenderer(this);
+		bone.setRotationPoint(2.5F, 11.8053F, 1.5067F);
+		frontLegRight.addChild(bone);
+		bone.setTextureOffset(80, 61).addBox(-1.0F, 0.5F, -2.0F, 2.0F, 17.0F, 4.0F, 0.0F, false);
+
+		head = new ModelRenderer(this);
+		head.setRotationPoint(-0.5F, -7.0F, -17.1667F);
+		head.setTextureOffset(25, 26).addBox(-2.0F, -5.0F, -4.8333F, 4.0F, 9.0F, 5.0F, 0.0F, false);
+		head.setTextureOffset(0, 0).addBox(-1.0F, -3.0F, -4.9333F, 2.0F, 5.0F, 0.0F, 0.0F, false);
+		head.setTextureOffset(45, 18).addBox(-1.0F, -6.0F, -2.8333F, 2.0F, 2.0F, 9.0F, 0.0F, false);
+
 		tail = new ModelRenderer(this);
-		tail.setRotationPoint(0.0F, -3.0F, 2.0F);
+		tail.setRotationPoint(-0.3333F, -3.9352F, 3.0711F);
 		setRotationAngle(tail, -0.48F, 0.0F, 0.0F);
-		tail.setTextureOffset(29, 32).addBox(-2.0F, -3.5024F, -1.0147F, 3.0F, 5.0F, 17.0F, 0.0F, false);
-		tail.setTextureOffset(34, 0).addBox(-1.0F, -4.0533F, -1.7722F, 1.0F, 1.0F, 17.0F, 0.0F, false);
-		
+		tail.setTextureOffset(29, 32).addBox(-1.6667F, -0.8172F, -1.5857F, 3.0F, 5.0F, 17.0F, 0.0F, false);
+		tail.setTextureOffset(34, 0).addBox(-0.6667F, -1.3681F, -1.3432F, 1.0F, 1.0F, 17.0F, 0.0F, false);
+
 		bone3 = new ModelRenderer(this);
-		bone3.setRotationPoint(0.0F, -0.3123F, 16.0F);
+		bone3.setRotationPoint(-0.1667F, 1.6021F, 15.1508F);
 		tail.addChild(bone3);
-		setRotationAngle(bone3, -0.0873F, 0.0F, 0.0F);
-		bone3.setTextureOffset(0, 49).addBox(-1.0F, -2.2076F, -0.8079F, 1.0F, 4.0F, 13.0F, 0.0F, false);
+		setRotationAngle(bone3, -0.1309F, 0.0F, 0.0F);
+		bone3.setTextureOffset(0, 49).addBox(-0.5F, -2.0F, -0.5F, 1.0F, 4.0F, 13.0F, 0.0F, false);
 	}
 	
 	@Override
 	public void setRotationAngles(StalkerEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.frontLegRight.rotateAngleX = (float) (Math.sin(limbSwing / 2f) * (limbSwingAmount / 2f));
-		this.frontLegRight.rotateAngleX += (float) (Math.sin(ageInTicks / 128f) * ((1 - limbSwingAmount) / 64f));
+		//this.frontLegRight.rotateAngleX += (float) (Math.sin(ageInTicks / 128f) * ((1 - limbSwingAmount) / 64f));
 		this.frontLegLeft.rotateAngleX = -frontLegRight.rotateAngleX;
 		this.haunchRight.rotateAngleX = -frontLegRight.rotateAngleX;
 		this.haunchLeft.rotateAngleX = frontLegRight.rotateAngleX;
@@ -132,10 +111,17 @@ public class StalkerModel extends AgeableModel<StalkerEntity> {
 		else
 			this.bone4.rotateAngleX = (float) (Math.cos(ageInTicks / 32f) * 0.25f + Math.toRadians(15)) - head.rotateAngleX;
 	}
-	
+
 	@Override
-	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+		rearFootLeft.render(matrixStack, buffer, packedLight, packedOverlay);
+		rearFootRight.render(matrixStack, buffer, packedLight, packedOverlay);
+		haunchLeft.render(matrixStack, buffer, packedLight, packedOverlay);
+		haunchRight.render(matrixStack, buffer, packedLight, packedOverlay);
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
+		frontLegLeft.render(matrixStack, buffer, packedLight, packedOverlay);
+		frontLegRight.render(matrixStack, buffer, packedLight, packedOverlay);
+		head.render(matrixStack, buffer, packedLight, packedOverlay);
 		tail.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 

@@ -113,8 +113,8 @@ public class EndTowerStructure extends Structure<NoFeatureConfig> {
      */
     @Override
     protected boolean func_230363_a_(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        int landHeight = chunkGenerator.getNoiseHeight(chunkX << 4, chunkZ << 4, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES);
-        return landHeight > 80;
+        int landHeight = chunkGenerator.getNoiseHeight(chunkX << 4, chunkZ << 4, Heightmap.Type.WORLD_SURFACE_WG);
+        return landHeight > 40;
     }
 
     public static int getYPosForStructure(int chunkX, int chunkY, ChunkGenerator generatorIn) {

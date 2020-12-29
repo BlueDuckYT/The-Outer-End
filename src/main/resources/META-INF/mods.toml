@@ -53,6 +53,6 @@ The Outer End is an end mod'''
     modId="abnormals_core"
     mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[1.0,)"
+    versionRange="[3.0.4,)"
     ordering="NONE"
     side="BOTH"

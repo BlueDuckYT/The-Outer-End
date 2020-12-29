@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "outer_end:stalker_meat"
+  },
+  "result": "outer_end:cooked_stalker_meat",
+  "experience": 0.35,
+  "cookingtime": 100
+}

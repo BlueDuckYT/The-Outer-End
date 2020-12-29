@@ -1,20 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
-    " @ "
+    "# #",
+    "###"
   ],
   "key": {
     "#": {
       "item": "outer_end:azure_planks"
-    },
-    "@": {
-      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "outer_end:azure_sign",
-    "count": 3
+    "item": "outer_end:azure_boat"
   }
 }
