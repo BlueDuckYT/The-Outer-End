@@ -29,7 +29,7 @@ public class CrystalCrag extends OuterEndBiome {
 
     //3448555
     public CrystalCrag() {
-        super(CLIMATE, Biome.Category.THEEND, -0.1F, .15F, (new BiomeAmbience.Builder()).withGrassColor(new Color(81,91,135).getRGB()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(new BackgroundMusicSelector(SoundRegistry.AZURE_MUSIC.get(), 200, 2000, false)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(CLIMATE, Biome.Category.THEEND, -0.1F, .6F, (new BiomeAmbience.Builder()).withGrassColor(new Color(81,91,135).getRGB()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(10518688).withSkyColor(0).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).setMusic(new BackgroundMusicSelector(SoundRegistry.AZURE_MUSIC.get(), 200, 2000, false)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
     
     static {

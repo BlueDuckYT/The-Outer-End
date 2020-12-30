@@ -110,11 +110,41 @@
     },
     {
 
+      "weight": 40,
+      "element": {
+
+
+        "location": "outer_end:catacombs/hallways/room_side",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
       "weight": 1,
       "element": {
 
 
         "location": "outer_end:catacombs/hallways/starting",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 25,
+      "element": {
+
+
+        "location": "outer_end:catacombs/hallways/down_start",
 
         "processors": "minecraft:empty",
 

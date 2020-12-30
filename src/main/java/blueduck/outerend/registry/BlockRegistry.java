@@ -207,6 +207,15 @@ public class BlockRegistry {
     public static final RegistryObject<Block> COBALT_CRYSTAL = BLOCKS.register("cobalt_crystal", () -> new Block(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.CYAN).hardnessAndResistance(0.3F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).setRequiresTool().setLightLevel((state) -> { return 7; })));
     public static final RegistryObject<Item> COBALT_CRYSTAL_ITEM = ITEMS.register("cobalt_crystal", () -> new BlockItem(COBALT_CRYSTAL.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
+    public static final RegistryObject<Block> ROSE_CRYSTAL_LAMP = BLOCKS.register("rose_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(ROSE_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
+    public static final RegistryObject<Item> ROSE_CRYSTAL_LAMP_ITEM = ITEMS.register("rose_crystal_lamp", () -> new BlockItem(ROSE_CRYSTAL_LAMP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MINT_CRYSTAL_LAMP = BLOCKS.register("mint_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(MINT_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
+    public static final RegistryObject<Item> MINT_CRYSTAL_LAMP_ITEM = ITEMS.register("mint_crystal_lamp", () -> new BlockItem(MINT_CRYSTAL_LAMP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> COBALT_CRYSTAL_LAMP = BLOCKS.register("cobalt_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(COBALT_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
+    public static final RegistryObject<Item> COBALT_CRYSTAL_LAMP_ITEM = ITEMS.register("cobalt_crystal_lamp", () -> new BlockItem(COBALT_CRYSTAL_LAMP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

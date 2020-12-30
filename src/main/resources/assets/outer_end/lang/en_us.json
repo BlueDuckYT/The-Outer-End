@@ -64,6 +64,10 @@
   "block.outer_end.mint_crystal": "Mint Crystal",
   "block.outer_end.cobalt_crystal": "Cobalt Crystal",
 
+  "block.outer_end.rose_crystal_lamp": "Rose Crystal Lamp",
+  "block.outer_end.mint_crystal_lamp": "Mint Crystal Lamp",
+  "block.outer_end.cobalt_crystal_lamp": "Cobalt Crystal Lamp",
+
   "item.outer_end.azure_berries": "Azure Berries",
   "item.outer_end.floral_paste": "Floral Paste",
   "item.outer_end.stalker_meat": "Stalker Meat",
