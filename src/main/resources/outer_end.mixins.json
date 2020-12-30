@@ -4,12 +4,12 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "outer_end.refmap.json",
   "client": [
+    "ElytraTextureMixin",
+    "CapeMixin"
   ],
   "mixins": [
     "DragonAttributesMixin",
-    "TemplateManagerMixin",
-    "ElytraTextureMixin",
-    "CapeMixin"
+    "TemplateManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
