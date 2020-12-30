@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:mossy_violite_bricks"
+    }
+  },
+  "result": {
+    "item": "outer_end:mossy_violite_brick_wall",
+    "count": 6
+  }
+}

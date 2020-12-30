@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "outer_end:block/mossyviolitebrickslab"
+    },
+    "type=top": {
+      "model": "outer_end:block/mossyviolitebrickslab_top"
+    },
+    "type=double": {
+      "model": "outer_end:block/mossyviolitebrickslab_full"
+    }
+  }
+}

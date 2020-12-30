@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "outer_end:blocks/violite_tiles",
+    "top": "outer_end:blocks/violite_tiles",
+    "side": "outer_end:blocks/violite_tiles"
+  }
+}

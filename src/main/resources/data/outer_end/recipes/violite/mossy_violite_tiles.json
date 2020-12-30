@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "outer_end:violite_tiles"
+    },
+    {
+      "item": "outer_end:ender_roots"
+    }
+  ],
+  "result": {
+    "item": "outer_end:mossy_violite_tiles"
+  }
+}

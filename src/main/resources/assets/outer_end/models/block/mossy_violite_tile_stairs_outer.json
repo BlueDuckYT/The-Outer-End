@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "outer_end:blocks/mossy_violite_tiles",
+    "top": "outer_end:blocks/mossy_violite_tiles",
+    "side": "outer_end:blocks/mossy_violite_tiles"
+  }
+}

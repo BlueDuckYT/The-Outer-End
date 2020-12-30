@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_post",
+  "textures": {
+    "wall": "outer_end:blocks/mossy_violite_bricks",
+    "particle": "outer_end:blocks/mossy_violite_bricks"
+  }
+}

@@ -51,9 +51,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nonnull;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Mod("outer_end")
 public class OuterEndMod
@@ -63,6 +61,8 @@ public class OuterEndMod
 
     public static OuterEndConfig CONFIG;
     public static RegistryHelper HELPER = new RegistryHelper("outer_end");
+
+    public static ArrayList<UUID> DEVS = new ArrayList<UUID>();
 
 
     public OuterEndMod() {
@@ -93,6 +93,15 @@ public class OuterEndMod
             if (!FMLEnvironment.production) {
                 MinecraftForge.EVENT_BUS.addListener(DebugRenderer::renderDebugEntityPathfinding);
             }
+            DEVS.add(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"));
+            DEVS.add(UUID.fromString("c88a2cce-333f-450d-be8b-374c216ad4b5"));
+            DEVS.add(UUID.fromString("d2b21209-ffe6-47f0-b86a-b13d40eeebc2"));
+            DEVS.add(UUID.fromString("5a359e55-da1d-4c81-83d3-f9b63b9e59c7"));
+            DEVS.add(UUID.fromString("0bd28a4b-2666-428b-8c04-2dff8a4c8fd9"));
+            DEVS.add(UUID.fromString("631b7d0b-23c5-4341-bcc1-87fc02f8840a"));
+            DEVS.add(UUID.fromString("264767a2-6a9b-4a35-9b3a-89c855164850"));
+            DEVS.add(UUID.fromString("b0242a0f-e172-45f2-a79e-9fa14494bba9"));
+            DEVS.add(UUID.fromString("3e7e37bd-95de-43c1-9ee4-b3b63dbdf66f"));
         }
         
         MinecraftForge.EVENT_BUS.register(this);

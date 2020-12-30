@@ -7,7 +7,9 @@
   ],
   "mixins": [
     "DragonAttributesMixin",
-    "TemplateManagerMixin"
+    "TemplateManagerMixin",
+    "ElytraTextureMixin",
+    "CapeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

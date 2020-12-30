@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "outer_end:block/violitebrickslab"
+    },
+    "type=top": {
+      "model": "outer_end:block/violitebrickslab_top"
+    },
+    "type=double": {
+      "model": "outer_end:block/violitebrickslab_full"
+    }
+  }
+}

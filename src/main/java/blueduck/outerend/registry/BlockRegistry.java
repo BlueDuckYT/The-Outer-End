@@ -132,8 +132,71 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> HIMMEL_STAIRS = BLOCKS.register("himmel_stairs", () -> new StairsBlock(HIMMEL_BLOCK.get().getDefaultState(), Block.Properties.from(Blocks.PURPUR_BLOCK)));
     public static final RegistryObject<Item> HIMMEL_STAIRS_ITEM = ITEMS.register("himmel_stairs", () -> new BlockItem(HIMMEL_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
-    
-    
+
+    public static final RegistryObject<Block> VIOLITE = BLOCKS.register("violite", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_ITEM = ITEMS.register("violite", () -> new BlockItem(VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> VIOLITE_BRICKS = BLOCKS.register("violite_bricks", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_BRICKS_ITEM = ITEMS.register("violite_bricks", () -> new BlockItem(VIOLITE_BRICKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> VIOLITE_BRICK_SLAB = BLOCKS.register("violite_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_SLAB_ITEM = ITEMS.register("violite_brick_slab", () -> new BlockItem(VIOLITE_BRICK_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> VIOLITE_BRICK_VERTICAL_SLAB = conditionallyRegisterBlock("violite_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)), () -> isLoaded("quark"));
+    public static final RegistryObject<Item> VIOLITE_BRICK_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("violite_brick_vertical_slab", () -> new BlockItem(VIOLITE_BRICK_VERTICAL_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
+
+    public static final RegistryObject<Block> VIOLITE_STAIRS = BLOCKS.register("violite_brick_stairs", () -> new StairsBlock(VIOLITE_BRICKS.get().getDefaultState(), Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_STAIRS_ITEM = ITEMS.register("violite_brick_stairs", () -> new BlockItem(VIOLITE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> VIOLITE_BRICK_WALL = BLOCKS.register("violite_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_WALL_ITEM = ITEMS.register("violite_brick_wall", () -> new BlockItem(VIOLITE_BRICK_WALL.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_BRICKS = BLOCKS.register("mossy_violite_bricks", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_BRICKS_ITEM = ITEMS.register("mossy_violite_bricks", () -> new BlockItem(MOSSY_VIOLITE_BRICKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_BRICK_SLAB = BLOCKS.register("mossy_violite_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_SLAB_ITEM = ITEMS.register("mossy_violite_brick_slab", () -> new BlockItem(MOSSY_VIOLITE_BRICK_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_BRICK_VERTICAL_SLAB = conditionallyRegisterBlock("mossy_violite_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)), () -> isLoaded("quark"));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_BRICK_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("mossy_violite_brick_vertical_slab", () -> new BlockItem(MOSSY_VIOLITE_BRICK_VERTICAL_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_STAIRS = BLOCKS.register("mossy_violite_brick_stairs", () -> new StairsBlock(MOSSY_VIOLITE_BRICKS.get().getDefaultState(), Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_STAIRS_ITEM = ITEMS.register("mossy_violite_brick_stairs", () -> new BlockItem(MOSSY_VIOLITE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_BRICK_WALL = BLOCKS.register("mossy_violite_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_WALL_ITEM = ITEMS.register("mossy_violite_brick_wall", () -> new BlockItem(MOSSY_VIOLITE_BRICK_WALL.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> CRACKED_VIOLITE_BRICKS = BLOCKS.register("cracked_violite_bricks", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> CRACKED_VIOLITE_BRICKS_ITEM = ITEMS.register("cracked_violite_bricks", () -> new BlockItem(CRACKED_VIOLITE_BRICKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+
+    public static final RegistryObject<Block> VIOLITE_TILES = BLOCKS.register("violite_tiles", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_TILES_ITEM = ITEMS.register("violite_tiles", () -> new BlockItem(VIOLITE_TILES.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> VIOLITE_TILE_SLAB = BLOCKS.register("violite_tile_slab", () -> new SlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_TILE_SLAB_ITEM = ITEMS.register("violite_tile_slab", () -> new BlockItem(VIOLITE_TILE_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> VIOLITE_TILE_VERTICAL_SLAB = conditionallyRegisterBlock("violite_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)), () -> isLoaded("quark"));
+    public static final RegistryObject<Item> VIOLITE_TILE_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("violite_tile_vertical_slab", () -> new BlockItem(VIOLITE_TILE_VERTICAL_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
+
+    public static final RegistryObject<Block> VIOLITE_TILE_STAIRS = BLOCKS.register("violite_tile_stairs", () -> new StairsBlock(VIOLITE_TILES.get().getDefaultState(), Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> VIOLITE_TILE_STAIRS_ITEM = ITEMS.register("violite_tile_stairs", () -> new BlockItem(VIOLITE_TILE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_TILES = BLOCKS.register("mossy_violite_tiles", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_TILES_ITEM = ITEMS.register("mossy_violite_tiles", () -> new BlockItem(MOSSY_VIOLITE_TILES.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_TILE_SLAB = BLOCKS.register("mossy_violite_tile_slab", () -> new SlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_TILE_SLAB_ITEM = ITEMS.register("mossy_violite_tile_slab", () -> new BlockItem(MOSSY_VIOLITE_TILE_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_TILE_VERTICAL_SLAB = conditionallyRegisterBlock("mossy_violite_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(Blocks.NETHER_BRICKS)), () -> isLoaded("quark"));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_TILE_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("mossy_violite_tile_vertical_slab", () -> new BlockItem(MOSSY_VIOLITE_TILE_VERTICAL_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
+
+    public static final RegistryObject<Block> MOSSY_VIOLITE_TILE_STAIRS = BLOCKS.register("mossy_violite_tile_stairs", () -> new StairsBlock(MOSSY_VIOLITE_TILES.get().getDefaultState(), Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> MOSSY_VIOLITE_TILE_STAIRS_ITEM = ITEMS.register("mossy_violite_tile_stairs", () -> new BlockItem(MOSSY_VIOLITE_TILE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> CRACKED_VIOLITE_TILES = BLOCKS.register("cracked_violite_tiles", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Item> CRACKED_VIOLITE_TILES_ITEM = ITEMS.register("cracked_violite_tiles", () -> new BlockItem(CRACKED_VIOLITE_TILES.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
