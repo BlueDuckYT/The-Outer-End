@@ -196,8 +196,8 @@ public class CatacombsStructure extends Structure<NoFeatureConfig> {
             //
             // By lifting the house up by 1 and lowering the bounding box, the land at bottom of house will now be
             // flush with the surrounding terrain without blocking off the doorstep.
-            //this.components.forEach(piece -> piece.offset(0, 1, 0));
-            //this.components.forEach(piece -> piece.getBoundingBox().minY -= 1);
+            this.components.forEach(piece -> piece.offset(0, -3, 0));
+            ///this.components.forEach(piece -> piece.getBoundingBox().minY -= 3);
 
 
             // Sets the bounds of the structure once you are finished.

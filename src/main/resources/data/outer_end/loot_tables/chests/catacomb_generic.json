@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 2,
+          "quality": 0,
+          "name": "minecraft:chests/stronghold_corridor"
+        }
+      ]
+    }
+  ]
+}
