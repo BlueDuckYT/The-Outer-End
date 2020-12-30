@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "outer_end:violite_bricks"
+  },
+  "result": "outer_end:cracked_violite_bricks",
+  "experience": 0.35,
+  "cookingtime": 200
+}
