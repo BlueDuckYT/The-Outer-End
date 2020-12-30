@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
 
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(AbstractClientPlayerEntity.class)
 public abstract class CapeMixin {
 

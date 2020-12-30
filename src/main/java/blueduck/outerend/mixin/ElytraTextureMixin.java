@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(ElytraLayer.class)
 public abstract class ElytraTextureMixin<T extends LivingEntity, M extends EntityModel<T>> extends LayerRenderer<T, M> {
 	@Shadow @Final private static ResourceLocation TEXTURE_ELYTRA;
