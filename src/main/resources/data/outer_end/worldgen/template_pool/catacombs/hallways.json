@@ -65,7 +65,7 @@
     },
     {
 
-      "weight": 40,
+      "weight": 70,
       "element": {
 
 
@@ -85,6 +85,21 @@
 
 
         "location": "outer_end:catacombs/hallways/corner_1",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 75,
+      "element": {
+
+
+        "location": "outer_end:catacombs/hallways/split_side",
 
         "processors": "minecraft:empty",
 
