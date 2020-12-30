@@ -2,6 +2,7 @@ package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.biomes.AzureForest;
+import blueduck.outerend.biomes.CrystalCrag;
 import com.minecraftabnormals.abnormals_core.core.util.BiomeUtil;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +22,7 @@ public class BiomeRegistry {
 	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, OuterEndMod.MODID);
 
 	public static final RegistryObject<Biome> AZURE_FOREST = BIOMES.register("azure_forest", () -> new AzureForest().getBiome());
+	public static final RegistryObject<Biome> CRYSTAL_CRAG = BIOMES.register("crystal_crag", () -> new CrystalCrag().getBiome());
 	
 	private static final HashMap<Biome, Float> OUTER_END_BIOMES_WEIGHT_RANGES = new HashMap<>();
 	
@@ -36,6 +38,7 @@ public class BiomeRegistry {
 		@SubscribeEvent
 		public static void registerEvent(RegistryEvent.Register<Biome> event) {
 			register(AZURE_FOREST.get(), AZURE_FOREST.getId(), 60f, 60f, event);
+			register(CRYSTAL_CRAG.get(), CRYSTAL_CRAG.getId(), 60f, 60f, event);
 		}
 	}
 	

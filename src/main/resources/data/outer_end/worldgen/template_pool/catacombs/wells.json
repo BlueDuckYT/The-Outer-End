@@ -1,0 +1,22 @@
+{
+  "name": "outer_end:catacombs/wells",
+
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+
+      "weight": 100,
+      "element": {
+
+
+        "location": "outer_end:catacombs/starting_well",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

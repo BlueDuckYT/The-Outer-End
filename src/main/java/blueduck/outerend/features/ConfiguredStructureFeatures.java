@@ -12,10 +12,12 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class ConfiguredStructureFeatures {
 
     public static StructureFeature<?, ?> CONFIGURED_END_TOWER = StructureRegistry.END_TOWER.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+    public static StructureFeature<?, ?> CONFIGURED_CATACOMBS = StructureRegistry.CATACOMBS.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
 
     public static void registerConfiguredStructures() {
         Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
         Registry.register(registry, new ResourceLocation(OuterEndMod.MODID, "end_tower"), CONFIGURED_END_TOWER);
+        Registry.register(registry, new ResourceLocation(OuterEndMod.MODID, "catacombs"), CONFIGURED_CATACOMBS);
 
         // Ok so, this part may be hard to grasp but basically, just add your structure to this to
         // prevent any sort of crash or issue with other mod's custom ChunkGenerators. If they use
@@ -30,6 +32,7 @@ public class ConfiguredStructureFeatures {
         // and re-enter it and your structures will be spawning. I could not figure out why it needs
         // the restart but honestly, superflat is really buggy and shouldn't be your main focus in my opinion.
         FlatGenerationSettings.STRUCTURES.put(StructureRegistry.END_TOWER.get(), CONFIGURED_END_TOWER);
+        FlatGenerationSettings.STRUCTURES.put(StructureRegistry.CATACOMBS.get(), CONFIGURED_CATACOMBS);
     }
 
 }

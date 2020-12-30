@@ -32,6 +32,16 @@ public class FeatureRegistry {
 							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
 							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
 			);
+	public static final ConfiguredFeature<NoFeatureConfig,AzureTreeFeature> CRYSTAL_SPIKE_FEATURE =
+			(ConfiguredFeature<NoFeatureConfig, AzureTreeFeature>) newConfiguredFeature(
+					"crystal_spike_feature",
+					newFeature(
+							"crystal_spike_feature",
+							new EndGrassDecorator(NoFeatureConfig.field_236558_a_)
+					).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
+							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 4)))
+			);
 	
 	private static <FC extends IFeatureConfig, F extends Feature<FC>> ConfiguredFeature<FC, F> newConfiguredFeature(String registryName, ConfiguredFeature<FC, F> configuredFeature) {
 		Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(OuterEndMod.MODID, registryName), configuredFeature);

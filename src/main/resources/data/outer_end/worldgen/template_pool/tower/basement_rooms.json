@@ -227,6 +227,22 @@
 
         "element_type": "minecraft:single_pool_element"
       }
+    },
+    {
+
+      "weight": 1,
+      "element": {
+
+
+        "location": "outer_end:tower/basement/rooms/heisenberg",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
     }
+
   ]
 }

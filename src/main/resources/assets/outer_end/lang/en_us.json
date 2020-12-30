@@ -60,6 +60,10 @@
 
   "block.outer_end.cracked_violite_tiles": "Cracked Violite Tiles",
 
+  "block.outer_end.rose_crystal": "Rose Crystal",
+  "block.outer_end.mint_crystal": "Mint Crystal",
+  "block.outer_end.cobalt_crystal": "Cobalt Crystal",
+
   "item.outer_end.azure_berries": "Azure Berries",
   "item.outer_end.floral_paste": "Floral Paste",
   "item.outer_end.stalker_meat": "Stalker Meat",

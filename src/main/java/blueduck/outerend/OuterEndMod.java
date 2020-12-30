@@ -131,6 +131,7 @@ public class OuterEndMod
         // registrykey. Then that can be fed into the dictionary to get the biome's types.
         if (event.getCategory().equals(Biome.Category.THEEND)) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_END_TOWER);
+            event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_CATACOMBS);
 
             event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 8, 1, 1));
 
@@ -167,6 +168,7 @@ public class OuterEndMod
             if (serverWorld.getDimensionKey().getLocation().equals(new ResourceLocation("minecraft:the_end"))) {
                 Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
                 tempMap.put(StructureRegistry.END_TOWER.get(), DimensionStructuresSettings.field_236191_b_.get(StructureRegistry.END_TOWER.get()));
+                tempMap.put(StructureRegistry.CATACOMBS.get(), DimensionStructuresSettings.field_236191_b_.get(StructureRegistry.CATACOMBS.get()));
                 serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
             }
         }

@@ -1,6 +1,7 @@
 package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
+import blueduck.outerend.structures.CatacombsStructure;
 import blueduck.outerend.structures.EndTowerStructure;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -22,6 +23,7 @@ public class StructureRegistry {
     public static final DeferredRegister<Structure<?>> STRUCTURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, OuterEndMod.MODID);
 
     public static final RegistryObject<Structure<NoFeatureConfig>> END_TOWER = setupStructure("end_tower", () -> (new EndTowerStructure(NoFeatureConfig.field_236558_a_)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> CATACOMBS = setupStructure("catacombs", () -> (new CatacombsStructure(NoFeatureConfig.field_236558_a_)));
 
     private static <T extends Structure<?>> RegistryObject<T> setupStructure(String name, Supplier<T> structure) {
         return STRUCTURES.register(name, structure);
@@ -37,6 +39,13 @@ public class StructureRegistry {
                 new StructureSeparationSettings(45 /* maximum distance apart in chunks between spawn attempts */,
                         15 /* minimum distance apart in chunks between spawn attempts */,
                         1234567990 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
+                true);
+
+        setupStructure(
+                CATACOMBS.get(), /* The instance of the structure */
+                new StructureSeparationSettings(45 /* maximum distance apart in chunks between spawn attempts */,
+                        15 /* minimum distance apart in chunks between spawn attempts */,
+                        123457990 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
                 true);
 
     }
