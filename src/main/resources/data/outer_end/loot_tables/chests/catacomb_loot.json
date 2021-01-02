@@ -11,6 +11,17 @@
           "name": "minecraft:chests/end_city_treasure"
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 2,
+          "quality": 0,
+          "name": "outer_end:chests/catacomb_treasure"
+        }
+      ]
     }
   ]
 }

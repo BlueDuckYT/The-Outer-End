@@ -5,6 +5,7 @@ import blueduck.outerend.blocks.EnderGrassBlock;
 import blueduck.outerend.blocks.EnderSaplingBlock;
 import blueduck.outerend.blocks.EnderTallGrass;
 import blueduck.outerend.features.AzureTreeFeature;
+import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.BookshelfBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.chest.AbnormalsChestBlock;
@@ -99,6 +100,10 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> AZURE_BOOKSHELF = conditionallyRegisterBlock("azure_bookshelf", () -> new BookshelfBlock(Block.Properties.from(Blocks.OAK_PLANKS)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> AZURE_BOOKSHELF_ITEM = conditionallyRegisterItem("azure_bookshelf", () -> new BlockItem(AZURE_BOOKSHELF.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
+
+    public static final RegistryObject<Block> AZURE_BEEHIVE = conditionallyRegisterBlock("azure_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.OAK_PLANKS)), () -> isLoaded("quark"));
+    public static final RegistryObject<Item> AZURE_BEEHIVE_ITEM = conditionallyRegisterItem("azure_beehive", () -> new BlockItem(AZURE_BEEHIVE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("buzzier_bees"));
+
 
     public static final Pair<RegistryObject<AbnormalsChestBlock>, RegistryObject<AbnormalsTrappedChestBlock>> AZURE_CHEST = HELPER.createCompatChestBlocks("azure", MaterialColor.BLUE_TERRACOTTA, "quark");
 
@@ -215,7 +220,6 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> COBALT_CRYSTAL_LAMP = BLOCKS.register("cobalt_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(COBALT_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
     public static final RegistryObject<Item> COBALT_CRYSTAL_LAMP_ITEM = ITEMS.register("cobalt_crystal_lamp", () -> new BlockItem(COBALT_CRYSTAL_LAMP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
-
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

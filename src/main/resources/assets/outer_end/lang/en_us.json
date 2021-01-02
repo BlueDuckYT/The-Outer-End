@@ -23,6 +23,7 @@
   "block.outer_end.azure_vertical_planks": "Vertical Azure Planks",
   "block.outer_end.azure_ladder": "Azure Ladder",
   "block.outer_end.azure_bookshelf": "Azure Bookshelf",
+  "block.outer_end.azure_beehive": "Azure Beehive",
   "block.outer_end.azure_chest": "Azure Chest",
   "block.outer_end.azure_trapped_chest": "Azure Trapped Chest",
 
@@ -85,10 +86,13 @@
   "item.outer_end.himmelite_spawn_egg": "Himmelite Spawn Egg",
   "item.outer_end.purpur_golem_spawn_egg": "Purpur Golem Spawn Egg",
   "item.outer_end.stalker_spawn_egg": "Stalker Spawn Egg",
+  "item.outer_end.entombed_spawn_egg": "Entombed Spawn Egg",
 
   "entity.outer_end.spectrafly": "Spectrafly",
   "entity.outer_end.himmelite": "Himmelite",
   "entity.outer_end.purpur_golem": "Purpur Golem",
+  "entity.outer_end.stalker": "Stalker",
+  "entity.outer_end.entombed": "Entombed",
 
 
   "music.outer_end.galactic_wave": "Galactic Wave",

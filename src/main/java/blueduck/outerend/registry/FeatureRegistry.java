@@ -2,6 +2,7 @@ package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.features.AzureTreeFeature;
+import blueduck.outerend.features.CrystalSpikeFeature;
 import blueduck.outerend.features.EndGrassDecorator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -37,10 +38,10 @@ public class FeatureRegistry {
 					"crystal_spike_feature",
 					newFeature(
 							"crystal_spike_feature",
-							new EndGrassDecorator(NoFeatureConfig.field_236558_a_)
+							new CrystalSpikeFeature(NoFeatureConfig.field_236558_a_)
 					).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
 							.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 4)))
+							.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 1, 1)))
 			);
 	
 	private static <FC extends IFeatureConfig, F extends Feature<FC>> ConfiguredFeature<FC, F> newConfiguredFeature(String registryName, ConfiguredFeature<FC, F> configuredFeature) {

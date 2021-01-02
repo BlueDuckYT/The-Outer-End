@@ -1,10 +1,7 @@
 package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
-import blueduck.outerend.entities.DragonflyEntity;
-import blueduck.outerend.entities.HimmeliteEntity;
-import blueduck.outerend.entities.PurpurGolemEntity;
-import blueduck.outerend.entities.StalkerEntity;
+import blueduck.outerend.entities.*;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -35,6 +32,11 @@ public class EntityRegistry {
 			.create(StalkerEntity::new, EntityClassification.CREATURE)
 			.setTrackingRange(64).setUpdateInterval(2).size(1.3964844f, 2.25f)
 			.build(OuterEndMod.MODID + ":stalker"));
+
+	public static final RegistryObject<EntityType<EntombedEntity>> ENTOMBED = ENTITIES.register("entombed", () -> EntityType.Builder
+			.create(EntombedEntity::new, EntityClassification.MONSTER)
+			.setTrackingRange(64).setUpdateInterval(2).size(1.6f, 2.4f)
+			.build(OuterEndMod.MODID + ":entombed"));
 
 
 

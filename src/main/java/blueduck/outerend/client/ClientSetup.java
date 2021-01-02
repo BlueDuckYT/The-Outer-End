@@ -1,10 +1,7 @@
 package blueduck.outerend.client;
 
 import blueduck.outerend.client.colors.items.SpawnEggColors;
-import blueduck.outerend.client.entity.renderer.DragonflyEntityRenderer;
-import blueduck.outerend.client.entity.renderer.HimmeliteRenderer;
-import blueduck.outerend.client.entity.renderer.PurpurGolemRenderer;
-import blueduck.outerend.client.entity.renderer.StalkerRenderer;
+import blueduck.outerend.client.entity.renderer.*;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.ItemRegistry;
@@ -29,9 +26,12 @@ public class ClientSetup {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.HIMMELITE.get(), HimmeliteRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.PURPUR_GOLEM.get(), PurpurGolemRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.STALKER.get(), StalkerRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.ENTOMBED.get(), EntombedRenderer::new);
 		
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.SPECTRAFLY_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.HIMMELITE_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.PURPUR_GOLEM_SPAWN_EGG::get);
+		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.STALKER_SPAWN_EGG::get);
+		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.ENTOMBED_SPAWN_EGG::get);
 	}
 }

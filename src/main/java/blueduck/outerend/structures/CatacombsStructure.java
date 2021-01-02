@@ -1,7 +1,10 @@
 package blueduck.outerend.structures;
 
 import blueduck.outerend.OuterEndMod;
+import blueduck.outerend.registry.EntityRegistry;
+import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
@@ -11,6 +14,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
@@ -23,6 +27,7 @@ import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
 import java.util.Random;
 
 public class CatacombsStructure extends Structure<NoFeatureConfig> {
@@ -65,13 +70,13 @@ public class CatacombsStructure extends Structure<NoFeatureConfig> {
      *       ambient, or misc mobs. Use that event to add/remove mobs from structures
      *       that are not your own.
      */
-//    private static final List<MobSpawnInfo.Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
-//            new MobSpawnInfo.Spawners(EntityType.DRAGONF, 100, 4, 9)
-//    );
-//    @Override
-//    public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
-//        return STRUCTURE_MONSTERS;
-//    }
+    private static final List<MobSpawnInfo.Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
+            new MobSpawnInfo.Spawners(EntityRegistry.ENTOMBED.get(), 25, 1, 1)
+    );
+    @Override
+    public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
+        return STRUCTURE_MONSTERS;
+    }
 
 //    private static final List<MobSpawnInfo.Spawners> STRUCTURE_CREATURES = ImmutableList.of(
 //            new MobSpawnInfo.Spawners(EntityType.SHEEP, 30, 10, 15),
@@ -168,7 +173,7 @@ public class CatacombsStructure extends Structure<NoFeatureConfig> {
                             // How many pieces outward from center can a recursive jigsaw structure spawn.
                             // Our structure is only 1 block out and isn't recursive so any value of 1 or more doesn't change anything.
                             // However, I recommend you keep this a high value so people can use datapacks to add additional pieces to your structure easily.
-                            100),
+                            300),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     templateManagerIn,

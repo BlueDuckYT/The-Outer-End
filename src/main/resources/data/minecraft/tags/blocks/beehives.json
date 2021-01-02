@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "outer_end:azure_beehive",
+      "required": "false"
+    }
+  ]
+}

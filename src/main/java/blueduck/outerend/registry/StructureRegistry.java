@@ -38,15 +38,15 @@ public class StructureRegistry {
                 END_TOWER.get(), /* The instance of the structure */
                 new StructureSeparationSettings(45 /* maximum distance apart in chunks between spawn attempts */,
                         15 /* minimum distance apart in chunks between spawn attempts */,
-                        1234567990 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
-                true);
+                        753937990 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
+                false);
 
         setupStructure(
                 CATACOMBS.get(), /* The instance of the structure */
                 new StructureSeparationSettings(45 /* maximum distance apart in chunks between spawn attempts */,
                         15 /* minimum distance apart in chunks between spawn attempts */,
                         125261290 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
-                true);
+                false);
 
     }
 
