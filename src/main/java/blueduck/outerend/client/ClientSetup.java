@@ -5,6 +5,7 @@ import blueduck.outerend.client.entity.renderer.*;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.ItemRegistry;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -21,7 +22,10 @@ public class ClientSetup {
 		if (BlockRegistry.isLoaded("quark")) {
 			RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_LADDER.get(), RenderType.getCutout());
 		}
-		
+		RenderTypeLookup.setRenderLayer(BlockRegistry.ROSE_CRYSTAL.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.MINT_CRYSTAL.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.COBALT_CRYSTAL.get(), RenderType.getTranslucent());
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.DRAGONFLY.get(), DragonflyEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.HIMMELITE.get(), HimmeliteRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.PURPUR_GOLEM.get(), PurpurGolemRenderer::new);
