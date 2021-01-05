@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "outer_end:block/tall_ender_roots_top"
+  }
+}

@@ -140,7 +140,7 @@ public class OuterEndMod
 
         if (event.getName().equals(new ResourceLocation("minecraft:end_highlands"))) {
             event.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 80, 2, 5));
-
+            event.getSpawns().withCreatureSpawnProbability(5);
         }
     }
 

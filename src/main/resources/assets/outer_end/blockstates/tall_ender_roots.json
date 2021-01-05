@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "outer_end:block/tall_ender_roots_bottom"
+    },
+    "half=upper": {
+      "model": "outer_end:block/tall_ender_roots_top"
+    }
+  }
+}
