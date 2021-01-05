@@ -79,15 +79,15 @@ public class OuterEndMod
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::biomeModification);
 
-
-
+        
         BiomeRegistry.init();
         BlockRegistry.init();
         EntityRegistry.init();
         ItemRegistry.init();
         StructureRegistry.init();
         SoundRegistry.init();
-
+        
+        
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
             if (!FMLEnvironment.production) {

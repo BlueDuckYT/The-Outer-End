@@ -95,11 +95,7 @@
   "entity.outer_end.stalker": "Stalker",
   "entity.outer_end.entombed": "Entombed",
 
-
-  "music.outer_end.galactic_wave": "Galactic Wave",
-
-
-
-  "biome.outer_end.azure_forest": "Azure Forest"
+  "biome.outer_end.azure_forest": "Azure Forest",
+  "biome.outer_end.crystal_crag": "Crystal Crag"
 
 }

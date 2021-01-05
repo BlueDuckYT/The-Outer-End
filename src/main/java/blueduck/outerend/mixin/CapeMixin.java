@@ -16,27 +16,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
 
-
+@OnlyIn(Dist.CLIENT)
 @Mixin(NetworkPlayerInfo.class)
 public abstract class CapeMixin {
 
 
+    @Shadow
+    @Final
+    private GameProfile gameProfile;
+    private static final ResourceLocation TEXTURE_DEV_CAPE = new ResourceLocation("outer_end:textures/entity/outer_end_cape.png");
 
-	@Shadow @Final private GameProfile gameProfile;
-	private static final ResourceLocation TEXTURE_DEV_CAPE = new ResourceLocation("outer_end:textures/entity/outer_end_cape.png");
+    /**
+     * @author Outer End Team
+     * @reason Custom Cape for the devs
+     */
 
-	/**
-	 * @author Outer End Team
-	 * @reason Custom Cape for the devs
-	 */
-
-	@Inject(method = "Lnet/minecraft/client/network/play/NetworkPlayerInfo;getLocationCape()Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
-	public void getLocationCape(CallbackInfoReturnable info) {
-		if (OuterEndMod.DEVS.contains(gameProfile.getId())) {
-			info.setReturnValue(TEXTURE_DEV_CAPE);
-		}
-	}
-
+    @Inject(method = "Lnet/minecraft/client/network/play/NetworkPlayerInfo;getLocationCape()Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
+    public void OUTER_END_getLocationCape(CallbackInfoReturnable<ResourceLocation> info) {
+        if (OuterEndMod.DEVS.contains(gameProfile.getId())) {
+            info.setReturnValue(TEXTURE_DEV_CAPE);
+        }
+    }
 
 
 }

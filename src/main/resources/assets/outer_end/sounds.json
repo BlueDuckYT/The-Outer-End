@@ -1,36 +1,163 @@
 {
-  "music.azure": {
-    "category": "record",
-    "subtitle": "",
-    "sounds": [
-      {
-        "name":  "outer_end:music/dysonsphere",
-        "stream": true
-      },
-      {
-        "name":  "outer_end:music/isolation",
-        "stream": true
-      }
-    ]
-  },
-  "music.galactic_wave": {
-    "category": "record",
-    "subtitle": "music.outer_end.galactic_wave",
-    "sounds": [
-      {
-        "name":  "outer_end:music/galactic_wave",
-        "stream": true
-      }
-    ]
-  },
-  "music.unknown_frontier": {
-    "category": "record",
-    "subtitle": "music.outer_end.unknown_frontier",
-    "sounds": [
-      {
-        "name":  "outer_end:music/unknown_frontier",
-        "stream": true
-      }
-    ]
-  }
+	"music.outer_end.game": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "music.end",
+				"type": "event"
+			},
+			{
+				"name": "outer_end:music/distorted1",
+				"stream": true
+			},
+			{
+				"name": "outer_end:music/distorted2",
+				"stream": true
+			},
+			{
+				"name": "outer_end:music/distorted3",
+				"stream": true
+			},
+			{
+				"name": "outer_end:music/wet1",
+				"stream": true
+			},
+			{
+				"name": "outer_end:music/wet2",
+				"stream": true
+			},
+			{
+				"name": "outer_end:music/wet3",
+				"stream": true
+			}
+		]
+	},
+	"music.outer_end.creative": {
+		"category": "music",
+		"sounds": [
+			{
+				"name": "outer_end:music.outer_end.game",
+				"type": "event"
+			},
+			{
+				"name": "outer_end:music/end_creative1",
+				"stream": true
+			},
+			{
+				"name": "outer_end:music/end_creative2",
+				"stream": true
+			},
+			{
+				"name": "outer_end:music/end_creative3",
+				"stream": true
+			}
+		]
+	},
+	"music.outer_end.azure": {
+		"category": "record",
+		"subtitle": "",
+		"sounds": [
+			{
+				"name": "outer_end:music.outer_end.game",
+				"type": "event"
+			},
+			{
+				"name": "outer_end:music/outer_end/azure/dysonsphere",
+				"stream": true,
+				"weight": 3
+			},
+			{
+				"name": "outer_end:music/outer_end/azure/isolation",
+				"stream": true,
+				"weight": 3
+			}
+		]
+	},
+	"music.outer_end.crystal_crag": {
+		"category": "record",
+		"subtitle": "",
+		"sounds": [
+			{
+				"name": "outer_end:music.outer_end.game",
+				"type": "event"
+			},
+			{
+				"name": "outer_end:music/outer_end/crystal_crag/parel",
+				"stream": true,
+				"weight": 6
+			}
+		]
+	},
+	"music.outer_end.disc.galactic_wave": {
+		"category": "record",
+		"sounds": [
+			{
+				"name": "outer_end:music/disc/galactic_wave",
+				"stream": true
+			}
+		]
+	},
+	"music.outer_end.disc.unknown_frontier": {
+		"category": "record",
+		"sounds": [
+			{
+				"name": "outer_end:music/disc/unknown_frontier",
+				"stream": true
+			}
+		]
+	},
+	"block.outer_end.violite.place": {
+		"category": "music",
+		"sounds": [
+			"outer_end:blocks/violite/break1",
+			"outer_end:blocks/violite/break2",
+			"outer_end:blocks/violite/break3",
+			"outer_end:blocks/violite/break4",
+			"outer_end:blocks/violite/break5"
+		],
+		"subtitle": "subtitles.block.generic.place"
+	},
+	"block.outer_end.violite.break": {
+		"category": "music",
+		"sounds": [
+			"outer_end:blocks/violite/break1",
+			"outer_end:blocks/violite/break2",
+			"outer_end:blocks/violite/break3",
+			"outer_end:blocks/violite/break4",
+			"outer_end:blocks/violite/break5"
+		],
+		"subtitle": "subtitles.block.generic.break"
+	},
+	"block.outer_end.violite.step": {
+		"category": "music",
+		"sounds": [
+			"outer_end:blocks/violite/step1",
+			"outer_end:blocks/violite/step2",
+			"outer_end:blocks/violite/step3",
+			"outer_end:blocks/violite/step4",
+			"outer_end:blocks/violite/step5"
+		],
+		"subtitle": "subtitles.block.generic.footsteps"
+	},
+	"block.outer_end.violite.hit": {
+		"category": "music",
+		"sounds": [
+			"outer_end:blocks/violite/step1",
+			"outer_end:blocks/violite/step2",
+			"outer_end:blocks/violite/step3",
+			"outer_end:blocks/violite/step4",
+			"outer_end:blocks/violite/step5"
+		],
+		"subtitle": "subtitles.block.generic.hit"
+	},
+	"block.outer_end.violite.fall": {
+		"category": "music",
+		"sounds": [
+			"outer_end:blocks/violite/step1",
+			"outer_end:blocks/violite/step2",
+			"outer_end:blocks/violite/step3",
+			"outer_end:blocks/violite/step4",
+			"outer_end:blocks/violite/step5"
+		]
+	}
 }

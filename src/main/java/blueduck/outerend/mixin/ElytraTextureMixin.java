@@ -17,28 +17,29 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
+@OnlyIn(Dist.CLIENT)
 @Mixin(ElytraLayer.class)
 public abstract class ElytraTextureMixin<T extends LivingEntity, M extends EntityModel<T>> extends LayerRenderer<T, M> {
-	@Shadow @Final private static ResourceLocation TEXTURE_ELYTRA;
-	private static final ResourceLocation TEXTURE_DEVLYTRA = new ResourceLocation("outer_end:textures/entity/outer_end_cape.png");
+    @Shadow
+    @Final
+    private static ResourceLocation TEXTURE_ELYTRA;
+    private static final ResourceLocation TEXTURE_DEVLYTRA = new ResourceLocation("outer_end:textures/entity/outer_end_cape.png");
 
-	public ElytraTextureMixin(IEntityRenderer<T, M> entityRendererIn) {
-		super(entityRendererIn);
-	}
+    public ElytraTextureMixin(IEntityRenderer<T, M> entityRendererIn) {
+        super(entityRendererIn);
+    }
 
-	/**
-	 * @author Outer End Team
-	 * @reason Custom Elytra for the devs
-	 */
+    /**
+     * @author Outer End Team
+     * @reason Custom Elytra for the devs
+     */
 
-	@Inject(method = "Lnet/minecraft/client/renderer/entity/layers/ElytraLayer;getElytraTexture(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
-	public void getElytraTexture(ItemStack stack, T entity, CallbackInfoReturnable info) {
-		if (OuterEndMod.DEVS.contains(entity.getUniqueID())) {
-			info.setReturnValue(TEXTURE_DEVLYTRA);
-		}
-	}
-
+    @Inject(method = "Lnet/minecraft/client/renderer/entity/layers/ElytraLayer;getElytraTexture(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
+    public void OUTER_END_getElytraTexture(ItemStack stack, T entity, CallbackInfoReturnable info) {
+        if (OuterEndMod.DEVS.contains(entity.getUniqueID())) {
+            info.setReturnValue(TEXTURE_DEVLYTRA);
+        }
+    }
 
 
 }
