@@ -123,6 +123,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> ENDER_ROOTS = BLOCKS.register("ender_roots", () -> new EnderTallGrass(Block.Properties.from(Blocks.GRASS)));
     public static final RegistryObject<Item> ENDER_ROOTS_ITEM = ITEMS.register("ender_roots", () -> new BlockItem(ENDER_ROOTS.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
 
+    public static final RegistryObject<Block> TALL_ENDER_ROOTS = BLOCKS.register("tall_ender_roots", () -> new EnderTallGrass(Block.Properties.from(Blocks.GRASS)));
+    //public static final RegistryObject<Item> TALL_ENDER_ROOTS_ITEM = ITEMS.register("tall_ender_roots", () -> new BlockItem(TALL_ENDER_ROOTS.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+
     public static final RegistryObject<Block> AZURE_GRASS = BLOCKS.register("azure_grass", () -> new EnderGrassBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE).setRequiresTool().hardnessAndResistance(3.0F, 9.0F), Blocks.END_STONE::getDefaultState, (rand)-> ENDER_ROOTS.get().getDefaultState()));
     public static final RegistryObject<Item> AZURE_GRASS_ITEM = ITEMS.register("azure_grass", () -> new BlockItem(AZURE_GRASS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
     
