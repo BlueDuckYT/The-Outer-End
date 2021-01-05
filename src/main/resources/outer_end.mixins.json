@@ -5,7 +5,8 @@
   "refmap": "outer_end.refmap.json",
   "client": [
     "ElytraTextureMixin",
-    "CapeMixin"
+    "CapeMixin",
+    "BackgroundMusicMixin"
   ],
   "mixins": [
     "DragonAttributesMixin",

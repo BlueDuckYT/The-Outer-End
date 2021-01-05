@@ -4,7 +4,6 @@ import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.items.DebugToolItem;
 import blueduck.outerend.items.OuterEndSpawnEgg;
 import com.minecraftabnormals.abnormals_core.common.items.AbnormalsBoatItem;
-import com.minecraftabnormals.abnormals_core.core.registry.BoatRegistry;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -29,8 +28,8 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> COOKED_STALKER_MEAT = ITEMS.register("cooked_stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(8).saturation(0.7f).build())));
 
 
-	public static final RegistryObject<Item> MUSIC_DISC_GALACTIC_WAVE = ITEMS.register("music_disc_galactic_wave", () -> new MusicDiscItem(15, () -> SoundRegistry.GALACTIC_WAVE.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
-	public static final RegistryObject<Item> MUSIC_DISC_UNKNOWN_FRONTIER = ITEMS.register("music_disc_unknown_frontier", () -> new MusicDiscItem(15, () -> SoundRegistry.UNKNOWN_FRONTIER.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+	public static final RegistryObject<Item> MUSIC_DISC_GALACTIC_WAVE = ITEMS.register("music_disc_galactic_wave", () -> new MusicDiscItem(15, () -> SoundRegistry.DISC_GALACTIC_WAVE.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+	public static final RegistryObject<Item> MUSIC_DISC_UNKNOWN_FRONTIER = ITEMS.register("music_disc_unknown_frontier", () -> new MusicDiscItem(15, () -> SoundRegistry.DISC_UNKNOWN_FRONTIER.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
 
 	public static final RegistryObject<Item> AZURE_BOAT = ITEMS.register("azure_boat", () -> new AbnormalsBoatItem("outer_end:azure", new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 
