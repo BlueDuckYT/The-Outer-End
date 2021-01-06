@@ -10,6 +10,7 @@
   "block.outer_end.azure_grass": "Azure Grass",
   "block.outer_end.ender_roots": "Ender Roots",
   "block.outer_end.tall_ender_roots": "Tall Ender Roots",
+  "block.outer_end.azure_sprouts": "Azure Sprouts",
   "block.outer_end.azure_fence": "Azure Fence",
   "block.outer_end.azure_fence_gate": "Azure Fence Gate",
   "block.outer_end.azure_door": "Azure Door",
@@ -69,6 +70,11 @@
   "block.outer_end.rose_crystal_lamp": "Rose Crystal Lamp",
   "block.outer_end.mint_crystal_lamp": "Mint Crystal Lamp",
   "block.outer_end.cobalt_crystal_lamp": "Cobalt Crystal Lamp",
+
+
+  "block.outer_end.rose_roots": "Rose Roots",
+  "block.outer_end.mint_roots": "Mint Roots",
+  "block.outer_end.cobalt_roots": "Cobalt Roots",
 
   "item.outer_end.azure_berries": "Azure Berries",
   "item.outer_end.floral_paste": "Floral Paste",

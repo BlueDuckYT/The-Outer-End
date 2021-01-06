@@ -1,6 +1,7 @@
 package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
+import blueduck.outerend.items.CrystalShardItem;
 import blueduck.outerend.items.DebugToolItem;
 import blueduck.outerend.items.OuterEndSpawnEgg;
 import com.minecraftabnormals.abnormals_core.common.items.AbnormalsBoatItem;
@@ -32,6 +33,11 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> MUSIC_DISC_UNKNOWN_FRONTIER = ITEMS.register("music_disc_unknown_frontier", () -> new MusicDiscItem(15, () -> SoundRegistry.DISC_UNKNOWN_FRONTIER.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
 
 	public static final RegistryObject<Item> AZURE_BOAT = ITEMS.register("azure_boat", () -> new AbnormalsBoatItem("outer_end:azure", new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+
+	public static final RegistryObject<Item> ROSE_CRYSTAL_SHARD = ITEMS.register("rose_crystal_shard", () -> new CrystalShardItem(new Item.Properties().group(ItemGroup.MISC)));
+	public static final RegistryObject<Item> MINT_CRYSTAL_SHARD = ITEMS.register("mint_crystal_shard", () -> new CrystalShardItem(new Item.Properties().group(ItemGroup.MISC)));
+	public static final RegistryObject<Item> COBALT_CRYSTAL_SHARD = ITEMS.register("cobalt_crystal_shard", () -> new CrystalShardItem(new Item.Properties().group(ItemGroup.MISC)));
+
 
 
 	public static final DeferredRegister<Item> SPAWN_EGGS = DeferredRegister.create(ForgeRegistries.ITEMS, OuterEndMod.MODID);

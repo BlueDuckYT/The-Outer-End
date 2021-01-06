@@ -19,12 +19,23 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_DOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_TRAPDOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ENDER_ROOTS.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.TALL_ENDER_ROOTS.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SPROUTS.get(), RenderType.getCutout());
+
 		if (BlockRegistry.isLoaded("quark")) {
 			RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_LADDER.get(), RenderType.getCutout());
 		}
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ROSE_CRYSTAL.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.MINT_CRYSTAL.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.COBALT_CRYSTAL.get(), RenderType.getTranslucent());
+
+		RenderTypeLookup.setRenderLayer(BlockRegistry.ROSE_CRYSTAL_BUD.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.MINT_CRYSTAL_BUD.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.COBALT_CRYSTAL_BUD.get(), RenderType.getCutout());
+
+		RenderTypeLookup.setRenderLayer(BlockRegistry.COBALT_ROOTS.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.ROSE_ROOTS.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.MINT_ROOTS.get(), RenderType.getCutout());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.DRAGONFLY.get(), DragonflyEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.HIMMELITE.get(), HimmeliteRenderer::new);
