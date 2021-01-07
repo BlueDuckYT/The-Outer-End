@@ -54,4 +54,6 @@ public class CrystalBudBlock extends Block implements IWaterLoggable {
         return !this.isValidPosition(stateIn, worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
+
+
 }

@@ -16,12 +16,13 @@ public class CrystalBlock extends AbstractGlassBlock {
     public Supplier<Block> BUD_BLOCK;
 
     public CrystalBlock(Properties properties, Supplier<Block> bud) {
-        super(properties.tickRandomly());
+        super(properties);
         BUD_BLOCK = bud;
     }
 
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-       if (random.nextDouble() < 0.1 && pos.getY() <= 24 && worldIn.getBlockState(pos.down()).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && worldIn.getBlockState(pos.up()).equals(Blocks.AIR.getDefaultState())) {
+    @Override
+    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+       if (random.nextDouble() < 0.01 && pos.getY() <= 24 && worldIn.getBlockState(pos.down()).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && worldIn.getBlockState(pos.up()).equals(Blocks.AIR.getDefaultState())) {
            worldIn.setBlockState(pos.up(), BUD_BLOCK.get().getDefaultState());
        }
     }

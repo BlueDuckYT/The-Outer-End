@@ -12,6 +12,8 @@ import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
 import com.minecraftabnormals.abnormals_core.core.registry.BoatRegistry;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.SpawnEggItem;
@@ -116,6 +118,13 @@ public class OuterEndMod
         });
 
         BoatRegistry.registerBoat("outer_end:azure", ItemRegistry.AZURE_BOAT, BlockRegistry.AZURE_PLANKS);
+
+
+        FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+
+        pot.addPlant(new ResourceLocation("outer_end:azure_bud"), BlockRegistry.POTTED_AZURE_BUD);
+        pot.addPlant(new ResourceLocation("outer_end:ender_roots"), BlockRegistry.POTTED_ENDER_ROOTS);
+        pot.addPlant(new ResourceLocation("outer_end:azure_sprouts"), BlockRegistry.POTTED_AZURE_SPROUTS);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

@@ -22,6 +22,11 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.TALL_ENDER_ROOTS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SPROUTS.get(), RenderType.getCutout());
 
+		RenderTypeLookup.setRenderLayer(BlockRegistry.POTTED_AZURE_BUD.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.POTTED_ENDER_ROOTS.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.POTTED_AZURE_SPROUTS.get(), RenderType.getCutout());
+
+
 		if (BlockRegistry.isLoaded("quark")) {
 			RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_LADDER.get(), RenderType.getCutout());
 		}

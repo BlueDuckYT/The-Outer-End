@@ -20,6 +20,9 @@
   "block.outer_end.azure_slab": "Azure Slab",
   "block.outer_end.azure_stairs": "Azure Stairs",
   "block.outer_end.azure_sign": "Azure Sign",
+  "block.outer_end.potted_azure_bud": "Potted Azure Bud",
+  "block.outer_end.potted_ender_roots": "Potted Ender Roots",
+  "block.outer_end.potted_azure_sprouts": "Potted Azure Sprouts",
 
   "block.outer_end.azure_vertical_slab": "Azure Vertical Slab",
   "block.outer_end.azure_vertical_planks": "Vertical Azure Planks",
@@ -67,6 +70,11 @@
   "block.outer_end.mint_crystal": "Mint Crystal",
   "block.outer_end.cobalt_crystal": "Cobalt Crystal",
 
+  "block.outer_end.rose_crystal_bud": "Rose Crystal Bud",
+  "block.outer_end.mint_crystal_bud": "Mint Crystal Bud",
+  "block.outer_end.cobalt_crystal_bud": "Cobalt Crystal Bud",
+
+
   "block.outer_end.rose_crystal_lamp": "Rose Crystal Lamp",
   "block.outer_end.mint_crystal_lamp": "Mint Crystal Lamp",
   "block.outer_end.cobalt_crystal_lamp": "Cobalt Crystal Lamp",
@@ -81,6 +89,10 @@
   "item.outer_end.stalker_meat": "Stalker Meat",
   "item.outer_end.cooked_stalker_meat": "Stalker Steak",
   "item.outer_end.azure_boat": "Azure Boat",
+
+  "item.outer_end.rose_crystal_shard": "Rose Crystal Shard",
+  "item.outer_end.mint_crystal_shard": "Mint Crystal Shard",
+  "item.outer_end.cobalt_crystal_shard": "Cobalt Crystal Shard",
 
   "item.outer_end.music_disc_galactic_wave": "Music Disc",
   "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",

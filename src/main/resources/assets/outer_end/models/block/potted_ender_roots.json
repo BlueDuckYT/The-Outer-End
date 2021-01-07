@@ -1,0 +1,7 @@
+
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "outer_end:block/ender_roots_pot"
+  }
+}
