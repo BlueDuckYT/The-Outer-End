@@ -43,15 +43,22 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 
 		pos = reader.getHeight(Heightmap.Type.WORLD_SURFACE_WG, pos).up(random.nextInt(20) + 40);
 
-		double scale = MathHelper.lerp(random.nextDouble(), 0.2, 0.6);
+		if (reader.getHeight(Heightmap.Type.WORLD_SURFACE_WG, pos).getY() == 0) {
+			pos = pos.up(random.nextInt(30) + 45);
+		}
+
+		double scale = MathHelper.lerp(random.nextDouble(), 0.2, 0.3);
+		if (random.nextDouble() < 0.4) {
+			scale *= 1.6;
+			if (random.nextDouble() < 0.2) {
+				scale *= 2;
+			}
+		}
+
 		double yScale = MathHelper.lerp(random.nextDouble(), 0.6, 1.2);
 		double uniformXrot = random.nextDouble() * 360;
 		double uniformYrot = random.nextDouble() * 360;
 		double uniformZrot = random.nextDouble() * 360;
-
-		if (random.nextDouble() < 0.2) {
-			scale *= 2.3;
-		}
 
 		double radius = 15;
 		double innerRadius = radius - (radius / 5);
@@ -204,52 +211,6 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 
 		}
 
-//		int insideCrystals = random.nextInt(16) + 4;
-//
-//		for (int i = 0; i < insideCrystals; i++) {
-//			BlockState CRYSTAL_TYPE = BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_blocks")).getRandomElement(random).getDefaultState();
-//
-//			double shardLength = (random.nextDouble() * 7) + 3;
-//			double shardRadius = (random.nextDouble() * 0.3) + 2;
-//			double shardArc = random.nextDouble() * 30;
-//
-//			double Xrot = random.nextDouble() * 25;
-//			double Zrot = 180 - (random.nextDouble() * 10);
-//			double Yrot = (random.nextDouble() * 360) * (i + 1);
-//
-//			double totalXrot = random.nextDouble() * 360;
-//			double totalYrot = random.nextDouble() * 360;
-//			double totalZrot = random.nextDouble() * 360;
-//
-//			double shardMovementX = (random.nextDouble() * (radius / 3)) - (radius / 6);
-//			double shardMovementY = (innerRadius) - (innerRadius / 5);
-//			double shardMovementZ = (random.nextDouble() * (radius / 3)) - (radius / 6);
-//
-//			Shape crystalShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
-//					/* Shape */
-//					.applyLayer(new AddLayer(
-//							/* Shape */
-//							Shapes.bentCone(shardRadius, shardRadius, shardLength, shardArc)
-//									/* Rotation */
-//									.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
-//					/* Movement */
-//					.applyLayer(new TranslateLayer(Position.of(shardMovementX, shardMovementY, shardMovementZ)))
-//					/* Rotation */
-//					.applyLayer(new RotateLayer(Quaternion.of(totalXrot, totalYrot, totalZrot, true)))
-//					/* Scale */
-//					.applyLayer(ScaleLayer.of(scale))
-//					/* Scale */
-//					.applyLayer(ScaleLayer.of(1, yScale, 1))
-//					/* Rotation */
-//					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)))
-//					/* Movement */
-//					.applyLayer(new TranslateLayer(Position.of(pos)))
-//					/* Placement */
-//					.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
-//						validShape.fill(new SimpleFiller(reader, CRYSTAL_TYPE));
-//					});
-//		}
-
 		int outsideCrystals = random.nextInt(16) + 4;
 
 		for (int i = 0; i < outsideCrystals; i++) {
@@ -297,22 +258,6 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 		}
 
 		return true;
-	}
-
-	private boolean isTouching(ISeedReader reader, BlockPos pos, BlockState state, int scale) {
-		return reader.getBlockState(pos.up(scale)) == state || reader.getBlockState(pos.down(scale)) == state || reader.getBlockState(pos.north(scale)) == state || reader.getBlockState(pos.east(scale)) == state || reader.getBlockState(pos.south(scale)) == state || reader.getBlockState(pos.west(scale)) == state;
-	}
-
-	private boolean isInRange(ISeedReader reader, BlockPos pos, BlockState state, int range) {
-		boolean yes = false;
-		for (int i = 0; i < range; i++) {
-			if (yes = false) {
-				yes = isTouching(reader, pos, state, i + 1);
-			} else {
-				return yes;
-			}
-		}
-		return yes;
 	}
 
 }

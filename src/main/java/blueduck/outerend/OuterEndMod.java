@@ -27,6 +27,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.FlatChunkGenerator;
+import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
@@ -150,6 +151,12 @@ public class OuterEndMod
         if (event.getName().equals(new ResourceLocation("minecraft:end_highlands"))) {
             event.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 80, 2, 5));
             event.getSpawns().withCreatureSpawnProbability(5);
+        }
+        
+        if (event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))) {
+            event.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> {
+            	return FeatureRegistry.CRAG_MOON_OUTSIDE_FEATURE;
+            });
         }
     }
 
