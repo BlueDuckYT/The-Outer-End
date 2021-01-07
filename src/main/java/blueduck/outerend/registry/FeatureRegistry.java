@@ -50,7 +50,7 @@ public class FeatureRegistry {
                             new CragBudDecorator(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 3)))
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 1, 3)))
             );
     public static final ConfiguredFeature<NoFeatureConfig, CrystalSpikeFeature> CRYSTAL_SPIKE_FEATURE =
             (ConfiguredFeature<NoFeatureConfig, CrystalSpikeFeature>) newConfiguredFeature(

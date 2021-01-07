@@ -1,5 +1,6 @@
 package blueduck.outerend.blocks;
 
+import blueduck.outerend.registry.BlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -15,6 +16,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IWorldReader;
 
 import javax.annotation.Nullable;
 
@@ -51,9 +53,13 @@ public class CrystalBudBlock extends Block implements IWaterLoggable {
             worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
         }
 
-        return !this.isValidPosition(stateIn, worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return !this.isValidPosition(stateIn, worldIn, currentPos) ? Blocks.AIR.getDefaultState() : stateIn;
     }
 
 
+
+    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        return hasEnoughSolidSide(worldIn, pos.down(), Direction.UP);
+    }
 
 }

@@ -22,7 +22,7 @@ public class CrystalBlock extends AbstractGlassBlock {
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-       if (random.nextDouble() < 0.01 && pos.getY() <= 24 && worldIn.getBlockState(pos.down()).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && worldIn.getBlockState(pos.up()).equals(Blocks.AIR.getDefaultState())) {
+       if (random.nextDouble() < 0.01 && worldIn.getBlockState(pos.down()).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && worldIn.getBlockState(pos.up()).equals(Blocks.AIR.getDefaultState())) {
            worldIn.setBlockState(pos.up(), BUD_BLOCK.get().getDefaultState());
        }
     }
