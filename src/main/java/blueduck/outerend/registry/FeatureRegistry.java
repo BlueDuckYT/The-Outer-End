@@ -32,6 +32,26 @@ public class FeatureRegistry {
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
                             .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
             );
+    public static final ConfiguredFeature<NoFeatureConfig, CragPlantDecorator> CRAG_ROOTS_DECORATOR =
+            (ConfiguredFeature<NoFeatureConfig, CragPlantDecorator>) newConfiguredFeature(
+                    "crag_roots_decorator",
+                    newFeature(
+                            "crag_roots_decorator",
+                            new CragPlantDecorator(NoFeatureConfig.field_236558_a_)
+                    ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
+                            .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
+            );
+    public static final ConfiguredFeature<NoFeatureConfig, CragBudDecorator> CRYSTAL_BUDS_DECORATOR =
+            (ConfiguredFeature<NoFeatureConfig, CragBudDecorator>) newConfiguredFeature(
+                    "crag_buds_decorator",
+                    newFeature(
+                            "crag_buds_decorator",
+                            new CragBudDecorator(NoFeatureConfig.field_236558_a_)
+                    ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
+                            .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 3)))
+            );
     public static final ConfiguredFeature<NoFeatureConfig, CrystalSpikeFeature> CRYSTAL_SPIKE_FEATURE =
             (ConfiguredFeature<NoFeatureConfig, CrystalSpikeFeature>) newConfiguredFeature(
                     "crystal_spike_feature",

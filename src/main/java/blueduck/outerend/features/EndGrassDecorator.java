@@ -2,6 +2,9 @@ package blueduck.outerend.features;
 
 import blueduck.outerend.registry.BlockRegistry;
 import com.mojang.serialization.Codec;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.DoublePlantBlock;
+import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +23,12 @@ public class EndGrassDecorator extends Feature<NoFeatureConfig> {
 	@Override
 	public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 		if (!reader.getBlockState(pos.down()).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on")))) return false;
-		reader.setBlockState(pos, BlockRegistry.ENDER_ROOTS.get().getDefaultState(),4);
+
+		reader.setBlockState(pos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:azure_foliage")).getRandomElement(rand).getDefaultState(),4);
+		if (reader.getBlockState(pos).equals(BlockRegistry.TALL_ENDER_ROOTS.get().getDefaultState()))
+		{
+			reader.setBlockState(pos.up(), BlockRegistry.TALL_ENDER_ROOTS.get().getDefaultState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 4);
+		}
 		return true;
 	}
 }
