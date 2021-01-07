@@ -2,7 +2,6 @@ package blueduck.outerend.biomes;
 
 import blueduck.outerend.client.Color;
 import blueduck.outerend.registry.BlockRegistry;
-import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.FeatureRegistry;
 import blueduck.outerend.registry.SoundRegistry;
 import net.minecraft.entity.EntityClassification;
@@ -38,7 +37,6 @@ public class CrystalCrag extends OuterEndBiome {
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureRegistry.VIOLITE_BUMP_FEATURE);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureRegistry.VIOLITE_ROCK_BUMP_FLOWER_FEATURE);
 
-
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureRegistry.CRYSTAL_SPIKE_FEATURE);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureRegistry.LARGE_CRYSTAL_SPIKE_FEATURE);
 
@@ -50,6 +48,5 @@ public class CrystalCrag extends OuterEndBiome {
 // 		SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.DRAGONFLY.get(), 1, 1, 3));
 		SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 1, 1, 3));
 	}
-
 
 }
