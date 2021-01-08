@@ -42,7 +42,7 @@ public class CrystalCrag extends OuterEndBiome {
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureRegistry.CRYSTAL_SPIKE_FEATURE);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureRegistry.LARGE_CRYSTAL_SPIKE_FEATURE);
 
-		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, FeatureRegistry.CRAG_MOON_FEATURE);
+		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureRegistry.CRAG_MOON_FEATURE);
 
 		SPAWN_SETTINGS.withCreatureSpawnProbability(5);
 		SPAWN_SETTINGS.withSpawnCost(EntityType.ENDERMAN, 1, 40);

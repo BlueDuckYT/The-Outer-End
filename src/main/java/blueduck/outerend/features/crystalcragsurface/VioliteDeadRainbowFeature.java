@@ -50,13 +50,16 @@ public class VioliteDeadRainbowFeature extends Feature<NoFeatureConfig> {
 		if (reader.getBlockState(pos.down()) == VIOLITE) {
 
 			double length = (random.nextDouble() * 20) + 20;
-			double radius = (random.nextDouble() * 12) + 6;
+			double radius = (random.nextDouble() * 12) + 4;
 			double maxArcDeviation = 20;
 			double arc = 80 + ((random.nextDouble() * maxArcDeviation) - (maxArcDeviation / 2));
 			double maxArcDeviationSecond = 25;
 			double arcSecond = 80 + ((random.nextDouble() * maxArcDeviationSecond) - (maxArcDeviationSecond / 2));
 			double fullRotation = random.nextDouble() * 360;
-			double scale = (random.nextDouble() * 1.2) + 0.5;
+			double scale = MathHelper.lerp(random.nextDouble(), 0.7, 1.3);
+			if (random.nextDouble() < 0.7) {
+				scale *= 1.4;
+			}
 			double nextArchPos = -((length / 5) * 4);
 
 			int tries = 0;

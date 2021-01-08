@@ -12,6 +12,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class FeatureRegistry {
+	
     public static final ConfiguredFeature<NoFeatureConfig, AzureTreeFeature> AZURE_TREE =
             (ConfiguredFeature<NoFeatureConfig, AzureTreeFeature>) newConfiguredFeature(
                     "azure_tree",
@@ -114,7 +115,7 @@ public class FeatureRegistry {
                             new VioliteDeadRainbowFeature(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1)))
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.2F, 4)))
             );
     
     public static final ConfiguredFeature<NoFeatureConfig, CragMoonFeature> CRAG_MOON_FEATURE =
