@@ -1,20 +1,37 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "@ @",
-    "@#@",
-    "@ @"
-  ],
-  "key": {
-    "#": {
-      "item": "outer_end:azure_planks"
-    },
-    "@": {
-      "item": "minecraft:stick"
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "item": "outer_end:azure_ladder",
+              "type": "forge:item_exists"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "@ @",
+          "@#@",
+          "@ @"
+        ],
+        "key": {
+          "#": {
+            "item": "outer_end:azure_planks"
+          },
+          "@": {
+            "item": "minecraft:stick"
+          }
+        },
+        "result": {
+          "item": "outer_end:azure_ladder",
+          "count": 3
+        }
+      }
     }
-  },
-  "result": {
-    "item": "outer_end:azure_ladder",
-    "count": 3
-  }
+    ]
 }

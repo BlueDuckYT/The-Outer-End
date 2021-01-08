@@ -1,17 +1,34 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "#",
-    "#"
-  ],
-  "key": {
-    "#": {
-      "item": "outer_end:mossy_violite_tile_vertical_slab"
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "item": "outer_end:violite_brick_vertical_slab",
+              "type": "forge:item_exists"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "#",
+          "#",
+          "#"
+        ],
+        "key": {
+          "#": {
+            "item": "outer_end:mossy_violite_tile_vertical_slab"
+          }
+        },
+        "result": {
+          "item": "outer_end:mossy_violite_tile_slab",
+          "count": 3
+        }
+      }
     }
-  },
-  "result": {
-    "item": "outer_end:mossy_violite_tile_slab",
-    "count": 3
-  }
+  ]
 }
