@@ -16,10 +16,12 @@ import com.terraformersmc.terraform.shapes.impl.layer.transform.ScaleLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
 
+import blueduck.outerend.blocks.CrystalBudBlock;
 import blueduck.outerend.registry.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -255,6 +257,25 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 					.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
 						validShape.fill(new SimpleFiller(reader, CRYSTAL_TYPE));
 					});
+		}
+
+		for (double x = -(radius * 2 * scale); x < radius * 2 * scale; x++) {
+			for (double z = -(radius * 2 * scale); z < radius * 2 * scale; z++) {
+				for (double y = -(radius * 2 * scale); y < radius * 2 * scale; y++) {
+					BlockPos crystalPos = pos.add(x, y, z);
+					if (random.nextDouble() < 0.3) {
+						Direction preferredDirection = Direction.getRandomDirection(random);
+						if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
+							reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_buds")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
+						}
+					} else if (random.nextDouble() < 0.6) {
+						Direction preferredDirection = Direction.getRandomDirection(random);
+						if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
+							reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_crag_foliage")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
+						}
+					}
+				}
+			}
 		}
 
 		return true;
