@@ -19,6 +19,7 @@ import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -160,6 +161,15 @@ public class PurpurGolemEntity extends MonsterEntity {
 
         return false;
 
+    }
+
+
+    public SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return SoundEvents.ENTITY_IRON_GOLEM_HURT;
+    }
+
+    public SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_IRON_GOLEM_DEATH;
     }
 
     public int getExperiencePoints(PlayerEntity player) {
