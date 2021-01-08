@@ -259,16 +259,19 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 					});
 		}
 
+		double addedX = -(random.nextDouble() * ((radius * scale) / 2)) + (random.nextDouble() * ((radius * scale) / 2) / 2);
+		double addedY = -(random.nextDouble() * ((radius * scale) / 2)) + (random.nextDouble() * ((radius * scale) / 2) / 2);
+		double addedZ = -(random.nextDouble() * ((radius * scale) / 2)) + (random.nextDouble() * ((radius * scale) / 2) / 2);
 		for (double x = -(radius * 2 * scale); x < radius * 2 * scale; x++) {
 			for (double z = -(radius * 2 * scale); z < radius * 2 * scale; z++) {
 				for (double y = -(radius * 2 * scale); y < radius * 2 * scale; y++) {
-					BlockPos crystalPos = pos.add(x, y, z);
-					if (random.nextDouble() < 0.3) {
+					BlockPos crystalPos = pos.add(x + addedX, y + addedY, z + addedZ);
+					if (random.nextDouble() < 0.2) {
 						Direction preferredDirection = Direction.getRandomDirection(random);
 						if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
 							reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_buds")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
 						}
-					} else if (random.nextDouble() < 0.6) {
+					} else if (random.nextDouble() < 0.4) {
 						Direction preferredDirection = Direction.getRandomDirection(random);
 						if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
 							reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_crag_foliage")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
