@@ -11,116 +11,47 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:alternative",
-                  "terms": [
-                    {
-                      "condition": "minecraft:match_tool",
-                      "predicate": {
-                        "item": "minecraft:shears"
-                      }
-                    },
-                    {
-                      "condition": "minecraft:match_tool",
-                      "predicate": {
-                        "enchantments": [
-                          {
-                            "enchantment": "minecraft:silk_touch",
-                            "levels": {
-                              "min": 1
-                            }
-                          }
-                        ]
-                      }
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "predicate": {
+                      "item": "minecraft:shears"
                     }
-                  ]
+                  }
                 }
               ],
               "name": "outer_end:azure_leaves"
             },
             {
               "type": "minecraft:item",
-              "conditions": [
+              "functions": [
                 {
-                  "condition": "minecraft:survives_explosion"
+                  "function": "minecraft:apply_bonus"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
                 },
                 {
                   "condition": "minecraft:table_bonus",
                   "enchantment": "minecraft:fortune",
                   "chances": [
-                    0.4,
-                    0.42,
-                    0.46,
-                    0.48
+                    0.05,
+                    0.0625,
+                    0.083333336,
+                    0.1
                   ]
+                },
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 1.0,
+                    "max": 1.0,
+                    "type": "minecraft:uniform"
+                  }
                 }
               ],
               "name": "outer_end:azure_bud"
             }
           ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:table_bonus",
-              "enchantment": "minecraft:fortune",
-              "chances": [
-                0.02,
-                0.022222223,
-                0.025,
-                0.033333335,
-                0.1
-              ]
-            }
-          ],
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 2.0,
-                "type": "minecraft:uniform"
-              }
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "outer_end:azure_berries"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:inverted",
-          "term": {
-            "condition": "minecraft:alternative",
-            "terms": [
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "item": "minecraft:shears"
-                }
-              },
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:silk_touch",
-                      "levels": {
-                        "min": 1
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
         }
       ]
     }
