@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class AzureBerryVineTopBlock extends AbstractTopPlantBlock {
 
-    public static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+    public static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 10.0D, 12.0D);
 
     public AzureBerryVineTopBlock(Properties properties) {
         super(properties, Direction.UP, SHAPE, false, 0.1d);
