@@ -240,11 +240,11 @@ public class DragonflyEntity extends MobEntity {
 		if (this.getPosY() <= 2.8)
 			this.setMotion(this.getMotion().x,(this.getMotion().y+0.5f),this.getMotion().z);
 		
-		if (this.getLeashed()) {
-			Vector3d pos = this.getLeashPosition(0);
-			if (this.getDistanceSq(pos) >= 16)
-			this.setMotion(pos.subtract(this.getPositionVec()).normalize().scale(2).add(this.getMotion()));
-		}
+//		if (this.getLeashed()) {
+//			Vector3d pos = this.getLeashPosition(0);
+//			if (this.getDistanceSq(pos) >= 16)
+//			this.setMotion(pos.subtract(this.getPositionVec()).normalize().scale(2).add(this.getMotion()));
+//		}
 		
 		super.tick();
 	}
