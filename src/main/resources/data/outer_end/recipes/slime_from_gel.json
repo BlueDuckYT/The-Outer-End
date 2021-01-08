@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:spectragel"
+    }
+  },
+  "result": {
+    "item": "outer_end:slime_ball"
+  }
+}

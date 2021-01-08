@@ -37,8 +37,8 @@ public class BiomeRegistry {
 	public static class RegistryEvents {
 		@SubscribeEvent
 		public static void registerEvent(RegistryEvent.Register<Biome> event) {
-			register(AZURE_FOREST.get(), AZURE_FOREST.getId(), 15f, 15f, event);
-			register(CRYSTAL_CRAG.get(), CRYSTAL_CRAG.getId(), 15f, 15f, event);
+			register(AZURE_FOREST.get(), AZURE_FOREST.getId(), OuterEndMod.CONFIG.AZURE_FOREST_WEIGHT.get(), OuterEndMod.CONFIG.AZURE_FOREST_WEIGHT.get(), event);
+			register(CRYSTAL_CRAG.get(), CRYSTAL_CRAG.getId(), OuterEndMod.CONFIG.CRYSTAL_CRAG_WEIGHT.get(), OuterEndMod.CONFIG.CRYSTAL_CRAG_WEIGHT.get(), event);
 		}
 	}
 	
