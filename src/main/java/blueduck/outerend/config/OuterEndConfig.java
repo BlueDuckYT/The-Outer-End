@@ -33,10 +33,10 @@ public class OuterEndConfig {
         this.END_TOWER_MAX= subscriber.subscribe(builder
                 .comment("What should the maximum distance (in chunks) be between End Towers")
                 .defineInRange("tower_max", 45, 1, 1000));
-        this.END_TOWER_MIN= subscriber.subscribe(builder
+        this.CATACOMBS_MIN= subscriber.subscribe(builder
                 .comment("What should the minimum distance (in chunks) be between Catacombs")
                 .defineInRange("catacombs_min", 15, 1, 1000));
-        this.END_TOWER_MAX= subscriber.subscribe(builder
+        this.CATACOMBS_MAX= subscriber.subscribe(builder
                 .comment("What should the maximum distance (in chunks) be between Catacombs")
                 .defineInRange("catacombs_max", 45, 1, 1000));
 
