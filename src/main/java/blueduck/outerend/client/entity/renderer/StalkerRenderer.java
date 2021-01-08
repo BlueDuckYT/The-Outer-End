@@ -25,7 +25,7 @@ public class StalkerRenderer extends MobRenderer<StalkerEntity, StalkerModel> {
 	@Override
 	public void render(StalkerEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
 		matrixStackIn.push();
-		if (entityIn.getAge() <= 0) {
+		if (entityIn.getGrowingAge() <= 0) {
 			matrixStackIn.scale(0.5f,0.5f,0.5f);
 		}
 		super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
