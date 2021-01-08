@@ -122,7 +122,9 @@
   "advancements.end.find_end_tower.description": "Enter the End Tower",
 
   "advancements.end.find_catacombs.title": "An Even Worse Fortress",
-  "advancements.end.find_catacombs.description": "Find the Catacombs"
-
+  "advancements.end.find_catacombs.description": "Find the Catacombs",
+  
+  "advancements.end.explore_end.title": "Post-Chernobyl Tourism",
+  "advancements.end.explore_end.description": "Explore all End biomes"
 
 }
