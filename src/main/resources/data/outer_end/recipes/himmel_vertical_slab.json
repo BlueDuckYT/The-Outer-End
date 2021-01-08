@@ -4,14 +4,11 @@
     {
       "conditions": [
         {
-          "values": [
-            {
-              "item": "outer_end:himmel_vertical_slab",
-              "type": "forge:item_exists"
-            }
-          ]
+          "item": "outer_end:azure_bookshelf",
+          "type": "forge:item_exists"
         }
       ],
+
       "recipe": {
         "type": "minecraft:crafting_shaped",
         "pattern": [

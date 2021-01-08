@@ -4,12 +4,8 @@
     {
       "conditions": [
         {
-          "values": [
-            {
-              "item": "outer_end:azure_vertical_planks",
-              "type": "forge:item_exists"
-            }
-            ]
+          "item": "outer_end:azure_bookshelf",
+          "type": "forge:item_exists"
         }
       ],
       "recipe": {
