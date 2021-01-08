@@ -1,5 +1,6 @@
 package blueduck.outerend;
 
+import blueduck.outerend.blocks.CrystalBudBlock;
 import blueduck.outerend.client.ClientSetup;
 import blueduck.outerend.client.DebugRenderer;
 import blueduck.outerend.common.CommonSetup;
@@ -126,6 +127,10 @@ public class OuterEndMod
         pot.addPlant(new ResourceLocation("outer_end:azure_bud"), BlockRegistry.POTTED_AZURE_BUD);
         pot.addPlant(new ResourceLocation("outer_end:ender_roots"), BlockRegistry.POTTED_ENDER_ROOTS);
         pot.addPlant(new ResourceLocation("outer_end:azure_sprouts"), BlockRegistry.POTTED_AZURE_SPROUTS);
+
+        CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.ROSE_CRYSTAL_BUD.get(), BlockRegistry.ROSE_CRYSTAL.get());
+        CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.MINT_CRYSTAL_BUD.get(), BlockRegistry.MINT_CRYSTAL.get());
+        CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.COBALT_CRYSTAL_BUD.get(), BlockRegistry.COBALT_CRYSTAL.get());
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
