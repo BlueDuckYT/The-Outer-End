@@ -43,7 +43,7 @@ public class AzureBerryVineBlock extends AbstractBodyPlantBlock {
      */
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
         int i = state.get(AGE);
-        if (i < 3 && worldIn.getLightSubtracted(pos.up(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,random.nextInt(5) == 0)) {
+        if (i < 3 && worldIn.getLightSubtracted(pos.up(), 0) >= 6 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,random.nextInt(10) == 0)) {
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i + 1)), 2);
             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
         }
@@ -53,7 +53,7 @@ public class AzureBerryVineBlock extends AbstractBodyPlantBlock {
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         int i = state.get(AGE);
         boolean flag = i == 3;
-        if (i > 1) {
+        if (flag) {
             int j = 1 + worldIn.rand.nextInt(2);
             spawnAsEntity(worldIn, pos, new ItemStack(ItemRegistry.AZURE_BERRIES.get(), j + (flag ? 1 : 0)));
             worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
