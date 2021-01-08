@@ -45,7 +45,7 @@ public class StructureRegistry {
                 CATACOMBS.get(), /* The instance of the structure */
                 new StructureSeparationSettings(OuterEndMod.CONFIG.CATACOMBS_MAX.get() /* maximum distance apart in chunks between spawn attempts */,
                         OuterEndMod.CONFIG.CATACOMBS_MIN.get() /* minimum distance apart in chunks between spawn attempts */,
-                        125261490 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
+                        125261290 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
                 false);
 
     }
