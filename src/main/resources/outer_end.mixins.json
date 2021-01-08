@@ -10,7 +10,8 @@
   ],
   "mixins": [
     "DragonAttributesMixin",
-    "TemplateManagerMixin"
+    "TemplateManagerMixin",
+    "AdvancementManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
