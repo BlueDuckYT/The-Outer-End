@@ -129,6 +129,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> AZURE_SPROUTS = BLOCKS.register("azure_sprouts", () -> new EnderTallGrass(Block.Properties.from(Blocks.GRASS)));
     public static final RegistryObject<Item> AZURE_SPROUTS_ITEM = ITEMS.register("azure_sprouts", () -> new BlockItem(AZURE_SPROUTS.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
 
+    public static final RegistryObject<Block> AZURE_BERRY_VINE = BLOCKS.register("azure_berry_vine", () -> new AzureBerryVineBlock(Block.Properties.from(Blocks.TWISTING_VINES)));
+    public static final RegistryObject<Block> AZURE_BERRY_VINE_TOP = BLOCKS.register("azure_berry_vine_top", () -> new AzureBerryVineTopBlock(Block.Properties.from(Blocks.TWISTING_VINES)));
+
+
     public static final RegistryObject<Block> POTTED_AZURE_BUD = BLOCKS.register("potted_azure_bud", () -> new FlowerPotBlock( () -> (FlowerPotBlock) Blocks.FLOWER_POT, () -> AZURE_SAPLING.get(), Block.Properties.from(Blocks.FLOWER_POT)));
     public static final RegistryObject<Block> POTTED_ENDER_ROOTS = BLOCKS.register("potted_ender_roots", () -> new FlowerPotBlock( () -> (FlowerPotBlock) Blocks.FLOWER_POT, () -> ENDER_ROOTS.get(), Block.Properties.from(Blocks.FLOWER_POT)));
     public static final RegistryObject<Block> POTTED_AZURE_SPROUTS = BLOCKS.register("potted_azure_sprouts", () -> new FlowerPotBlock( () -> (FlowerPotBlock) Blocks.FLOWER_POT, () -> AZURE_SPROUTS.get(), Block.Properties.from(Blocks.FLOWER_POT)));

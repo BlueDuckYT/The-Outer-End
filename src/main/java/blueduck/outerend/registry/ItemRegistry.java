@@ -5,10 +5,7 @@ import blueduck.outerend.items.CrystalShardItem;
 import blueduck.outerend.items.DebugToolItem;
 import blueduck.outerend.items.OuterEndSpawnEgg;
 import com.minecraftabnormals.abnormals_core.common.items.AbnormalsBoatItem;
-import net.minecraft.item.Food;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.MusicDiscItem;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
@@ -22,7 +19,7 @@ public class ItemRegistry {
 	
 	public static final RegistryObject<Item> DEBUG_TOOL = conditionallyRegister("dev/debug_tool_ai",new DebugToolItem(new Item.Properties().group(ItemGroup.MISC)),()-> !FMLEnvironment.production);
 
-	public static final RegistryObject<Item> AZURE_BERRIES = ITEMS.register("azure_berries", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().fastToEat().hunger(3).saturation(0.3f).build())));
+	public static final RegistryObject<Item> AZURE_BERRIES = ITEMS.register("azure_berries", () -> new BlockNamedItem(BlockRegistry.AZURE_BERRY_VINE_TOP.get(), new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().fastToEat().hunger(3).saturation(0.3f).build())));
 	public static final RegistryObject<Item> FLORAL_PASTE = ITEMS.register("floral_paste", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
 
 	public static final RegistryObject<Item> STALKER_MEAT = ITEMS.register("stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(4).saturation(0.3f).build())));

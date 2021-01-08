@@ -32,6 +32,16 @@ public class FeatureRegistry {
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
                             .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
             );
+    public static final ConfiguredFeature<NoFeatureConfig, AzureBerryVineFeature> AZURE_BERRY_VINE_DECORATOR =
+            (ConfiguredFeature<NoFeatureConfig, AzureBerryVineFeature>) newConfiguredFeature(
+                    "azure_berry_vine_decorator",
+                    newFeature(
+                            "azure_berry_vine_decorator",
+                            new AzureBerryVineFeature(NoFeatureConfig.field_236558_a_)
+                    ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
+                            .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 1, 4)))
+            );
     public static final ConfiguredFeature<NoFeatureConfig, CragPlantDecorator> CRAG_ROOTS_DECORATOR =
             (ConfiguredFeature<NoFeatureConfig, CragPlantDecorator>) newConfiguredFeature(
                     "crag_roots_decorator",

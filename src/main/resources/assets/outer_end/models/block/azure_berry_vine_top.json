@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "outer_end:block/azure_berry_stalk_top"
+  }
+}

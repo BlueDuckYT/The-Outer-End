@@ -20,6 +20,8 @@
   "block.outer_end.azure_slab": "Azure Slab",
   "block.outer_end.azure_stairs": "Azure Stairs",
   "block.outer_end.azure_sign": "Azure Sign",
+  "block.outer_end.azure_berry_vine": "Azure Berry Stalk",
+  "block.outer_end.azure_berry_vine_top": "Azure Berry Stalk Top",
   "block.outer_end.potted_azure_bud": "Potted Azure Bud",
   "block.outer_end.potted_ender_roots": "Potted Ender Roots",
   "block.outer_end.potted_azure_sprouts": "Potted Azure Sprouts",
@@ -114,6 +116,13 @@
   "entity.outer_end.entombed": "Entombed",
 
   "biome.outer_end.azure_forest": "Azure Forest",
-  "biome.outer_end.crystal_crag": "Crystal Crag"
+  "biome.outer_end.crystal_crag": "Crystal Crag",
+
+  "advancements.end.find_end_tower.title": "A Corporate Metropolis",
+  "advancements.end.find_end_tower.description": "Enter the End Tower",
+
+  "advancements.end.find_catacombs.title": "An Even Worse Fortress",
+  "advancements.end.find_catacombs.description": "Find the Catacombs"
+
 
 }
