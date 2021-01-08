@@ -23,6 +23,7 @@ public class StalkerModel extends AgeableModel<StalkerEntity> {
 	private final ModelRenderer frontLegRight;
 	private final ModelRenderer bone;
 	private final ModelRenderer head;
+	private final ModelRenderer bone2;
 	private final ModelRenderer tail;
 	private final ModelRenderer bone3;
 
@@ -39,20 +40,20 @@ public class StalkerModel extends AgeableModel<StalkerEntity> {
 
 
 		haunchLeft = new ModelRenderer(this);
-		haunchLeft.setRotationPoint(-5.0F, 17.5F, 3.7F);
-		haunchLeft.setTextureOffset(0, 26).addBox(-2.0F, -23.0F, -5.0F, 3.0F, 12.0F, 7.0F, 0.0F, false);
-		haunchLeft.setTextureOffset(79, 61).addBox(-1.0F, -11.0F, -1.0F, 2.0F, 17.0F, 3.0F, 0.0F, false);
+		haunchLeft.setRotationPoint(-5.25F, -3.2424F, 3.2F);
+		haunchLeft.setTextureOffset(0, 26).addBox(-1.75F, -2.2576F, -4.5F, 3.0F, 12.0F, 7.0F, 0.0F, false);
+		haunchLeft.setTextureOffset(79, 61).addBox(-0.75F, 9.7424F, -0.5F, 2.0F, 17.0F, 3.0F, 0.0F, false);
 
 		haunchRight = new ModelRenderer(this);
-		haunchRight.setRotationPoint(3.0F, 17.5F, -1.3F);
-		haunchRight.setTextureOffset(0, 26).addBox(0.0F, -22.9924F, -0.349F, 3.0F, 12.0F, 7.0F, 0.0F, false);
-		haunchRight.setTextureOffset(79, 61).addBox(0.0F, -10.9924F, 3.651F, 2.0F, 17.0F, 3.0F, 0.0F, false);
+		haunchRight.setRotationPoint(4.25F, -3.2424F, 2.851F);
+		haunchRight.setTextureOffset(0, 26).addBox(-1.25F, -2.25F, -4.5F, 3.0F, 12.0F, 7.0F, 0.0F, false);
+		haunchRight.setTextureOffset(79, 61).addBox(-1.25F, 9.75F, -0.5F, 2.0F, 17.0F, 3.0F, 0.0F, false);
 
 		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 1.0F, 6.0F);
 		setRotationAngle(body, -0.1745F, 0.0F, 0.0F);
 		body.setTextureOffset(0, 0).addBox(-4.0F, -5.637F, -24.1599F, 7.0F, 6.0F, 20.0F, 0.0F, false);
-		body.setTextureOffset(0, 26).addBox(-0.5F, -6.5762F, -24.8545F, 0.0F, 2.0F, 21.0F, 0.0F, false);
+		body.setTextureOffset(0, 26).addBox(-0.5F, -6.5762F, -24.8545F, 1.0F, 2.0F, 21.0F, 0.0F, false);
 
 		frontLegLeft = new ModelRenderer(this);
 		frontLegLeft.setRotationPoint(-3.75F, -5.0F, -12.5F);
@@ -75,8 +76,13 @@ public class StalkerModel extends AgeableModel<StalkerEntity> {
 		head = new ModelRenderer(this);
 		head.setRotationPoint(-0.5F, -7.0F, -17.1667F);
 		head.setTextureOffset(25, 26).addBox(-2.0F, -5.0F, -4.8333F, 4.0F, 9.0F, 5.0F, 0.0F, false);
-		head.setTextureOffset(0, 0).addBox(-1.0F, -3.0F, -4.9333F, 2.0F, 5.0F, 0.0F, 0.0F, false);
-		head.setTextureOffset(45, 18).addBox(-1.0F, -6.0F, -2.8333F, 2.0F, 2.0F, 9.0F, 0.0F, false);
+		head.setTextureOffset(0, 0).addBox(-1.0F, -3.0F, -5.9333F, 2.0F, 5.0F, 1.0F, 0.0F, false);
+
+		bone2 = new ModelRenderer(this);
+		bone2.setRotationPoint(0.0F, -5.0F, -1.3333F);
+		head.addChild(bone2);
+		setRotationAngle(bone2, 0.1309F, 0.0F, -0.0436F);
+		bone2.setTextureOffset(45, 18).addBox(-1.0F, -1.0F, -1.5F, 2.0F, 2.0F, 9.0F, 0.0F, false);
 
 		tail = new ModelRenderer(this);
 		tail.setRotationPoint(-0.3333F, -3.9352F, 3.0711F);
@@ -109,7 +115,7 @@ public class StalkerModel extends AgeableModel<StalkerEntity> {
 		
 		if (entity.isAngered()) this.bone4.rotateAngleX = (float) Math.toRadians(45);
 		else
-			this.bone4.rotateAngleX = (float) (Math.cos(ageInTicks / 32f) * 0.25f + Math.toRadians(15)) - head.rotateAngleX;
+			this.bone2.rotateAngleX = (float) (Math.cos(ageInTicks / 32f) * 0.25f + Math.toRadians(15)) - head.rotateAngleX;
 	}
 
 	@Override
@@ -124,6 +130,7 @@ public class StalkerModel extends AgeableModel<StalkerEntity> {
 		head.render(matrixStack, buffer, packedLight, packedOverlay);
 		tail.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
+
 
 	@Override
 	public Iterable<ModelRenderer> getHeadParts() {

@@ -18,8 +18,13 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.function.Supplier;
 
 public class CrystalBudBlock extends Block implements IWaterLoggable {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -28,9 +33,10 @@ public class CrystalBudBlock extends Block implements IWaterLoggable {
     public static final VoxelShape DOWN_SHAPE = Block.makeCuboidShape(2.0D, 5.0D, 2.0D, 14.0D, 16.0D, 14.0D);
     public static final VoxelShape SIDE_SHAPE = Block.makeCuboidShape(0.0D, 3.0D, 0.0D, 16.0D, 13.0D, 16.0D);
 
+    public static HashMap<Block, Block> CRYSTAL_MAP = new HashMap<Block, Block>();
 
     public CrystalBudBlock(Properties properties) {
-        super(properties);
+        super(properties.tickRandomly());
         this.setDefaultState(this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(false)).with(FACING, (Direction.UP)));
     }
 
@@ -73,6 +79,17 @@ public class CrystalBudBlock extends Block implements IWaterLoggable {
         BlockPos blockpos = pos.offset(direction.getOpposite());
         BlockState blockstate = worldIn.getBlockState(blockpos);
         return blockstate.isSolidSide(worldIn, blockpos, direction);
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+        if (random.nextDouble() < 0.005) {
+            worldIn.setBlockState(pos, getCrystalBlock(state).getDefaultState());
+        }
+    }
+
+    public static Block getCrystalBlock(BlockState bud) {
+        return CRYSTAL_MAP.get(bud.getBlock());
     }
 
 }

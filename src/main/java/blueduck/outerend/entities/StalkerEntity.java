@@ -53,7 +53,7 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
 	public UUID breedWith = null;
 	private static final DataParameter<Boolean> ANGERED = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.BOOLEAN);
 	private static final DataParameter<Integer> LAST_FEED = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.VARINT);
-	private static final DataParameter<Integer> AGE = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.VARINT);
+	//private static final DataParameter<Integer> AGE = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.VARINT);
 
 	public StalkerEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
 		super(type, worldIn);
@@ -64,13 +64,13 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
 		}
 	}
 
-	public void setGrowingAge(int age) {
-		this.dataManager.set(AGE, age);
-	}
-
-	public int getAge() {
-		return this.dataManager.get(AGE);
-	}
+//	public void setGrowingAge(int age) {
+//		this.dataManager.set(AGE, age);
+//	}
+//
+//	public int getAge() {
+//		return this.dataManager.get(AGE);
+//	}
 
 	public void setLastFeed(int time) {
 		this.dataManager.set(LAST_FEED, time);
@@ -86,7 +86,7 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
 		if (breedWith != null)
 			compound.putUniqueId("love", breedWith);
 		compound.putInt("lastFeed", getLastFeed());
-		compound.putInt("age", getAge());
+		//compound.putInt("age", getAge());
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
 		super.readAdditional(compound);
 		if (compound.contains("love")) breedWith = compound.getUniqueId("love");
 		setLastFeed(compound.getInt("lastFeed"));
-		setGrowingAge(compound.getInt("age"));
+		//setGrowingAge(compound.getInt("age"));
 	}
 
 
@@ -110,7 +110,7 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
 		super.registerData();
 		this.dataManager.register(ANGERED, false);
 		this.dataManager.register(LAST_FEED, 0);
-		this.dataManager.register(AGE, 1);
+		//this.dataManager.register(AGE, 1);
 	}
 
 	public static boolean canSpawn(EntityType<StalkerEntity> type, IWorld world, SpawnReason spawnReason, BlockPos pos,
