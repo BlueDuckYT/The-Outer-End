@@ -23,7 +23,7 @@ version="0.1.2" #mandatory
  # A display name for the mod
 displayName="Outer End" #mandatory
 # A text field displayed in the mod UI
-credits="Developed by Blue Duck and GiantLuigi4" #optional
+credits="Developed by Blue Duck, LudoCrypt, and GiantLuigi4" #optional
 # A text field displayed in the mod UI
 authors="A lot of people" #optional
 # The description text for the mod (multi line!) (#mandatory)

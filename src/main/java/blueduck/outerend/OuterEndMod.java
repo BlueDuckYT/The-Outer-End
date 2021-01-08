@@ -58,188 +58,180 @@ import javax.annotation.Nonnull;
 import java.util.*;
 
 @Mod("outer_end")
-public class OuterEndMod
-{
-    public static final Logger LOGGER = LogManager.getLogger();
-    public static String MODID = "outer_end";
+public class OuterEndMod {
+	public static final Logger LOGGER = LogManager.getLogger();
+	public static String MODID = "outer_end";
 
-    public static OuterEndConfig CONFIG;
-    public static RegistryHelper HELPER = new RegistryHelper("outer_end");
+	public static OuterEndConfig CONFIG;
+	public static RegistryHelper HELPER = new RegistryHelper("outer_end");
 
-    public static ArrayList<UUID> DEVS = new ArrayList<UUID>();
+	public static ArrayList<UUID> DEVS = new ArrayList<UUID>();
 
+	public OuterEndMod() {
 
-    public OuterEndMod() {
+		CONFIG = ConfigHelper.register(ModConfig.Type.COMMON, OuterEndConfig::new);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(CommonSetup::onCommonSetup);
 
-        CONFIG = ConfigHelper.register(ModConfig.Type.COMMON, OuterEndConfig::new);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(CommonSetup::onCommonSetup);
+		MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
+		MinecraftForge.EVENT_BUS.addListener(EntityEventListener::onBonemeal);
 
-        MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
-        MinecraftForge.EVENT_BUS.addListener(EntityEventListener::onBonemeal);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::biomeModification);
 
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::biomeModification);
+		BiomeRegistry.init();
+		BlockRegistry.init();
+		EntityRegistry.init();
+		ItemRegistry.init();
+		StructureRegistry.init();
+		SoundRegistry.init();
 
-        
-        BiomeRegistry.init();
-        BlockRegistry.init();
-        EntityRegistry.init();
-        ItemRegistry.init();
-        StructureRegistry.init();
-        SoundRegistry.init();
-        
-        
-        if (FMLEnvironment.dist.isClient()) {
-            FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
-            if (!FMLEnvironment.production) {
-                MinecraftForge.EVENT_BUS.addListener(DebugRenderer::renderDebugEntityPathfinding);
-            }
-            DEVS.add(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"));
-            DEVS.add(UUID.fromString("c88a2cce-333f-450d-be8b-374c216ad4b5"));
-            DEVS.add(UUID.fromString("d2b21209-ffe6-47f0-b86a-b13d40eeebc2"));
-            DEVS.add(UUID.fromString("5a359e55-da1d-4c81-83d3-f9b63b9e59c7"));
-            DEVS.add(UUID.fromString("0bd28a4b-2666-428b-8c04-2dff8a4c8fd9"));
-            DEVS.add(UUID.fromString("631b7d0b-23c5-4341-bcc1-87fc02f8840a"));
-            DEVS.add(UUID.fromString("264767a2-6a9b-4a35-9b3a-89c855164850"));
-            DEVS.add(UUID.fromString("b0242a0f-e172-45f2-a79e-9fa14494bba9"));
-            DEVS.add(UUID.fromString("3e7e37bd-95de-43c1-9ee4-b3b63dbdf66f"));
-            DEVS.add(UUID.fromString("cf8bf0da-f86d-4ac0-b48a-3f6d940f6472"));
-            DEVS.add(UUID.fromString("b62ad4bd-b2eb-47cb-b88b-564fc8ffb50f"));
-        }
-        
-        MinecraftForge.EVENT_BUS.register(this);
-    }
+		if (FMLEnvironment.dist.isClient()) {
+			FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
+			if (!FMLEnvironment.production) {
+				MinecraftForge.EVENT_BUS.addListener(DebugRenderer::renderDebugEntityPathfinding);
+			}
+			DEVS.add(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"));
+			DEVS.add(UUID.fromString("c88a2cce-333f-450d-be8b-374c216ad4b5"));
+			DEVS.add(UUID.fromString("d2b21209-ffe6-47f0-b86a-b13d40eeebc2"));
+			DEVS.add(UUID.fromString("5a359e55-da1d-4c81-83d3-f9b63b9e59c7"));
+			DEVS.add(UUID.fromString("0bd28a4b-2666-428b-8c04-2dff8a4c8fd9"));
+			DEVS.add(UUID.fromString("631b7d0b-23c5-4341-bcc1-87fc02f8840a"));
+			DEVS.add(UUID.fromString("264767a2-6a9b-4a35-9b3a-89c855164850"));
+			DEVS.add(UUID.fromString("b0242a0f-e172-45f2-a79e-9fa14494bba9"));
+			DEVS.add(UUID.fromString("3e7e37bd-95de-43c1-9ee4-b3b63dbdf66f"));
+			DEVS.add(UUID.fromString("cf8bf0da-f86d-4ac0-b48a-3f6d940f6472"));
+			DEVS.add(UUID.fromString("b62ad4bd-b2eb-47cb-b88b-564fc8ffb50f"));
+		}
 
-    public void setup(final FMLCommonSetupEvent event)
-    {
-        event.enqueueWork(() -> {
-            StructureRegistry.setupStructures();
-            ConfiguredStructureFeatures.registerConfiguredStructures();
-        });
+		MinecraftForge.EVENT_BUS.register(this);
+	}
 
-        BoatRegistry.registerBoat("outer_end:azure", ItemRegistry.AZURE_BOAT, BlockRegistry.AZURE_PLANKS);
+	public void setup(final FMLCommonSetupEvent event) {
+		event.enqueueWork(() -> {
+			StructureRegistry.setupStructures();
+			ConfiguredStructureFeatures.registerConfiguredStructures();
+		});
 
+		BoatRegistry.registerBoat("outer_end:azure", ItemRegistry.AZURE_BOAT, BlockRegistry.AZURE_PLANKS);
 
-        FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+		FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
 
-        pot.addPlant(new ResourceLocation("outer_end:azure_bud"), BlockRegistry.POTTED_AZURE_BUD);
-        pot.addPlant(new ResourceLocation("outer_end:ender_roots"), BlockRegistry.POTTED_ENDER_ROOTS);
-        pot.addPlant(new ResourceLocation("outer_end:azure_sprouts"), BlockRegistry.POTTED_AZURE_SPROUTS);
+		pot.addPlant(new ResourceLocation("outer_end:azure_bud"), BlockRegistry.POTTED_AZURE_BUD);
+		pot.addPlant(new ResourceLocation("outer_end:ender_roots"), BlockRegistry.POTTED_ENDER_ROOTS);
+		pot.addPlant(new ResourceLocation("outer_end:azure_sprouts"), BlockRegistry.POTTED_AZURE_SPROUTS);
 
-        CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.ROSE_CRYSTAL_BUD.get(), BlockRegistry.ROSE_CRYSTAL.get());
-        CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.MINT_CRYSTAL_BUD.get(), BlockRegistry.MINT_CRYSTAL.get());
-        CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.COBALT_CRYSTAL_BUD.get(), BlockRegistry.COBALT_CRYSTAL.get());
-    }
+		CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.ROSE_CRYSTAL_BUD.get(), BlockRegistry.ROSE_CRYSTAL.get());
+		CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.MINT_CRYSTAL_BUD.get(), BlockRegistry.MINT_CRYSTAL.get());
+		CrystalBudBlock.CRYSTAL_MAP.put(BlockRegistry.COBALT_CRYSTAL_BUD.get(), BlockRegistry.COBALT_CRYSTAL.get());
+	}
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-    }
+	private void doClientStuff(final FMLClientSetupEvent event) {
+		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+	}
 
-    public void biomeModification(final BiomeLoadingEvent event) {
-        // Add our structure to all biomes including other modded biomes.
-        // You can skip or add only to certain biomes based on stuff like biome category,
-        // temperature, scale, precipitation, mod id, etc. All kinds of options!
-        //
-        // You can even use the BiomeDictionary as well! To use BiomeDictionary, do
-        // RegistryKey.getOrCreateKey(Registry.BIOME_KEY, event.getName()) to get the biome's
-        // registrykey. Then that can be fed into the dictionary to get the biome's types.
-        if (event.getCategory().equals(Biome.Category.THEEND) && !event.getName().equals("miencraft:the_end")) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_END_TOWER);
-            event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_CATACOMBS);
+	public void biomeModification(final BiomeLoadingEvent event) {
+		// Add our structure to all biomes including other modded biomes.
+		// You can skip or add only to certain biomes based on stuff like biome
+		// category,
+		// temperature, scale, precipitation, mod id, etc. All kinds of options!
+		//
+		// You can even use the BiomeDictionary as well! To use BiomeDictionary, do
+		// RegistryKey.getOrCreateKey(Registry.BIOME_KEY, event.getName()) to get the
+		// biome's
+		// registrykey. Then that can be fed into the dictionary to get the biome's
+		// types.
+		if (event.getCategory().equals(Biome.Category.THEEND) && !event.getName().equals(new ResourceLocation("miencraft:the_end"))) {
+			event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_END_TOWER);
+			event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_CATACOMBS);
 
-            event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 8, 1, 1));
+			event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 8, 1, 1));
 
-        }
+		}
 
-        if (event.getName().equals(new ResourceLocation("minecraft:end_highlands"))) {
-            event.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 80, 2, 5));
-            event.getSpawns().withCreatureSpawnProbability(5);
-        }
-        
-        if (event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))) {
-            event.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> {
-            	return FeatureRegistry.CRAG_MOON_OUTSIDE_FEATURE;
-            });
-        }
-    }
+		if (event.getName().equals(new ResourceLocation("minecraft:end_highlands"))) {
+			event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 80, 2, 5));
+		}
 
-    /**
-     * Will go into the world's chunkgenerator and manually add our structure spacing.
-     * If the spacing is not added, the structure doesn't spawn.
-     *
-     * Use this for dimension blacklists for your structure.
-     * (Don't forget to attempt to remove your structure too from
-     *  the map if you are blacklisting that dimension! It might have
-     *  your structure in it already.)
-     *
-     * Basically use this to make absolutely sure the chunkgenerator
-     * can or cannot spawn your structure.
-     */
-    public void addDimensionalSpacing(final WorldEvent.Load event) {
-        if(event.getWorld() instanceof ServerWorld){
-            ServerWorld serverWorld = (ServerWorld)event.getWorld();
+		if (event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))) {
+			event.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> {
+				return FeatureRegistry.CRAG_MOON_OUTSIDE_FEATURE;
+			});
+		}
+	}
 
+	/**
+	 * Will go into the world's chunkgenerator and manually add our structure
+	 * spacing. If the spacing is not added, the structure doesn't spawn.
+	 *
+	 * Use this for dimension blacklists for your structure. (Don't forget to
+	 * attempt to remove your structure too from the map if you are blacklisting
+	 * that dimension! It might have your structure in it already.)
+	 *
+	 * Basically use this to make absolutely sure the chunkgenerator can or cannot
+	 * spawn your structure.
+	 */
+	public void addDimensionalSpacing(final WorldEvent.Load event) {
+		if (event.getWorld() instanceof ServerWorld) {
+			ServerWorld serverWorld = (ServerWorld) event.getWorld();
 
-            if(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator &&
-                    serverWorld.getDimensionKey().equals(World.OVERWORLD)){
-                return;
-            }
+			if (serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator && serverWorld.getDimensionKey().equals(World.OVERWORLD)) {
+				return;
+			}
 
-            if (serverWorld.getDimensionKey().getLocation().equals(new ResourceLocation("minecraft:the_end"))) {
-                Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
-                tempMap.put(StructureRegistry.END_TOWER.get(), DimensionStructuresSettings.field_236191_b_.get(StructureRegistry.END_TOWER.get()));
-                tempMap.put(StructureRegistry.CATACOMBS.get(), DimensionStructuresSettings.field_236191_b_.get(StructureRegistry.CATACOMBS.get()));
-                serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
-            }
-        }
-    }
+			if (serverWorld.getDimensionKey().getLocation().equals(new ResourceLocation("minecraft:the_end"))) {
+				Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
+				tempMap.put(StructureRegistry.END_TOWER.get(), DimensionStructuresSettings.field_236191_b_.get(StructureRegistry.END_TOWER.get()));
+				tempMap.put(StructureRegistry.CATACOMBS.get(), DimensionStructuresSettings.field_236191_b_.get(StructureRegistry.CATACOMBS.get()));
+				serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
+			}
+		}
+	}
 
-    @Mod.EventBusSubscriber(modid = "outer_end", bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientEventBusSubscriber {
-        @SubscribeEvent
-        public void onPostRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
-            OuterEndSpawnEgg.doDispenserSetup();
-        }
-        @SubscribeEvent
-        public void onItemColorEvent(ColorHandlerEvent.Item event) {
-            for (final SpawnEggItem egg : OuterEndSpawnEgg.OUTER_END_SPAWN_EGGS) {
-                event.getItemColors().register((stack, i) -> egg.getColor(i), egg);
-            }
-        }
-    }
-    @Mod.EventBusSubscriber(modid = "outer_end")
-    public static class LootEvents {
+	@Mod.EventBusSubscriber(modid = "outer_end", bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+	public static class ClientEventBusSubscriber {
+		@SubscribeEvent
+		public void onPostRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
+			OuterEndSpawnEgg.doDispenserSetup();
+		}
 
-        @SubscribeEvent
-        public static void onLootLoad(LootTableLoadEvent event) throws IllegalAccessException {
+		@SubscribeEvent
+		public void onItemColorEvent(ColorHandlerEvent.Item event) {
+			for (final SpawnEggItem egg : OuterEndSpawnEgg.OUTER_END_SPAWN_EGGS) {
+				event.getItemColors().register((stack, i) -> egg.getColor(i), egg);
+			}
+		}
+	}
 
-            ResourceLocation name = event.getName();
+	@Mod.EventBusSubscriber(modid = "outer_end")
+	public static class LootEvents {
 
-            if (name.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
-                LootPool pool = event.getTable().getPool("main");
-                if (pool != null) {
-                    addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 10, 0));
-                }
-            }
+		@SubscribeEvent
+		public static void onLootLoad(LootTableLoadEvent event) throws IllegalAccessException {
 
+			ResourceLocation name = event.getName();
 
-        }
-    }
+			if (name.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
+				LootPool pool = event.getTable().getPool("main");
+				if (pool != null) {
+					addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 10, 0));
+				}
+			}
 
-    private static LootEntry getInjectEntry(ResourceLocation location, int weight, int quality) {
-        return TableLootEntry.builder(location).weight(weight).quality(quality).build();
-    }
+		}
+	}
 
+	private static LootEntry getInjectEntry(ResourceLocation location, int weight, int quality) {
+		return TableLootEntry.builder(location).weight(weight).quality(quality).build();
+	}
 
-
-    private static void addEntry(LootPool pool, LootEntry entry) throws IllegalAccessException {
-        List<LootEntry> lootEntries = (List<LootEntry>) ObfuscationReflectionHelper.findField(LootPool.class, "field_186453_a").get(pool);
-        if (lootEntries.stream().anyMatch(e -> e == entry)) {
-            throw new RuntimeException("Attempted to add a duplicate entry to pool: " + entry);
-        }
-        lootEntries.add(entry);
-    }
+	private static void addEntry(LootPool pool, LootEntry entry) throws IllegalAccessException {
+		List<LootEntry> lootEntries = (List<LootEntry>) ObfuscationReflectionHelper.findField(LootPool.class, "field_186453_a").get(pool);
+		if (lootEntries.stream().anyMatch(e -> e == entry)) {
+			throw new RuntimeException("Attempted to add a duplicate entry to pool: " + entry);
+		}
+		lootEntries.add(entry);
+	}
 }

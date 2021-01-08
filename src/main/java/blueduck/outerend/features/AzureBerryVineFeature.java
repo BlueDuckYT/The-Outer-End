@@ -31,7 +31,7 @@ public class AzureBerryVineFeature extends Feature<NoFeatureConfig> {
 				int height = rand.nextInt(4);
 				if (reader.getBlockState(pos.up(height)).getBlock() == Blocks.AIR) {
 					for (int h = 0; h < height; h++) {
-						if (reader.getBlockState(pos.up(h)).getBlock() == Blocks.AIR) {
+						if (reader.getBlockState(pos.up(h)).getBlock() == Blocks.AIR || reader.getBlockState(pos.up(h).down()).getBlock() == BlockRegistry.AZURE_BERRY_VINE.get()) {
 							reader.setBlockState(pos.up(h), BlockRegistry.AZURE_BERRY_VINE.get().getDefaultState().with(AzureBerryVineBlock.AGE, rand.nextInt(4)), 4);
 						}
 					}
