@@ -62,7 +62,7 @@ public class CragTallGrass extends TallGrassBlock {
 
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getNearestLookingDirection().getOpposite());
+		return this.getDefaultState().with(FACING, context.getFace());
 	}
 
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
