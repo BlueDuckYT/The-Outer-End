@@ -107,6 +107,7 @@ public class OuterEndMod
             DEVS.add(UUID.fromString("b0242a0f-e172-45f2-a79e-9fa14494bba9"));
             DEVS.add(UUID.fromString("3e7e37bd-95de-43c1-9ee4-b3b63dbdf66f"));
             DEVS.add(UUID.fromString("cf8bf0da-f86d-4ac0-b48a-3f6d940f6472"));
+            DEVS.add(UUID.fromString("b62ad4bd-b2eb-47cb-b88b-564fc8ffb50f"));
         }
         
         MinecraftForge.EVENT_BUS.register(this);
@@ -145,7 +146,7 @@ public class OuterEndMod
         // You can even use the BiomeDictionary as well! To use BiomeDictionary, do
         // RegistryKey.getOrCreateKey(Registry.BIOME_KEY, event.getName()) to get the biome's
         // registrykey. Then that can be fed into the dictionary to get the biome's types.
-        if (event.getCategory().equals(Biome.Category.THEEND)) {
+        if (event.getCategory().equals(Biome.Category.THEEND) && !event.getName().equals("miencraft:the_end")) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_END_TOWER);
             event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_CATACOMBS);
 

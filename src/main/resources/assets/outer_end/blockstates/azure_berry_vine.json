@@ -7,7 +7,7 @@
       "model": "outer_end:block/azure_berry_vine"
     },
     "age=2": {
-      "model": "outer_end:block/azure_berry_vine"
+      "model": "outer_end:block/azure_berry_vine_half_Grown"
     },
     "age=3": {
       "model": "outer_end:block/azure_berry_vine_grown"

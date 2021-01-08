@@ -1,17 +1,30 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "#",
-    "#"
-  ],
-  "key": {
-    "#": {
-      "item": "outer_end:azure_planks"
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "item": "outer_end:azure_bookshelf",
+          "type": "forge:item_exists"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "#",
+          "#",
+          "#"
+        ],
+        "key": {
+          "#": {
+            "item": "outer_end:azure_planks"
+          }
+        },
+        "result": {
+          "item": "outer_end:azure_vertical_planks",
+          "count": 3
+        }
+      }
     }
-  },
-  "result": {
-    "item": "outer_end:azure_vertical_planks",
-    "count": 3
+    ]
   }
-}

@@ -36,16 +36,16 @@ public class StructureRegistry {
     public static void setupStructures() {
         setupStructure(
                 END_TOWER.get(), /* The instance of the structure */
-                new StructureSeparationSettings(45 /* maximum distance apart in chunks between spawn attempts */,
-                        15 /* minimum distance apart in chunks between spawn attempts */,
+                new StructureSeparationSettings(OuterEndMod.CONFIG.END_TOWER_MAX.get() /* maximum distance apart in chunks between spawn attempts */,
+                        OuterEndMod.CONFIG.END_TOWER_MIN.get() /* minimum distance apart in chunks between spawn attempts */,
                         753937990 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
                 false);
 
         setupStructure(
                 CATACOMBS.get(), /* The instance of the structure */
-                new StructureSeparationSettings(45 /* maximum distance apart in chunks between spawn attempts */,
-                        15 /* minimum distance apart in chunks between spawn attempts */,
-                        125261290 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
+                new StructureSeparationSettings(OuterEndMod.CONFIG.CATACOMBS_MAX.get() /* maximum distance apart in chunks between spawn attempts */,
+                        OuterEndMod.CONFIG.CATACOMBS_MIN.get() /* minimum distance apart in chunks between spawn attempts */,
+                        125261490 /* this modifies the seed of the structure so no two structures always spawn over each-other. Make this large and unique. */),
                 false);
 
     }
