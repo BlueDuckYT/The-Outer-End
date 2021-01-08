@@ -6,6 +6,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.SlabType;
@@ -22,16 +23,25 @@ import javax.annotation.Nullable;
 
 public class CrystalBudBlock extends Block implements IWaterLoggable {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 11.0D, 14.0D);
+    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final VoxelShape UP_SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 11.0D, 14.0D);
+    public static final VoxelShape DOWN_SHAPE = Block.makeCuboidShape(2.0D, 5.0D, 2.0D, 14.0D, 16.0D, 14.0D);
+    public static final VoxelShape SIDE_SHAPE = Block.makeCuboidShape(0.0D, 3.0D, 0.0D, 16.0D, 13.0D, 16.0D);
 
 
     public CrystalBudBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(false)));
+        this.setDefaultState(this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(false)).with(FACING, (Direction.UP)));
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE;
+        if (state.get(FACING).equals(Direction.UP)) {
+            return UP_SHAPE;
+        }
+        if (state.get(FACING).equals(Direction.DOWN)) {
+            return DOWN_SHAPE;
+        }
+        return SIDE_SHAPE;
     }
 
     public FluidState getFluidState(BlockState state) {
@@ -39,13 +49,13 @@ public class CrystalBudBlock extends Block implements IWaterLoggable {
     }
 
     public void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
+        builder.add(WATERLOGGED).add(FACING);
     }
 
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
-        return this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(fluidstate.isTagged(FluidTags.WATER) && fluidstate.getLevel() == 8));
+        return this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(fluidstate.isTagged(FluidTags.WATER) && fluidstate.getLevel() == 8)).with(FACING, context.getNearestLookingDirection().getOpposite());
     }
 
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
@@ -59,7 +69,10 @@ public class CrystalBudBlock extends Block implements IWaterLoggable {
 
 
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return hasEnoughSolidSide(worldIn, pos.down(), Direction.UP);
+        Direction direction = state.get(FACING);
+        BlockPos blockpos = pos.offset(direction.getOpposite());
+        BlockState blockstate = worldIn.getBlockState(blockpos);
+        return blockstate.isSolidSide(worldIn, blockpos, direction);
     }
 
 }

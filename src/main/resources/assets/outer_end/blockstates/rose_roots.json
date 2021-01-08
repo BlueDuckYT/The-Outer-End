@@ -1,5 +1,30 @@
 {
     "variants": {
-        "": { "model": "outer_end:block/rose_roots" }
+        "facing=down": {
+            "model": "outer_end:block/rose_roots",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "outer_end:block/rose_roots",
+            "y": 90,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "outer_end:block/rose_roots",
+            "x": 90
+        },
+        "facing=south": {
+            "model": "outer_end:block/rose_roots",
+            "y": 180,
+            "x": 90
+        },
+        "facing=up": {
+            "model": "outer_end:block/rose_roots"
+        },
+        "facing=west": {
+            "model": "outer_end:block/rose_roots",
+            "y": 270,
+            "x": 90
+        }
     }
 }

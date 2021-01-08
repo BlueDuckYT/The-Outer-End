@@ -1,5 +1,30 @@
 {
     "variants": {
-        "": { "model": "outer_end:block/mint_crystal_bud" }
+        "facing=down": {
+            "model": "outer_end:block/mint_crystal_bud",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "outer_end:block/mint_crystal_bud",
+            "y": 90,
+            "x": 90
+        },
+        "facing=north": {
+            "model": "outer_end:block/mint_crystal_bud",
+            "x": 90
+        },
+        "facing=south": {
+            "model": "outer_end:block/mint_crystal_bud",
+            "y": 180,
+            "x": 90
+        },
+        "facing=up": {
+            "model": "outer_end:block/mint_crystal_bud"
+        },
+        "facing=west": {
+            "model": "outer_end:block/mint_crystal_bud",
+            "y": 270,
+            "x": 90
+        }
     }
 }

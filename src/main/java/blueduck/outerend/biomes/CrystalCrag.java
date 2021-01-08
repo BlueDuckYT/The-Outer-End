@@ -21,7 +21,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 public class CrystalCrag extends OuterEndBiome {
 
 	static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = Registry.register(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER, "outer_end:crystal_crag", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BlockRegistry.VIOLITE.get().getDefaultState(), BlockRegistry.VIOLITE.get().getDefaultState(), BlockRegistry.VIOLITE.get().getDefaultState())));
-	static final Biome.Climate CLIMATE = new Biome.Climate(Biome.RainType.NONE, 0.8F, Biome.TemperatureModifier.NONE, 0.4F);
+	static final Biome.Climate CLIMATE = new Biome.Climate(Biome.RainType.NONE, 0.8F, Biome.TemperatureModifier.NONE, 0F);
 
 	static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer();
 

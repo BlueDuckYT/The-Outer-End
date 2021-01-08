@@ -2,11 +2,11 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 4,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "outer_end:mint_crystal"
+          "name": "outer_end:mint_crystal_shard"
         }
       ],
       "conditions": [
