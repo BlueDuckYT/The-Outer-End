@@ -1,6 +1,5 @@
 package blueduck.outerend.biomes;
 
-import blueduck.outerend.client.Color;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.FeatureRegistry;
@@ -37,8 +36,9 @@ public class AzureForest extends OuterEndBiome {
 
 	static {
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.AZURE_TREE);
-		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.END_GRASS_DECORATOR);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.AZURE_BERRY_VINE_DECORATOR);
+		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.END_GRASS_DECORATOR);
+		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.END_FOLIAGE_DECORATOR);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
 
 		SPAWN_SETTINGS.withCreatureSpawnProbability(5);

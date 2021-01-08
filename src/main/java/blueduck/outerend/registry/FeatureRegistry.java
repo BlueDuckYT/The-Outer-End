@@ -23,6 +23,7 @@ public class FeatureRegistry {
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
                             .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 2)))
             );
+    
     public static final ConfiguredFeature<NoFeatureConfig, EndGrassDecorator> END_GRASS_DECORATOR =
             (ConfiguredFeature<NoFeatureConfig, EndGrassDecorator>) newConfiguredFeature(
                     "end_grass_decorator",
@@ -31,8 +32,20 @@ public class FeatureRegistry {
                             new EndGrassDecorator(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 6)))
             );
+    
+    public static final ConfiguredFeature<NoFeatureConfig, EndFoliageDecorator> END_FOLIAGE_DECORATOR =
+            (ConfiguredFeature<NoFeatureConfig, EndFoliageDecorator>) newConfiguredFeature(
+                    "end_foliage_decorator",
+                    newFeature(
+                            "end_foliage_decorator",
+                            new EndFoliageDecorator(NoFeatureConfig.field_236558_a_)
+                    ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
+                            .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1)))
+            );
+    
     public static final ConfiguredFeature<NoFeatureConfig, AzureBerryVineFeature> AZURE_BERRY_VINE_DECORATOR =
             (ConfiguredFeature<NoFeatureConfig, AzureBerryVineFeature>) newConfiguredFeature(
                     "azure_berry_vine_decorator",
@@ -41,8 +54,9 @@ public class FeatureRegistry {
                             new AzureBerryVineFeature(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 1, 4)))
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.85F, 2)))
             );
+    
     public static final ConfiguredFeature<NoFeatureConfig, CragPlantDecorator> CRAG_ROOTS_DECORATOR =
             (ConfiguredFeature<NoFeatureConfig, CragPlantDecorator>) newConfiguredFeature(
                     "crag_roots_decorator",
@@ -53,6 +67,7 @@ public class FeatureRegistry {
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
                             .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 1, 8)))
             );
+    
     public static final ConfiguredFeature<NoFeatureConfig, CragBudDecorator> CRYSTAL_BUDS_DECORATOR =
             (ConfiguredFeature<NoFeatureConfig, CragBudDecorator>) newConfiguredFeature(
                     "crag_buds_decorator",
@@ -63,6 +78,7 @@ public class FeatureRegistry {
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
                             .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 1, 3)))
             );
+    
     public static final ConfiguredFeature<NoFeatureConfig, CrystalSpikeFeature> CRYSTAL_SPIKE_FEATURE =
             (ConfiguredFeature<NoFeatureConfig, CrystalSpikeFeature>) newConfiguredFeature(
                     "crystal_spike_feature",
