@@ -19,7 +19,7 @@ modId="outer_end" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
-version="0.1.2" #mandatory
+version="0.2.0" #mandatory
  # A display name for the mod
 displayName="Outer End" #mandatory
 # A text field displayed in the mod UI
