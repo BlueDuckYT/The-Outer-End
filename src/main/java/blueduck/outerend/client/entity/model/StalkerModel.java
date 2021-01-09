@@ -4,12 +4,10 @@ package blueduck.outerend.client.entity.model;
 // Paste this class into your mod and generate all required imports
 
 
-import blueduck.outerend.entities.StalkerEntity;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 public class StalkerModel extends AgeableModel<StalkerEntity> {
