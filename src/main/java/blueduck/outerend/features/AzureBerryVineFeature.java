@@ -24,7 +24,7 @@ public class AzureBerryVineFeature extends Feature<NoFeatureConfig> {
 	@Override
 	public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 		if (!reader.getBlockState(pos.down()).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on")))) return false;
-		int height = rand.nextInt(4) + 1;
+		int height = rand.nextInt(4);
 		for (int i = 0; i < height; i++) {
 			reader.setBlockState(pos.up(i), BlockRegistry.AZURE_BERRY_VINE.get().getDefaultState().with(AzureBerryVineBlock.AGE, rand.nextInt(4)), 4);
 		}
