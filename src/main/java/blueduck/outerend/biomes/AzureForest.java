@@ -45,8 +45,6 @@ public class AzureForest extends OuterEndBiome {
 		SPAWN_SETTINGS.withSpawnCost(EntityType.ENDERMAN, 1, 40);
 		SPAWN_SETTINGS.withSpawnCost(EntityRegistry.DRAGONFLY.get(), 1, 30);
 		SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.DRAGONFLY.get(), 1, 1, 3));
-		SPAWN_SETTINGS.withSpawnCost(EntityRegistry.STALKER.get(), 1, 30);
-		SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 1, 1, 3));
 		SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 1, 1, 3));
 	}
 }
