@@ -20,7 +20,7 @@ public class CommonSetup {
 		GlobalEntityTypeAttributes.put(EntityRegistry.ENTOMBED.get(), EntombedEntity.createModifiers());
 
 		EntitySpawnPlacementRegistry.register(EntityRegistry.PURPUR_GOLEM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, PurpurGolemEntity::canSpawn);
-		//EntitySpawnPlacementRegistry.register(EntityRegistry.STALKER.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StalkerEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(EntityRegistry.STALKER.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StalkerEntity::canSpawn);
 
 	}
 }
