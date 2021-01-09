@@ -132,6 +132,9 @@ public class DragonflyEntity extends MobEntity {
 	
 	@Override
 	public void tick() {
+		if (this.getPosY() < 1) {
+			this.damageEntity(DamageSource.OUT_OF_WORLD, 5);
+		}
 		if (this.getEntityWorld().isRemote || this.isAIDisabled()) {
 			super.tick();
 			if (FMLEnvironment.dist.isClient()) {

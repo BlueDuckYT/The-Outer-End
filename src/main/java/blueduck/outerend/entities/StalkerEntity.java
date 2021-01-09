@@ -33,10 +33,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.loading.FMLEnvironment;
@@ -62,6 +59,14 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
 		if (this.rand.nextFloat() <= 0.05f) {
 			this.setGrowingAge(-24000);
 		}
+	}
+
+	public float getBlockPathWeight(BlockPos pos, IWorldReader worldIn) {
+		return worldIn.getBlockState(pos.down()).isIn(Blocks.END_STONE) ? 10.0F : worldIn.getBrightness(pos) - 0.5F;
+	}
+
+	public static boolean canAnimalSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+		return worldIn.getBlockState(pos.down()).isIn(Blocks.END_STONE);
 	}
 
 //	public void setGrowingAge(int age) {
