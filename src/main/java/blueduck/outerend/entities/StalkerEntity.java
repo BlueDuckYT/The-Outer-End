@@ -41,7 +41,7 @@ public class StalkerEntity extends AnimalEntity {
 
     public static AttributeModifierMap createModifiers() {
         return MonsterEntity.func_234295_eP_()
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.30)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.26)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 4)
                 .createMutableAttribute(Attributes.ARMOR, 0)
                 .createMutableAttribute(Attributes.FOLLOW_RANGE, 32)

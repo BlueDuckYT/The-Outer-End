@@ -4,6 +4,7 @@ package blueduck.outerend.client.entity.model;
 // Paste this class into your mod and generate all required imports
 
 
+import blueduck.outerend.entities.StalkerEntity;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -110,10 +111,8 @@ public class StalkerModel extends AgeableModel<StalkerEntity> {
 		
 		this.head.rotateAngleX = (float) Math.toRadians(headPitch + 12);
 		this.head.rotateAngleY = (float) Math.toRadians(netHeadYaw);
-		
-		if (entity.isAngered()) this.bone4.rotateAngleX = (float) Math.toRadians(45);
-		else
-			this.bone2.rotateAngleX = (float) (Math.cos(ageInTicks / 32f) * 0.25f + Math.toRadians(15)) - head.rotateAngleX;
+
+		this.bone2.rotateAngleX = (float) (Math.cos(ageInTicks / 32f) * 0.25f + Math.toRadians(15)) - head.rotateAngleX;
 	}
 
 	@Override
