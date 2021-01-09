@@ -72,10 +72,6 @@ public class AzureBerryVineBlock extends AbstractBodyPlantBlock {
         return state.get(AGE) < 3;
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-        return false;
-    }
-
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
         int i = Math.min(3, state.get(AGE) + 1);
         worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i)), 2);

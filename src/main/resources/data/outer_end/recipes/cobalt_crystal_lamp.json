@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:cobalt_crystal"
+    }
+  },
+  "result": {
+    "item": "outer_end:cobalt_crystal_lamp",
+    "count": 4
+  }
+}
