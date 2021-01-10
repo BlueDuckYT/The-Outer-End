@@ -100,7 +100,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> AZURE_BOOKSHELF = conditionallyRegisterBlock("azure_bookshelf", () -> new BookshelfBlock(Block.Properties.from(Blocks.OAK_PLANKS)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> AZURE_BOOKSHELF_ITEM = conditionallyRegisterItem("azure_bookshelf", () -> new BlockItem(AZURE_BOOKSHELF.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> AZURE_BEEHIVE = conditionallyRegisterBlock("azure_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.OAK_PLANKS)), () -> isLoaded("quark"));
+    public static final RegistryObject<Block> AZURE_BEEHIVE = conditionallyRegisterBlock("azure_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.OAK_PLANKS)), () -> isLoaded("buzzier_bees"));
     public static final RegistryObject<Item> AZURE_BEEHIVE_ITEM = conditionallyRegisterItem("azure_beehive", () -> new BlockItem(AZURE_BEEHIVE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("buzzier_bees"));
 
 

@@ -146,7 +146,7 @@ public class OuterEndMod
         // You can even use the BiomeDictionary as well! To use BiomeDictionary, do
         // RegistryKey.getOrCreateKey(Registry.BIOME_KEY, event.getName()) to get the biome's
         // registrykey. Then that can be fed into the dictionary to get the biome's types.
-        if (event.getCategory().equals(Biome.Category.THEEND) && !event.getName().equals("minecraft:the_end")) {
+        if (event.getCategory().equals(Biome.Category.THEEND) && !event.getName().equals(new ResourceLocation("minecraft:the_end"))) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_END_TOWER);
             event.getGeneration().getStructures().add(() -> ConfiguredStructureFeatures.CONFIGURED_CATACOMBS);
 
