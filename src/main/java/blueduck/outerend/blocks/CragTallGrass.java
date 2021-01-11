@@ -71,4 +71,8 @@ public class CragTallGrass extends TallGrassBlock {
 		BlockState blockstate = worldIn.getBlockState(blockpos);
 		return blockstate.isSolidSide(worldIn, blockpos, direction);
 	}
+
+	public AbstractBlock.OffsetType getOffsetType() {
+		return OffsetType.NONE;
+	}
 }
