@@ -43,7 +43,7 @@ public class FeatureRegistry {
                             new EndFoliageDecorator(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(3, 0.2F, 4)))
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 2)))
             );
     
     public static final ConfiguredFeature<NoFeatureConfig, AzureBerryVineFeature> AZURE_BERRY_VINE_DECORATOR =

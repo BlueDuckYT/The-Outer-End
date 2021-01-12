@@ -31,6 +31,9 @@ public class EndFoliageDecorator extends Feature<NoFeatureConfig> {
 			pos = reader.getHeight(Heightmap.Type.WORLD_SURFACE_WG, pos.add(rand.nextInt(16), 0, rand.nextInt(16)));
 			if (reader.getBlockState(pos.down()).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on")))) {
 				BlockState block = BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:azure_foliage")).getRandomElement(rand).getDefaultState();
+				if (rand.nextDouble() < 0.5) {
+					block = BlockRegistry.AZURE_SPROUTS.get().getDefaultState();
+				}
 				if (reader.getBlockState(pos).getBlock() == Blocks.AIR) {
 					reader.setBlockState(pos, block, 4);
 					if (reader.getBlockState(pos).equals(BlockRegistry.TALL_ENDER_ROOTS.get().getDefaultState())) {
