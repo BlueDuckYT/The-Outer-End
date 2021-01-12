@@ -165,24 +165,25 @@ public class CatacombsStructure extends Structure<NoFeatureConfig> {
             BlockPos blockpos = new BlockPos(x, 0, z);
 
             // All a structure has to do is call this method to turn it into a jigsaw based structure!
-            JigsawManager.func_242837_a(
-                    dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.getRegistry(Registry.JIGSAW_POOL_KEY)
-                            .getOrDefault(new ResourceLocation(OuterEndMod.MODID, "catacombs/wells")),
+            if (chunkGenerator.getHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) > 0) {
+                JigsawManager.func_242837_a(
+                        dynamicRegistryManager,
+                        new VillageConfig(() -> dynamicRegistryManager.getRegistry(Registry.JIGSAW_POOL_KEY)
+                                .getOrDefault(new ResourceLocation(OuterEndMod.MODID, "catacombs/wells")),
 
-                            // How many pieces outward from center can a recursive jigsaw structure spawn.
-                            // Our structure is only 1 block out and isn't recursive so any value of 1 or more doesn't change anything.
-                            // However, I recommend you keep this a high value so people can use datapacks to add additional pieces to your structure easily.
-                            300),
-                    AbstractVillagePiece::new,
-                    chunkGenerator,
-                    templateManagerIn,
-                    blockpos, // Position of the structure. Y value is ignored if last parameter is set to true.
-                    this.components, // The list that will be populated with the jigsaw pieces after this method.
-                    this.rand,
-                    true, // Allow intersecting jigsaw pieces. If false, villages cannot generate houses. I recommend to keep this to true.
-                    true); // Place at heightmap (top land). Set this to false for structure to be place at blockpos's Y value instead
-
+                                // How many pieces outward from center can a recursive jigsaw structure spawn.
+                                // Our structure is only 1 block out and isn't recursive so any value of 1 or more doesn't change anything.
+                                // However, I recommend you keep this a high value so people can use datapacks to add additional pieces to your structure easily.
+                                300),
+                        AbstractVillagePiece::new,
+                        chunkGenerator,
+                        templateManagerIn,
+                        blockpos, // Position of the structure. Y value is ignored if last parameter is set to true.
+                        this.components, // The list that will be populated with the jigsaw pieces after this method.
+                        this.rand,
+                        true, // Allow intersecting jigsaw pieces. If false, villages cannot generate houses. I recommend to keep this to true.
+                        true); // Place at heightmap (top land). Set this to false for structure to be place at blockpos's Y value instead
+            }
 
             // **THE FOLLOWING TWO LINES ARE OPTIONAL**
             //
