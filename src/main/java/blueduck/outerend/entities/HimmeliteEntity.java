@@ -76,7 +76,7 @@ public class HimmeliteEntity extends MonsterEntity {
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.35)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 4)
                 .createMutableAttribute(Attributes.ARMOR, 0)
-                .createMutableAttribute(Attributes.MAX_HEALTH, 20).create();
+                .createMutableAttribute(Attributes.MAX_HEALTH, 10).create();
     }
     
     public Entity getNearest(Class<? extends LivingEntity>... classes) {

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "outer_end:azure_slab",
+    "outer_end:himmel_slab",
+    "outer_end:violite_brick_slab",
+    "outer_end:mossy_violite_brick_slab",
+    "outer_end:violite_tile_slab",
+    "outer_end:mossy_violite_tile_slab"
+  ]
+}
