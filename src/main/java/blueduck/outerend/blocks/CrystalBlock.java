@@ -25,7 +25,7 @@ public class CrystalBlock extends AbstractGlassBlock {
 
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (random.nextDouble() < 0.005) {
+        if (random.nextDouble() < 0.001) {
             Direction dir = Direction.values()[random.nextInt(6)];
             if (worldIn.getBlockState(pos.offset(dir)).isAir()) {
                 worldIn.setBlockState(pos.offset(dir), BUD_BLOCK.get().getDefaultState().with(CrystalBudBlock.FACING, dir));

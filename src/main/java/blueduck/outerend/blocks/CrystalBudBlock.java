@@ -83,7 +83,7 @@ public class CrystalBudBlock extends Block implements IWaterLoggable {
 
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (random.nextDouble() < 0.005) {
+        if (random.nextDouble() < 0.001) {
             worldIn.setBlockState(pos, getCrystalBlock(state).getDefaultState());
         }
     }
