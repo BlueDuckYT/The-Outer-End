@@ -24,8 +24,8 @@ public class ItemRegistry {
 
 	public static final RegistryObject<Item> SPECTRAGEL = ITEMS.register("spectragel", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
 
-//	public static final RegistryObject<Item> STALKER_MEAT = ITEMS.register("stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(4).saturation(0.3f).build())));
-//	public static final RegistryObject<Item> COOKED_STALKER_MEAT = ITEMS.register("cooked_stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(8).saturation(0.7f).build())));
+	public static final RegistryObject<Item> STALKER_MEAT = ITEMS.register("stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(4).saturation(0.3f).build())));
+	public static final RegistryObject<Item> COOKED_STALKER_MEAT = ITEMS.register("cooked_stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(8).saturation(0.7f).build())));
 
 
 	public static final RegistryObject<Item> MUSIC_DISC_GALACTIC_WAVE = ITEMS.register("music_disc_galactic_wave", () -> new MusicDiscItem(15, () -> SoundRegistry.DISC_GALACTIC_WAVE.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
@@ -45,7 +45,7 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> SPECTRAFLY_SPAWN_EGG = SPAWN_EGGS.register("spectrafly_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.DRAGONFLY::get, 3093129, 11056703));
 	public static final RegistryObject<Item> PURPUR_GOLEM_SPAWN_EGG = SPAWN_EGGS.register("purpur_golem_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.PURPUR_GOLEM::get, 10105599, 4794755));
 	public static final RegistryObject<Item> HIMMELITE_SPAWN_EGG = SPAWN_EGGS.register("himmelite_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.HIMMELITE::get, 1994982, 5413563));
-	//public static final RegistryObject<Item> STALKER_SPAWN_EGG = SPAWN_EGGS.register("stalker_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.STALKER::get, 1575190, 6031692));
+	public static final RegistryObject<Item> STALKER_SPAWN_EGG = SPAWN_EGGS.register("stalker_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.STALKER::get, 1575190, 6031692));
 	public static final RegistryObject<Item> ENTOMBED_SPAWN_EGG = SPAWN_EGGS.register("entombed_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.ENTOMBED::get, 1575190, 6031692));
 
 

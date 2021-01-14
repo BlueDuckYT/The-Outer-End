@@ -47,13 +47,13 @@ public class ClientSetup {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.DRAGONFLY.get(), DragonflyEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.HIMMELITE.get(), HimmeliteRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.PURPUR_GOLEM.get(), PurpurGolemRenderer::new);
-		//RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.STALKER.get(), StalkerRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.STALKER.get(), StalkerRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.ENTOMBED.get(), EntombedRenderer::new);
 		
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.SPECTRAFLY_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.HIMMELITE_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.PURPUR_GOLEM_SPAWN_EGG::get);
-		//Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.STALKER_SPAWN_EGG::get);
+		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.STALKER_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.ENTOMBED_SPAWN_EGG::get);
 	}
 }

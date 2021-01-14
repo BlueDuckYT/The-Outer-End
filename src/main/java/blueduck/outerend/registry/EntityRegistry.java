@@ -28,10 +28,10 @@ public class EntityRegistry {
 			.setTrackingRange(64).setUpdateInterval(2).size(14f/16, 14f/16)
 			.build(OuterEndMod.MODID + ":himmelite"));
 
-//	public static final RegistryObject<EntityType<StalkerEntity>> STALKER = ENTITIES.register("stalker", () -> EntityType.Builder
-//			.create(StalkerEntity::new, EntityClassification.CREATURE)
-//			.setTrackingRange(64).setUpdateInterval(2).size(1.3964844f, 2.25f)
-//			.build(OuterEndMod.MODID + ":stalker"));
+	public static final RegistryObject<EntityType<StalkerEntity>> STALKER = ENTITIES.register("stalker", () -> EntityType.Builder
+			.create(StalkerEntity::new, EntityClassification.CREATURE)
+			.setTrackingRange(64).setUpdateInterval(2).size(1.3964844f, 2.25f)
+			.build(OuterEndMod.MODID + ":stalker"));
 
 	public static final RegistryObject<EntityType<EntombedEntity>> ENTOMBED = ENTITIES.register("entombed", () -> EntityType.Builder
 			.create(EntombedEntity::new, EntityClassification.MONSTER)

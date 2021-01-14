@@ -32,8 +32,7 @@ public class StalkerEntity extends AnimalEntity {
     @Nullable
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-        //return EntityRegistry.STALKER.get().create(p_241840_1_);
-        return null;
+        return EntityRegistry.STALKER.get().create(p_241840_1_);
     }
 
     public boolean isBreedingItem(ItemStack stack) {
