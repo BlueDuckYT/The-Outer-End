@@ -27,7 +27,7 @@ apply plugin: 'java' // java plugin is needed for the shadow plugin to work
 
 version = '1.0'
 group = 'com.yourname.modid' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'outer_end'
+archivesBaseName = 'jellyfishing'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -50,7 +50,7 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
-            arg "-mixin.config=outer_end.mixins.json"
+            arg "-mixin.config=jellyfishing.mixins.json"
 
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -61,7 +61,7 @@ minecraft {
             property 'mixin.env.disableRefMap', 'true'
 
             mods {
-                outer_end {
+                jellyfishing {
                     source sourceSets.main
                 }
             }
@@ -70,7 +70,7 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
-            arg "-mixin.config=outer_end.mixins.json"
+            arg "-mixin.config=jellyfishing.mixins.json"
 
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -81,7 +81,7 @@ minecraft {
             property 'mixin.env.disableRefMap', 'true'
 
             mods {
-                outer_end {
+                jellyfishing {
                     source sourceSets.main
                 }
             }
@@ -196,7 +196,7 @@ publishing {
 apply plugin: 'org.spongepowered.mixin'
 
 mixin {
-    add sourceSets.main, "outer_end.refmap.json"
+    add sourceSets.main, "jellyfishing.refmap.json"
 }
 
 minecraft {
@@ -207,7 +207,7 @@ jar {
     manifest {
         attributes([
                 // Existing properties here
-                "MixinConfigs": "outer_end.mixins.json"
+                "MixinConfigs": "jellyfishing.mixins.json"
         ])
     }
 }
