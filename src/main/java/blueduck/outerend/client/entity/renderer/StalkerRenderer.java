@@ -30,6 +30,6 @@ public class StalkerRenderer extends MobRenderer<StalkerEntity, StalkerModel<Ent
 	
 	@Override
 	public ResourceLocation getEntityTexture(StalkerEntity entity) {
-		return new ResourceLocation("outer_end:textures/entity/stalker_" + entity.getPersistentData().getString("Color") +".png");
+		return new ResourceLocation("outer_end:textures/entity/stalker_" + entity.getDataManager().get(StalkerEntity.COLOR) +".png");
 	}
 }

@@ -5,6 +5,7 @@ import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -13,12 +14,18 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.GolemEntity;
+import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -30,23 +37,28 @@ import java.util.Random;
 
 public class StalkerEntity extends AnimalEntity {
 
-    public String COLOR = "";
+    public static final DataParameter<String> COLOR = EntityDataManager.createKey(StalkerEntity.class, DataSerializers.STRING);
+
+    public String color = "";
 
     public static String[] COLORS = new String[]{"rose", "mint", "cobalt"};
 
     public StalkerEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
-        if (this.getPersistentData().getString("Color").equals("") && worldIn.isRemote()) {
-            COLOR = COLORS[worldIn.getRandom().nextInt(COLORS.length)];
-            this.getPersistentData().putString("Color", COLOR);
-        }
+    }
+
+    @Nullable
+    public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+        this.color = COLORS[worldIn.getRandom().nextInt(COLORS.length)];
+        this.dataManager.set(COLOR, color);
+        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
     @Nullable
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-        AgeableEntity ent = EntityRegistry.STALKER.get().create(p_241840_1_);
-        ent.getPersistentData().putString("Color", p_241840_2_.getPersistentData().getString("Color"));
+        StalkerEntity ent = EntityRegistry.STALKER.get().create(p_241840_1_);
+        ent.dataManager.set(COLOR, ((StalkerEntity) (p_241840_2_)).dataManager.get(COLOR));
         return ent;
     }
 
@@ -80,12 +92,16 @@ public class StalkerEntity extends AnimalEntity {
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putString("Color", COLOR);
+        compound.putString("Color", color);
     }
 
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
-        this.COLOR = compound.getString("Color");
+        this.color = compound.getString("Color");
+    }
 
+    public void registerData() {
+        super.registerData();
+        this.dataManager.register(COLOR, "");
     }
 }
