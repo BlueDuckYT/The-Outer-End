@@ -45,6 +45,7 @@ public class StalkerEntity extends AnimalEntity {
 
     public StalkerEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
+        //this.getDataManager().set(COLOR, this.getPersistentData().getString("Color"));
         color = getDataManager().get(COLOR);
     }
 
@@ -59,7 +60,7 @@ public class StalkerEntity extends AnimalEntity {
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
         StalkerEntity ent = EntityRegistry.STALKER.get().create(p_241840_1_);
-        ent.dataManager.set(COLOR, ((StalkerEntity) (p_241840_2_)).dataManager.get(COLOR));
+        ent.dataManager.set(COLOR, p_241840_2_.getDataManager().get(COLOR));
         return ent;
     }
 
@@ -93,12 +94,14 @@ public class StalkerEntity extends AnimalEntity {
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putString("Color", color);
+        if (!this.getDataManager().get(COLOR).equals(""))
+            compound.putString("Color", this.getDataManager().get(COLOR));
     }
 
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
-        this.color = compound.getString("Color");
+        if (this.getDataManager().get(COLOR).equals(""))
+            this.getDataManager().set(COLOR, compound.getString("Color"));
     }
 
     public void registerData() {
