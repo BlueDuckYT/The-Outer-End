@@ -153,11 +153,6 @@ public class OuterEndMod
             event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.PURPUR_GOLEM.get(), 8, 1, 1));
 
         }
-        if (event.getName().equals(new ResourceLocation("minecraft:end_highlands"))) {
-            event.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 8, 1, 1));
-
-            event.getSpawns().withCreatureSpawnProbability(5);
-        }
         
         if (event.getName().equals(new ResourceLocation("minecraft:small_end_islands"))) {
             event.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> {

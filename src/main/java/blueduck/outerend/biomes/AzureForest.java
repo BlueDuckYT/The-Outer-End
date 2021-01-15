@@ -1,5 +1,6 @@
 package blueduck.outerend.biomes;
 
+import blueduck.outerend.features.ConfiguredStructureFeatures;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.FeatureRegistry;
@@ -16,6 +17,7 @@ import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -40,6 +42,8 @@ public class AzureForest extends OuterEndBiome {
 		//GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.END_GRASS_DECORATOR);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.END_FOLIAGE_DECORATOR);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
+		GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY);
+
 
 		SPAWN_SETTINGS.withCreatureSpawnProbability(5);
 		SPAWN_SETTINGS.withSpawnCost(EntityType.ENDERMAN, 1, 40);

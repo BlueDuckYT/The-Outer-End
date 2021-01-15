@@ -30,7 +30,7 @@ public class EntityRegistry {
 
 	public static final RegistryObject<EntityType<StalkerEntity>> STALKER = ENTITIES.register("stalker", () -> EntityType.Builder
 			.create(StalkerEntity::new, EntityClassification.CREATURE)
-			.setTrackingRange(64).setUpdateInterval(2).size(1.3964844f, 2.25f)
+			.setTrackingRange(64).setUpdateInterval(2).size(1.4f, 2.2f)
 			.build(OuterEndMod.MODID + ":stalker"));
 
 	public static final RegistryObject<EntityType<EntombedEntity>> ENTOMBED = ENTITIES.register("entombed", () -> EntityType.Builder

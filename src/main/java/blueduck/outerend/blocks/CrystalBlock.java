@@ -35,7 +35,7 @@ public class CrystalBlock extends AbstractGlassBlock {
 
     public boolean touchesViolite(ServerWorld worldIn, BlockPos pos) {
         for (int i = 0; i < 6; i ++) {
-            if (worldIn.getBlockState(pos.offset(Direction.values()[i])).equals(BlockRegistry.VIOLITE.get())) {
+            if (worldIn.getBlockState(pos.offset(Direction.values()[i])).equals(BlockRegistry.VIOLITE.get().getDefaultState())) {
                 return true;
             }
         }
