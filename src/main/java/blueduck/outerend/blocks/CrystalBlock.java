@@ -25,12 +25,21 @@ public class CrystalBlock extends AbstractGlassBlock {
 
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (random.nextDouble() < 0.001) {
+        if (random.nextDouble() < 0.0025 && touchesViolite(worldIn, pos)) {
             Direction dir = Direction.values()[random.nextInt(6)];
             if (worldIn.getBlockState(pos.offset(dir)).isAir()) {
                 worldIn.setBlockState(pos.offset(dir), BUD_BLOCK.get().getDefaultState().with(CrystalBudBlock.FACING, dir));
             }
         }
+    }
+
+    public boolean touchesViolite(ServerWorld worldIn, BlockPos pos) {
+        for (int i = 0; i < 6; i ++) {
+            if (worldIn.getBlockState(pos.offset(Direction.values()[i])).equals(BlockRegistry.VIOLITE.get())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
