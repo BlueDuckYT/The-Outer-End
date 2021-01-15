@@ -45,6 +45,7 @@ public class StalkerEntity extends AnimalEntity {
 
     public StalkerEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
+        color = getDataManager().get(COLOR);
     }
 
     @Nullable
