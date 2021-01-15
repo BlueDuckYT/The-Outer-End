@@ -10,8 +10,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.entity.Entity;
 
-public class StalkerModel extends AgeableModel<StalkerEntity> {
+public class StalkerModel<T extends Entity> extends AgeableModel<StalkerEntity> {
 	private final ModelRenderer rearFootLeft;
 	private final ModelRenderer rearFootRight;
 	private final ModelRenderer haunchLeft;

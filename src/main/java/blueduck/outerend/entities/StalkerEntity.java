@@ -1,5 +1,6 @@
 package blueduck.outerend.entities;
 
+import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.AgeableEntity;
@@ -16,23 +17,37 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 public class StalkerEntity extends AnimalEntity {
+
+    public String COLOR = "";
+
+    public static String[] COLORS = new String[]{"rose", "mint", "cobalt"};
+
     public StalkerEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
+        if (this.getPersistentData().getString("Color").equals("") && worldIn.isRemote()) {
+            COLOR = COLORS[worldIn.getRandom().nextInt(COLORS.length)];
+            this.getPersistentData().putString("Color", COLOR);
+        }
     }
 
     @Nullable
     @Override
     public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-        return EntityRegistry.STALKER.get().create(p_241840_1_);
+        AgeableEntity ent = EntityRegistry.STALKER.get().create(p_241840_1_);
+        ent.getPersistentData().putString("Color", p_241840_2_.getPersistentData().getString("Color"));
+        return ent;
     }
 
     public boolean isBreedingItem(ItemStack stack) {
@@ -60,6 +75,17 @@ public class StalkerEntity extends AnimalEntity {
     }
 
     public static boolean canAnimalSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
-        return worldIn.getBlockState(pos.down()).isIn(Blocks.END_STONE);
+        return worldIn.getBlockState(pos.down()).isIn(BlockRegistry.VIOLITE.get());
+    }
+
+    public void writeAdditional(CompoundNBT compound) {
+        super.writeAdditional(compound);
+        compound.putString("Color", COLOR);
+    }
+
+    public void readAdditional(CompoundNBT compound) {
+        super.readAdditional(compound);
+        this.COLOR = compound.getString("Color");
+
     }
 }
