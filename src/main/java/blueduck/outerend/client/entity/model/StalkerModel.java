@@ -152,7 +152,4 @@ public class StalkerModel<T extends Entity> extends AgeableModel<StalkerEntity> 
 	}
 
 
-	public ModelRenderer getHead() {
-		return this.head;
-	}
 }
