@@ -89,7 +89,7 @@ public class StalkerEntity extends AnimalEntity {
     }
 
     public static boolean canAnimalSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
-        return worldIn.getBlockState(pos.down()).isIn(BlockRegistry.VIOLITE.get());
+        return true;
     }
 
     public void writeAdditional(CompoundNBT compound) {

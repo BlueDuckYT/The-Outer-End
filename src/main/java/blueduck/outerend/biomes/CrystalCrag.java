@@ -24,7 +24,7 @@ public class CrystalCrag extends OuterEndBiome {
 	static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = Registry.register(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER, "outer_end:crystal_crag", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BlockRegistry.VIOLITE.get().getDefaultState(), BlockRegistry.VIOLITE.get().getDefaultState(), BlockRegistry.VIOLITE.get().getDefaultState())));
 	static final Biome.Climate CLIMATE = new Biome.Climate(Biome.RainType.NONE, 0.8F, Biome.TemperatureModifier.NONE, 0F);
 
-	static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer();
+	static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer().withCreatureSpawnProbability(5);
 
 	static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
@@ -45,7 +45,6 @@ public class CrystalCrag extends OuterEndBiome {
 
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureRegistry.CRAG_MOON_FEATURE);
 
-		SPAWN_SETTINGS.withCreatureSpawnProbability(5);
 		SPAWN_SETTINGS.withSpawnCost(EntityType.ENDERMAN, 1, 40);
 		SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 1, 1, 3));
 		SPAWN_SETTINGS.withSpawnCost(EntityRegistry.STALKER.get(), 1, 30);
