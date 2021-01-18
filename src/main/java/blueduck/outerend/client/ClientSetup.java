@@ -18,6 +18,7 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SAPLING.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_DOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_TRAPDOOR.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_VINES.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ENDER_ROOTS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.TALL_ENDER_ROOTS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SPROUTS.get(), RenderType.getCutout());
