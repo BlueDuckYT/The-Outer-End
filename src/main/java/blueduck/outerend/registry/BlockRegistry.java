@@ -193,6 +193,14 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CRACKED_VIOLITE_BRICKS = BLOCKS.register("cracked_violite_bricks", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> CRACKED_VIOLITE_BRICKS_ITEM = ITEMS.register("cracked_violite_bricks", () -> new BlockItem(CRACKED_VIOLITE_BRICKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
+    public static final RegistryObject<Block> CHISELED_VIOLITE_BRICKS = BLOCKS.register("chiseled_violite_bricks", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Item> CHISELED_VIOLITE_BRICKS_ITEM = ITEMS.register("chiseled_violite_bricks", () -> new BlockItem(CHISELED_VIOLITE_BRICKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+
+    public static final RegistryObject<Block> VIOLITE_BRICK_PILLAR = BLOCKS.register("violite_brick_pillar", () -> new RotatedPillarBlock(Block.Properties.from(Blocks.NETHER_BRICKS).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Item> VIOLITE_BRICK_PILLAR_ITEM = ITEMS.register("violite_brick_pillar", () -> new BlockItem(VIOLITE_BRICK_PILLAR.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+
 
     public static final RegistryObject<Block> VIOLITE_TILES = BLOCKS.register("violite_tiles", () -> new Block(Block.Properties.from(Blocks.NETHER_BRICKS).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> VIOLITE_TILES_ITEM = ITEMS.register("violite_tiles", () -> new BlockItem(VIOLITE_TILES.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));

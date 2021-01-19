@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y":  { "model": "outer_end:block/violite_brick_pillar" },
+    "axis=z":   { "model": "outer_end:block/violite_brick_pillar", "x": 90 },
+    "axis=x":   { "model": "outer_end:block/violite_brick_pillar", "x": 90, "y": 90 }
+  }
+}

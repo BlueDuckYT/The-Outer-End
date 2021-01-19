@@ -11,6 +11,7 @@
   "block.outer_end.ender_roots": "Ender Roots",
   "block.outer_end.tall_ender_roots": "Tall Ender Roots",
   "block.outer_end.azure_sprouts": "Azure Sprouts",
+  "block.outer_end.azure_vines": "Azure Vines",
   "block.outer_end.azure_fence": "Azure Fence",
   "block.outer_end.azure_fence_gate": "Azure Fence Gate",
   "block.outer_end.azure_door": "Azure Door",
@@ -47,6 +48,8 @@
   "block.outer_end.violite_brick_slab": "Violite Brick Slab",
   "block.outer_end.violite_brick_vertical_slab": "Violite Brick Vertical Slab",
   "block.outer_end.violite_brick_wall": "Violite Brick Wall",
+  "block.outer_end.chiseled_violite_bricks": "Chiseled Violite Bricks",
+  "block.outer_end.violite_brick_pillar": "Violite Brick Pillar",
 
   "block.outer_end.mossy_violite_bricks": "Mossy Violite Bricks",
   "block.outer_end.mossy_violite_brick_stairs": "Mossy Violite Brick Stairs",
