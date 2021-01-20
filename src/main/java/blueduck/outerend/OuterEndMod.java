@@ -118,6 +118,7 @@ public class OuterEndMod
         event.enqueueWork(() -> {
             StructureRegistry.setupStructures();
             ConfiguredStructureFeatures.registerConfiguredStructures();
+            BlockRegistry.registerFlammables();
         });
 
         BoatRegistry.registerBoat("outer_end:azure", ItemRegistry.AZURE_BOAT, BlockRegistry.AZURE_PLANKS);

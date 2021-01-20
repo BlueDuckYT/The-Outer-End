@@ -15,6 +15,7 @@ import com.minecraftabnormals.abnormals_core.common.blocks.wood.StrippedLogBlock
 import com.minecraftabnormals.abnormals_core.common.blocks.wood.StrippedWoodBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.wood.WoodBlock;
 import com.minecraftabnormals.abnormals_core.common.items.AbnormalsSignItem;
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.BlockSubRegistryHelper;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.mojang.datafixers.util.Pair;
@@ -286,6 +287,39 @@ public class BlockRegistry {
 
     public static boolean isLoaded(String modid) {
         return ModList.get().isLoaded(modid);
+    }
+
+    public static void registerFlammables() {
+        DataUtil.registerFlammable(AZURE_STEM.get(), 5, 5);
+        DataUtil.registerFlammable(AZURE_STRIPPED_STEM.get(), 100, 5);
+        DataUtil.registerFlammable(AZURE_PITH.get(), 5, 5);
+        DataUtil.registerFlammable(AZURE_STRIPPED_PITH.get(), 5, 5);
+        DataUtil.registerFlammable(AZURE_PLANKS.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_SLAB.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_STAIRS.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_SIGN.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_WALL_SIGN.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_FENCE.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_FENCE_GATE.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_BUTTON.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_PRESSURE_PLATE.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_LEAVES.get(), 100, 60);
+        DataUtil.registerFlammable(ENDER_ROOTS.get(), 100, 60);
+        DataUtil.registerFlammable(TALL_ENDER_ROOTS.get(), 100, 60);
+        DataUtil.registerFlammable(AZURE_SPROUTS.get(), 100, 60);
+        DataUtil.registerFlammable(AZURE_SAPLING.get(), 100, 60);
+        DataUtil.registerFlammable(ENDER_ROOTS.get(), 100, 60);
+
+        if (isLoaded("quark")) {
+            DataUtil.registerFlammable(AZURE_VERTICAL_SLAB.get(), 20, 20);
+            DataUtil.registerFlammable(AZURE_VERTICAL_PLANKS.get(), 20, 20);
+            DataUtil.registerFlammable(AZURE_LADDER.get(), 20, 20);
+            DataUtil.registerFlammable(AZURE_BOOKSHELF.get(), 20, 20);
+        }
+
+        if (isLoaded("buzzier_bees")) {
+            DataUtil.registerFlammable(AZURE_BEEHIVE.get(), 10, 5);
+        }
     }
 
 
