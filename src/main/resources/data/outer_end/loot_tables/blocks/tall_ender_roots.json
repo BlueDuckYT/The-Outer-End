@@ -5,71 +5,22 @@
       "rolls": 1.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
+          "type": "minecraft:item",
+          "functions": [
             {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "item": "minecraft:shears"
-                  }
-                }
-              ],
-              "functions": [
-                {
-                  "function": "minecraft:set_count",
-                  "count": 2
-                }
-              ],
-              "name": "outer_end:tall_ender_roots"
+              "function": "minecraft:set_count",
+              "count": 2
             }
-          ]
+          ],
+          "name": "outer_end:tall_ender_roots"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:block_state_property",
-          "block": "outer_end:tall_ender_roots",
-          "properties": {
-            "half": "lower"
-          }
-        },
-        {
-          "condition": "minecraft:location_check",
+          "condition": "minecraft:match_tool",
           "predicate": {
-            "block": {
-              "block": "outer_end:tall_ender_roots",
-              "state": {
-                "half": "upper"
-              }
-            }
-          },
-          "offsetY": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "outer_end:tall_ender_roots",
-          "properties": {
-            "half": "upper"
+            "item": "minecraft:shears"
           }
-        },
-        {
-          "condition": "minecraft:location_check",
-          "predicate": {
-            "block": {
-              "block": "outer_end:tall_ender_roots",
-              "state": {
-                "half": "lower"
-              }
-            }
-          },
-          "offsetY": -1
         }
       ]
     }

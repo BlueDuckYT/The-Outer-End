@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "outer_end:mossyviolite_tiles"
+          "name": "outer_end:mossy_violite_tiles"
         }
       ],
       "conditions": [
