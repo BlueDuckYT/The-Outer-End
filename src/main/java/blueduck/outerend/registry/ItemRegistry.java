@@ -47,6 +47,7 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> HIMMELITE_SPAWN_EGG = SPAWN_EGGS.register("himmelite_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.HIMMELITE::get, 1994982, 5413563));
 	public static final RegistryObject<Item> STALKER_SPAWN_EGG = SPAWN_EGGS.register("stalker_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.STALKER::get, 1575190, 6031692));
 	public static final RegistryObject<Item> ENTOMBED_SPAWN_EGG = SPAWN_EGGS.register("entombed_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.ENTOMBED::get, 1575190, 6031692));
+	public static final RegistryObject<Item> CHORUS_SQUID_SPAWN_EGG = SPAWN_EGGS.register("chorus_squid_spawn_egg", () -> new OuterEndSpawnEgg(new Item.Properties().group(ItemGroup.MISC), EntityRegistry.CHORUS_SQUID::get, 0x660099, 0xff99ff));
 
 
 

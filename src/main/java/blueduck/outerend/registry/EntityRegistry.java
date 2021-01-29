@@ -38,7 +38,10 @@ public class EntityRegistry {
 			.setTrackingRange(64).setUpdateInterval(2).size(1.6f, 2.4f)
 			.build(OuterEndMod.MODID + ":entombed"));
 
-
+	public static final RegistryObject<EntityType<ChorusSquidEntity>> CHORUS_SQUID = ENTITIES.register("chorus_squid", () -> EntityType.Builder
+			.create(ChorusSquidEntity::new, EntityClassification.MONSTER)
+			.setTrackingRange(64).setUpdateInterval(2).size(1.0f, 1.0f)
+			.build(OuterEndMod.MODID + ":chorus_squid"));
 
 
 	public static void init() {

@@ -112,12 +112,14 @@
   "item.outer_end.purpur_golem_spawn_egg": "Purpur Golem Spawn Egg",
   "item.outer_end.stalker_spawn_egg": "Stalker Spawn Egg",
   "item.outer_end.entombed_spawn_egg": "Entombed Spawn Egg",
+  "item.outer_end.chorus_squid_spawn_egg": "Chorus Squid Spawn Egg",
 
   "entity.outer_end.spectrafly": "Spectrafly",
   "entity.outer_end.himmelite": "Himmelite",
   "entity.outer_end.purpur_golem": "Purpur Golem",
   "entity.outer_end.stalker": "Stalker",
   "entity.outer_end.entombed": "Entombed",
+  "entity.outer_end.chorus_squid": "Chorus Squid",
 
   "biome.outer_end.azure_forest": "Azure Forest",
   "biome.outer_end.crystal_crag": "Crystal Crag",

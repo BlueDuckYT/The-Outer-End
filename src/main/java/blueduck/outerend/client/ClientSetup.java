@@ -50,11 +50,13 @@ public class ClientSetup {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.PURPUR_GOLEM.get(), PurpurGolemRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.STALKER.get(), StalkerRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.ENTOMBED.get(), EntombedRenderer::new);
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.CHORUS_SQUID.get(), ChorusSquidRenderer::new);
+
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.SPECTRAFLY_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.HIMMELITE_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.PURPUR_GOLEM_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.STALKER_SPAWN_EGG::get);
 		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.ENTOMBED_SPAWN_EGG::get);
+		Minecraft.getInstance().getItemColors().register(new SpawnEggColors(), ItemRegistry.CHORUS_SQUID_SPAWN_EGG::get);
 	}
 }
