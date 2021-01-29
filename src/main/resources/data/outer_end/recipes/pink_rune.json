@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "item": "quark:pink_rune",
+          "type": "forge:item_exists"
+        }
+      ],
+
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "###",
+          "#S#",
+          "###"
+        ],
+        "key": {
+          "#": {
+            "item": "outer_end:rose_crystal"
+          },
+          "S": {
+            "tag": "forge:stone"
+          }
+        },
+        "result": {
+          "item": "quark:pink_rune"
+        },
+        "group": "quark:crystal_rune"
+      }
+    }
+  ]
+}
