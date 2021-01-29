@@ -7,6 +7,7 @@ import net.minecraft.entity.ai.controller.BodyController;
 import net.minecraft.entity.ai.controller.LookController;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketBuffer;
@@ -208,7 +209,7 @@ public class ChorusSquidEntity extends CreatureEntity {
     protected void registerGoals() {
         targetSelector.addGoal(0, new HurtByTargetGoal(this));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, PlayerEntity.class, 50,  true, false, null));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, SheepEntity.class, 50,  true, false, null));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, AnimalEntity.class, 50,  true, false, null));
         goalSelector.addGoal(0, new AttackGoal(this, 2.0f));
         goalSelector.addGoal(1, new IdleGoal(this));
     }
