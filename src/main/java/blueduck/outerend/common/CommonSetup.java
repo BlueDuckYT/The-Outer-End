@@ -1,5 +1,6 @@
 package blueduck.outerend.common;
 
+import blueduck.outerend.client.entity.renderer.ChorusSquidRenderer;
 import blueduck.outerend.entities.*;
 import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
@@ -18,6 +19,7 @@ public class CommonSetup {
 		GlobalEntityTypeAttributes.put(EntityRegistry.HIMMELITE.get(), HimmeliteEntity.createModifiers());
 		GlobalEntityTypeAttributes.put(EntityRegistry.STALKER.get(), StalkerEntity.createModifiers());
 		GlobalEntityTypeAttributes.put(EntityRegistry.ENTOMBED.get(), EntombedEntity.createModifiers());
+		GlobalEntityTypeAttributes.put(EntityRegistry.CHORUS_SQUID.get(), ChorusSquidEntity.createModifiers());
 
 		EntitySpawnPlacementRegistry.register(EntityRegistry.PURPUR_GOLEM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, PurpurGolemEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(EntityRegistry.STALKER.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StalkerEntity::canAnimalSpawn);
