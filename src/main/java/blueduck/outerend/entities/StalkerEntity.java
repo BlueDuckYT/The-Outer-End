@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -89,6 +90,11 @@ public class StalkerEntity extends AnimalEntity {
     }
 
     public static boolean canAnimalSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+        return true;
+    }
+
+    @Override
+    public boolean canSpawn(IWorld p_213380_1_, SpawnReason reason) {
         return true;
     }
 
