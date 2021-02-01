@@ -1,5 +1,6 @@
 package blueduck.outerend.entities;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -10,6 +11,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -24,11 +26,13 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.vector.Vector3f;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import javax.annotation.Nullable;
 import java.util.EnumSet;
 import java.util.Random;
 
@@ -44,6 +48,20 @@ public class ChorusSquidEntity extends CreatureEntity {
 
     static {
         DataSerializers.registerSerializer(ChorusSquidMode.SERIALIZER);
+    }
+
+    public static boolean shouldSpawn(EntityType<ChorusSquidEntity> squid, IServerWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+        return !world.isAirBlock(pos.down())
+            &&  world.isAirBlock(pos)
+            &&  world.isAirBlock(pos.up())
+            &&  world.isAirBlock(pos.up(2));
+    }
+
+    @Nullable
+    @Override
+    public ILivingEntityData onInitialSpawn(IServerWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData entityData, @Nullable CompoundNBT tag) {
+        this.setPosition(this.getPosX(), this.getPosY() + 2d, this.getPosZ());
+        return super.onInitialSpawn(world, difficulty, reason, entityData, tag);
     }
 
     public ChorusSquidEntity(EntityType<? extends ChorusSquidEntity> type, World worldIn) {
@@ -461,10 +479,6 @@ public class ChorusSquidEntity extends CreatureEntity {
     @Override
     protected boolean canTriggerWalking() {
         return false;
-    }
-
-    public static boolean canSpawn(EntityType<ChorusSquidEntity> type, IWorld world, SpawnReason spawnReason, BlockPos pos, Random random) {
-        return (pos.getY() > 50);
     }
 }
 

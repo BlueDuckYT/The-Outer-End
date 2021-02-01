@@ -26,6 +26,6 @@ public class CommonSetup {
 		EntitySpawnPlacementRegistry.register(EntityRegistry.PURPUR_GOLEM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, PurpurGolemEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(EntityRegistry.STALKER.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StalkerEntity::canAnimalSpawn);
 		EntitySpawnPlacementRegistry.register(EntityRegistry.DRAGONFLY.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, DragonflyEntity::canSpawn);
-		EntitySpawnPlacementRegistry.register(EntityRegistry.CHORUS_SQUID.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ChorusSquidEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(EntityRegistry.CHORUS_SQUID.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ChorusSquidEntity::shouldSpawn);
 	}
 }
