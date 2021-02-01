@@ -24,11 +24,13 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.vector.Vector3f;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
+import java.util.Random;
 
 public class ChorusSquidEntity extends CreatureEntity {
     private static final DataParameter<ChorusSquidMode> MODE = EntityDataManager.createKey(ChorusSquidEntity.class, ChorusSquidMode.SERIALIZER);
@@ -459,6 +461,10 @@ public class ChorusSquidEntity extends CreatureEntity {
     @Override
     protected boolean canTriggerWalking() {
         return false;
+    }
+
+    public static boolean canSpawn(EntityType<ChorusSquidEntity> type, IWorld world, SpawnReason spawnReason, BlockPos pos, Random random) {
+        return (pos.getY() > 50);
     }
 }
 
