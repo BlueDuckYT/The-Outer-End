@@ -105,7 +105,7 @@ public class BlockRegistry {
     public static final RegistryObject<Item> AZURE_BEEHIVE_ITEM = conditionallyRegisterItem("azure_beehive", () -> new BlockItem(AZURE_BEEHIVE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("buzzier_bees"));
 
 
-    public static final Pair<RegistryObject<AbnormalsChestBlock>, RegistryObject<AbnormalsTrappedChestBlock>> AZURE_CHEST = HELPER.createCompatChestBlocks("azure", MaterialColor.BLUE_TERRACOTTA, "quark");
+    public static final Pair<RegistryObject<AbnormalsChestBlock>, RegistryObject<AbnormalsTrappedChestBlock>> AZURE_CHEST = HELPER.createCompatChestBlocks("azure", MaterialColor.BLUE, "quark");
 
 
 

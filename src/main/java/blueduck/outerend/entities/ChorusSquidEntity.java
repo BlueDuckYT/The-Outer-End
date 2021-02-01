@@ -126,6 +126,7 @@ public class ChorusSquidEntity extends CreatureEntity {
                 moveSpeed = 0f;
             }
 
+
             float baseSpeed = (float) (this.speed * squid.getAttributeValue(Attributes.FLYING_SPEED));
             Vector3d delta = target.getEyePosition(0f).subtract(squid.getPositionVec());
             if (delta.lengthSquared() >= 0.5*0.5) {
@@ -364,6 +365,9 @@ public class ChorusSquidEntity extends CreatureEntity {
 
     @Override
     public void tick() {
+        if (this.getPosY() < 1) {
+            this.damageEntity(DamageSource.OUT_OF_WORLD, 5);
+        }
         super.tick();
     }
 
