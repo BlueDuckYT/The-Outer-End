@@ -4,7 +4,7 @@
     {
       "conditions": [
         {
-          "item": "quark:cya_rune",
+          "item": "quark:cyan_rune",
           "type": "forge:item_exists"
         }
       ],
