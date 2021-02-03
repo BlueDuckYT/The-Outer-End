@@ -91,6 +91,7 @@ public class AzureBerryVineBlock extends AbstractBodyPlantBlock {
     
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.down()).isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on")));
+        BlockState state1 = worldIn.getBlockState(pos.down());
+        return state1.isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on"))) || state1.getBlock() instanceof AzureBerryVineBlock || state1.getBlock() instanceof AzureBerryVineTopBlock;
     }
 }
