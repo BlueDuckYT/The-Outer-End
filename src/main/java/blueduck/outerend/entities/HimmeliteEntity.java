@@ -1,7 +1,6 @@
 package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.ItemRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPredicate;
@@ -22,8 +21,6 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.pathfinding.Path;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -31,7 +28,6 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 
 public class HimmeliteEntity extends MonsterEntity {
     private static final DataParameter<Integer> BITE_FACTOR = EntityDataManager.createKey(HimmeliteEntity.class, DataSerializers.VARINT);
@@ -208,13 +204,6 @@ public class HimmeliteEntity extends MonsterEntity {
         if (path != null) {
             navigator.setPath(path,1);
             this.setMotion(this.getMotion().getX()+0.01f,this.getMotion().getY(),this.getMotion().getZ());
-        }
-        
-        
-        if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
-            if (this.navigator.getPath() != null) {
-                Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), navigator.getPath(), 0.5f);
-            }
         }
     }
     

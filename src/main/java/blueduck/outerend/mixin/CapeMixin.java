@@ -2,7 +2,6 @@ package blueduck.outerend.mixin;
 
 import blueduck.outerend.OuterEndMod;
 import com.mojang.authlib.GameProfile;
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.client.network.play.NetworkPlayerInfo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -13,8 +12,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import javax.annotation.Nullable;
 
 @OnlyIn(Dist.CLIENT)
 @Mixin(NetworkPlayerInfo.class)
@@ -31,7 +28,7 @@ public abstract class CapeMixin {
      * @reason Custom Cape for the devs
      */
 
-    @Inject(method = "Lnet/minecraft/client/network/play/NetworkPlayerInfo;getLocationCape()Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
+    @Inject(method = "getLocationCape()Lnet/minecraft/util/ResourceLocation;", at = @At("TAIL"), remap = false, cancellable = true)
     public void OUTER_END_getLocationCape(CallbackInfoReturnable<ResourceLocation> info) {
         if (OuterEndMod.DEVS.contains(gameProfile.getId())) {
             info.setReturnValue(TEXTURE_DEV_CAPE);

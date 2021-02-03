@@ -1,12 +1,20 @@
 package blueduck.outerend.blocks;
 
 import blueduck.outerend.registry.BlockRegistry;
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractTopPlantBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.PlantBlockHelper;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class AzureBerryVineTopBlock extends AbstractTopPlantBlock {
@@ -40,5 +48,18 @@ public class AzureBerryVineTopBlock extends AbstractTopPlantBlock {
     @Override
     public Block getBodyPlantBlock() {
         return BlockRegistry.AZURE_BERRY_VINE.get();
+    }
+    
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        if (!isValidPosition(null, context.getWorld(), context.getPos())) return null;
+        return super.getStateForPlacement(context);
+    }
+    
+    @Override
+    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockState state1 = worldIn.getBlockState(pos.down());
+        return state1.isIn(BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:end_plantable_on"))) || state1.getBlock() instanceof AzureBerryVineBlock || state1.getBlock() instanceof AzureBerryVineTopBlock;
     }
 }

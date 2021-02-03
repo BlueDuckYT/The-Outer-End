@@ -1,8 +1,10 @@
 package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.ItemRegistry;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityPredicate;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -15,18 +17,9 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.GroundPathNavigator;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.fml.loading.FMLEnvironment;
-
-import java.util.Random;
 
 public class EntombedEntity extends MonsterEntity {
     private static final DataParameter<Float> ARM_SWING = EntityDataManager.createKey(EntombedEntity.class, DataSerializers.FLOAT);
@@ -102,12 +95,6 @@ public class EntombedEntity extends MonsterEntity {
             incrementSwingProgress(0.15f);
             if (getSwingProgress() >= 2) {
                 setSwingProgress(0);
-            }
-        }
-        
-        if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
-            if (this.navigator.getPath() != null) {
-                Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), navigator.getPath(), 0.5f);
             }
         }
         

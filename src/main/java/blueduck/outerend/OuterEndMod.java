@@ -2,7 +2,6 @@ package blueduck.outerend;
 
 import blueduck.outerend.blocks.CrystalBudBlock;
 import blueduck.outerend.client.ClientSetup;
-import blueduck.outerend.client.DebugRenderer;
 import blueduck.outerend.common.CommonSetup;
 import blueduck.outerend.config.ConfigHelper;
 import blueduck.outerend.config.OuterEndConfig;
@@ -20,12 +19,10 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.loot.LootEntry;
 import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTables;
 import net.minecraft.loot.TableLootEntry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.GenerationStage.Decoration;
@@ -34,7 +31,6 @@ import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.LootTableLoadEvent;
@@ -50,12 +46,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.annotation.Nonnull;
 import java.util.*;
+
+//import blueduck.outerend.client.DebugRenderer;
 
 @Mod("outer_end")
 public class OuterEndMod
@@ -94,9 +90,7 @@ public class OuterEndMod
         
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
-            if (!FMLEnvironment.production) {
-                MinecraftForge.EVENT_BUS.addListener(DebugRenderer::renderDebugEntityPathfinding);
-            }
+            
             DEVS.add(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"));
             DEVS.add(UUID.fromString("c88a2cce-333f-450d-be8b-374c216ad4b5"));
             DEVS.add(UUID.fromString("d2b21209-ffe6-47f0-b86a-b13d40eeebc2"));
