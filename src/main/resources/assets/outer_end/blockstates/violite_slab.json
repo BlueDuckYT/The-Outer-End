@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "outer_end:block/violite_slab"
+    },
+    "type=top": {
+      "model": "outer_end:block/violite_slab_top"
+    },
+    "type=double": {
+      "model": "outer_end:block/violite"
+    }
+  }
+}

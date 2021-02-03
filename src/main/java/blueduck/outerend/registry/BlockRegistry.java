@@ -161,17 +161,27 @@ public class BlockRegistry {
     public static final RegistryObject<Block> VIOLITE = BLOCKS.register("violite", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> VIOLITE_ITEM = ITEMS.register("violite", () -> new BlockItem(VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
+    public static final RegistryObject<Block> VIOLITE_SLAB = BLOCKS.register("violite_slab", () -> new SlabBlock(Block.Properties.from(VIOLITE.get())));
+    public static final RegistryObject<Item> VIOLITE_SLAB_ITEM = ITEMS.register("violite_slab", () -> new BlockItem(VIOLITE_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> VIOLITE_VERTICAL_SLAB = conditionallyRegisterBlock("violite_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(VIOLITE.get())), () -> isLoaded("quark"));
+    public static final RegistryObject<Item> VIOLITE_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("violite_vertical_slab", () -> new BlockItem(VIOLITE_VERTICAL_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
+
+    public static final RegistryObject<Block> VIOLITE_STAIRS = BLOCKS.register("violite_stairs", () -> new StairsBlock(VIOLITE.get().getDefaultState(), Block.Properties.from(VIOLITE.get())));
+    public static final RegistryObject<Item> VIOLITE_STAIRS_ITEM = ITEMS.register("violite_stairs", () -> new BlockItem(VIOLITE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+
     public static final RegistryObject<Block> VIOLITE_BRICKS = BLOCKS.register("violite_bricks", () -> new Block(Block.Properties.from(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> VIOLITE_BRICKS_ITEM = ITEMS.register("violite_bricks", () -> new BlockItem(VIOLITE_BRICKS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> VIOLITE_BRICK_SLAB = BLOCKS.register("violite_brick_slab", () -> new SlabBlock(Block.Properties.from(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
-    public static final RegistryObject<Item> VIOLITE_SLAB_ITEM = ITEMS.register("violite_brick_slab", () -> new BlockItem(VIOLITE_BRICK_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> VIOLITE_BRICK_SLAB_ITEM = ITEMS.register("violite_brick_slab", () -> new BlockItem(VIOLITE_BRICK_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> VIOLITE_BRICK_VERTICAL_SLAB = conditionallyRegisterBlock("violite_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> VIOLITE_BRICK_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("violite_brick_vertical_slab", () -> new BlockItem(VIOLITE_BRICK_VERTICAL_SLAB.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> VIOLITE_STAIRS = BLOCKS.register("violite_brick_stairs", () -> new StairsBlock(VIOLITE_BRICKS.get().getDefaultState(), Block.Properties.from(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
-    public static final RegistryObject<Item> VIOLITE_STAIRS_ITEM = ITEMS.register("violite_brick_stairs", () -> new BlockItem(VIOLITE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+    public static final RegistryObject<Block> VIOLITE_BRICK_STAIRS = BLOCKS.register("violite_brick_stairs", () -> new StairsBlock(VIOLITE_BRICKS.get().getDefaultState(), Block.Properties.from(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Item> VIOLITE_BRICK_STAIRS_ITEM = ITEMS.register("violite_brick_stairs", () -> new BlockItem(VIOLITE_BRICK_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> VIOLITE_BRICK_WALL = BLOCKS.register("violite_brick_wall", () -> new WallBlock(Block.Properties.from(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> VIOLITE_WALL_ITEM = ITEMS.register("violite_brick_wall", () -> new BlockItem(VIOLITE_BRICK_WALL.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
