@@ -1,0 +1,8 @@
+{
+  "processor_type": "outer_end:if_loaded",
+  "modid": "quark",
+  "processor":
+  {
+    "processor_type": "rule"
+  }
+}
