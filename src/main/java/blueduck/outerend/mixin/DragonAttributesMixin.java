@@ -6,17 +6,16 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EnderDragonEntity.class)
 public abstract class DragonAttributesMixin {
-	/**
-	 * @author Outer End Team
-	 * @reason increase dragon's health so it's a bit less of a whimp
-	 */
-	@Overwrite
-	public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, OuterEndMod.CONFIG.ENDER_DRAGON_HEALTH.get());
+	@Inject(at = @At("HEAD"), method = "registerAttributes()Lnet/minecraft/entity/ai/attributes/AttributeModifierMap$MutableAttribute;", cancellable = true)
+	private static void OUTER_END_registerAttributes(CallbackInfoReturnable<AttributeModifierMap.MutableAttribute> cir) {
+		if (OuterEndMod.CONFIG.ENDER_DRAGON_HEALTH.get() != 0) {
+			cir.setReturnValue(MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, OuterEndMod.CONFIG.ENDER_DRAGON_HEALTH.get()));
+		}
 	}
-
 }

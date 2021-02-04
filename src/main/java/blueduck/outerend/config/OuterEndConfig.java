@@ -19,8 +19,8 @@ public class OuterEndConfig {
         builder.push("General");
 
         this.ENDER_DRAGON_HEALTH= subscriber.subscribe(builder
-                .comment("How Much Health should the Ender Dragon have? (Vanilla is 200)")
-                .defineInRange("ender_dragon_health", 500, 1, 10000));
+                .comment("How Much Health should the Ender Dragon have? Set to 0 to cancel the change. (Incase some other mod changes attributes) (Vanilla is 200)")
+                .defineInRange("ender_dragon_health", 500, 0, 10000));
         this.AZURE_FOREST_WEIGHT= subscriber.subscribe(builder
                 .comment("What should the weight of the Azure Forest be?")
                 .defineInRange("azure_forest_weight", 10, 1, 1000));

@@ -34,7 +34,7 @@ public abstract class ElytraTextureMixin<T extends LivingEntity, M extends Entit
      * @reason Custom Elytra for the devs
      */
 
-    @Inject(method = "Lnet/minecraft/client/renderer/entity/layers/ElytraLayer;getElytraTexture(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
+    @Inject(method = "getElytraTexture(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
     public void OUTER_END_getElytraTexture(ItemStack stack, T entity, CallbackInfoReturnable info) {
         if (OuterEndMod.DEVS.contains(entity.getUniqueID())) {
             info.setReturnValue(TEXTURE_DEVLYTRA);

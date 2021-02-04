@@ -3,7 +3,6 @@ package blueduck.outerend.entities;
 import blueduck.outerend.client.Color;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.ItemRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
@@ -235,11 +234,6 @@ public class DragonflyEntity extends MobEntity {
 				);
 			}
 		}
-		if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
-			if (this.pathNavigator.getPath() != null) {
-				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), pathNavigator.getPath(), 0.5f);
-			}
-		}
 		if (this.getPosY() <= 3)
 			this.setMotion(this.getMotion().x,MathHelper.lerp(0.1f,this.getMotion().y,-0.05f),this.getMotion().z);
 		if (this.getPosY() <= 2.9)
@@ -247,11 +241,12 @@ public class DragonflyEntity extends MobEntity {
 		if (this.getPosY() <= 2.8)
 			this.setMotion(this.getMotion().x,(this.getMotion().y+0.5f),this.getMotion().z);
 		
-//		if (this.getLeashed()) {
-//			Vector3d pos = this.getLeashPosition(0);
-//			if (this.getDistanceSq(pos) >= 16)
-//			this.setMotion(pos.subtract(this.getPositionVec()).normalize().scale(2).add(this.getMotion()));
-//		}
+		if (this.getLeashed()) {
+			Vector3d pos = this.getLeashHolder().getPositionVec();
+			if (this.getDistanceSq(pos) >= 20)
+				this.setMotion(pos.subtract(this.getPositionVec()).scale(0.1f).add(this.getMotion()));
+			if (this.getDistanceSq(pos) >= 256) this.clearLeashed(true,true);
+		}
 		
 		super.tick();
 	}
