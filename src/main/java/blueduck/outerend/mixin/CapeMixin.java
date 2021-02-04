@@ -28,7 +28,7 @@ public abstract class CapeMixin {
      * @reason Custom Cape for the devs
      */
 
-    @Inject(method = "getLocationCape()Lnet/minecraft/util/ResourceLocation;", at = @At("TAIL"), remap = false, cancellable = true)
+    @Inject(method = "getLocationCape()Lnet/minecraft/util/ResourceLocation;", at = @At("TAIL"), cancellable = true)
     public void OUTER_END_getLocationCape(CallbackInfoReturnable<ResourceLocation> info) {
         if (OuterEndMod.DEVS.contains(gameProfile.getId())) {
             info.setReturnValue(TEXTURE_DEV_CAPE);
