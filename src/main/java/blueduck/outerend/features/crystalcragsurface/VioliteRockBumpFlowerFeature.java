@@ -46,40 +46,21 @@ public class VioliteRockBumpFlowerFeature extends Feature<NoFeatureConfig> {
 
 		if (reader.getBlockState(pos.down()) == VIOLITE) {
 
-			int shards = random.nextInt(4) + 3;
+			int amount = random.nextInt(5) + 3;
 
-			for (int s = 0; s < shards; s++) {
+			Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
+			for (int i = 0; i < amount; i++) {
+				int height = random.nextInt(8) + 14;
+				double radius = random.nextDouble() * 2 + 2;
+				double ztheta = (random.nextDouble() * 60) + 70;
+				double ytheta = random.nextDouble() * 360;
 
-				double maxRotationRange = 30;
-				double rotation = ((360 / shards) * s) + (random.nextDouble() * maxRotationRange) - (maxRotationRange / 2);
-				double length = (random.nextDouble() * 15) + 12;
-				double maxTiltChange = 15;
-				double tilt = 90 - ((10 / shards) * s) + (random.nextDouble() * maxTiltChange) - (maxTiltChange / 2);
-				double width = (random.nextDouble() * 3) + 5;
-				double height = (random.nextDouble() * 3) + 3.5;
-				double arcTurn = random.nextDouble() * 3;
-				double maxTurnRange = 20;
-				double turn = (random.nextDouble() * maxTurnRange) - (maxTurnRange / 2);
-				double scale = random.nextDouble() + 0.5;
-
-				Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
-						/* Shape */
-						.applyLayer(new AddLayer(
-								/* Shape */
-								Shapes.bentCone(width, height, length, arcTurn)
-										/* Rotation */
-										.applyLayer(new RotateLayer(Quaternion.of(turn, rotation, tilt, true)))
-										/* Movement */
-										.applyLayer(new TranslateLayer(Position.of(0, -(width / 4), 0)))))
-						/* Scale */
-						.applyLayer(ScaleLayer.of(scale))
-						/* Movement */
-						.applyLayer(new TranslateLayer(Position.of(pos)))
-						/* Placement */
-						.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
-							validShape.fill(new SimpleFiller(reader, VIOLITE));
-						});
+				shape = shape.applyLayer(new AddLayer(Shapes.ellipticalPyramid(radius, radius, height).applyLayer(new RotateLayer(Quaternion.of(0, ytheta, ztheta, true)))));
 			}
+
+			shape.applyLayer(new TranslateLayer(Position.of(pos))).applyLayer(new TranslateLayer(Position.of(0, -2, 0))).validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
+				validShape.fill(new SimpleFiller(reader, VIOLITE));
+			});
 
 			return true;
 		}

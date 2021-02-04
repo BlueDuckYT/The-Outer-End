@@ -1,12 +1,27 @@
 package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
-import blueduck.outerend.features.*;
-import blueduck.outerend.features.crystalcragsurface.*;
+import blueduck.outerend.features.AzureBerryVineFeature;
+import blueduck.outerend.features.AzureTreeFeature;
+import blueduck.outerend.features.CragBudDecorator;
+import blueduck.outerend.features.CragMoonFeature;
+import blueduck.outerend.features.CragPlantDecorator;
+import blueduck.outerend.features.CrystalSpikeFeature;
+import blueduck.outerend.features.EndFoliageDecorator;
+import blueduck.outerend.features.EndGrassDecorator;
+import blueduck.outerend.features.LargeCrystalSpikeFeature;
+import blueduck.outerend.features.crystalcragsurface.VioliteBumpFeature;
+import blueduck.outerend.features.crystalcragsurface.VioliteDeadRainbowFeature;
+import blueduck.outerend.features.crystalcragsurface.VioliteRockBumpFlowerFeature;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureSpreadConfig;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -109,7 +124,7 @@ public class FeatureRegistry {
                             new VioliteBumpFeature(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 1, 10)))
+                            .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(10)))
             );
 
     public static final ConfiguredFeature<NoFeatureConfig, VioliteRockBumpFlowerFeature> VIOLITE_ROCK_BUMP_FLOWER_FEATURE =
@@ -120,7 +135,7 @@ public class FeatureRegistry {
                             new VioliteRockBumpFlowerFeature(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1)))
+                            .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(5)))
             );
 
     public static final ConfiguredFeature<NoFeatureConfig, VioliteDeadRainbowFeature> VIOLITE_DEAD_RAINBOW_FEATURE =
