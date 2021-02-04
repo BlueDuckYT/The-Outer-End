@@ -53,7 +53,7 @@ public class VioliteDeadRainbowFeature extends Feature<NoFeatureConfig> {
 			double radius = (random.nextDouble() * 12) + 4;
 			double maxArcDeviation = 20;
 			double arc = 80 + ((random.nextDouble() * maxArcDeviation) - (maxArcDeviation / 2));
-			double maxArcDeviationSecond = 25;
+			double maxArcDeviationSecond = 15;
 			double arcSecond = 80 + ((random.nextDouble() * maxArcDeviationSecond) - (maxArcDeviationSecond / 2));
 			double fullRotation = random.nextDouble() * 360;
 			double scale = MathHelper.lerp(random.nextDouble(), 0.7, 1.3);

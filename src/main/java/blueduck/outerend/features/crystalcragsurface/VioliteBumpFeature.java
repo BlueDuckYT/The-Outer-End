@@ -1,6 +1,9 @@
 package blueduck.outerend.features.crystalcragsurface;
 
-import blueduck.outerend.registry.BlockRegistry;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 import com.mojang.serialization.Codec;
 import com.terraformersmc.terraform.shapes.api.Position;
 import com.terraformersmc.terraform.shapes.api.Quaternion;
@@ -9,9 +12,10 @@ import com.terraformersmc.terraform.shapes.impl.Shapes;
 import com.terraformersmc.terraform.shapes.impl.filler.SimpleFiller;
 import com.terraformersmc.terraform.shapes.impl.layer.pathfinder.AddLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.RotateLayer;
-import com.terraformersmc.terraform.shapes.impl.layer.transform.ScaleLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
+
+import blueduck.outerend.registry.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -20,10 +24,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 public class VioliteBumpFeature extends Feature<NoFeatureConfig> {
 
@@ -45,37 +45,22 @@ public class VioliteBumpFeature extends Feature<NoFeatureConfig> {
 
 		if (reader.getBlockState(pos.down()) == VIOLITE) {
 
-			int shards = random.nextInt(5) + 1;
+			int amount = random.nextInt(3) + 2;
 
-			for (int s = 0; s < shards; s++) {
+			Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
+			for (int i = 0; i < amount; i++) {
+				int height = random.nextInt(8) + 5;
+				double radius = random.nextDouble() * 2 + 2;
+				double xtheta = (random.nextDouble() * 15) + 15;
+				double ztheta = (random.nextDouble() * 40) + 35;
+				double ytheta = random.nextDouble() * 360;
 
-				double length = (random.nextDouble() * 5) + 3;
-				double radius = (random.nextDouble() * 2) + 2;
-
-				double maxRotationRange = 30;
-				double rotation = ((360 / shards) * s) + (random.nextDouble() * maxRotationRange) - (maxRotationRange / 2);
-				double maxTiltChange = 30;
-				double tilt = ((30 / shards) * s) + (random.nextDouble() * maxTiltChange) - (maxTiltChange / 2);
-				double scale = (random.nextDouble() / 2) + 0.7;
-
-				Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
-						/* Shape */
-						.applyLayer(new AddLayer(
-								/* Shape */
-								Shapes.ellipsoid(radius, length, radius)
-										/* Rotation */
-										.applyLayer(new RotateLayer(Quaternion.of(0, rotation, tilt, true)))
-										/* Movement */
-										.applyLayer(new TranslateLayer(Position.of(0, -(radius / 3), 0)))))
-						/* Scale */
-						.applyLayer(ScaleLayer.of(scale))
-						/* Movement */
-						.applyLayer(new TranslateLayer(Position.of(pos)))
-						/* Placement */
-						.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
-							validShape.fill(new SimpleFiller(reader, VIOLITE));
-						});
+				shape = shape.applyLayer(new AddLayer(Shapes.ellipsoid(radius, height, radius).applyLayer(new RotateLayer(Quaternion.of(xtheta, ytheta, ztheta, true)))));
 			}
+
+			shape.applyLayer(new TranslateLayer(Position.of(pos))).applyLayer(new TranslateLayer(Position.of(0, -2, 0))).validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
+				validShape.fill(new SimpleFiller(reader, VIOLITE));
+			});
 
 			return true;
 		}
