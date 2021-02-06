@@ -102,6 +102,7 @@ public class OuterEndMod
             DEVS.add(UUID.fromString("3e7e37bd-95de-43c1-9ee4-b3b63dbdf66f"));
             DEVS.add(UUID.fromString("cf8bf0da-f86d-4ac0-b48a-3f6d940f6472"));
             DEVS.add(UUID.fromString("b62ad4bd-b2eb-47cb-b88b-564fc8ffb50f"));
+            DEVS.add(UUID.fromString("3842d959-2871-4eb9-bcb9-aa0e35b36f2a"));
         }
         
         MinecraftForge.EVENT_BUS.register(this);
