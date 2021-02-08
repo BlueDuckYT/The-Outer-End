@@ -88,6 +88,17 @@
   "block.outer_end.cobalt_crystal_lamp": "Cobalt Crystal Lamp",
 
 
+  "block.outer_end.halite": "Halite",
+  "block.outer_end.stromatolite": "Stromatolite",
+  "block.outer_end.ancient_stone": "Ancient Stone",
+  "block.outer_end.ancient_ice": "Ancient Ice",
+  "block.outer_end.ancient_ice_column": "Ancient Ice Column",
+  "block.outer_end.ancient_ice_cap": "Ancient Ice Cap",
+  "block.outer_end.glowing_ancient_ice": "Glowing Ancient Ice",
+  "block.outer_end.glowing_ancient_ice_column": "Glowing Ancient Ice Column",
+  "block.outer_end.glowing_ancient_ice_cap": "Glowing Ancient Ice Cap",
+
+
   "block.outer_end.rose_roots": "Rose Roots",
   "block.outer_end.mint_roots": "Mint Roots",
   "block.outer_end.cobalt_roots": "Cobalt Roots",
