@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "outer_end:block/ancient_ice_cap_top"
+  }
+}
