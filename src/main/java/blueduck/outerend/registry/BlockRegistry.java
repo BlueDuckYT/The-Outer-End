@@ -293,7 +293,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> ANCIENT_ICE_COLUMN = BLOCKS.register("ancient_ice_column", () -> new Block(Block.Properties.from(ANCIENT_ICE.get())));
     public static final RegistryObject<Item> ANCIENT_ICE_COLUMN_ITEM = ITEMS.register("ancient_ice_column", () -> new BlockItem(ANCIENT_ICE_COLUMN.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> ANCIENT_ICE_CAP = BLOCKS.register("ancient_ice_cap", () -> new Block(Block.Properties.from(ANCIENT_ICE.get()).slipperiness(0f)));
+    public static final RegistryObject<Block> ANCIENT_ICE_CAP = BLOCKS.register("ancient_ice_cap", () -> new Block(Block.Properties.from(ANCIENT_ICE.get()).slipperiness(0.6f)));
     public static final RegistryObject<Item> ANCIENT_ICE_CAP_ITEM = ITEMS.register("ancient_ice_cap", () -> new BlockItem(ANCIENT_ICE_CAP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> GLOWING_ANCIENT_ICE = BLOCKS.register("glowing_ancient_ice", () -> new Block(Block.Properties.from(ANCIENT_ICE.get()).setLightLevel(blockstate -> 12)));
@@ -302,7 +302,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_COLUMN = BLOCKS.register("glowing_ancient_ice_column", () -> new Block(Block.Properties.from(GLOWING_ANCIENT_ICE.get())));
     public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_COLUMN_ITEM = ITEMS.register("glowing_ancient_ice_column", () -> new BlockItem(GLOWING_ANCIENT_ICE_COLUMN.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_CAP = BLOCKS.register("glowing_ancient_ice_cap", () -> new Block(Block.Properties.from(GLOWING_ANCIENT_ICE.get()).slipperiness(0f)));
+    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_CAP = BLOCKS.register("glowing_ancient_ice_cap", () -> new Block(Block.Properties.from(GLOWING_ANCIENT_ICE.get()).slipperiness(0.6f)));
     public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_CAP_ITEM = ITEMS.register("glowing_ancient_ice_cap", () -> new BlockItem(GLOWING_ANCIENT_ICE_CAP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
 
