@@ -278,6 +278,30 @@ public class BlockRegistry {
     public static final RegistryObject<Block> COBALT_ROOTS = BLOCKS.register("cobalt_roots", () -> new CragTallGrass(Block.Properties.from(Blocks.GRASS)));
     public static final RegistryObject<Item> COBALT_ROOTS_ITEM = ITEMS.register("cobalt_roots", () -> new BlockItem(COBALT_ROOTS.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
 
+    public static final RegistryObject<Block> STROMATOLITE = BLOCKS.register("stromatolite", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.GRAY_TERRACOTTA).setRequiresTool().hardnessAndResistance(1.0F, 4.0F)));
+    public static final RegistryObject<Item> STROMATOLITE_ITEM = ITEMS.register("stromatolite", () -> new BlockItem(STROMATOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> HALITE = BLOCKS.register("halite", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2.0F)));
+    public static final RegistryObject<Item> HALITE_ITEM = ITEMS.register("halite", () -> new BlockItem(HALITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> ANCIENT_ICE = BLOCKS.register("ancient_ice", () -> new Block(Block.Properties.from(Blocks.BLUE_ICE).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(4.0F, 4.0F)));
+    public static final RegistryObject<Item> ANCIENT_ICE_ITEM = ITEMS.register("ancient_ice", () -> new BlockItem(ANCIENT_ICE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> ANCIENT_ICE_COLUMN = BLOCKS.register("ancient_ice_column", () -> new Block(Block.Properties.from(ANCIENT_ICE.get())));
+    public static final RegistryObject<Item> ANCIENT_ICE_COLUMN_ITEM = ITEMS.register("ancient_ice_column", () -> new BlockItem(ANCIENT_ICE_COLUMN.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> ANCIENT_ICE_CAP = BLOCKS.register("ancient_ice_cap", () -> new Block(Block.Properties.from(ANCIENT_ICE.get())));
+    public static final RegistryObject<Item> ANCIENT_ICE_CAP_ITEM = ITEMS.register("ancient_ice_cap", () -> new BlockItem(ANCIENT_ICE_CAP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE = BLOCKS.register("glowing_ancient_ice", () -> new Block(Block.Properties.from(ANCIENT_ICE.get()).setLightLevel(blockstate -> 12)));
+    public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_ITEM = ITEMS.register("glowing_ancient_ice", () -> new BlockItem(GLOWING_ANCIENT_ICE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_COLUMN = BLOCKS.register("glowing_ancient_ice_column", () -> new Block(Block.Properties.from(GLOWING_ANCIENT_ICE.get())));
+    public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_COLUMN_ITEM = ITEMS.register("glowing_ancient_ice_column", () -> new BlockItem(GLOWING_ANCIENT_ICE_COLUMN.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_CAP = BLOCKS.register("glowing_ancient_ice_cap", () -> new Block(Block.Properties.from(GLOWING_ANCIENT_ICE.get())));
+    public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_CAP_ITEM = ITEMS.register("glowing_ancient_ice_cap", () -> new BlockItem(GLOWING_ANCIENT_ICE_CAP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
