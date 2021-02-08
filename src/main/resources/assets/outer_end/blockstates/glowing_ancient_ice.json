@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "outer_end:block/ancient_ice_glowing"
+      "model": "outer_end:block/glowing_ancient_ice"
     }
   }
 }
