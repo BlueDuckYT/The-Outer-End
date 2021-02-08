@@ -8,6 +8,7 @@ import blueduck.outerend.config.OuterEndConfig;
 import blueduck.outerend.features.ConfiguredStructureFeatures;
 import blueduck.outerend.items.OuterEndSpawnEgg;
 import blueduck.outerend.registry.*;
+import blueduck.outerend.server.BlockEventListener;
 import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
 import com.minecraftabnormals.abnormals_core.core.registry.BoatRegistry;
@@ -72,6 +73,7 @@ public class OuterEndMod
 
         MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
         MinecraftForge.EVENT_BUS.addListener(EntityEventListener::onBonemeal);
+        MinecraftForge.EVENT_BUS.addListener(BlockEventListener::onFluidChangeBlock);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
