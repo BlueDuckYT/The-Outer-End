@@ -1,0 +1,136 @@
+{
+  "block.outer_end.azure_stem": "蔚藍蕈木蕈柄",
+  "block.outer_end.azure_pith": "蔚藍蕈木菌絲體",
+  "block.outer_end.azure_stripped_stem": "剝皮蔚藍蕈木蕈柄",
+  "block.outer_end.azure_stripped_pith": "剝皮蔚藍蕈木菌絲體",
+  "block.outer_end.azure_planks": "蔚藍蕈木木材",
+  "block.outer_end.azure_leaves": "蔚藍疙瘩塊",
+  "block.outer_end.azure_stamen": "蔚藍蕊",
+  "block.outer_end.azure_bud": "蔚藍蕈苗",
+  "block.outer_end.azure_grass": "蔚藍草",
+  "block.outer_end.ender_roots": "終界蕈根",
+  "block.outer_end.tall_ender_roots": "終界高蕈根",
+  "block.outer_end.azure_sprouts": "蔚藍芽",
+  "block.outer_end.azure_vines": "蔚藍藤",
+  "block.outer_end.azure_fence": "蔚藍蕈木柵欄",
+  "block.outer_end.azure_fence_gate": "蔚藍蕈木柵欄門",
+  "block.outer_end.azure_door": "蔚藍蕈木門",
+  "block.outer_end.azure_trapdoor": "蔚藍蕈木地板門",
+  "block.outer_end.azure_pressure_plate": "蔚藍蕈木壓力板",
+  "block.outer_end.azure_button": "蔚藍蕈木按鈕",
+  "block.outer_end.azure_slab": "蔚藍蕈木半磚",
+  "block.outer_end.azure_stairs": "蔚藍蕈木階梯",
+  "block.outer_end.azure_sign": "蔚藍蕈木告示牌",
+  "block.outer_end.azure_berry_vine": "蔚藍漿果莖",
+  "block.outer_end.azure_berry_vine_top": "蔚藍漿果莖頂",
+  "block.outer_end.potted_azure_bud": "盆中的蔚藍蕈苗",
+  "block.outer_end.potted_ender_roots": "盆中的終界蕈根",
+  "block.outer_end.potted_azure_sprouts": "盆中的蔚藍芽",
+
+  "block.outer_end.azure_vertical_slab": "蔚藍垂直半磚",
+  "block.outer_end.azure_vertical_planks": "蔚藍橫紋木材",
+  "block.outer_end.azure_ladder": "蔚藍蕈木梯子",
+  "block.outer_end.azure_bookshelf": "蔚藍蕈木書櫃",
+  "block.outer_end.azure_beehive": "蔚藍蕈木蜂窩",
+  "block.outer_end.azure_chest": "蔚藍蕈木儲物箱",
+  "block.outer_end.azure_trapped_chest": "蔚藍蕈木陷阱儲物箱",
+
+  "block.outer_end.himmel_block": "藍熙方塊",
+  "block.outer_end.himmel_pillar": "藍熙柱",
+  "block.outer_end.himmel_stairs": "藍熙階梯",
+  "block.outer_end.himmel_slab": "藍熙半磚",
+  "block.outer_end.himmel_vertical_slab": "藍熙垂直半磚",
+
+  "block.outer_end.violite": "紫黯石",
+
+  "block.outer_end.violite_bricks": "紫黯石磚",
+  "block.outer_end.violite_brick_stairs": "紫黯石磚階梯",
+  "block.outer_end.violite_brick_slab": "紫黯石磚半磚",
+  "block.outer_end.violite_brick_vertical_slab": "紫黯石磚垂直半磚",
+  "block.outer_end.violite_brick_wall": "紫黯石磚牆",
+  "block.outer_end.chiseled_violite_bricks": "鏨制紫黯石磚",
+  "block.outer_end.violite_brick_pillar": "紫黯石磚柱",
+
+  "block.outer_end.mossy_violite_bricks": "蕈根紫黯石磚",
+  "block.outer_end.mossy_violite_brick_stairs": "蕈根紫黯石磚階梯",
+  "block.outer_end.mossy_violite_brick_slab": "蕈根紫黯石磚半磚",
+  "block.outer_end.mossy_violite_brick_vertical_slab": "蕈根紫黯石磚垂直半磚",
+  "block.outer_end.mossy_violite_brick_wall": "蕈根紫黯石磚牆",
+
+  "block.outer_end.cracked_violite_bricks": "裂紋紫黯石磚",
+
+  "block.outer_end.violite_tiles": "紫黯瓦磚",
+  "block.outer_end.violite_tile_stairs": "紫黯瓦磚階梯",
+  "block.outer_end.violite_tile_slab": "紫黯瓦磚半磚",
+  "block.outer_end.violite_tile_vertical_slab": "紫黯瓦磚垂直半磚",
+
+  "block.outer_end.mossy_violite_tiles": "蕈根紫黯瓦磚",
+  "block.outer_end.mossy_violite_tile_stairs": "蕈根紫黯瓦磚階梯",
+  "block.outer_end.mossy_violite_tile_slab": "蕈根紫黯瓦磚半磚",
+  "block.outer_end.mossy_violite_tile_vertical_slab": "蕈根紫黯瓦磚垂直半磚",
+
+  "block.outer_end.cracked_violite_tiles": "裂紋紫黯瓦磚",
+
+  "block.outer_end.rose_crystal": "瑰紅水晶",
+  "block.outer_end.mint_crystal": "草綠水晶",
+  "block.outer_end.cobalt_crystal": "鈷藍水晶",
+
+  "block.outer_end.rose_crystal_bud": "瑰紅水晶芽",
+  "block.outer_end.mint_crystal_bud": "草綠水晶芽",
+  "block.outer_end.cobalt_crystal_bud": "鈷藍水晶芽",
+
+
+  "block.outer_end.rose_crystal_lamp": "瑰紅水晶燈",
+  "block.outer_end.mint_crystal_lamp": "草綠水晶燈",
+  "block.outer_end.cobalt_crystal_lamp": "鈷藍水晶燈",
+
+
+  "block.outer_end.rose_roots": "瑰紅蕈根",
+  "block.outer_end.mint_roots": "草綠蕈根",
+  "block.outer_end.cobalt_roots": "鈷藍蕈根",
+
+  "item.outer_end.azure_berries": "蔚藍漿果",
+  "item.outer_end.floral_paste": "藍熙漿糊",
+  "item.outer_end.spectragel": "光譜膏",
+  "item.outer_end.stalker_meat": "生終界纏者肉",
+  "item.outer_end.cooked_stalker_meat": "熟終界纏者肉",
+  "item.outer_end.azure_boat": "蔚藍蕈木船",
+
+  "item.outer_end.rose_crystal_shard": "瑰紅水晶碎片",
+  "item.outer_end.mint_crystal_shard": "草綠水晶碎片",
+  "item.outer_end.cobalt_crystal_shard": "鈷藍水晶碎片",
+
+  "item.outer_end.music_disc_galactic_wave": "Music Disc",
+  "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",
+
+  "item.outer_end.music_disc_unknown_frontier": "Music Disc",
+  "item.outer_end.music_disc_unknown_frontier.desc": "Pyrocide - Unknown Frontier",
+
+
+  "item.outer_end.spectrafly_spawn_egg": "光譜蒼蠅生怪蛋",
+  "item.outer_end.himmelite_spawn_egg": "藍熙怪蟻生怪蛋",
+  "item.outer_end.purpur_golem_spawn_egg": "紫珀魔像生怪蛋",
+  "item.outer_end.stalker_spawn_egg": "終界纏者生怪蛋",
+  "item.outer_end.entombed_spawn_egg": "終界迷者生怪蛋",
+  "item.outer_end.chorus_squid_spawn_egg": "歌萊魷魚生怪蛋",
+
+  "entity.outer_end.spectrafly": "光譜蒼蠅",
+  "entity.outer_end.himmelite": "藍熙怪蟻",
+  "entity.outer_end.purpur_golem": "紫珀魔像",
+  "entity.outer_end.stalker": "終界纏者",
+  "entity.outer_end.entombed": "終界迷者",
+  "entity.outer_end.chorus_squid": "歌萊魷魚",
+
+  "biome.outer_end.azure_forest": "蔚藍森林",
+  "biome.outer_end.crystal_crag": "水晶峭壁",
+
+  "advancements.end.find_end_tower.title": "一個大城市",
+  "advancements.end.find_end_tower.description": "進入終界塔",
+
+  "advancements.end.find_catacombs.title": "甚至更糟的堡壘",
+  "advancements.end.find_catacombs.description": "發現墓穴",
+  
+  "advancements.end.explore_end.title": "超越虛空",
+  "advancements.end.explore_end.description": "探索終界的所有生態域"
+
+}

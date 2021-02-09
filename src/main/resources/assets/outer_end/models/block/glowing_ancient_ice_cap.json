@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "outer_end:block/ancient_ice_cap_glowing",
+    "north": "outer_end:block/ancient_ice_cap_glowing",
+    "south": "outer_end:block/ancient_ice_cap_glowing",
+    "east": "outer_end:block/ancient_ice_cap_glowing",
+    "west": "outer_end:block/ancient_ice_cap_glowing",
+    "up": "outer_end:block/ancient_ice_cap_top",
+    "down": "outer_end:block/ancient_ice_column_top_glowing"
+  }
+}

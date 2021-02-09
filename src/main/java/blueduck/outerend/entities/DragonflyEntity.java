@@ -3,9 +3,9 @@ package blueduck.outerend.entities;
 import blueduck.outerend.client.Color;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.ItemRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -20,12 +20,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Random;
 
 public class DragonflyEntity extends MobEntity {
 	//using a separate navigator field then I should be using as I don't want this getting ticked by vanilla
@@ -231,11 +234,6 @@ public class DragonflyEntity extends MobEntity {
 				);
 			}
 		}
-		if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
-			if (this.pathNavigator.getPath() != null) {
-				Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), pathNavigator.getPath(), 0.5f);
-			}
-		}
 		if (this.getPosY() <= 3)
 			this.setMotion(this.getMotion().x,MathHelper.lerp(0.1f,this.getMotion().y,-0.05f),this.getMotion().z);
 		if (this.getPosY() <= 2.9)
@@ -243,11 +241,12 @@ public class DragonflyEntity extends MobEntity {
 		if (this.getPosY() <= 2.8)
 			this.setMotion(this.getMotion().x,(this.getMotion().y+0.5f),this.getMotion().z);
 		
-//		if (this.getLeashed()) {
-//			Vector3d pos = this.getLeashPosition(0);
-//			if (this.getDistanceSq(pos) >= 16)
-//			this.setMotion(pos.subtract(this.getPositionVec()).normalize().scale(2).add(this.getMotion()));
-//		}
+		if (this.getLeashed()) {
+			Vector3d pos = this.getLeashHolder().getPositionVec();
+			if (this.getDistanceSq(pos) >= 20)
+				this.setMotion(pos.subtract(this.getPositionVec()).scale(0.1f).add(this.getMotion()));
+			if (this.getDistanceSq(pos) >= 256) this.clearLeashed(true,true);
+		}
 		
 		super.tick();
 	}
@@ -310,5 +309,9 @@ public class DragonflyEntity extends MobEntity {
 
 	public boolean makeFlySound() {
 		return true;
+	}
+
+	public static boolean canSpawn(EntityType<DragonflyEntity> type, IWorld world, SpawnReason spawnReason, BlockPos pos, Random random) {
+		return (pos.getY() > 50);
 	}
 }

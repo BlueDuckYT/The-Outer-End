@@ -2,13 +2,13 @@ package blueduck.outerend;
 
 import blueduck.outerend.blocks.CrystalBudBlock;
 import blueduck.outerend.client.ClientSetup;
-import blueduck.outerend.client.DebugRenderer;
 import blueduck.outerend.common.CommonSetup;
 import blueduck.outerend.config.ConfigHelper;
 import blueduck.outerend.config.OuterEndConfig;
 import blueduck.outerend.features.ConfiguredStructureFeatures;
 import blueduck.outerend.items.OuterEndSpawnEgg;
 import blueduck.outerend.registry.*;
+import blueduck.outerend.server.BlockEventListener;
 import blueduck.outerend.server.EntityEventListener;
 import blueduck.outerend.server.ServerStartup;
 import com.minecraftabnormals.abnormals_core.core.registry.BoatRegistry;
@@ -20,12 +20,10 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.loot.LootEntry;
 import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTables;
 import net.minecraft.loot.TableLootEntry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.GenerationStage.Decoration;
@@ -34,7 +32,6 @@ import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.LootTableLoadEvent;
@@ -50,12 +47,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.annotation.Nonnull;
 import java.util.*;
+
+//import blueduck.outerend.client.DebugRenderer;
 
 @Mod("outer_end")
 public class OuterEndMod
@@ -76,6 +73,7 @@ public class OuterEndMod
 
         MinecraftForge.EVENT_BUS.addListener(ServerStartup::onServerStarting);
         MinecraftForge.EVENT_BUS.addListener(EntityEventListener::onBonemeal);
+        MinecraftForge.EVENT_BUS.addListener(BlockEventListener::onFluidChangeBlock);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -94,9 +92,7 @@ public class OuterEndMod
         
         if (FMLEnvironment.dist.isClient()) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onSetup);
-            if (!FMLEnvironment.production) {
-                MinecraftForge.EVENT_BUS.addListener(DebugRenderer::renderDebugEntityPathfinding);
-            }
+            
             DEVS.add(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"));
             DEVS.add(UUID.fromString("c88a2cce-333f-450d-be8b-374c216ad4b5"));
             DEVS.add(UUID.fromString("d2b21209-ffe6-47f0-b86a-b13d40eeebc2"));
@@ -108,6 +104,7 @@ public class OuterEndMod
             DEVS.add(UUID.fromString("3e7e37bd-95de-43c1-9ee4-b3b63dbdf66f"));
             DEVS.add(UUID.fromString("cf8bf0da-f86d-4ac0-b48a-3f6d940f6472"));
             DEVS.add(UUID.fromString("b62ad4bd-b2eb-47cb-b88b-564fc8ffb50f"));
+            DEVS.add(UUID.fromString("3842d959-2871-4eb9-bcb9-aa0e35b36f2a"));
         }
         
         MinecraftForge.EVENT_BUS.register(this);

@@ -58,7 +58,6 @@ public class CrystalSpikeFeature extends Feature<NoFeatureConfig> {
 
 				double length = (random.nextDouble() * 7) + 3;
 				double radius = (random.nextDouble() * 0.3) + 2;
-				double arc = random.nextDouble() * 30;
 				double Xrot = random.nextDouble() * 25;
 				double Zrot = random.nextDouble() * 10;
 				double Yrot = (random.nextDouble() * 360) * (i + 1);
@@ -69,7 +68,7 @@ public class CrystalSpikeFeature extends Feature<NoFeatureConfig> {
 						/* Shape */
 						.applyLayer(new AddLayer(
 								/* Shape */
-								Shapes.bentCone(radius, radius, length, arc)
+								Shapes.ellipticalPyramid(radius, radius, length)
 										/* Rotation */
 										.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
 						/* Scale */

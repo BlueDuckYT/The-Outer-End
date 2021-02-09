@@ -133,6 +133,7 @@ dependencies {
 
     compile fg.deobf("curse.maven:ReAuth-237701:3105779")
     compile fg.deobf("curse.maven:Abnormals-382216:3147409")
+    runtimeOnly fg.deobf('com.github.GiantLuigi4:AssortedUtils:778fb38151')
 
     compile fg.deobf('com.github.LudoCrypt:Shapes-Api-Forge:1.0wam')
     shade 'com.github.LudoCrypt:Shapes-Api-Forge:1.0nam'

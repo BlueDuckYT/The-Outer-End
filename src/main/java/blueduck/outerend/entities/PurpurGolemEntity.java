@@ -1,12 +1,10 @@
 package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.ItemRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
@@ -28,7 +26,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.Random;
 
@@ -115,12 +112,6 @@ public class PurpurGolemEntity extends MonsterEntity {
             incrementSwingProgress(0.15f);
             if (getSwingProgress() >= 2) {
                 setSwingProgress(0);
-            }
-        }
-        
-        if (FMLEnvironment.dist.isClient() && !FMLEnvironment.production) {
-            if (this.navigator.getPath() != null) {
-                Minecraft.getInstance().debugRenderer.pathfinding.addPath(this.getEntityId(), navigator.getPath(), 0.5f);
             }
         }
         

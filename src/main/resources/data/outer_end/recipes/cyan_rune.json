@@ -4,7 +4,7 @@
     {
       "conditions": [
         {
-          "item": "quark:cya_rune",
+          "item": "quark:cyan_rune",
           "type": "forge:item_exists"
         }
       ],
@@ -25,7 +25,7 @@
           }
         },
         "result": {
-          "item": "quark:cobalt_rune"
+          "item": "quark:cyan_rune"
         },
         "group": "quark:crystal_rune"
       }

@@ -42,6 +42,9 @@
   "block.outer_end.himmel_vertical_slab": "Himmel Vertical Slab",
 
   "block.outer_end.violite": "Violite",
+  "block.outer_end.violite_slab": "Violite Slab",
+  "block.outer_end.violite_stairs": "Violite Stairs",
+  "block.outer_end.violite_vertical_slab": "Violite Vertical Slab",
 
   "block.outer_end.violite_bricks": "Violite Bricks",
   "block.outer_end.violite_brick_stairs": "Violite Brick Stairs",
@@ -83,6 +86,17 @@
   "block.outer_end.rose_crystal_lamp": "Rose Crystal Lamp",
   "block.outer_end.mint_crystal_lamp": "Mint Crystal Lamp",
   "block.outer_end.cobalt_crystal_lamp": "Cobalt Crystal Lamp",
+
+
+  "block.outer_end.halite": "Halite",
+  "block.outer_end.stromatolite": "Stromatolite",
+  "block.outer_end.ancient_stone": "Ancient Stone",
+  "block.outer_end.ancient_ice": "Ancient Ice",
+  "block.outer_end.ancient_ice_column": "Ancient Ice Column",
+  "block.outer_end.ancient_ice_cap": "Ancient Ice Cap",
+  "block.outer_end.glowing_ancient_ice": "Glowing Ancient Ice",
+  "block.outer_end.glowing_ancient_ice_column": "Glowing Ancient Ice Column",
+  "block.outer_end.glowing_ancient_ice_cap": "Glowing Ancient Ice Cap",
 
 
   "block.outer_end.rose_roots": "Rose Roots",

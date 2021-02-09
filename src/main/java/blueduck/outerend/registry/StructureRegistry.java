@@ -25,6 +25,8 @@ public class StructureRegistry {
     public static final RegistryObject<Structure<NoFeatureConfig>> END_TOWER = setupStructure("end_tower", () -> (new EndTowerStructure(NoFeatureConfig.field_236558_a_)));
     public static final RegistryObject<Structure<NoFeatureConfig>> CATACOMBS = setupStructure("catacombs", () -> (new CatacombsStructure(NoFeatureConfig.field_236558_a_)));
 
+
+
     private static <T extends Structure<?>> RegistryObject<T> setupStructure(String name, Supplier<T> structure) {
         return STRUCTURES.register(name, structure);
     }

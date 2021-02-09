@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:blue_ice"
+    },
+    {
+      "item": "minecraft:blue_ice"
+    },
+    {
+      "item": "minecraft:blue_ice"
+    },
+    {
+      "item": "outer_end:ancient_stone"
+    }
+  ],
+  "result": {
+    "item": "outer_end:ancient_ice",
+    "count": 3
+  }
+}

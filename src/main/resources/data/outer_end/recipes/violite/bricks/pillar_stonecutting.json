@@ -3,5 +3,6 @@
   "ingredient": {
     "item": "outer_end:violite_bricks"
   },
-  "result": "outer_end:violite_brick_pillar"
+  "result": "outer_end:violite_brick_pillar",
+  "count": 1
 }

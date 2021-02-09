@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "$",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:glowing_ancient_ice"
+    },
+    "#": {
+      "item": "outer_end:ancient_stone"
+    }
+  },
+  "result": {
+    "item": "outer_end:glowing_ancient_ice_cap",
+    "count": 2
+  }
+}

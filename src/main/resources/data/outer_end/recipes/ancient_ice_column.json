@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:ancient_ice"
+    }
+  },
+  "result": {
+    "item": "outer_end:ancient_ice_column",
+    "count": 2
+  }
+}
