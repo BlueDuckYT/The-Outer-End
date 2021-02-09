@@ -11,6 +11,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 public class StalkerModel<T extends Entity> extends AgeableModel<StalkerEntity> {
 	private final ModelRenderer rearFootLeft;
@@ -118,7 +119,23 @@ public class StalkerModel<T extends Entity> extends AgeableModel<StalkerEntity> 
 		this.head.rotateAngleX = (float) Math.toRadians(headPitch + 12);
 		this.head.rotateAngleY = (float) Math.toRadians(netHeadYaw);
 
-		this.bone2.rotateAngleX = (float) (Math.cos(ageInTicks / 32f) * 0.25f + Math.toRadians(15)) - head.rotateAngleX;
+		float wanted;
+		if (entity.func_233678_J__()) {
+			wanted = (float) (Math.cos(ageInTicks / 24f) * Math.toRadians(10) + Math.toRadians(70)) - head.rotateAngleX;
+		}
+		else {
+			wanted = (float) (Math.cos(ageInTicks / 32f) * 0.25f + Math.toRadians(15)) - head.rotateAngleX;
+		}
+
+		float delta = wanted - bone2.rotateAngleX;
+		if (Math.abs(delta) < Math.toRadians(2f)) {
+			bone2.rotateAngleX = wanted;
+		}
+		else {
+			float damp = 0.5f;
+			delta = Math.min(delta * damp, (float) Math.toRadians(0.5f));
+			this.bone2.rotateAngleX += delta;
+		}
 	}
 
 	@Override
