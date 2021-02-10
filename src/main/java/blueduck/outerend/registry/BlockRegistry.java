@@ -284,6 +284,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> HALITE = BLOCKS.register("halite", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2.0F)));
     public static final RegistryObject<Item> HALITE_ITEM = ITEMS.register("halite", () -> new BlockItem(HALITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
+    public static final RegistryObject<Block> BRINE = BLOCKS.register("brine", () -> new Block(Block.Properties.from(HALITE.get()).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(4.0F, 4.0F)));
+    public static final RegistryObject<Item> BRINE_ITEM = ITEMS.register("brine", () -> new BlockItem(BRINE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+
     public static final RegistryObject<Block> ANCIENT_STONE = BLOCKS.register("ancient_stone", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(3).hardnessAndResistance(3.0F, 2.0F)));
     public static final RegistryObject<Item> ANCIENT_STONE_ITEM = ITEMS.register("ancient_stone", () -> new BlockItem(ANCIENT_STONE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
