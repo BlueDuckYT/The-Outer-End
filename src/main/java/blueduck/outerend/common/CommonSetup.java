@@ -1,12 +1,9 @@
 package blueduck.outerend.common;
 
-import blueduck.outerend.client.entity.renderer.ChorusSquidRenderer;
 import blueduck.outerend.entities.*;
 import blueduck.outerend.registry.EntityRegistry;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -24,7 +21,7 @@ public class CommonSetup {
 		GlobalEntityTypeAttributes.put(EntityRegistry.CHORUS_SQUID.get(), ChorusSquidEntity.createModifiers());
 
 		EntitySpawnPlacementRegistry.register(EntityRegistry.PURPUR_GOLEM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, PurpurGolemEntity::canSpawn);
-		EntitySpawnPlacementRegistry.register(EntityRegistry.STALKER.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StalkerEntity::canAnimalSpawn);
+		EntitySpawnPlacementRegistry.register(EntityRegistry.STALKER.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StalkerEntity::canStalkerSpawn);
 		EntitySpawnPlacementRegistry.register(EntityRegistry.DRAGONFLY.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, DragonflyEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(EntityRegistry.CHORUS_SQUID.get(), EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ChorusSquidEntity::shouldSpawn);
 	}
