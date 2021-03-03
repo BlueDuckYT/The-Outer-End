@@ -38,7 +38,7 @@ public class VioliteDeadRainbowFeature extends Feature<NoFeatureConfig> {
 	@Override
 	public boolean generate(ISeedReader reader, ChunkGenerator generator, Random random, BlockPos pos, NoFeatureConfig config) {
 
-		if (random.nextDouble() < 0.1) {
+		if (random.nextDouble() < 0.3) {
 			BlockState VIOLITE = BlockRegistry.VIOLITE.get().getDefaultState();
 			List<BlockState> WHITELIST = Arrays.asList(VIOLITE, Blocks.AIR.getDefaultState(), Blocks.END_STONE.getDefaultState());
 
@@ -85,7 +85,7 @@ public class VioliteDeadRainbowFeature extends Feature<NoFeatureConfig> {
 
 				if (suitable) {
 
-					nextArchPos = -Math.abs(nextArch.getX() - pos.getX());
+					nextArchPos = (-Math.abs(pos.manhattanDistance(nextArch))) + (length / 3);
 
 					/* Shape */
 					shape = shape.applyLayer(new AddLayer(
