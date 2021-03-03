@@ -124,7 +124,7 @@ public class FeatureRegistry {
                             new VioliteBumpFeature(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(10)))
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 1, 10)))
             );
 
     public static final ConfiguredFeature<NoFeatureConfig, VioliteRockBumpFlowerFeature> VIOLITE_ROCK_BUMP_FLOWER_FEATURE =
@@ -135,7 +135,7 @@ public class FeatureRegistry {
                             new VioliteRockBumpFlowerFeature(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(5)))
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1)))
             );
 
     public static final ConfiguredFeature<NoFeatureConfig, VioliteDeadRainbowFeature> VIOLITE_DEAD_RAINBOW_FEATURE =
@@ -146,7 +146,7 @@ public class FeatureRegistry {
                             new VioliteDeadRainbowFeature(NoFeatureConfig.field_236558_a_)
                     ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.2F, 4)))
+                            .withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1)))
             );
     
     public static final ConfiguredFeature<NoFeatureConfig, CragMoonFeature> CRAG_MOON_FEATURE =

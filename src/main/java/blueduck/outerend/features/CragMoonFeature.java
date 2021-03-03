@@ -11,8 +11,9 @@ import com.terraformersmc.terraform.shapes.api.Shape;
 import com.terraformersmc.terraform.shapes.impl.Shapes;
 import com.terraformersmc.terraform.shapes.impl.filler.SimpleFiller;
 import com.terraformersmc.terraform.shapes.impl.layer.pathfinder.AddLayer;
+import com.terraformersmc.terraform.shapes.impl.layer.transform.BendLayer;
+import com.terraformersmc.terraform.shapes.impl.layer.transform.DilateLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.RotateLayer;
-import com.terraformersmc.terraform.shapes.impl.layer.transform.ScaleLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
 
@@ -65,15 +66,15 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 		double radius = 15;
 		double innerRadius = radius - (radius / 5);
 
-		Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
+		Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
+		/* Shape */
+		shape.applyLayer(new AddLayer(
 				/* Shape */
-				.applyLayer(new AddLayer(
-						/* Shape */
-						Shapes.ellipsoid(radius, radius, radius)))
+				Shapes.ellipsoid(radius, radius, radius)))
 				/* Scale */
-				.applyLayer(ScaleLayer.of(scale))
+				.applyLayer(new DilateLayer(Position.of(scale, scale, scale)))
 				/* Scale */
-				.applyLayer(ScaleLayer.of(1, yScale, 1))
+				.applyLayer(new DilateLayer(Position.of(1, yScale, 1)))
 				/* Rotation */
 				.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)))
 				/* Movement */
@@ -84,6 +85,8 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 				});
 
 		int extraBumps = random.nextInt(16) + 36;
+
+		Shape bumpShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
 
 		for (int i = 0; i < extraBumps; i++) {
 
@@ -97,38 +100,40 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 			double height = (radius / 5) + ((random.nextDouble() * innerRadius) / 5);
 			double length = (radius - innerRadius) + radius;
 
-			Shape bumpShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
+			/* Shape */
+			bumpShape.applyLayer(new AddLayer(
 					/* Shape */
-					.applyLayer(new AddLayer(
-							/* Shape */
-							Shapes.ellipsoid(width, height, length)
-									/* Rotation */
-									.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
+					Shapes.ellipsoid(width, height, length)
+							/* Rotation */
+							.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(scale))
+					.applyLayer(new DilateLayer(Position.of(scale, scale, scale)))
 					/* Movement */
 					.applyLayer(new TranslateLayer(Position.of(movementX, movementY, movementZ)))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(1, yScale, 1))
+					.applyLayer(new DilateLayer(Position.of(1, yScale, 1)))
 					/* Rotation */
-					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)))
-					/* Movement */
-					.applyLayer(new TranslateLayer(Position.of(pos)))
-					/* Placement */
-					.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
-						validShape.fill(new SimpleFiller(reader, VIOLITE));
-					});
+					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)));
+
 		}
 
-		Shape innerShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
+		bumpShape
+				/* Movement */
+				.applyLayer(new TranslateLayer(Position.of(pos)))
+				/* Placement */
+				.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
+					validShape.fill(new SimpleFiller(reader, VIOLITE));
+				});
+
+		Shape innerShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
+		/* Shape */
+		innerShape.applyLayer(new AddLayer(
 				/* Shape */
-				.applyLayer(new AddLayer(
-						/* Shape */
-						Shapes.ellipsoid(innerRadius, innerRadius, innerRadius)))
+				Shapes.ellipsoid(innerRadius, innerRadius, innerRadius)))
 				/* Scale */
-				.applyLayer(ScaleLayer.of(scale))
+				.applyLayer(new DilateLayer(Position.of(scale, scale, scale)))
 				/* Scale */
-				.applyLayer(ScaleLayer.of(1, yScale, 1))
+				.applyLayer(new DilateLayer(Position.of(1, yScale, 1)))
 				/* Rotation */
 				.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)))
 				/* Movement */
@@ -139,6 +144,8 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 				});
 
 		int extraInsideBumps = random.nextInt(16) + 32;
+
+		Shape ballShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
 
 		for (int i = 0; i < extraInsideBumps; i++) {
 
@@ -152,31 +159,34 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 			double height = (radius / 5) + ((random.nextDouble() * innerRadius) / 7);
 			double length = (radius / 9) + ((random.nextDouble() * innerRadius) / 12);
 
-			Shape ballShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
+			/* Shape */
+			ballShape.applyLayer(new AddLayer(
 					/* Shape */
-					.applyLayer(new AddLayer(
-							/* Shape */
-							Shapes.ellipsoid(width, height, length)))
+					Shapes.ellipsoid(width, height, length)))
 					/* Movement */
 					.applyLayer(new TranslateLayer(Position.of(ballMovementX, ballMovementY, ballMovementZ)))
 					/* Rotation */
 					.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(scale))
+					.applyLayer(new DilateLayer(Position.of(scale, scale, scale)))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(1, yScale, 1))
+					.applyLayer(new DilateLayer(Position.of(1, yScale, 1)))
 					/* Rotation */
-					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)))
-					/* Movement */
-					.applyLayer(new TranslateLayer(Position.of(pos)))
-					/* Placement */
-					.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
-						validShape.fill(new SimpleFiller(reader, VIOLITE));
-					});
+					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)));
 
 		}
 
+		ballShape
+				/* Movement */
+				.applyLayer(new TranslateLayer(Position.of(pos)))
+				/* Placement */
+				.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
+					validShape.fill(new SimpleFiller(reader, VIOLITE));
+				});
+
 		int holesInside = random.nextInt(6);
+
+		Shape holeShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
 
 		for (int i = 0; i < holesInside; i++) {
 
@@ -189,29 +199,30 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 			double height = (radius / 9) + ((random.nextDouble() * innerRadius) / 19);
 			double length = ((radius - innerRadius) * (radius / 5)) + radius;
 
-			Shape holeShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
+			/* Shape */
+			holeShape.applyLayer(new AddLayer(
 					/* Shape */
-					.applyLayer(new AddLayer(
-							/* Shape */
-							Shapes.ellipsoid(width, height, length)))
+					Shapes.ellipsoid(width, height, length)))
 					/* Movement */
 					.applyLayer(new TranslateLayer(Position.of(ballMovementX, 0, ballMovementZ)))
 					/* Rotation */
 					.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(scale))
+					.applyLayer(new DilateLayer(Position.of(scale, scale, scale)))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(1, yScale, 1))
+					.applyLayer(new DilateLayer(Position.of(1, yScale, 1)))
 					/* Rotation */
-					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)))
-					/* Movement */
-					.applyLayer(new TranslateLayer(Position.of(pos)))
-					/* Placement */
-					.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
-						validShape.fill(new SimpleFiller(reader, Blocks.AIR.getDefaultState()));
-					});
+					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)));
 
 		}
+
+		holeShape
+				/* Movement */
+				.applyLayer(new TranslateLayer(Position.of(pos)))
+				/* Placement */
+				.validate(new SafelistValidator(reader, WHITELIST), (validShape) -> {
+					validShape.fill(new SimpleFiller(reader, Blocks.AIR.getDefaultState()));
+				});
 
 		int outsideCrystals = random.nextInt(16) + 4;
 
@@ -234,21 +245,23 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 			double shardMovementY = radius;
 			double shardMovementZ = (random.nextDouble() * (radius / 3)) - (radius / 6);
 
-			Shape crystalShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
+			Shape crystalShape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
+			/* Shape */
+			crystalShape.applyLayer(new AddLayer(
 					/* Shape */
-					.applyLayer(new AddLayer(
-							/* Shape */
-							Shapes.bentCone(shardRadius, shardRadius, shardLength, shardArc)
-									/* Rotation */
-									.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
+					Shapes.ellipticalPyramid(shardRadius, shardRadius, shardLength)
+							/* Bend */
+							.applyLayer(new BendLayer(shardArc, shardRadius, shardLength))
+							/* Rotation */
+							.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
 					/* Movement */
 					.applyLayer(new TranslateLayer(Position.of(shardMovementX, shardMovementY, shardMovementZ)))
 					/* Rotation */
 					.applyLayer(new RotateLayer(Quaternion.of(totalXrot, totalYrot, totalZrot, true)))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(scale))
+					.applyLayer(new DilateLayer(Position.of(scale, scale, scale)))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(1, yScale, 1))
+					.applyLayer(new DilateLayer(Position.of(1, yScale, 1)))
 					/* Rotation */
 					.applyLayer(new RotateLayer(Quaternion.of(uniformXrot, uniformYrot, uniformZrot, true)))
 					/* Movement */
@@ -259,27 +272,21 @@ public class CragMoonFeature extends Feature<NoFeatureConfig> {
 					});
 		}
 
-		double addedX = -(random.nextDouble() * ((radius * scale) / 2)) + (random.nextDouble() * ((radius * scale) / 2) / 2);
-		double addedY = -(random.nextDouble() * ((radius * scale) / 2)) + (random.nextDouble() * ((radius * scale) / 2) / 2);
-		double addedZ = -(random.nextDouble() * ((radius * scale) / 2)) + (random.nextDouble() * ((radius * scale) / 2) / 2);
-		for (double x = -(radius * 2 * scale); x < radius * 2 * scale; x++) {
-			for (double z = -(radius * 2 * scale); z < radius * 2 * scale; z++) {
-				for (double y = -(radius * 2 * scale); y < radius * 2 * scale; y++) {
-					BlockPos crystalPos = pos.add(x + addedX, y + addedY, z + addedZ);
-					if (random.nextDouble() < 0.2) {
-						Direction preferredDirection = Direction.getRandomDirection(random);
-						if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
-							reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_buds")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
-						}
-					} else if (random.nextDouble() < 0.4) {
-						Direction preferredDirection = Direction.getRandomDirection(random);
-						if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
-							reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_crag_foliage")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
-						}
-					}
+		double added = radius * scale * (random.nextDouble() * 2);
+
+		BlockPos.getAllInBox(pos.add(added, added, added), pos.add(-added, -added, -added)).iterator().forEachRemaining((crystalPos) -> {
+			if (random.nextDouble() < 0.2) {
+				Direction preferredDirection = Direction.getRandomDirection(random);
+				if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
+					reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_buds")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
+				}
+			} else if (random.nextDouble() < 0.4) {
+				Direction preferredDirection = Direction.getRandomDirection(random);
+				if (reader.getBlockState(crystalPos.offset(preferredDirection)).equals(BlockRegistry.VIOLITE.get().getDefaultState()) && reader.isAirBlock(crystalPos)) {
+					reader.setBlockState(crystalPos, BlockTags.getCollection().getTagByID(new ResourceLocation("outer_end:crystal_crag_foliage")).getRandomElement(random).getDefaultState().with(CrystalBudBlock.FACING, preferredDirection.getOpposite()), 4);
 				}
 			}
-		}
+		});
 
 		return true;
 	}

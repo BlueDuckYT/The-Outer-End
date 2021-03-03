@@ -11,8 +11,9 @@ import com.terraformersmc.terraform.shapes.api.Shape;
 import com.terraformersmc.terraform.shapes.impl.Shapes;
 import com.terraformersmc.terraform.shapes.impl.filler.SimpleFiller;
 import com.terraformersmc.terraform.shapes.impl.layer.pathfinder.AddLayer;
+import com.terraformersmc.terraform.shapes.impl.layer.transform.BendLayer;
+import com.terraformersmc.terraform.shapes.impl.layer.transform.DilateLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.RotateLayer;
-import com.terraformersmc.terraform.shapes.impl.layer.transform.ScaleLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
 
@@ -54,21 +55,24 @@ public class LargeCrystalSpikeFeature extends Feature<NoFeatureConfig> {
 
 			double length = (random.nextDouble() * 15) + 10;
 			double radius = (random.nextDouble() * 2.3) + 3;
+			double arc = random.nextDouble() * 50;
 			double Xrot = random.nextDouble() * 30;
 			double Zrot = random.nextDouble() * 15;
 			double Yrot = random.nextDouble() * 360;
 			double movementDown = length / 4;
 			double scale = random.nextDouble() + 0.3;
 
-			Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0))
+			Shape shape = Shape.of((point) -> false, Position.of(0, 0, 0), Position.of(0, 0, 0));
+			/* Shape */
+			shape.applyLayer(new AddLayer(
 					/* Shape */
-					.applyLayer(new AddLayer(
-							/* Shape */
-							Shapes.ellipticalPyramid(radius, radius, length)
-									/* Rotation */
-									.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
+					Shapes.ellipticalPyramid(radius, radius, length)
+							/* Bend */
+							.applyLayer(new BendLayer(arc, radius, length))
+							/* Rotation */
+							.applyLayer(new RotateLayer(Quaternion.of(Xrot, Yrot, Zrot, true)))))
 					/* Scale */
-					.applyLayer(ScaleLayer.of(scale))
+					.applyLayer(new DilateLayer(Position.of(scale, scale, scale)))
 					/* Movement */
 					.applyLayer(new TranslateLayer(Position.of(pos)))
 					/* Movement */

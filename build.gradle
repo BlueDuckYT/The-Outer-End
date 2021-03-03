@@ -135,8 +135,8 @@ dependencies {
     compile fg.deobf("curse.maven:Abnormals-382216:3147409")
     runtimeOnly fg.deobf('com.github.GiantLuigi4:AssortedUtils:778fb38151')
 
-    compile fg.deobf('com.github.LudoCrypt:Shapes-Api-Forge:1.0wam')
-    shade 'com.github.LudoCrypt:Shapes-Api-Forge:1.0nam'
+    compile fg.deobf('com.github.LudoCrypt:Shapes-Api-Forge:1.1.4')
+    shade 'com.github.LudoCrypt:Shapes-Api-Forge:1.1.4Shadow'
 
 //    compile fg.deobf("curse.maven:Assorted_Utils-431410:3149945")
 

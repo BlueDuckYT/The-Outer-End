@@ -28,9 +28,9 @@ public class CrystalCrag extends OuterEndBiome {
 	}
 
 	static {
-		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, FeatureRegistry.VIOLITE_DEAD_RAINBOW_FEATURE);
-		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, FeatureRegistry.VIOLITE_BUMP_FEATURE);
-		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, FeatureRegistry.VIOLITE_ROCK_BUMP_FLOWER_FEATURE);
+		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureRegistry.VIOLITE_DEAD_RAINBOW_FEATURE);
+		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureRegistry.VIOLITE_BUMP_FEATURE);
+		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureRegistry.VIOLITE_ROCK_BUMP_FLOWER_FEATURE);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.CRAG_ROOTS_DECORATOR);
 		GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureRegistry.CRYSTAL_BUDS_DECORATOR);
 
