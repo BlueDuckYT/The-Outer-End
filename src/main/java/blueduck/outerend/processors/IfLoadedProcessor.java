@@ -14,21 +14,21 @@ import net.minecraft.world.gen.feature.template.Template.BlockInfo;
 import net.minecraft.world.gen.feature.template.Template.EntityInfo;
 import net.minecraftforge.fml.ModList;
 
-public class AzureWoodProcessor extends StructureProcessor
+public class IfLoadedProcessor extends StructureProcessor
 {
     // codec for loading the json
-    public static final Codec<AzureWoodProcessor> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.STRING.fieldOf("modid").forGetter(AzureWoodProcessor::getModID),
-            IStructureProcessorType.PROCESSOR_TYPE.optionalFieldOf("processor",  NopProcessor.INSTANCE).forGetter(AzureWoodProcessor::getSubProcessor)
-    ).apply(instance, AzureWoodProcessor::new));
+    public static final Codec<IfLoadedProcessor> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            Codec.STRING.fieldOf("modid").forGetter(IfLoadedProcessor::getModID),
+            IStructureProcessorType.PROCESSOR_TYPE.optionalFieldOf("processor",  NopProcessor.INSTANCE).forGetter(IfLoadedProcessor::getSubProcessor)
+    ).apply(instance, IfLoadedProcessor::new));
 
     // the IStructureProcessorType is just a codec supplier, this is used to register this processor type
-    public static final IStructureProcessorType<AzureWoodProcessor> TYPE = () -> CODEC;
+    public static final IStructureProcessorType<IfLoadedProcessor> TYPE = () -> CODEC;
 
     private final String modID; public String getModID() { return this.modID; }
     private final StructureProcessor subProcessor; public StructureProcessor getSubProcessor() { return this.subProcessor; }
 
-    public AzureWoodProcessor(String modID, StructureProcessor subProcessor)
+    public IfLoadedProcessor(String modID, StructureProcessor subProcessor)
     {
         this.modID = modID;
         this.subProcessor = ModList.get().isLoaded(modID)
