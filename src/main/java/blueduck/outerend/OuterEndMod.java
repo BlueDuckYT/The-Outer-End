@@ -159,7 +159,7 @@ public class OuterEndMod
         }
 
         if (event.getName().equals(new ResourceLocation("outer_end:crystal_crag"))) {
-            event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 8, 1, 1));
+            event.getSpawns().withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityRegistry.STALKER.get(), 1, 1, 4));
 
         }
         

@@ -70,6 +70,10 @@ public class EntombedModel extends EntityModel<EntombedEntity> {
 			RightArm.rotateAngleX = -LeftArm.rotateAngleX;
 			Torso.rotateAngleX = 0;
 		}
+		if (entity.getPersistentData().getBoolean("noArms")) {
+			RightArm.showModel = false;
+			LeftArm.showModel = false;
+		}
 	}
 
 	@Override

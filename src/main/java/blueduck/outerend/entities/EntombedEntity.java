@@ -1,10 +1,7 @@
 package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.ItemRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityPredicate;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -13,15 +10,22 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+
+import javax.annotation.Nullable;
 
 public class EntombedEntity extends MonsterEntity {
+    public static final DataParameter<Boolean> AMOGUS = EntityDataManager.createKey(EntombedEntity.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Float> ARM_SWING = EntityDataManager.createKey(EntombedEntity.class, DataSerializers.FLOAT);
 
     public EntombedEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
@@ -37,7 +41,25 @@ public class EntombedEntity extends MonsterEntity {
     
     protected void registerData() {
         super.registerData();
+        this.dataManager.register(AMOGUS, false);
         this.dataManager.register(ARM_SWING, 0f);
+    }
+
+    public void writeAdditional(CompoundNBT compound) {
+        super.writeAdditional(compound);
+        compound.putBoolean("noArms", this.getDataManager().get(AMOGUS));
+
+    }
+
+    public void readAdditional(CompoundNBT compound) {
+        super.readAdditional(compound);
+        this.getDataManager().set(AMOGUS, compound.getBoolean("noArms"));
+    }
+
+    @Nullable
+    public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+        this.dataManager.set(AMOGUS, rand.nextInt(500) == 0);
+        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
     
