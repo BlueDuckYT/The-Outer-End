@@ -116,6 +116,7 @@ public class OuterEndMod
             StructureRegistry.setupStructures();
             ConfiguredStructureFeatures.registerConfiguredStructures();
             BlockRegistry.registerFlammables();
+            ProcessorRegistry.registerProcessors();
         });
 
         BoatRegistry.registerBoat("outer_end:azure", ItemRegistry.AZURE_BOAT, BlockRegistry.AZURE_PLANKS);
