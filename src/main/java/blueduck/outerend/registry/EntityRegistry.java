@@ -35,7 +35,7 @@ public class EntityRegistry {
 
 	public static final RegistryObject<EntityType<EntombedEntity>> ENTOMBED = ENTITIES.register("entombed", () -> EntityType.Builder
 			.create(EntombedEntity::new, EntityClassification.MONSTER)
-			.setTrackingRange(64).setUpdateInterval(2).size(1.6f, 2.4f)
+			.setTrackingRange(64).setUpdateInterval(2).size(1.6f, 2.4f).func_225435_d()
 			.build(OuterEndMod.MODID + ":entombed"));
 
 	public static final RegistryObject<EntityType<ChorusSquidEntity>> CHORUS_SQUID = ENTITIES.register("chorus_squid", () -> EntityType.Builder
