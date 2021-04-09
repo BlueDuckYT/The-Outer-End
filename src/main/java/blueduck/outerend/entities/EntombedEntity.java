@@ -25,7 +25,7 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.Nullable;
 
 public class EntombedEntity extends MonsterEntity {
-    public static final DataParameter<Boolean> AMOGUS = EntityDataManager.createKey(EntombedEntity.class, DataSerializers.BOOLEAN);
+    public static final DataParameter<String> SKIN = EntityDataManager.createKey(EntombedEntity.class, DataSerializers.STRING);
     private static final DataParameter<Float> ARM_SWING = EntityDataManager.createKey(EntombedEntity.class, DataSerializers.FLOAT);
 
     public EntombedEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
@@ -41,24 +41,39 @@ public class EntombedEntity extends MonsterEntity {
     
     protected void registerData() {
         super.registerData();
-        this.dataManager.register(AMOGUS, false);
+        this.dataManager.register(SKIN, "");
         this.dataManager.register(ARM_SWING, 0f);
     }
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putBoolean("noArms", this.getDataManager().get(AMOGUS));
+        compound.putString("skin", this.getDataManager().get(SKIN));
 
     }
 
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
-        this.getDataManager().set(AMOGUS, compound.getBoolean("noArms"));
+        if (!this.getDataManager().get(SKIN).equals("")) {
+            this.getDataManager().set(SKIN, compound.getString("skin"));
+        }
+        else {
+            if (rand.nextInt(5) == 1) {
+                this.dataManager.set(SKIN, "amogus");
+            }
+            else {
+                this.dataManager.set(SKIN, "default");
+            }
+        }
     }
 
     @Nullable
     public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        this.dataManager.set(AMOGUS, rand.nextInt(500) == 0);
+        if (rand.nextInt(5) == 1) {
+            this.dataManager.set(SKIN, "amogus");
+        }
+        else {
+            this.dataManager.set(SKIN, "default");
+        }
         return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
