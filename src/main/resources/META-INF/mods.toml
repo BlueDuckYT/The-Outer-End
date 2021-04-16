@@ -4,9 +4,9 @@ license="All rights reserved"
 issueTrackerURL="https://github.com/BlueDuckYT/The-Outer-End/issues"
 [[mods]]
 modId="outer_end"
-version="0.2.4"
-displayName="Outer End"
-credits="Developed by Blue Duck, LudoCrypt, and GiantLuigi4"
+version="0.2.9"
+displayName="The Outer End"
+credits="Developed by Blue Duck, LudoCrypt, MooseOnTheRocks, and GiantLuigi4"
 authors="A lot of people"
 description='''
 The Outer End is an end mod

@@ -29,7 +29,7 @@ public class EntityRegistry {
 			.build(OuterEndMod.MODID + ":himmelite"));
 
 	public static final RegistryObject<EntityType<StalkerEntity>> STALKER = ENTITIES.register("stalker", () -> EntityType.Builder
-			.create(StalkerEntity::new, EntityClassification.CREATURE)
+			.create(StalkerEntity::new, EntityClassification.MONSTER)
 			.setTrackingRange(64).setUpdateInterval(2).size(1.4f, 2.2f)
 			.build(OuterEndMod.MODID + ":stalker"));
 
