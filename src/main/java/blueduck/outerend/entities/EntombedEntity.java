@@ -47,23 +47,31 @@ public class EntombedEntity extends MonsterEntity {
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putString("skin", this.getDataManager().get(SKIN));
+        if (this.getDataManager().get(SKIN).equals("")) {
+            if (rand.nextInt(5) == 1) {
+                compound.putString("skin", "amogus");
+            }
+            else {
+                compound.putString("skin", "default");
+            }
+        }
+        else {
+            compound.putString("skin", this.getDataManager().get(SKIN));
+        }
 
     }
 
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
-        if (!this.getDataManager().get(SKIN).equals("")) {
-            this.getDataManager().set(SKIN, compound.getString("skin"));
-        }
-        else {
+        if (this.getDataManager().get(SKIN).equals("")) {
             if (rand.nextInt(5) == 1) {
-                this.dataManager.set(SKIN, "amogus");
+                compound.putString("skin", "amogus");
             }
             else {
-                this.dataManager.set(SKIN, "default");
+                compound.putString("skin", "default");
             }
         }
+        this.dataManager.set(SKIN, compound.getString("skin"));
     }
 
     @Nullable
