@@ -1,6 +1,7 @@
 package blueduck.outerend.entities;
 
 import blueduck.outerend.registry.EntityRegistry;
+import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -21,6 +22,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.TickRangeConverter;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
@@ -94,6 +96,11 @@ public class StalkerEntity extends AnimalEntity implements IAngerable {
         this.targetSelector.addGoal(1, new StalkerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::func_233680_b_));
         this.targetSelector.addGoal(3, new ResetAngerGoal(this, true));
+    }
+
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(ItemRegistry.STALKER_SPAWN_EGG.get());
     }
 
     @Override

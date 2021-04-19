@@ -1,5 +1,6 @@
 package blueduck.outerend.entities;
 
+import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -11,6 +12,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;
@@ -62,6 +64,11 @@ public class ChorusSquidEntity extends CreatureEntity {
     public ILivingEntityData onInitialSpawn(IServerWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData entityData, @Nullable CompoundNBT tag) {
         this.setPosition(this.getPosX(), this.getPosY() + 2d, this.getPosZ());
         return super.onInitialSpawn(world, difficulty, reason, entityData, tag);
+    }
+
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(ItemRegistry.CHORUS_SQUID_SPAWN_EGG.get());
     }
 
     public ChorusSquidEntity(EntityType<? extends ChorusSquidEntity> type, World worldIn) {

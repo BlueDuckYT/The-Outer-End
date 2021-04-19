@@ -47,7 +47,7 @@ public class EntombedEntity extends MonsterEntity {
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        if (this.getDataManager().get(SKIN).equals("")) {
+        if (compound.getString("skin").equals("")) {
             if (rand.nextInt(5) == 1) {
                 compound.putString("skin", "amogus");
             }
