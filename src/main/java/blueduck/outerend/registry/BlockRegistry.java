@@ -170,14 +170,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> VIOLITE_STAIRS = BLOCKS.register("violite_stairs", () -> new StairsBlock(VIOLITE.get().getDefaultState(), Block.Properties.from(VIOLITE.get())));
     public static final RegistryObject<Item> VIOLITE_STAIRS_ITEM = ITEMS.register("violite_stairs", () -> new BlockItem(VIOLITE_STAIRS.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> ROSE_TANGLED_VIOLITE = BLOCKS.register("rose_tangled_violite", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND)));
-    public static final RegistryObject<Item> ROSE_TANGLED_VIOLITE_ITEM = ITEMS.register("rose_tangled_violite", () -> new BlockItem(ROSE_TANGLED_VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
-
-    public static final RegistryObject<Block> MINT_TANGLED_VIOLITE = BLOCKS.register("mint_tangled_violite", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND)));
-    public static final RegistryObject<Item> MINT_TANGLED_VIOLITE_ITEM = ITEMS.register("mint_tangled_violite", () -> new BlockItem(MINT_TANGLED_VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
-
-    public static final RegistryObject<Block> COBALT_TANGLED_VIOLITE = BLOCKS.register("cobalt_tangled_violite", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND)));
-    public static final RegistryObject<Item> COBALT_TANGLED_VIOLITE_ITEM = ITEMS.register("cobalt_tangled_violite", () -> new BlockItem(COBALT_TANGLED_VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
 
 
     public static final RegistryObject<Block> VIOLITE_BRICKS = BLOCKS.register("violite_bricks", () -> new Block(Block.Properties.from(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
@@ -277,6 +269,16 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> COBALT_CRYSTAL_LAMP = BLOCKS.register("cobalt_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(COBALT_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
     public static final RegistryObject<Item> COBALT_CRYSTAL_LAMP_ITEM = ITEMS.register("cobalt_crystal_lamp", () -> new BlockItem(COBALT_CRYSTAL_LAMP.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> ROSE_TANGLED_VIOLITE = BLOCKS.register("rose_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> ROSE_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Item> ROSE_TANGLED_VIOLITE_ITEM = ITEMS.register("rose_tangled_violite", () -> new BlockItem(ROSE_TANGLED_VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> MINT_TANGLED_VIOLITE = BLOCKS.register("mint_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> MINT_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Item> MINT_TANGLED_VIOLITE_ITEM = ITEMS.register("mint_tangled_violite", () -> new BlockItem(MINT_TANGLED_VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
+    public static final RegistryObject<Block> COBALT_TANGLED_VIOLITE = BLOCKS.register("cobalt_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> COBALT_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Item> COBALT_TANGLED_VIOLITE_ITEM = ITEMS.register("cobalt_tangled_violite", () -> new BlockItem(COBALT_TANGLED_VIOLITE.get(), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)));
+
 
     public static final RegistryObject<Block> ROSE_ROOTS = BLOCKS.register("rose_roots", () -> new CragTallGrass(Block.Properties.from(Blocks.GRASS)));
     public static final RegistryObject<Item> ROSE_ROOTS_ITEM = ITEMS.register("rose_roots", () -> new BlockItem(ROSE_ROOTS.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));

@@ -159,8 +159,19 @@ public class FeatureRegistry {
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
                             .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.03F, 1)))
             );
-    
+
     public static final ConfiguredFeature<NoFeatureConfig, CragMoonFeature> CRAG_MOON_OUTSIDE_FEATURE =
+            (ConfiguredFeature<NoFeatureConfig, CragMoonFeature>) newConfiguredFeature(
+                    "crag_moon_outside_feature",
+                    newFeature(
+                            "crag_moon_outside_feature",
+                            new CragMoonFeature(NoFeatureConfig.field_236558_a_)
+                    ).withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG)
+                            .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
+                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.01F, 1)))
+            );
+
+    public static final ConfiguredFeature<NoFeatureConfig, CragMoonFeature> TANGLED_VIOLITE_FEATURE =
             (ConfiguredFeature<NoFeatureConfig, CragMoonFeature>) newConfiguredFeature(
                     "crag_moon_outside_feature",
                     newFeature(
