@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "///",
+    "/#/",
+    "///"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:violite"
+    },
+    "/": {
+      "item": "outer_end:mint_crystal"
+    }
+  },
+  "result": {
+    "item": "outer_end:mint_tangled_violite"
+  }
+}

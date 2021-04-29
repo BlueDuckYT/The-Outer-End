@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "outer_end:block/rose_tangled_violite"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "outer_end:block/mint_tangled_violite"
+  }
+}
