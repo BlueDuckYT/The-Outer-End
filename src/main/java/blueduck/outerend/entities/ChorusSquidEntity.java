@@ -264,18 +264,21 @@ public class ChorusSquidEntity extends CreatureEntity {
         public void tick() {
             ChorusSquidEntity squid = (ChorusSquidEntity) attacker;
             super.tick();
-            if (squid.getAttackTarget().getDistanceSq(squid) <= getAttackReachSqr(squid)) {
-                squid.setSquidMode(ChorusSquidMode.LUNGE);
+            try {
+                if (squid.getAttackTarget().getDistanceSq(squid) <= getAttackReachSqr(squid)) {
+                    squid.setSquidMode(ChorusSquidMode.LUNGE);
 //                System.out.println(isBiting + ", " + tentacleAngle + " / " + squid.getWantedTentacleAngle());
-                if (squid.tentacleAngle <= 15f) {
-                    squid.setWantedTentacleAngle(80f);
-                }
-                else if (squid.tentacleAngle >= 75f) {
-                    squid.setWantedTentacleAngle(10f);
+                    if (squid.tentacleAngle <= 15f) {
+                        squid.setWantedTentacleAngle(80f);
+                    } else if (squid.tentacleAngle >= 75f) {
+                        squid.setWantedTentacleAngle(10f);
+                    }
+                } else {
+                    squid.setSquidMode(ChorusSquidMode.MOVE);
                 }
             }
-            else {
-                squid.setSquidMode(ChorusSquidMode.MOVE);
+            catch(Exception e) {
+
             }
         }
 

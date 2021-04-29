@@ -48,7 +48,7 @@ public class EntombedEntity extends MonsterEntity {
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
         if (compound.getString("skin").equals("")) {
-            if (rand.nextInt(5) == 1) {
+            if (rand.nextInt(500) == 1) {
                 compound.putString("skin", "amogus");
             }
             else {
@@ -64,7 +64,7 @@ public class EntombedEntity extends MonsterEntity {
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
         if (this.getDataManager().get(SKIN).equals("")) {
-            if (rand.nextInt(5) == 1) {
+            if (rand.nextInt(500) == 1) {
                 compound.putString("skin", "amogus");
             }
             else {
@@ -76,7 +76,7 @@ public class EntombedEntity extends MonsterEntity {
 
     @Nullable
     public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        if (rand.nextInt(5) == 1) {
+        if (rand.nextInt(500) == 1) {
             this.dataManager.set(SKIN, "amogus");
         }
         else {
