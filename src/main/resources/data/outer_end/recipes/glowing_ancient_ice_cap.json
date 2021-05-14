@@ -1,15 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "$",
-    "#",
-    "#"
+    "S",
+    "I"
   ],
   "key": {
-    "#": {
+    "I": {
       "item": "outer_end:glowing_ancient_ice"
     },
-    "$": {
+    "S": {
       "item": "outer_end:ancient_stone"
     }
   },
