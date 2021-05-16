@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "outer_end:azure_grass",
     "outer_end:violite",
     "outer_end:violite_slab",
     "outer_end:violite_stairs",
