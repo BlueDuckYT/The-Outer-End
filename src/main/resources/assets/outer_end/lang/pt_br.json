@@ -1,0 +1,151 @@
+{
+  "block.outer_end.azure_stem": "Caule de azulina",
+  "block.outer_end.azure_pith": "Medula de azulina",
+  "block.outer_end.azure_stripped_stem": "Caule de azulina descascado",
+  "block.outer_end.azure_stripped_pith": "Medula de azulina descascada",
+  "block.outer_end.azure_planks": "Tábuas de azulina",
+  "block.outer_end.azure_leaves": "Pétalas de azulina",
+  "block.outer_end.azure_stamen": "Estame de azulina",
+  "block.outer_end.azure_bud": "Gomo de azulina",
+  "block.outer_end.azure_grass": "Bloco de grama azulina",
+  "block.outer_end.ender_roots": "Raízes de Ender",
+  "block.outer_end.tall_ender_roots": "Raízes de Ender altas",
+  "block.outer_end.azure_sprouts": "Brotos azulinos",
+  "block.outer_end.azure_vines": "Trepadeiras azulinas",
+  "block.outer_end.azure_fence": "Cerca de azulina",
+  "block.outer_end.azure_fence_gate": "Portão de azulina",
+  "block.outer_end.azure_door": "Porta de azulina",
+  "block.outer_end.azure_trapdoor": "Alçapão de azulina",
+  "block.outer_end.azure_pressure_plate": "Placa de pressão de azulina",
+  "block.outer_end.azure_button": "Botão de azulina",
+  "block.outer_end.azure_slab": "Laje de azulina",
+  "block.outer_end.azure_stairs": "Escadas de azulina",
+  "block.outer_end.azure_sign": "Placa de azulina",
+  "block.outer_end.azure_berry_vine": "Planta de talo de bagas-azulinas",
+  "block.outer_end.azure_berry_vine_top": "Talo de bagas-azulinas",
+  "block.outer_end.potted_azure_bud": "Gomo de azulina envasado",
+  "block.outer_end.potted_ender_roots": "Raízes de Ender envasadas",
+  "block.outer_end.potted_azure_sprouts": "Brotos azulinos envasados",
+
+  "block.outer_end.azure_vertical_slab": "Laje vertical de azulina",
+  "block.outer_end.azure_vertical_planks": "Tábuas verticais de azulina",
+  "block.outer_end.azure_ladder": "Escada de mão de azulina",
+  "block.outer_end.azure_bookshelf": "Estante de livros de azulina",
+  "block.outer_end.azure_beehive": "Colmeia artificial de azulina",
+  "block.outer_end.azure_chest": "Baú de azulina",
+  "block.outer_end.azure_trapped_chest": "Baú de azulina com armadilha",
+
+  "block.outer_end.himmel_block": "Bloco de himmel",
+  "block.outer_end.himmel_pillar": "Pilar de himmel",
+  "block.outer_end.himmel_stairs": "Escadas de himmel",
+  "block.outer_end.himmel_slab": "Laje de himmel",
+  "block.outer_end.himmel_vertical_slab": "Laje vertical de himmel",
+
+  "block.outer_end.violite": "Violito",
+  "block.outer_end.violite_slab": "Laje de violito",
+  "block.outer_end.violite_stairs": "Escadas de violito",
+  "block.outer_end.violite_vertical_slab": "Laje vertical de violito",
+
+  "block.outer_end.violite_bricks": "Tijolos de violito",
+  "block.outer_end.violite_brick_stairs": "Escadas de tijolos de violito",
+  "block.outer_end.violite_brick_slab": "Laje de tijolos de violito",
+  "block.outer_end.violite_brick_vertical_slab": "Laje vertical de tijolos de violito",
+  "block.outer_end.violite_brick_wall": "Muro de tijolos de violito",
+  "block.outer_end.chiseled_violite_bricks": "Tijolos de violito talhados",
+  "block.outer_end.violite_brick_pillar": "Pilar de tijolos de violito",
+
+  "block.outer_end.mossy_violite_bricks": "Tijolos de violito musgosos",
+  "block.outer_end.mossy_violite_brick_stairs": "Escadas de tijolos de violito musgosos",
+  "block.outer_end.mossy_violite_brick_slab": "Laje de tijolos de violito musgosos",
+  "block.outer_end.mossy_violite_brick_vertical_slab": "Laje vertical de tijolos de violito musgosos",
+  "block.outer_end.mossy_violite_brick_wall": "Muro de tijolos de violito musgosos",
+
+  "block.outer_end.cracked_violite_bricks": "Tijolos de violito rachados",
+
+  "block.outer_end.violite_tiles": "Ladrilhos de violito",
+  "block.outer_end.violite_tile_stairs": "Escadas de ladrilhos de violito",
+  "block.outer_end.violite_tile_slab": "Laje de ladrilhos de violito",
+  "block.outer_end.violite_tile_vertical_slab": "Laje vertical de ladrilhos de violito",
+
+  "block.outer_end.mossy_violite_tiles": "Ladrilhos de violito musgosos",
+  "block.outer_end.mossy_violite_tile_stairs": "Escadas de ladrilhos de violito musgosos",
+  "block.outer_end.mossy_violite_tile_slab": "Laje de ladrilhos de violito musgosos",
+  "block.outer_end.mossy_violite_tile_vertical_slab": "Laje vertical de ladrilhos de violito musgosos",
+
+  "block.outer_end.cracked_violite_tiles": "Ladrilhos de violito rachados",
+
+  "block.outer_end.rose_crystal": "Cristal-rosa",
+  "block.outer_end.mint_crystal": "Cristal-hortelã",
+  "block.outer_end.cobalt_crystal": "Cristal-cobalto",
+
+  "block.outer_end.rose_crystal_bud": "Feixe de cristal-rosa",
+  "block.outer_end.mint_crystal_bud": "Feixe de cristal-hortelã",
+  "block.outer_end.cobalt_crystal_bud": "Feixe de cristal-cobalto",
+
+
+  "block.outer_end.rose_crystal_lamp": "Lâmpada de cristal-rosa",
+  "block.outer_end.mint_crystal_lamp": "Lâmpada de cristal-hortelã",
+  "block.outer_end.cobalt_crystal_lamp": "Lâmpada de cristal-cobalto",
+
+
+  "block.outer_end.halite": "Halita",
+  "block.outer_end.stromatolite": "Estromatólito",
+  "block.outer_end.brine": "Salmoura congelada",
+  "block.outer_end.ancient_stone": "Pedra primitiva",
+  "block.outer_end.ancient_ice": "Gelo primitivo",
+  "block.outer_end.ancient_ice_column": "Coluna de gelo primitivo",
+  "block.outer_end.ancient_ice_cap": "Camada de gelo primitivo",
+  "block.outer_end.glowing_ancient_ice": "Gelo primitivo brilhante",
+  "block.outer_end.glowing_ancient_ice_column": "Coluna de gelo primitivo brilhante",
+  "block.outer_end.glowing_ancient_ice_cap": "Camada de gelo primitivo brilhante",
+
+
+  "block.outer_end.rose_roots": "Raízes de cristal-rosa",
+  "block.outer_end.mint_roots": "Raízes de cristal-hortelã",
+  "block.outer_end.cobalt_roots": "Raízes de cristal-cobalto",
+
+  "item.outer_end.azure_berries": "Bagas-azulinas",
+  "item.outer_end.floral_paste": "Pasta floral",
+  "item.outer_end.spectragel": "Espectragel",
+  "item.outer_end.stalker_meat": "Carne de stalker crua",
+  "item.outer_end.cooked_stalker_meat": "Carne de stalker assada",
+  "item.outer_end.azure_boat": "Bote de azulina",
+
+  "item.outer_end.rose_crystal_shard": "Fragmento de cristal-rosa",
+  "item.outer_end.mint_crystal_shard": "Fragmento de cristal-hortelã",
+  "item.outer_end.cobalt_crystal_shard": "Fragmento de cristal-cobalto",
+
+  "item.outer_end.music_disc_galactic_wave": "Disco de música",
+  "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",
+
+  "item.outer_end.music_disc_unknown_frontier": "Disco de música",
+  "item.outer_end.music_disc_unknown_frontier.desc": "Pyrocide - Unknown Frontier",
+
+
+  "item.outer_end.spectrafly_spawn_egg": "Ovo gerador de espectrópode",
+  "item.outer_end.himmelite_spawn_egg": "Ovo gerador de himmelito",
+  "item.outer_end.purpur_golem_spawn_egg": "Ovo gerador de golem de púrpura",
+  "item.outer_end.stalker_spawn_egg": "Ovo gerador de stalker",
+  "item.outer_end.entombed_spawn_egg": "Ovo gerador de encovado",
+  "item.outer_end.chorus_squid_spawn_egg": "Ovo gerador de lula do coro",
+
+  "entity.outer_end.spectrafly": "Espectrópode",
+  "entity.outer_end.himmelite": "Himmelito",
+  "entity.outer_end.purpur_golem": "Golem de púrpura",
+  "entity.outer_end.stalker": "Stalker",
+  "entity.outer_end.entombed": "Encovado",
+  "entity.outer_end.chorus_squid": "Lula do coro",
+
+  "biome.outer_end.azure_forest": "Floresta azulina",
+  "biome.outer_end.crystal_crag": "Rochedos de cristais",
+
+  "advancements.end.find_end_tower.title": "Metrópole corporativa",
+  "advancements.end.find_end_tower.description": "Encontre a torre do End",
+
+  "advancements.end.find_catacombs.title": "Uma fortaleza pior ainda",
+  "advancements.end.find_catacombs.description": "Encontre as catacumbas",
+  
+  "advancements.end.explore_end.title": "Além do vazio",
+  "advancements.end.explore_end.description": "Explore todos os biomas do End"
+
+}
