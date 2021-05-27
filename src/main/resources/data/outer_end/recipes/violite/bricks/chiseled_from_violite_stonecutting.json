@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "outer_end:violite"
+  },
+  "result": "outer_end:chiseled_violite_bricks",
+  "count": 1
+}

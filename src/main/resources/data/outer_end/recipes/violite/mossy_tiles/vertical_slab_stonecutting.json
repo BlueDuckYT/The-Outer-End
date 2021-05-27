@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "outer_end:mossy_violite_tiles"
+  },
+  "result": "outer_end:mossy_violite_tile_vertical_slab",
+  "count": 2
+}
