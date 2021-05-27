@@ -15,7 +15,14 @@ public class EntombedRenderer extends MobRenderer<EntombedEntity, EntombedModel>
 	
 	@Override
 	public ResourceLocation getEntityTexture(EntombedEntity entity) {
-		if (entity.getDataManager().get(entity.SKIN).equals("amogus")) {
+		String name;
+		try {
+			name = entity.getCustomName().getString().toLowerCase();
+		}
+		catch (Exception e) {
+			name = "";
+		}
+		if (entity.getDataManager().get(entity.SKIN).equals("amogus") || (!name.equals(null) && (name.equals("sus") || name.equals("imposter")))) {
 			return new ResourceLocation("outer_end:textures/entity/entombed_amogus.png");
 		}
 		return new ResourceLocation("outer_end:textures/entity/entombed.png");
