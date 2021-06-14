@@ -11,7 +11,7 @@
       "values": [
         {
           "type":"forge:mod_loaded",
-          "modid":"outer_end"
+          "modid":"environmental"
         },
         {
           "type":"abnormals_core:quark_flag",
