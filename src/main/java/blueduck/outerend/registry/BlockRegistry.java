@@ -14,7 +14,6 @@ import com.minecraftabnormals.abnormals_core.common.blocks.wood.AbnormalsLogBloc
 import com.minecraftabnormals.abnormals_core.common.blocks.wood.StrippedLogBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.wood.StrippedWoodBlock;
 import com.minecraftabnormals.abnormals_core.common.blocks.wood.WoodBlock;
-import com.minecraftabnormals.abnormals_core.common.items.AbnormalsSignItem;
 import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.BlockSubRegistryHelper;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
@@ -25,6 +24,7 @@ import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SignItem;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
@@ -91,9 +91,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> AZURE_PRESSURE_PLATE = BLOCKS.register("azure_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(Blocks.OAK_PLANKS).doesNotBlockMovement()));
     public static final RegistryObject<Item> AZURE_PRESSURE_PLATE_ITEM = ITEMS.register("azure_pressure_plate", () -> new BlockItem(AZURE_PRESSURE_PLATE.get(), new Item.Properties().group(ItemGroup.REDSTONE)));
 
-    public static final RegistryObject<Block> AZURE_SIGN = BLOCKS.register("azure_sign", () -> new AbnormalsStandingSignBlock(Block.Properties.from(Blocks.OAK_SIGN), new ResourceLocation("outer_end:textures/block/azure_sign.png")));
-    public static final RegistryObject<Block> AZURE_WALL_SIGN = BLOCKS.register("azure_wall_sign", () -> new AbnormalsWallSignBlock(Block.Properties.from(Blocks.OAK_SIGN), new ResourceLocation("outer_end:textures/block/azure_sign.png")));
-    public static final RegistryObject<Item> AZURE_SIGN_ITEM = ITEMS.register("azure_sign", () -> new AbnormalsSignItem(AZURE_SIGN.get(), AZURE_WALL_SIGN.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+    public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> AZURE_SIGNS = HELPER.createSignBlock("azure", MaterialColor.BLUE_TERRACOTTA);
 
     public static final RegistryObject<Block> AZURE_LADDER = conditionallyRegisterBlock("azure_ladder", () -> new LadderBlock(Block.Properties.from(Blocks.LADDER)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> AZURE_LADDER_ITEM = conditionallyRegisterItem("azure_ladder", () -> new BlockItem(AZURE_LADDER.get(), new Item.Properties().group(ItemGroup.DECORATIONS)), () -> isLoaded("quark"));
@@ -349,8 +347,8 @@ public class BlockRegistry {
         DataUtil.registerFlammable(AZURE_PLANKS.get(), 20, 20);
         DataUtil.registerFlammable(AZURE_SLAB.get(), 20, 20);
         DataUtil.registerFlammable(AZURE_STAIRS.get(), 20, 20);
-        DataUtil.registerFlammable(AZURE_SIGN.get(), 20, 20);
-        DataUtil.registerFlammable(AZURE_WALL_SIGN.get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_SIGNS.getFirst().get(), 20, 20);
+        DataUtil.registerFlammable(AZURE_SIGNS.getSecond().get(), 20, 20);
         DataUtil.registerFlammable(AZURE_FENCE.get(), 20, 20);
         DataUtil.registerFlammable(AZURE_FENCE_GATE.get(), 20, 20);
         DataUtil.registerFlammable(AZURE_BUTTON.get(), 20, 20);
