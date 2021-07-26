@@ -1,0 +1,156 @@
+{
+  "block.outer_end.azure_stem": "紺碧の幹",
+  "block.outer_end.azure_pith": "紺碧の木",
+  "block.outer_end.azure_stripped_stem": "樹皮を剥いだ紺碧の幹",
+  "block.outer_end.azure_stripped_pith": "樹皮を剥いだ紺碧の木",
+  "block.outer_end.azure_planks": "紺碧の板材",
+  "block.outer_end.azure_leaves": "紺碧の花びらブロック",
+  "block.outer_end.azure_stamen": "紺碧のおしべブロック",
+  "block.outer_end.azure_bud": "紺碧の芽",
+  "block.outer_end.azure_grass": "紺碧の草ブロック",
+  "block.outer_end.ender_roots": "エンダーの根",
+  "block.outer_end.tall_ender_roots": "背の高いエンダーの根",
+  "block.outer_end.azure_sprouts": "紺碧の萌芽",
+  "block.outer_end.azure_vines": "紺碧のツタ",
+  "block.outer_end.azure_fence": "紺碧のフェンス",
+  "block.outer_end.azure_fence_gate": "紺碧のフェンスゲート",
+  "block.outer_end.azure_door": "紺碧のドア",
+  "block.outer_end.azure_trapdoor": "紺碧のトラップドア",
+  "block.outer_end.azure_pressure_plate": "紺碧の感圧板",
+  "block.outer_end.azure_button": "紺碧のボタン",
+  "block.outer_end.azure_slab": "紺碧のハーフブロック",
+  "block.outer_end.azure_stairs": "紺碧の階段",
+  "block.outer_end.azure_sign": "紺碧の看板",
+  "block.outer_end.azure_berry_vine": "アズールベリーの茎",
+  "block.outer_end.azure_berry_vine_top": "アズールベリーの茎頂部",
+  "block.outer_end.potted_azure_bud": "植えられた紺碧の芽",
+  "block.outer_end.potted_ender_roots": "植えられたエンダーの根",
+  "block.outer_end.potted_azure_sprouts": "植えられた紺碧の萌芽",
+
+  "block.outer_end.azure_vertical_slab": "紺碧の縦ハーフブロック",
+  "block.outer_end.azure_vertical_planks": "紺碧の縦板材",
+  "block.outer_end.azure_ladder": "紺碧のはしご",
+  "block.outer_end.azure_bookshelf": "紺碧の本棚",
+  "block.outer_end.azure_beehive": "紺碧のミツバチの巣",
+  "block.outer_end.azure_chest": "紺碧のチェスト",
+  "block.outer_end.azure_trapped_chest": "紺碧のトラップチェスト",
+
+  "block.outer_end.himmel_block": "ヒンメルブロック",
+  "block.outer_end.himmel_pillar": "ヒンメルの柱",
+  "block.outer_end.himmel_stairs": "ヒンメルの階段",
+  "block.outer_end.himmel_slab": "ヒンメルのハーフブロック",
+  "block.outer_end.himmel_vertical_slab": "ヒンメルの縦ハーフブロック",
+
+  "block.outer_end.violite": "ヴァイオライト",
+  "block.outer_end.violite_slab": "ヴァイオライトのハーフブロック",
+  "block.outer_end.violite_stairs": "ヴァイオライトの階段",
+  "block.outer_end.violite_vertical_slab": "ヴァイオライトの縦ハーフブロック",
+
+
+  "block.outer_end.rose_tangled_violite": "ローズ水晶が入り混じったヴァイオライト",
+  "block.outer_end.mint_tangled_violite": "ミント水晶が入り混じったヴァイオライト",
+  "block.outer_end.cobalt_tangled_violite": "コバルト水晶が入り混じったヴァイオライト",
+
+  "block.outer_end.violite_bricks": "ヴァイオライトレンガ",
+  "block.outer_end.violite_brick_stairs": "ヴァイオライトレンガの階段",
+  "block.outer_end.violite_brick_slab": "ヴァイオライトレンガのハーフブロック",
+  "block.outer_end.violite_brick_vertical_slab": "ヴァイオライトレンガの縦ハーフブロック",
+  "block.outer_end.violite_brick_wall": "ヴァイオライトレンガの塀",
+  "block.outer_end.chiseled_violite_bricks": "模様入りのヴァイオライトレンガ",
+  "block.outer_end.violite_brick_pillar": "ヴァイオライトレンガの柱",
+
+  "block.outer_end.mossy_violite_bricks": "苔むしたヴァイオライトレンガ",
+  "block.outer_end.mossy_violite_brick_stairs": "苔むしたヴァイオライトレンガの階段",
+  "block.outer_end.mossy_violite_brick_slab": "苔むしたヴァイオライトレンガのハーフブロック",
+  "block.outer_end.mossy_violite_brick_vertical_slab": "苔むしたヴァイオライトレンガの縦ハーフブロック",
+  "block.outer_end.mossy_violite_brick_wall": "苔むしたヴァイオライトレンガの塀",
+
+  "block.outer_end.cracked_violite_bricks": "ひび割れたヴァイオライトレンガ",
+
+  "block.outer_end.violite_tiles": "ヴァイオライトタイル",
+  "block.outer_end.violite_tile_stairs": "ヴァイオライトタイルの階段",
+  "block.outer_end.violite_tile_slab": "ヴァイオライトタイルのハーフブロック",
+  "block.outer_end.violite_tile_vertical_slab": "ヴァイオライトタイルの縦ハーフブロック",
+
+  "block.outer_end.mossy_violite_tiles": "苔むしたヴァイオライトタイル",
+  "block.outer_end.mossy_violite_tile_stairs": "苔むしたヴァイオライトタイルの階段",
+  "block.outer_end.mossy_violite_tile_slab": "苔むしたヴァイオライトタイルのハーフブロック",
+  "block.outer_end.mossy_violite_tile_vertical_slab": "苔むしたヴァイオライトタイルの縦ハーフブロック",
+
+  "block.outer_end.cracked_violite_tiles": "ひび割れたヴァイオライトタイル",
+
+  "block.outer_end.rose_crystal": "ローズ水晶",
+  "block.outer_end.mint_crystal": "ミント水晶",
+  "block.outer_end.cobalt_crystal": "コバルト水晶",
+
+  "block.outer_end.rose_crystal_bud": "未熟なローズ水晶",
+  "block.outer_end.mint_crystal_bud": "未熟なミント水晶",
+  "block.outer_end.cobalt_crystal_bud": "未熟なコバルト水晶",
+
+
+  "block.outer_end.rose_crystal_lamp": "ローズ水晶のランプ",
+  "block.outer_end.mint_crystal_lamp": "ミント水晶のランプ",
+  "block.outer_end.cobalt_crystal_lamp": "コバルト水晶のランプ",
+
+
+  "block.outer_end.halite": "岩塩",
+  "block.outer_end.stromatolite": "ストロマトライト",
+  "block.outer_end.brine": "ブライン",
+  "block.outer_end.ancient_stone": "古代の石",
+  "block.outer_end.ancient_ice": "古代の氷",
+  "block.outer_end.ancient_ice_column": "古代の氷柱",
+  "block.outer_end.ancient_ice_cap": "古代の氷帽",
+  "block.outer_end.glowing_ancient_ice": "輝く古代の氷",
+  "block.outer_end.glowing_ancient_ice_column": "輝く古代の氷柱",
+  "block.outer_end.glowing_ancient_ice_cap": "輝く古代の氷帽",
+
+
+  "block.outer_end.rose_roots": "ローズ水晶の根",
+  "block.outer_end.mint_roots": "ミント水晶の根",
+  "block.outer_end.cobalt_roots": "コバルト水晶の根",
+
+  "item.outer_end.azure_berries": "アズールベリー",
+  "item.outer_end.floral_paste": "花の粘土",
+  "item.outer_end.spectragel": "スペクトラゲル",
+  "item.outer_end.stalker_meat": "ストーカーの肉",
+  "item.outer_end.cooked_stalker_meat": "ストーカーのステーキ",
+  "item.outer_end.azure_boat": "紺碧のボート",
+
+  "item.outer_end.rose_crystal_shard": "ローズ水晶の破片",
+  "item.outer_end.mint_crystal_shard": "ミント水晶の破片",
+  "item.outer_end.cobalt_crystal_shard": "コバルト水晶の破片",
+
+  "item.outer_end.music_disc_galactic_wave": "レコード",
+  "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",
+
+  "item.outer_end.music_disc_unknown_frontier": "レコード",
+  "item.outer_end.music_disc_unknown_frontier.desc": "Pyrocide - Unknown Frontier",
+
+
+  "item.outer_end.spectrafly_spawn_egg": "スペクトラフライのスポーンエッグ",
+  "item.outer_end.himmelite_spawn_egg": "ヒンメライトのスポーンエッグ",
+  "item.outer_end.purpur_golem_spawn_egg": "パーピュアゴーレムのスポーンエッグ",
+  "item.outer_end.stalker_spawn_egg": "ストーカーのスポーンエッグ",
+  "item.outer_end.entombed_spawn_egg": "エントゥームドのスポーンエッグ",
+  "item.outer_end.chorus_squid_spawn_egg": "コーラススクイッドのスポーンエッグ",
+
+  "entity.outer_end.spectrafly": "スペクトラフライ",
+  "entity.outer_end.himmelite": "ヒンメライト",
+  "entity.outer_end.purpur_golem": "パーピュアゴーレム",
+  "entity.outer_end.stalker": "ストーカー",
+  "entity.outer_end.entombed": "エントゥームド",
+  "entity.outer_end.chorus_squid": "コーラススクイッド",
+
+  "biome.outer_end.azure_forest": "紺碧の森",
+  "biome.outer_end.crystal_crag": "水晶の山岳",
+
+  "advancements.end.find_end_tower.title": "集合大都市",
+  "advancements.end.find_end_tower.description": "エンドタワーに入る",
+
+  "advancements.end.find_catacombs.title": "さらに酷い要塞",
+  "advancements.end.find_catacombs.description": "地下墓地を見つける",
+  
+  "advancements.end.explore_end.title": "虚空を超えて",
+  "advancements.end.explore_end.description": "エンドのバイオームをすべて探索する"
+
+}
