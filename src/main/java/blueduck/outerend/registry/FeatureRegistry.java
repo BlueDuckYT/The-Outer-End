@@ -21,6 +21,7 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class FeatureRegistry {
@@ -168,29 +169,17 @@ public class FeatureRegistry {
                             .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.01F, 1)))
             );
 
-    public static final ConfiguredFeature<OreFeatureConfig, OreFeature> ROSE_TANGLED_VIOLITE_FEATURE =
-            (ConfiguredFeature<OreFeatureConfig, OreFeature>) newConfiguredFeature(
-                    "rose_tangled_violite_feature",
-                    Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.ROSE_TANGLED_VIOLITE.get().getDefaultState(), 9)).range(128).square().func_242731_b(20))
-                            .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                            .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.01F, 1))
-                            );
+    public static final ConfiguredFeature<?, ?> CONFIGURED_ROSE_TANGLED_VIOLITE = Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.ROSE_TANGLED_VIOLITE.get().getDefaultState(), 9)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(10, 10, 130)))
+            .square()
+            .range(250);
 
-    public static final ConfiguredFeature<OreFeatureConfig, OreFeature> MINT_TANGLED_VIOLITE_FEATURE =
-            (ConfiguredFeature<OreFeatureConfig, OreFeature>) newConfiguredFeature(
-                    "mint_tangled_violite_feature",
-                    Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.MINT_TANGLED_VIOLITE.get().getDefaultState(), 9)).range(128).square().func_242731_b(20))
-                    .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                    .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.01F, 1))
-                    );
+    public static final ConfiguredFeature<?, ?> CONFIGURED_MINT_TANGLED_VIOLITE = Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.MINT_TANGLED_VIOLITE.get().getDefaultState(), 9)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(10, 10, 130)))
+            .square()
+            .range(250);
 
-    public static final ConfiguredFeature<OreFeatureConfig, OreFeature> COBALT_TANGLED_VIOLITE_FEATURE =
-            (ConfiguredFeature<OreFeatureConfig, OreFeature>) newConfiguredFeature(
-                    "cobalt_tangled_violite_feature",
-                    Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.COBALT_TANGLED_VIOLITE.get().getDefaultState(), 9)).range(128).square().func_242731_b(20))
-                    .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                    .withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.01F, 1))
-                    );
+    public static final ConfiguredFeature<?, ?> CONFIGURED_COBALT_TANGLED_VIOLITE = Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.COBALT_TANGLED_VIOLITE.get().getDefaultState(), 9)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(10, 10, 130)))
+            .square()
+            .range(250);
 
 
     

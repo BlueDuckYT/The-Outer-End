@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class DragonAttributesMixin {
 	@Inject(at = @At("HEAD"), method = "registerAttributes()Lnet/minecraft/entity/ai/attributes/AttributeModifierMap$MutableAttribute;", cancellable = true)
 	private static void OUTER_END_registerAttributes(CallbackInfoReturnable<AttributeModifierMap.MutableAttribute> cir) {
-		if (OuterEndMod.CONFIG.ENDER_DRAGON_HEALTH.get() != 0) {
+		if (OuterEndMod.CONFIG.ENDER_DRAGON_HEALTH.get() > 0) {
 			cir.setReturnValue(MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, OuterEndMod.CONFIG.ENDER_DRAGON_HEALTH.get()));
 		}
 	}
