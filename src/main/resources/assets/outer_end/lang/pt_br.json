@@ -1,15 +1,15 @@
 {
   "block.outer_end.azure_stem": "Caule de azulina",
-  "block.outer_end.azure_pith": "Medula de azulina",
+  "block.outer_end.azure_pith": "Cerne de azulina",
   "block.outer_end.azure_stripped_stem": "Caule de azulina descascado",
-  "block.outer_end.azure_stripped_pith": "Medula de azulina descascada",
+  "block.outer_end.azure_stripped_pith": "Cerne de azulina descascado",
   "block.outer_end.azure_planks": "Tábuas de azulina",
   "block.outer_end.azure_leaves": "Pétalas de azulina",
   "block.outer_end.azure_stamen": "Estame de azulina",
-  "block.outer_end.azure_bud": "Gomo de azulina",
-  "block.outer_end.azure_grass": "Bloco de grama azulina",
-  "block.outer_end.ender_roots": "Raízes de Ender",
-  "block.outer_end.tall_ender_roots": "Raízes de Ender altas",
+  "block.outer_end.azure_bud": "Flor de azulina",
+  "block.outer_end.azure_grass": "Grama azulina",
+  "block.outer_end.ender_roots": "Raízes de ender",
+  "block.outer_end.tall_ender_roots": "Raízes de ender altas",
   "block.outer_end.azure_sprouts": "Brotos azulinos",
   "block.outer_end.azure_vines": "Trepadeiras azulinas",
   "block.outer_end.azure_fence": "Cerca de azulina",
@@ -21,10 +21,10 @@
   "block.outer_end.azure_slab": "Laje de azulina",
   "block.outer_end.azure_stairs": "Escadas de azulina",
   "block.outer_end.azure_sign": "Placa de azulina",
-  "block.outer_end.azure_berry_vine": "Planta de talo de bagas-azulinas",
-  "block.outer_end.azure_berry_vine_top": "Talo de bagas-azulinas",
-  "block.outer_end.potted_azure_bud": "Gomo de azulina envasado",
-  "block.outer_end.potted_ender_roots": "Raízes de Ender envasadas",
+  "block.outer_end.azure_berry_vine": "Talo de bagas-azulinas",
+  "block.outer_end.azure_berry_vine_top": "Topo do talo de bagas-azulinas",
+  "block.outer_end.potted_azure_bud": "Flor de azulina envasada",
+  "block.outer_end.potted_ender_roots": "Raízes de ender envasadas",
   "block.outer_end.potted_azure_sprouts": "Brotos azulinos envasados",
 
   "block.outer_end.azure_vertical_slab": "Laje vertical de azulina",
@@ -74,16 +74,16 @@
 
   "block.outer_end.cracked_violite_tiles": "Ladrilhos de violito rachados",
 
-  "block.outer_end.rose_crystal": "Cristal-rosa",
+  "block.outer_end.rose_crystal": "Cristal-róseo",
   "block.outer_end.mint_crystal": "Cristal-hortelã",
   "block.outer_end.cobalt_crystal": "Cristal-cobalto",
 
-  "block.outer_end.rose_crystal_bud": "Feixe de cristal-rosa",
-  "block.outer_end.mint_crystal_bud": "Feixe de cristal-hortelã",
-  "block.outer_end.cobalt_crystal_bud": "Feixe de cristal-cobalto",
+  "block.outer_end.rose_crystal_bud": "Agregado de cristal-róseo",
+  "block.outer_end.mint_crystal_bud": "Agregado de cristal-hortelã",
+  "block.outer_end.cobalt_crystal_bud": "Agregado de cristal-cobalto",
 
 
-  "block.outer_end.rose_crystal_lamp": "Lâmpada de cristal-rosa",
+  "block.outer_end.rose_crystal_lamp": "Lâmpada de cristal-róseo",
   "block.outer_end.mint_crystal_lamp": "Lâmpada de cristal-hortelã",
   "block.outer_end.cobalt_crystal_lamp": "Lâmpada de cristal-cobalto",
 
@@ -100,18 +100,18 @@
   "block.outer_end.glowing_ancient_ice_cap": "Camada de gelo primitivo brilhante",
 
 
-  "block.outer_end.rose_roots": "Raízes de cristal-rosa",
+  "block.outer_end.rose_roots": "Raízes de cristal-róseo",
   "block.outer_end.mint_roots": "Raízes de cristal-hortelã",
   "block.outer_end.cobalt_roots": "Raízes de cristal-cobalto",
 
   "item.outer_end.azure_berries": "Bagas-azulinas",
   "item.outer_end.floral_paste": "Pasta floral",
-  "item.outer_end.spectragel": "Espectragel",
+  "item.outer_end.spectragel": "Espectrogel",
   "item.outer_end.stalker_meat": "Carne de stalker crua",
   "item.outer_end.cooked_stalker_meat": "Carne de stalker assada",
   "item.outer_end.azure_boat": "Bote de azulina",
 
-  "item.outer_end.rose_crystal_shard": "Fragmento de cristal-rosa",
+  "item.outer_end.rose_crystal_shard": "Fragmento de cristal-róseo",
   "item.outer_end.mint_crystal_shard": "Fragmento de cristal-hortelã",
   "item.outer_end.cobalt_crystal_shard": "Fragmento de cristal-cobalto",
 
@@ -136,7 +136,7 @@
   "entity.outer_end.entombed": "Encovado",
   "entity.outer_end.chorus_squid": "Lula do coro",
 
-  "biome.outer_end.azure_forest": "Floresta azulina",
+  "biome.outer_end.azure_forest": "Floresta de azulinas",
   "biome.outer_end.crystal_crag": "Rochedos de cristais",
 
   "advancements.end.find_end_tower.title": "Metrópole corporativa",
