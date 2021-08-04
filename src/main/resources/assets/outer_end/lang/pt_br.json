@@ -45,6 +45,10 @@
   "block.outer_end.violite_slab": "Laje de violito",
   "block.outer_end.violite_stairs": "Escadas de violito",
   "block.outer_end.violite_vertical_slab": "Laje vertical de violito",
+  
+  "block.outer_end.rose_tangled_violite": "Geodo de violito com cristais-róseos",
+  "block.outer_end.mint_tangled_violite": "Geodo de violito com cristais-hortelã",
+  "block.outer_end.cobalt_tangled_violite": "Geodo de violito com cristais-cobalto",
 
   "block.outer_end.violite_bricks": "Tijolos de violito",
   "block.outer_end.violite_brick_stairs": "Escadas de tijolos de violito",
