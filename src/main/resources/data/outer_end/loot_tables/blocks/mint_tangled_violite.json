@@ -46,7 +46,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "outer_end:mint_crystal"
+              "name": "outer_end:mint_crystal_shard"
             }
           ]
         }

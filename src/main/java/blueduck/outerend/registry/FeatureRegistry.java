@@ -171,15 +171,15 @@ public class FeatureRegistry {
 
     public static final ConfiguredFeature<?, ?> CONFIGURED_ROSE_TANGLED_VIOLITE = Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.ROSE_TANGLED_VIOLITE.get().getDefaultState(), 9)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(10, 10, 130)))
             .square()
-            .range(250);
+            .range(1000);
 
     public static final ConfiguredFeature<?, ?> CONFIGURED_MINT_TANGLED_VIOLITE = Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.MINT_TANGLED_VIOLITE.get().getDefaultState(), 9)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(10, 10, 130)))
             .square()
-            .range(250);
+            .range(1000);
 
     public static final ConfiguredFeature<?, ?> CONFIGURED_COBALT_TANGLED_VIOLITE = Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.VIOLITE.get()), BlockRegistry.COBALT_TANGLED_VIOLITE.get().getDefaultState(), 9)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(10, 10, 130)))
             .square()
-            .range(250);
+            .range(1000);
 
 
     
