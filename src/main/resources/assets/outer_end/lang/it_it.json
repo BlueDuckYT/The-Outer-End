@@ -1,0 +1,156 @@
+{
+  "block.outer_end.azure_stem": "Gambo azzurro",
+  "block.outer_end.azure_pith": "Midollo azzurro",
+  "block.outer_end.azure_stripped_stem": "Gambo azzurro scortecciato",
+  "block.outer_end.azure_stripped_pith": "Midollo azzurro scortecciato",
+  "block.outer_end.azure_planks": "Assi azzurri",
+  "block.outer_end.azure_leaves": "Petali azzurri",
+  "block.outer_end.azure_stamen": "Stame azzurro",
+  "block.outer_end.azure_bud": "Bocciolo azzurro",
+  "block.outer_end.azure_grass": "Erba azzurra",
+  "block.outer_end.ender_roots": "Radici ender",
+  "block.outer_end.tall_ender_roots": "Radici ender alti",
+  "block.outer_end.azure_sprouts": "Germogli azzurri",
+  "block.outer_end.azure_vines": "Rampicante azzurro",
+  "block.outer_end.azure_fence": "Staccionata azzurra",
+  "block.outer_end.azure_fence_gate": "Cancelletto azzurro",
+  "block.outer_end.azure_door": "Porta azzurra",
+  "block.outer_end.azure_trapdoor": "Botola azzurra",
+  "block.outer_end.azure_pressure_plate": "Pedana a pressione azzurra",
+  "block.outer_end.azure_button": "Pulsante azzurro",
+  "block.outer_end.azure_slab": "Lastra azzurra",
+  "block.outer_end.azure_stairs": "Scalini azzurri",
+  "block.outer_end.azure_sign": "Cartello azzurro",
+  "block.outer_end.azure_berry_vine": "Stelo di bacche azzurre",
+  "block.outer_end.azure_berry_vine_top": "Stelo di bacche azzure superiore",
+  "block.outer_end.potted_azure_bud": "Vaso con bocciolo azzurro",
+  "block.outer_end.potted_ender_roots": "Vaso con radici ender",
+  "block.outer_end.potted_azure_sprouts": "Vaso con germogli azzurri",
+
+  "block.outer_end.azure_vertical_slab": "Lastra verticale azzurra",
+  "block.outer_end.azure_vertical_planks": "Assi verticali azzurri",
+  "block.outer_end.azure_ladder": "Scala a pioli azzurra",
+  "block.outer_end.azure_bookshelf": "Libreria azzurra",
+  "block.outer_end.azure_beehive": "Arnia azzurra",
+  "block.outer_end.azure_chest": "Baule azzurro",
+  "block.outer_end.azure_trapped_chest": "Baule trappola azzurro",
+
+  "block.outer_end.himmel_block": "Blocco himmel",
+  "block.outer_end.himmel_pillar": "Pilastro himmel",
+  "block.outer_end.himmel_stairs": "Scalini himmel",
+  "block.outer_end.himmel_slab": "Lastra himmel",
+  "block.outer_end.himmel_vertical_slab": "Lastra verticale himmel",
+
+  "block.outer_end.violite": "Violite",
+  "block.outer_end.violite_slab": "Lastra di violite",
+  "block.outer_end.violite_stairs": "Scalini di violite",
+  "block.outer_end.violite_vertical_slab": "Lastra verticale di violite",
+
+
+  "block.outer_end.rose_tangled_violite": "Violite aggrovigliata di rosa",
+  "block.outer_end.mint_tangled_violite": "Violite aggrovigliata di verde menta",
+  "block.outer_end.cobalt_tangled_violite": "Violite aggrovigliata di cobalto",
+
+  "block.outer_end.violite_bricks": "Mattoni di violite",
+  "block.outer_end.violite_brick_stairs": "Scalini di mattoni di violite",
+  "block.outer_end.violite_brick_slab": "Lastra di mattoni di violite",
+  "block.outer_end.violite_brick_vertical_slab": "Lastra verticale di mattoni di violite",
+  "block.outer_end.violite_brick_wall": "Muretto di mattoni di violite,
+  "block.outer_end.chiseled_violite_bricks": "Mattoni di mattoni di violite cesellati",
+  "block.outer_end.violite_brick_pillar": "Pilastro di mattoni di violite",
+
+  "block.outer_end.mossy_violite_bricks": "Mattoni di violite muschiosi",
+  "block.outer_end.mossy_violite_brick_stairs": "Scaliini di mattoni di violite muschiosi",
+  "block.outer_end.mossy_violite_brick_slab": "Lastra di mattoni di violite muschiosi",
+  "block.outer_end.mossy_violite_brick_vertical_slab": "Lastra verticale di mattoni di violite muschiosi",
+  "block.outer_end.mossy_violite_brick_wall": "Muretto di mattoni di violite muschiosi",
+
+  "block.outer_end.cracked_violite_bricks": "Mattoni di violite crepati",
+
+  "block.outer_end.violite_tiles": "Piastrelle di violite",
+  "block.outer_end.violite_tile_stairs": "Scalini di piastrelle di violite",
+  "block.outer_end.violite_tile_slab": "Lastra di piastrelle di violite",
+  "block.outer_end.violite_tile_vertical_slab": "Lastra verticale di piastrelle di violite",
+
+  "block.outer_end.mossy_violite_tiles": "Piastrelle di violite muschiose",
+  "block.outer_end.mossy_violite_tile_stairs": "Scalini di piastrelle di violite muschiose",
+  "block.outer_end.mossy_violite_tile_slab": "Lastra di piastrelle di violite muschiose",
+  "block.outer_end.mossy_violite_tile_vertical_slab": "Lastra verticale di piastrelle di violite muschiose",
+
+  "block.outer_end.cracked_violite_tiles": "Piastrelle di violite crepate",
+
+  "block.outer_end.rose_crystal": "Cristallo rosa",
+  "block.outer_end.mint_crystal": "Cristallo verde menta",
+  "block.outer_end.cobalt_crystal": "Cristallo cobalto",
+
+  "block.outer_end.rose_crystal_bud": "Gemma di cristallo rosa",
+  "block.outer_end.mint_crystal_bud": "Gemma di cristallo verde menta",
+  "block.outer_end.cobalt_crystal_bud": "Gemma di cristallo cobalto",
+
+
+  "block.outer_end.rose_crystal_lamp": "Lampada di cristallo rosa",
+  "block.outer_end.mint_crystal_lamp": "Lampada di cristallo verde menta",
+  "block.outer_end.cobalt_crystal_lamp": "Lampada di cristallo cobalto",
+
+
+  "block.outer_end.halite": "Halite",
+  "block.outer_end.stromatolite": "Stromatolite",
+  "block.outer_end.brine": "Salamoia",
+  "block.outer_end.ancient_stone": "Pietra antica",
+  "block.outer_end.ancient_ice": "Ghiaccio antico",
+  "block.outer_end.ancient_ice_column": "Colonna di ghiaccio antico",
+  "block.outer_end.ancient_ice_cap": "Cappa di ghiaccio antico",
+  "block.outer_end.glowing_ancient_ice": "Ghiaccio antico luminescente",
+  "block.outer_end.glowing_ancient_ice_column": "Colonna di ghiaccio antico luminescente",
+  "block.outer_end.glowing_ancient_ice_cap": "Cappa di ghiaccio antico luminescente",
+
+
+  "block.outer_end.rose_roots": "Radici rosa",
+  "block.outer_end.mint_roots": "Radici verde menta",
+  "block.outer_end.cobalt_roots": "Radici cobalto",
+
+  "item.outer_end.azure_berries": "Bacche azzurre",
+  "item.outer_end.floral_paste": "Impasto florale",
+  "item.outer_end.spectragel": "Spettragel",
+  "item.outer_end.stalker_meat": "Carne di stalker",
+  "item.outer_end.cooked_stalker_meat": "Bistecca di stalker",
+  "item.outer_end.azure_boat": "Barca azzurra",
+
+  "item.outer_end.rose_crystal_shard": "Scheggia di cristallo rosa",
+  "item.outer_end.mint_crystal_shard": "Scheggia di cristallo verde menta",
+  "item.outer_end.cobalt_crystal_shard": "Scheggia di cristallo cobalto",
+
+  "item.outer_end.music_disc_galactic_wave": "Disco musicale",
+  "item.outer_end.music_disc_galactic_wave.desc": "Blue Duck - Galactic Wave",
+
+  "item.outer_end.music_disc_unknown_frontier": "Disco musicale",
+  "item.outer_end.music_disc_unknown_frontier.desc": "Pyrocide - Unknown Frontier",
+
+
+  "item.outer_end.spectrafly_spawn_egg": "Uovo generatore di spettrafly",
+  "item.outer_end.himmelite_spawn_egg": "Uovo generatore di himmelite",
+  "item.outer_end.purpur_golem_spawn_egg": "Uovo generatore di golem di purpur",
+  "item.outer_end.stalker_spawn_egg": "Uovo generatore di stalker",
+  "item.outer_end.entombed_spawn_egg": "Uovo generatore di sepolto",
+  "item.outer_end.chorus_squid_spawn_egg": "Uovo generatore di calamaro di chorus",
+
+  "entity.outer_end.spectrafly": "Spettrafly",
+  "entity.outer_end.himmelite": "Himmelite",
+  "entity.outer_end.purpur_golem": "Golem di purpur",
+  "entity.outer_end.stalker": "Stalker",
+  "entity.outer_end.entombed": "Sepolto",
+  "entity.outer_end.chorus_squid": "Calamaro di chorus",
+
+  "biome.outer_end.azure_forest": "Foresta azzurra",
+  "biome.outer_end.crystal_crag": "Dirupo di cristalli",
+
+  "advancements.end.find_end_tower.title": "Una metropoli aziendale",
+  "advancements.end.find_end_tower.description": "Entra nella torre dell'End",
+
+  "advancements.end.find_catacombs.title": "Una fortezza ancora peggiore",
+  "advancements.end.find_catacombs.description": "Trova le catacombe",
+  
+  "advancements.end.explore_end.title": "Oltre il vuoto",
+  "advancements.end.explore_end.description": "Esplora tutti i biomi dell'End"
+
+}
