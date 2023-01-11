@@ -1,31 +1,29 @@
 modLoader="javafml"
-loaderVersion="[35,)"
+loaderVersion="[40,)"
 license="All rights reserved"
 issueTrackerURL="https://github.com/BlueDuckYT/The-Outer-End/issues"
 [[mods]]
 modId="outer_end"
-version="0.2.9"
+version="0.2.15"
 displayName="The Outer End"
-credits="Developed by Blue Duck, LudoCrypt, MooseOnTheRocks, and GiantLuigi4"
+credits="Developed by Blue Duck, LudoCrypt, MooseOnTheRocks, GiantLuigi4, and RedRoseWarrior1"
 authors="A lot of people"
-description='''
-The Outer End is an end mod
-'''
+description='''The Outer End is an end mod'''
 [[dependencies.outer_end]]
     modId="forge"
     mandatory=true
-    versionRange="[35,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.outer_end]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.4,1.17)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.outer_end]]
-    modId="abnormals_core"
-    mandatory=true
-    versionRange="[3.0.4,)"
-    ordering="NONE"
-    side="BOTH"
+modId = "blueprint"
+mandatory = false
+versionRange = "5.5.0"
+ordering = "BEFORE"
+side = "BOTH"
