@@ -7,8 +7,10 @@ import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.ItemRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
@@ -17,8 +19,8 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_GRASS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SAPLING.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_DOOR.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_TRAPDOOR.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_VINES.get(), RenderType.getCutout());
+		ItemBlockRenderTypes.setRenderLayer((Block)BlockRegistry.AZURE_TRAPDOOR.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer((Block)BlockRegistry.AZURE_VINES.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ENDER_ROOTS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.TALL_ENDER_ROOTS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SPROUTS.get(), RenderType.getCutout());
@@ -31,7 +33,7 @@ public class ClientSetup {
 
 
 		if (BlockRegistry.isLoaded("quark")) {
-			RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_LADDER.get(), RenderType.getCutout());
+			ItemBlockRenderTypes.setRenderLayer((Block)BlockRegistry.AZURE_LADDER.get(), RenderType.cutout());
 		}
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ROSE_CRYSTAL.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.MINT_CRYSTAL.get(), RenderType.getTranslucent());
