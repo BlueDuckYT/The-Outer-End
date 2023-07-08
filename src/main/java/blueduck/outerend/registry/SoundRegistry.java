@@ -1,14 +1,15 @@
 package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
-import net.minecraft.block.SoundType;
-import net.minecraft.client.audio.BackgroundMusicSelector;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.RegistryObject;
+//import net.minecraft.client.audio.BackgroundMusicSelector;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.Music;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class SoundRegistry {
 	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, OuterEndMod.MODID);
@@ -36,8 +37,8 @@ public class SoundRegistry {
 		return SOUNDS.register(key, () -> new SoundEvent(new ResourceLocation(OuterEndMod.MODID, key)));
 	}
 
-	public static BackgroundMusicSelector createEndMusic(SoundEvent sound) {
-		return new BackgroundMusicSelector(sound, 8000, 15000, false);
+	public static Music createEndMusic(SoundEvent sound) {
+		return new Music(sound, 8000, 15000, false);
 	}
 
 	public static void init() {
