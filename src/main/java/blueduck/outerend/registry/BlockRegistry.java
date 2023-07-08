@@ -1,8 +1,8 @@
 package blueduck.outerend.registry;
 
 import blueduck.outerend.OuterEndMod;
-import blueduck.outerend.blocks.*;
 import blueduck.outerend.features.AzureTreeFeature;
+import blueduck.outerend.blocks.CrystalBudBlock;
 import com.teamabnormals.blueprint.common.block.BlueprintBeehiveBlock;
 import com.teamabnormals.blueprint.common.block.BookshelfBlock;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock;
@@ -19,6 +19,7 @@ import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -29,7 +30,6 @@ import net.minecraft.item.SignItem;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -86,10 +86,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> AZURE_FENCE_GATE = BLOCKS.register("azure_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<Item> AZURE_FENCE_GATE_ITEM = ITEMS.register("azure_fence_gate", () -> new BlockItem(AZURE_FENCE_GATE.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
-    public static final RegistryObject<Block> AZURE_BUTTON = BLOCKS.register("azure_button", () -> new WoodButtonBlock(Block.Properties.copy(Blocks.OAK_PLANKS).doesNotBlockMovement()));
+    public static final RegistryObject<Block> AZURE_BUTTON = BLOCKS.register("azure_button", () -> new WoodButtonBlock(Block.Properties.copy(Blocks.OAK_PLANKS).noCollission()));
     public static final RegistryObject<Item> AZURE_BUTTON_ITEM = ITEMS.register("azure_button", () -> new BlockItem(AZURE_BUTTON.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
-    public static final RegistryObject<Block> AZURE_PRESSURE_PLATE = BLOCKS.register("azure_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PLANKS).doesNotBlockMovement()));
+    public static final RegistryObject<Block> AZURE_PRESSURE_PLATE = BLOCKS.register("azure_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PLANKS).noCollission()));
     public static final RegistryObject<Item> AZURE_PRESSURE_PLATE_ITEM = ITEMS.register("azure_pressure_plate", () -> new BlockItem(AZURE_PRESSURE_PLATE.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
     public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> AZURE_SIGNS = HELPER.createSignBlock("azure", MaterialColor.TERRACOTTA_BLUE);
@@ -108,7 +108,7 @@ public class BlockRegistry {
 
 
 
-    public static final RegistryObject<Block> AZURE_LEAVES = BLOCKS.register("azure_leaves", () -> new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.CROP).notSolid()));
+    public static final RegistryObject<Block> AZURE_LEAVES = BLOCKS.register("azure_leaves", () -> new LeavesBlock(Block.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.CROP).noOcclusion()));
     public static final RegistryObject<Item> AZURE_LEAVES_ITEM = ITEMS.register("azure_leaves", () -> new BlockItem(AZURE_LEAVES.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> AZURE_STAMEN = BLOCKS.register("azure_stamen", () -> new StamenBlock(Block.Properties.copy(Blocks.SHROOMLIGHT)));
@@ -123,11 +123,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> TALL_ENDER_ROOTS = BLOCKS.register("tall_ender_roots", () -> new EnderDoublePlant(Block.Properties.copy(Blocks.GRASS)));
     public static final RegistryObject<Item> TALL_ENDER_ROOTS_ITEM = ITEMS.register("tall_ender_roots", () -> new BlockItem(TALL_ENDER_ROOTS.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
-    public static final RegistryObject<Block> AZURE_VINES = BLOCKS.register("azure_vines", () -> new VineBlock(AbstractBlock.Properties.from(Blocks.VINE)));
+    public static final RegistryObject<Block> AZURE_VINES = BLOCKS.register("azure_vines", () -> new VineBlock(VineBlock.Properties.copy(Blocks.VINE)));
     public static final RegistryObject<Item> AZURE_VINES_ITEM = ITEMS.register("azure_vines", () -> new BlockItem(AZURE_VINES.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
-    public static final RegistryObject<Block> AZURE_GRASS = BLOCKS.register("azure_grass", () -> new EnderGrassBlock(AbstractBlock.Properties.create(Material.STONE, MaterialColor.COLOR_BLUE).setRequiresTool().hardnessAndResistance(3.0F, 9.0F), Blocks.END_STONE::getDefaultState, (rand)-> ENDER_ROOTS.get().getDefaultState()));
+    public static final RegistryObject<Block> AZURE_GRASS = BLOCKS.register("azure_grass", () -> new EnderGrassBlock(TallGrassBlock.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(3.0F, 9.0F), Blocks.END_STONE::defaultBlockState, (rand)-> ENDER_ROOTS.get().defaultBlockState()));
     public static final RegistryObject<Item> AZURE_GRASS_ITEM = ITEMS.register("azure_grass", () -> new BlockItem(AZURE_GRASS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> AZURE_SPROUTS = BLOCKS.register("azure_sprouts", () -> new EnderTallGrass(Block.Properties.copy(Blocks.GRASS)));
@@ -154,10 +154,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> HIMMEL_VERTICAL_SLAB = conditionallyRegisterBlock("himmel_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.copy(Blocks.PURPUR_BLOCK)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> HIMMEL_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("himmel_vertical_slab", () -> new BlockItem(HIMMEL_VERTICAL_SLAB.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> HIMMEL_STAIRS = BLOCKS.register("himmel_stairs", () -> new StairsBlock(HIMMEL_BLOCK.get().getDefaultState(), Block.Properties.copy(Blocks.PURPUR_BLOCK)));
+    public static final RegistryObject<Block> HIMMEL_STAIRS = BLOCKS.register("himmel_stairs", () -> new StairBlock(HIMMEL_BLOCK.get().defaultBlockState(), Block.Properties.copy(Blocks.PURPUR_BLOCK)));
     public static final RegistryObject<Item> HIMMEL_STAIRS_ITEM = ITEMS.register("himmel_stairs", () -> new BlockItem(HIMMEL_STAIRS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> VIOLITE = BLOCKS.register("violite", () -> new Block(Block.Properties.create(Material.STONE, MaterialColor.NETHER).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Block> VIOLITE = BLOCKS.register("violite", () -> new Block(Block.Properties.of(Material.STONE, MaterialColor.NETHER).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> VIOLITE_ITEM = ITEMS.register("violite", () -> new BlockItem(VIOLITE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> VIOLITE_SLAB = BLOCKS.register("violite_slab", () -> new SlabBlock(Block.Properties.copy(VIOLITE.get())));
@@ -166,7 +166,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> VIOLITE_VERTICAL_SLAB = conditionallyRegisterBlock("violite_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.copy(VIOLITE.get())), () -> isLoaded("quark"));
     public static final RegistryObject<Item> VIOLITE_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("violite_vertical_slab", () -> new BlockItem(VIOLITE_VERTICAL_SLAB.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> VIOLITE_STAIRS = BLOCKS.register("violite_stairs", () -> new StairsBlock(VIOLITE.get().getDefaultState(), Block.Properties.copy(VIOLITE.get())));
+    public static final RegistryObject<Block> VIOLITE_STAIRS = BLOCKS.register("violite_stairs", () -> new StairBlock(VIOLITE.get().defaultBlockState(), Block.Properties.copy(VIOLITE.get())));
     public static final RegistryObject<Item> VIOLITE_STAIRS_ITEM = ITEMS.register("violite_stairs", () -> new BlockItem(VIOLITE_STAIRS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
 
@@ -180,7 +180,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> VIOLITE_BRICK_VERTICAL_SLAB = conditionallyRegisterBlock("violite_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> VIOLITE_BRICK_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("violite_brick_vertical_slab", () -> new BlockItem(VIOLITE_BRICK_VERTICAL_SLAB.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> VIOLITE_BRICK_STAIRS = BLOCKS.register("violite_brick_stairs", () -> new StairsBlock(VIOLITE_BRICKS.get().getDefaultState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Block> VIOLITE_BRICK_STAIRS = BLOCKS.register("violite_brick_stairs", () -> new StairBlock(VIOLITE_BRICKS.get().defaultBlockState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> VIOLITE_BRICK_STAIRS_ITEM = ITEMS.register("violite_brick_stairs", () -> new BlockItem(VIOLITE_BRICK_STAIRS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> VIOLITE_BRICK_WALL = BLOCKS.register("violite_brick_wall", () -> new WallBlock(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
@@ -195,7 +195,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> MOSSY_VIOLITE_BRICK_VERTICAL_SLAB = conditionallyRegisterBlock("mossy_violite_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> MOSSY_VIOLITE_BRICK_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("mossy_violite_brick_vertical_slab", () -> new BlockItem(MOSSY_VIOLITE_BRICK_VERTICAL_SLAB.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> MOSSY_VIOLITE_STAIRS = BLOCKS.register("mossy_violite_brick_stairs", () -> new StairsBlock(MOSSY_VIOLITE_BRICKS.get().getDefaultState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Block> MOSSY_VIOLITE_STAIRS = BLOCKS.register("mossy_violite_brick_stairs", () -> new StairBlock(MOSSY_VIOLITE_BRICKS.get().defaultBlockState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> MOSSY_VIOLITE_STAIRS_ITEM = ITEMS.register("mossy_violite_brick_stairs", () -> new BlockItem(MOSSY_VIOLITE_STAIRS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> MOSSY_VIOLITE_BRICK_WALL = BLOCKS.register("mossy_violite_brick_wall", () -> new WallBlock(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
@@ -222,7 +222,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> VIOLITE_TILE_VERTICAL_SLAB = conditionallyRegisterBlock("violite_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> VIOLITE_TILE_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("violite_tile_vertical_slab", () -> new BlockItem(VIOLITE_TILE_VERTICAL_SLAB.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> VIOLITE_TILE_STAIRS = BLOCKS.register("violite_tile_stairs", () -> new StairsBlock(VIOLITE_TILES.get().getDefaultState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Block> VIOLITE_TILE_STAIRS = BLOCKS.register("violite_tile_stairs", () -> new StairBlock(VIOLITE_TILES.get().defaultBlockState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> VIOLITE_TILE_STAIRS_ITEM = ITEMS.register("violite_tile_stairs", () -> new BlockItem(VIOLITE_TILE_STAIRS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> MOSSY_VIOLITE_TILES = BLOCKS.register("mossy_violite_tiles", () -> new Block(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
@@ -234,25 +234,25 @@ public class BlockRegistry {
     public static final RegistryObject<Block> MOSSY_VIOLITE_TILE_VERTICAL_SLAB = conditionallyRegisterBlock("mossy_violite_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)), () -> isLoaded("quark"));
     public static final RegistryObject<Item> MOSSY_VIOLITE_TILE_VERTICAL_SLAB_ITEM = conditionallyRegisterItem("mossy_violite_tile_vertical_slab", () -> new BlockItem(MOSSY_VIOLITE_TILE_VERTICAL_SLAB.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)), () -> isLoaded("quark"));
 
-    public static final RegistryObject<Block> MOSSY_VIOLITE_TILE_STAIRS = BLOCKS.register("mossy_violite_tile_stairs", () -> new StairsBlock(MOSSY_VIOLITE_TILES.get().getDefaultState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
+    public static final RegistryObject<Block> MOSSY_VIOLITE_TILE_STAIRS = BLOCKS.register("mossy_violite_tile_stairs", () -> new StairBlock(MOSSY_VIOLITE_TILES.get().defaultBlockState(), Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> MOSSY_VIOLITE_TILE_STAIRS_ITEM = ITEMS.register("mossy_violite_tile_stairs", () -> new BlockItem(MOSSY_VIOLITE_TILE_STAIRS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> CRACKED_VIOLITE_TILES = BLOCKS.register("cracked_violite_tiles", () -> new Block(Block.Properties.copy(VIOLITE.get()).sound(SoundRegistry.VIOLITE_SOUND)));
     public static final RegistryObject<Item> CRACKED_VIOLITE_TILES_ITEM = ITEMS.register("cracked_violite_tiles", () -> new BlockItem(CRACKED_VIOLITE_TILES.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> ROSE_CRYSTAL_BUD = BLOCKS.register("rose_crystal_bud", () -> new CrystalBudBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.COLOR_PINK).hardnessAndResistance(0.15F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).notSolid().setLightLevel((state) -> { return 7; })));
+    public static final RegistryObject<Block> ROSE_CRYSTAL_BUD = BLOCKS.register("rose_crystal_bud", () -> new CrystalBudBlock(AbstractGlassBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_PINK).strength(0.15F).sound(SoundType.GLASS).noCollission().lightLevel((state) -> { return 7; })));
 
-    public static final RegistryObject<Block> MINT_CRYSTAL_BUD = BLOCKS.register("mint_crystal_bud", () -> new CrystalBudBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.COLOR_LIGHT_GREEN).hardnessAndResistance(0.15F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).notSolid().setLightLevel((state) -> { return 7; })));
+    public static final RegistryObject<Block> MINT_CRYSTAL_BUD = BLOCKS.register("mint_crystal_bud", () -> new CrystalBudBlock(AbstractGlassBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_LIGHT_GREEN).strength(0.15F).sound(SoundType.GLASS).noCollission().lightLevel((state) -> { return 7; })));
 
-    public static final RegistryObject<Block> COBALT_CRYSTAL_BUD = BLOCKS.register("cobalt_crystal_bud", () -> new CrystalBudBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.COLOR_CYAN).hardnessAndResistance(0.15F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).setRequiresTool().notSolid().setLightLevel((state) -> { return 7; })));
+    public static final RegistryObject<Block> COBALT_CRYSTAL_BUD = BLOCKS.register("cobalt_crystal_bud", () -> new CrystalBudBlock(AbstractGlassBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).strength(0.15F).sound(SoundType.GLASS).requiresCorrectToolForDrops().noCollission().lightLevel((state) -> { return 7; })));
 
-    public static final RegistryObject<Block> ROSE_CRYSTAL = BLOCKS.register("rose_crystal", () -> new CrystalBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.COLOR_PINK).hardnessAndResistance(0.3F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).notSolid().setLightLevel((state) -> { return 10; }), () -> ROSE_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Block> ROSE_CRYSTAL = BLOCKS.register("rose_crystal", () -> new CrystalBlock(AbstractGlassBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_PINK).strength(0.3F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).notSolid().setLightLevel((state) -> { return 10; }), () -> ROSE_CRYSTAL_BUD.get()));
     public static final RegistryObject<Item> ROSE_CRYSTAL_ITEM = ITEMS.register("rose_crystal", () -> new BlockItem(ROSE_CRYSTAL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
-    public static final RegistryObject<Block> MINT_CRYSTAL = BLOCKS.register("mint_crystal", () -> new CrystalBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.COLOR_LIGHT_GREEN).hardnessAndResistance(0.3F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).notSolid().setLightLevel((state) -> { return 10; }), () -> MINT_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Block> MINT_CRYSTAL = BLOCKS.register("mint_crystal", () -> new CrystalBlock(AbstractGlassBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_LIGHT_GREEN).strength(0.3F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).notSolid().setLightLevel((state) -> { return 10; }), () -> MINT_CRYSTAL_BUD.get()));
     public static final RegistryObject<Item> MINT_CRYSTAL_ITEM = ITEMS.register("mint_crystal", () -> new BlockItem(MINT_CRYSTAL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
-    public static final RegistryObject<Block> COBALT_CRYSTAL = BLOCKS.register("cobalt_crystal", () -> new CrystalBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.COLOR_CYAN).hardnessAndResistance(0.3F).sound(SoundType.GLASS).harvestTool(ToolType.PICKAXE).harvestLevel(2).notSolid().setLightLevel((state) -> { return 10; }), () -> COBALT_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Block> COBALT_CRYSTAL = BLOCKS.register("cobalt_crystal", () -> new CrystalBlock(AbstractGlassBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).strength(0.3F).sound(SoundType.GLASS).noOcclusion().lightLevel((state) -> { return 10; }), () -> COBALT_CRYSTAL_BUD.get()));
     public static final RegistryObject<Item> COBALT_CRYSTAL_ITEM = ITEMS.register("cobalt_crystal", () -> new BlockItem(COBALT_CRYSTAL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
@@ -260,22 +260,22 @@ public class BlockRegistry {
     public static final RegistryObject<Item> MINT_CRYSTAL_BUD_ITEM = ITEMS.register("mint_crystal_bud", () -> new BlockItem(MINT_CRYSTAL_BUD.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> COBALT_CRYSTAL_BUD_ITEM = ITEMS.register("cobalt_crystal_bud", () -> new BlockItem(COBALT_CRYSTAL_BUD.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
-    public static final RegistryObject<Block> ROSE_CRYSTAL_LAMP = BLOCKS.register("rose_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(ROSE_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
+    public static final RegistryObject<Block> ROSE_CRYSTAL_LAMP = BLOCKS.register("rose_crystal_lamp", () -> new Block(BlockBehaviour.Properties.copy(ROSE_CRYSTAL.get()).lightLevel((state) -> { return 15; })));
     public static final RegistryObject<Item> ROSE_CRYSTAL_LAMP_ITEM = ITEMS.register("rose_crystal_lamp", () -> new BlockItem(ROSE_CRYSTAL_LAMP.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> MINT_CRYSTAL_LAMP = BLOCKS.register("mint_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(MINT_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
+    public static final RegistryObject<Block> MINT_CRYSTAL_LAMP = BLOCKS.register("mint_crystal_lamp", () -> new Block(BlockBehaviour.Properties.copy(MINT_CRYSTAL.get()).lightLevel((state) -> { return 15; })));
     public static final RegistryObject<Item> MINT_CRYSTAL_LAMP_ITEM = ITEMS.register("mint_crystal_lamp", () -> new BlockItem(MINT_CRYSTAL_LAMP.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> COBALT_CRYSTAL_LAMP = BLOCKS.register("cobalt_crystal_lamp", () -> new Block(AbstractBlock.Properties.from(COBALT_CRYSTAL.get()).setLightLevel((state) -> { return 15; })));
+    public static final RegistryObject<Block> COBALT_CRYSTAL_LAMP = BLOCKS.register("cobalt_crystal_lamp", () -> new Block(BlockBehaviour.Properties.copy(COBALT_CRYSTAL.get()).lightLevel((state) -> { return 15; })));
     public static final RegistryObject<Item> COBALT_CRYSTAL_LAMP_ITEM = ITEMS.register("cobalt_crystal_lamp", () -> new BlockItem(COBALT_CRYSTAL_LAMP.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> ROSE_TANGLED_VIOLITE = BLOCKS.register("rose_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.create(Material.STONE, MaterialColor.NETHER).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> ROSE_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Block> ROSE_TANGLED_VIOLITE = BLOCKS.register("rose_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.of(Material.STONE, MaterialColor.NETHER).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> ROSE_CRYSTAL_BUD.get()));
     public static final RegistryObject<Item> ROSE_TANGLED_VIOLITE_ITEM = ITEMS.register("rose_tangled_violite", () -> new BlockItem(ROSE_TANGLED_VIOLITE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> MINT_TANGLED_VIOLITE = BLOCKS.register("mint_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.create(Material.STONE, MaterialColor.NETHER).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> MINT_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Block> MINT_TANGLED_VIOLITE = BLOCKS.register("mint_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.of(Material.STONE, MaterialColor.NETHER).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> MINT_CRYSTAL_BUD.get()));
     public static final RegistryObject<Item> MINT_TANGLED_VIOLITE_ITEM = ITEMS.register("mint_tangled_violite", () -> new BlockItem(MINT_TANGLED_VIOLITE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> COBALT_TANGLED_VIOLITE = BLOCKS.register("cobalt_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.create(Material.STONE, MaterialColor.NETHER).setRequiresTool().hardnessAndResistance(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> COBALT_CRYSTAL_BUD.get()));
+    public static final RegistryObject<Block> COBALT_TANGLED_VIOLITE = BLOCKS.register("cobalt_tangled_violite", () -> new TangledVioliteBlock(Block.Properties.of(Material.STONE, MaterialColor.NETHER).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundRegistry.VIOLITE_SOUND), () -> COBALT_CRYSTAL_BUD.get()));
     public static final RegistryObject<Item> COBALT_TANGLED_VIOLITE_ITEM = ITEMS.register("cobalt_tangled_violite", () -> new BlockItem(COBALT_TANGLED_VIOLITE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
 
@@ -288,35 +288,35 @@ public class BlockRegistry {
     public static final RegistryObject<Block> COBALT_ROOTS = BLOCKS.register("cobalt_roots", () -> new CragTallGrass(Block.Properties.copy(Blocks.GRASS)));
     public static final RegistryObject<Item> COBALT_ROOTS_ITEM = ITEMS.register("cobalt_roots", () -> new BlockItem(COBALT_ROOTS.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
-    public static final RegistryObject<Block> STROMATOLITE = BLOCKS.register("stromatolite", () -> new Block(Block.Properties.create(Material.STONE, MaterialColor.TERRACOTTA_GRAY).setRequiresTool().hardnessAndResistance(1.0F, 4.0F)));
+    public static final RegistryObject<Block> STROMATOLITE = BLOCKS.register("stromatolite", () -> new Block(Block.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops().strength(1.0F, 4.0F)));
     public static final RegistryObject<Item> STROMATOLITE_ITEM = ITEMS.register("stromatolite", () -> new BlockItem(STROMATOLITE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> HALITE = BLOCKS.register("halite", () -> new Block(Block.Properties.create(Material.STONE, MaterialColor.QUARTZ).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2.0F)));
+    public static final RegistryObject<Block> HALITE = BLOCKS.register("halite", () -> new Block(Block.Properties.of(Material.STONE, MaterialColor.QUARTZ).requiresCorrectToolForDrops().strength(3.0F, 2.0F)));
     public static final RegistryObject<Item> HALITE_ITEM = ITEMS.register("halite", () -> new BlockItem(HALITE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> BRINE = BLOCKS.register("brine", () -> new Block(Block.Properties.from(HALITE.get()).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(4.0F, 4.0F)));
+    public static final RegistryObject<Block> BRINE = BLOCKS.register("brine", () -> new Block(Block.Properties.copy(HALITE.get()).requiresCorrectToolForDrops().strength(4.0F, 4.0F)));
     public static final RegistryObject<Item> BRINE_ITEM = ITEMS.register("brine", () -> new BlockItem(BRINE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
 
-    public static final RegistryObject<Block> ANCIENT_STONE = BLOCKS.register("ancient_stone", () -> new Block(Block.Properties.create(Material.STONE, MaterialColor.COLOR_GRAY).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(3).hardnessAndResistance(3.0F, 2.0F)));
+    public static final RegistryObject<Block> ANCIENT_STONE = BLOCKS.register("ancient_stone", () -> new Block(Block.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(3.0F, 2.0F)));
     public static final RegistryObject<Item> ANCIENT_STONE_ITEM = ITEMS.register("ancient_stone", () -> new BlockItem(ANCIENT_STONE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> ANCIENT_ICE = BLOCKS.register("ancient_ice", () -> new Block(Block.Properties.copy(Blocks.BLUE_ICE).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(4.0F, 4.0F)));
+    public static final RegistryObject<Block> ANCIENT_ICE = BLOCKS.register("ancient_ice", () -> new Block(Block.Properties.copy(Blocks.BLUE_ICE).requiresCorrectToolForDrops().strength(4.0F, 4.0F)));
     public static final RegistryObject<Item> ANCIENT_ICE_ITEM = ITEMS.register("ancient_ice", () -> new BlockItem(ANCIENT_ICE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> ANCIENT_ICE_COLUMN = BLOCKS.register("ancient_ice_column", () -> new Block(Block.Properties.copy(ANCIENT_ICE.get())));
     public static final RegistryObject<Item> ANCIENT_ICE_COLUMN_ITEM = ITEMS.register("ancient_ice_column", () -> new BlockItem(ANCIENT_ICE_COLUMN.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> ANCIENT_ICE_CAP = BLOCKS.register("ancient_ice_cap", () -> new Block(Block.Properties.copy(ANCIENT_ICE.get()).slipperiness(0.6f)));
+    public static final RegistryObject<Block> ANCIENT_ICE_CAP = BLOCKS.register("ancient_ice_cap", () -> new Block(Block.Properties.copy(ANCIENT_ICE.get()).friction(0.6f)));
     public static final RegistryObject<Item> ANCIENT_ICE_CAP_ITEM = ITEMS.register("ancient_ice_cap", () -> new BlockItem(ANCIENT_ICE_CAP.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE = BLOCKS.register("glowing_ancient_ice", () -> new Block(Block.Properties.copy(ANCIENT_ICE.get()).setLightLevel(blockstate -> 12)));
+    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE = BLOCKS.register("glowing_ancient_ice", () -> new Block(Block.Properties.copy(ANCIENT_ICE.get()).lightLevel(blockstate -> 12)));
     public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_ITEM = ITEMS.register("glowing_ancient_ice", () -> new BlockItem(GLOWING_ANCIENT_ICE.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_COLUMN = BLOCKS.register("glowing_ancient_ice_column", () -> new Block(Block.Properties.copy(GLOWING_ANCIENT_ICE.get())));
     public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_COLUMN_ITEM = ITEMS.register("glowing_ancient_ice_column", () -> new BlockItem(GLOWING_ANCIENT_ICE_COLUMN.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
-    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_CAP = BLOCKS.register("glowing_ancient_ice_cap", () -> new Block(Block.Properties.copy(GLOWING_ANCIENT_ICE.get()).slipperiness(0.6f)));
+    public static final RegistryObject<Block> GLOWING_ANCIENT_ICE_CAP = BLOCKS.register("glowing_ancient_ice_cap", () -> new Block(Block.Properties.copy(GLOWING_ANCIENT_ICE.get()).friction(0.6f)));
     public static final RegistryObject<Item> GLOWING_ANCIENT_ICE_CAP_ITEM = ITEMS.register("glowing_ancient_ice_cap", () -> new BlockItem(GLOWING_ANCIENT_ICE_CAP.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
 
@@ -355,11 +355,11 @@ public class BlockRegistry {
         DataUtil.registerFlammable(AZURE_BUTTON.get(), 20, 20);
         DataUtil.registerFlammable(AZURE_PRESSURE_PLATE.get(), 20, 20);
         DataUtil.registerFlammable(AZURE_LEAVES.get(), 100, 60);
-        DataUtil.registerFlammable(ENDER_ROOTS.get(), 100, 60);
-        DataUtil.registerFlammable(TALL_ENDER_ROOTS.get(), 100, 60);
-        DataUtil.registerFlammable(AZURE_SPROUTS.get(), 100, 60);
-        DataUtil.registerFlammable(AZURE_SAPLING.get(), 100, 60);
-        DataUtil.registerFlammable(ENDER_ROOTS.get(), 100, 60);
+     //   DataUtil.registerFlammable(ENDER_ROOTS.get(), 100, 60);
+      //  DataUtil.registerFlammable(TALL_ENDER_ROOTS.get(), 100, 60);
+      //  DataUtil.registerFlammable(AZURE_SPROUTS.get(), 100, 60);
+      //  DataUtil.registerFlammable(AZURE_SAPLING.get(), 100, 60);
+      //  DataUtil.registerFlammable(ENDER_ROOTS.get(), 100, 60);
 
         if (isLoaded("quark")) {
             DataUtil.registerFlammable(AZURE_VERTICAL_SLAB.get(), 20, 20);

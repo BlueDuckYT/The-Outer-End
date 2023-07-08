@@ -18,21 +18,20 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.loot.LootEntry;
 import net.minecraft.loot.TableLootEntry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.gen.FlatChunkGenerator;
+/*import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;*/
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -107,6 +106,8 @@ public class OuterEndMod
             DEVS.add(UUID.fromString("cf8bf0da-f86d-4ac0-b48a-3f6d940f6472"));
             DEVS.add(UUID.fromString("b62ad4bd-b2eb-47cb-b88b-564fc8ffb50f"));
             DEVS.add(UUID.fromString("3842d959-2871-4eb9-bcb9-aa0e35b36f2a"));
+            DEVS.add(UUID.fromString("e263d541-66f3-4113-af7b-72f0313e1874"));
+
         }
         
         MinecraftForge.EVENT_BUS.register(this);
@@ -186,11 +187,11 @@ public class OuterEndMod
      * can or cannot spawn your structure.
      */
     public void addDimensionalSpacing(final WorldEvent.Load event) {
-        if(event.getWorld() instanceof ServerWorld){
-            ServerWorld serverWorld = (ServerWorld)event.getWorld();
+        if(event.getWorld() instanceof ServerLevel){
+            ServerLevel serverWorld = (ServerLevel) event.getWorld();
 
 
-            if(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator &&
+            if(serverWorld.getChunkSource().getGenerator() instanceof FlatChunkGenerator &&
                     serverWorld.getDimensionKey().equals(World.OVERWORLD)){
                 return;
             }
@@ -216,7 +217,7 @@ public class OuterEndMod
                 event.getItemColors().register((stack, i) -> egg.getColor(i), egg);
             }
         }
-    }
+
     @Mod.EventBusSubscriber(modid = "outer_end")
     public static class LootEvents {
 
@@ -225,12 +226,13 @@ public class OuterEndMod
 
             ResourceLocation name = event.getName();
 
-           if (name.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
+            if (name.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
                 LootPool pool = event.getTable().getPool("main");
                 if (pool != null) {
                     addEntry(pool, getInjectEntry(new ResourceLocation("outer_end:chests/end_city_treasure"), 10, 0));
                 }
             }
+        }
 
 
         }
