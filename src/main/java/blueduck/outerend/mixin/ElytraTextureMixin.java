@@ -1,13 +1,14 @@
 package blueduck.outerend.mixin;
 
 import blueduck.outerend.OuterEndMod;
-import net.minecraft.client.renderer.entity.IEntityRenderer;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.ElytraLayer;
-import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Final;
@@ -19,13 +20,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @OnlyIn(Dist.CLIENT)
 @Mixin(ElytraLayer.class)
-public abstract class ElytraTextureMixin<T extends LivingEntity, M extends EntityModel<T>> extends LayerRenderer<T, M> {
+public abstract class ElytraTextureMixin<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
     @Shadow
     @Final
     private static ResourceLocation TEXTURE_ELYTRA;
     private static final ResourceLocation TEXTURE_DEVLYTRA = new ResourceLocation("outer_end:textures/entity/outer_end_cape.png");
 
-    public ElytraTextureMixin(IEntityRenderer<T, M> entityRendererIn) {
+    public ElytraTextureMixin(RenderLayerParent<T, M> entityRendererIn) {
         super(entityRendererIn);
     }
 
@@ -36,7 +37,7 @@ public abstract class ElytraTextureMixin<T extends LivingEntity, M extends Entit
 
     @Inject(method = "getElytraTexture(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/ResourceLocation;", at = @At("HEAD"), remap = false, cancellable = true)
     public void OUTER_END_getElytraTexture(ItemStack stack, T entity, CallbackInfoReturnable info) {
-        if (OuterEndMod.DEVS.contains(entity.getUniqueID())) {
+        if (OuterEndMod.DEVS.contains(entity.getUUID())) {
             info.setReturnValue(TEXTURE_DEVLYTRA);
         }
     }
