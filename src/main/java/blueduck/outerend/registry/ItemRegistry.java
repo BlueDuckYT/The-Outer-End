@@ -3,12 +3,13 @@ package blueduck.outerend.registry;
 import blueduck.outerend.OuterEndMod;
 import blueduck.outerend.items.CrystalShardItem;
 import blueduck.outerend.items.OuterEndSpawnEgg;
-import com.minecraftabnormals.abnormals_core.common.items.AbnormalsBoatItem;
-import net.minecraft.item.*;
-import net.minecraftforge.fml.RegistryObject;
+import com.teamabnormals.blueprint.common.item.BlueprintBoatItem;
+import net.minecraft.world.item.*;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
@@ -16,22 +17,22 @@ public class ItemRegistry {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, OuterEndMod.MODID);
 	
 	public static final RegistryObject<Item> AZURE_BERRIES = ITEMS.register("azure_berries", () -> new BlockNamedItem(BlockRegistry.AZURE_BERRY_VINE_TOP.get(), new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().fastToEat().hunger(3).saturation(0.3f).build())));
-	public static final RegistryObject<Item> FLORAL_PASTE = ITEMS.register("floral_paste", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final RegistryObject<Item> FLORAL_PASTE = ITEMS.register("floral_paste", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
-	public static final RegistryObject<Item> SPECTRAGEL = ITEMS.register("spectragel", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final RegistryObject<Item> SPECTRAGEL = ITEMS.register("spectragel", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
-	public static final RegistryObject<Item> STALKER_MEAT = ITEMS.register("stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(4).saturation(0.3f).build())));
-	public static final RegistryObject<Item> COOKED_STALKER_MEAT = ITEMS.register("cooked_stalker_meat", () -> new Item(new Item.Properties().group(ItemGroup.FOOD).food(new Food.Builder().hunger(8).saturation(0.7f).build())));
+	public static final RegistryObject<Item> STALKER_MEAT = ITEMS.register("stalker_meat", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.3f).build())));
+	public static final RegistryObject<Item> COOKED_STALKER_MEAT = ITEMS.register("cooked_stalker_meat", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(new FoodProperties.Builder().nutrition(8).saturationMod(0.7f).build())));
 
 
-	public static final RegistryObject<Item> MUSIC_DISC_GALACTIC_WAVE = ITEMS.register("music_disc_galactic_wave", () -> new MusicDiscItem(15, () -> SoundRegistry.DISC_GALACTIC_WAVE.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
-	public static final RegistryObject<Item> MUSIC_DISC_UNKNOWN_FRONTIER = ITEMS.register("music_disc_unknown_frontier", () -> new MusicDiscItem(15, () -> SoundRegistry.DISC_UNKNOWN_FRONTIER.get(), new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+	public static final RegistryObject<Item> MUSIC_DISC_GALACTIC_WAVE = ITEMS.register("music_disc_galactic_wave", () -> new RecordItem(15, () -> SoundRegistry.DISC_GALACTIC_WAVE.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
+	public static final RegistryObject<Item> MUSIC_DISC_UNKNOWN_FRONTIER = ITEMS.register("music_disc_unknown_frontier", () -> new RecordItem(15, () -> SoundRegistry.DISC_UNKNOWN_FRONTIER.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
 
-	public static final RegistryObject<Item> AZURE_BOAT = ITEMS.register("azure_boat", () -> new AbnormalsBoatItem("outer_end:azure", new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	public static final RegistryObject<Item> AZURE_BOAT = ITEMS.register("azure_boat", () -> new BlueprintBoatItem("outer_end:azure", new Item.Properties().tab(CreativeModeTab.TAB_TRANSPORTATION)));
 
-	public static final RegistryObject<Item> ROSE_CRYSTAL_SHARD = ITEMS.register("rose_crystal_shard", () -> new CrystalShardItem(new Item.Properties().group(ItemGroup.MISC)));
-	public static final RegistryObject<Item> MINT_CRYSTAL_SHARD = ITEMS.register("mint_crystal_shard", () -> new CrystalShardItem(new Item.Properties().group(ItemGroup.MISC)));
-	public static final RegistryObject<Item> COBALT_CRYSTAL_SHARD = ITEMS.register("cobalt_crystal_shard", () -> new CrystalShardItem(new Item.Properties().group(ItemGroup.MISC)));
+	public static final RegistryObject<Item> ROSE_CRYSTAL_SHARD = ITEMS.register("rose_crystal_shard", () -> new CrystalShardItem(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	public static final RegistryObject<Item> MINT_CRYSTAL_SHARD = ITEMS.register("mint_crystal_shard", () -> new CrystalShardItem(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	public static final RegistryObject<Item> COBALT_CRYSTAL_SHARD = ITEMS.register("cobalt_crystal_shard", () -> new CrystalShardItem(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
 
 
