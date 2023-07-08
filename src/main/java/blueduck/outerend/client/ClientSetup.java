@@ -5,11 +5,10 @@ import blueduck.outerend.client.entity.renderer.*;
 import blueduck.outerend.registry.BlockRegistry;
 import blueduck.outerend.registry.EntityRegistry;
 import blueduck.outerend.registry.ItemRegistry;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -18,7 +17,7 @@ public class ClientSetup {
 	public static void onSetup(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_GRASS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_SAPLING.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.AZURE_DOOR.get(), RenderType.getCutout());
+		ItemBlockRenderTypes.setRenderLayer(BlockRegistry.AZURE_DOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer((Block)BlockRegistry.AZURE_TRAPDOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer((Block)BlockRegistry.AZURE_VINES.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ENDER_ROOTS.get(), RenderType.getCutout());
@@ -39,9 +38,9 @@ public class ClientSetup {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.MINT_CRYSTAL.get(), RenderType.getTranslucent());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.COBALT_CRYSTAL.get(), RenderType.getTranslucent());
 
-		RenderTypeLookup.setRenderLayer(BlockRegistry.ROSE_CRYSTAL_BUD.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.MINT_CRYSTAL_BUD.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BlockRegistry.COBALT_CRYSTAL_BUD.get(), RenderType.getCutout());
+		ItemBlockRenderTypes.setRenderLayer(BlockRegistry.ROSE_CRYSTAL_BUD.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MINT_CRYSTAL_BUD.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(BlockRegistry.COBALT_CRYSTAL_BUD.get(), RenderType.cutout());
 
 		RenderTypeLookup.setRenderLayer(BlockRegistry.COBALT_ROOTS.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.ROSE_ROOTS.get(), RenderType.getCutout());
