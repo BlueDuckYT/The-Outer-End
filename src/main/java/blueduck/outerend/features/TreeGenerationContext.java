@@ -1,12 +1,12 @@
 package blueduck.outerend.features;
 
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.IWorldWriter;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelWriter;
 
 import java.util.Random;
 
-public class TreeGenerationContext<world extends IWorldReader & IWorldWriter> {
+public class TreeGenerationContext<world extends LevelAccessor & LevelWriter> {
 	public world world;
 	public BlockPos pos;
 	public Random rand;
